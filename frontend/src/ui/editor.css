@@ -1,0 +1,25 @@
+/* Save controls never override the reader theme or private media behavior. */
+.studio .save-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-block:1px solid var(--studio-line);padding:12px 0;margin:16px 0}
+.studio .save-status{margin:0;font-weight:600;line-height:1.6}.studio .save-status small{display:block;font-size:12px;font-weight:400;color:var(--studio-muted)}
+.studio .published-warning{border-left:3px solid var(--studio-accent);padding:12px 16px;background:var(--studio-bg)}
+/* Width simulation without weakening DENY/frame-ancestors or loading an iframe. */
+@container(max-width:800px){
+ .editor-preview-canvas .blog{padding-inline:18px;--hero:42px;--gap:22px}
+ .editor-preview-canvas .blog-header{display:flex;align-items:center;gap:12px}
+ .editor-preview-canvas .blog .mobile-menu{display:block;font-size:13px}
+ .editor-preview-canvas .blog-nav{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0}
+ .editor-preview-canvas .blog-nav.open{display:flex}
+ .editor-preview-canvas .blog-nav>a{padding:10px 0}
+ .editor-preview-canvas .nav-children{position:static;width:100%}
+ .editor-preview-canvas .nav-group{flex-wrap:wrap}
+ .editor-preview-canvas .article-heading{margin-block:28px;text-align:left}
+ .editor-preview-canvas .article-heading h1{font-size:34px;line-height:1.35}
+ .editor-preview-canvas .blog-prose{font-size:17px;line-height:1.95}
+ .editor-preview-canvas .template-cards{grid-template-columns:1fr}
+ .editor-preview-canvas .blog-footer{flex-direction:column;align-items:flex-start}
+ .editor-preview-canvas .related-stories>a{flex-direction:column;gap:8px}
+ .editor-preview-canvas .article-sections{flex-wrap:wrap;justify-content:flex-start}
+ .editor-preview-canvas .trip-day ol{padding-left:14px}
+ .editor-preview-canvas .trip-day li{padding:16px 10px}
+}
+@media(max-width:760px){.studio .save-toolbar{align-items:stretch;gap:10px}.studio .save-toolbar>button{width:100%}}

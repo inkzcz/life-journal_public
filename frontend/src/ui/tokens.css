@@ -1,0 +1,57 @@
+/* Palette definitions extracted unchanged from v5.1.1; no layout in tokens. */
+:is(.lj-theme,.color-default-probe){--bg:#f7f6f2;--surface:#fff;--ink:#24332e;--muted:#58685f;--accent:#276346;--line:#d5ddd5;--radius:12px;--shadow:none;--heading:system-ui,sans-serif;--body:system-ui,sans-serif;--width:1260px;--gap:32px;--ratio:1.5;--hero:clamp(46px,7vw,92px)}
+:is(.lj-theme,.color-default-probe)[data-mode=dark]{--bg:#151c1a;--surface:#202b26;--ink:#edf1e9;--muted:#b7c7bc;--accent:#a6d9b5;--line:#46584b}
+:is(.lj-theme,.color-default-probe)[data-theme=editorial]{--bg:#faf7ef;--surface:#faf7ef;--ink:#23251e;--muted:#5f6256;--accent:#71412d;--heading:Georgia,'Noto Serif SC',serif;--radius:0px;--gap:40px;--ratio:1.25;--hero:clamp(52px,9vw,128px)}
+:is(.lj-theme,.color-default-probe)[data-theme=editorial][data-mode=dark]{--bg:#201e1a;--surface:#27251f;--ink:#f8f1df;--muted:#c8c0ad;--accent:#f0b08b;--line:#5a5140}
+:is(.lj-theme,.color-default-probe)[data-theme=soft]{--bg:#f9f8fd;--surface:#fff;--ink:#494553;--muted:#6e687b;--accent:#7563a6;--line:#e6e2f0;--soft-support:#548778;--radius:30px;--shadow:0 6px 22px #4945530d;--gap:36px;--ratio:1.3;--heading:ui-rounded,system-ui,sans-serif}
+:is(.lj-theme,.color-default-probe)[data-theme=soft][data-mode=dark]{--bg:#1d1c24;--surface:#292731;--ink:#f1edf8;--muted:#c0b9cd;--accent:#c6b8ee;--line:#514b60;--soft-support:#92c7b7;--shadow:0 6px 22px #09080d33}
+:is(.lj-theme,.color-default-probe)[data-theme=glass]{--bg:#e9edf2;--surface:#f5f7fb;--ink:#243748;--muted:#4e6477;--accent:#294f70;--line:#c2cedb;--radius:22px;--shadow:0 18px 48px #48627b1a;--gap:30px;--ratio:1.6}
+:is(.lj-theme,.color-default-probe)[data-theme=glass][data-mode=dark]{--bg:#152330;--surface:#213344;--ink:#eef4fa;--muted:#bfcedd;--accent:#b3d4fa;--line:#52677e}
+:is(.lj-theme,.color-default-probe):is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])){--bg:#f6fbfa;--surface:#fff;--ink:#284541;--muted:#526f69;--accent:#327b74;--line:#c9e5e1;--shadow:0 6px 22px #2845410d}
+:is(.lj-theme,.color-default-probe):is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac]))[data-mode=dark]{--bg:#172522;--surface:#223631;--ink:#edf8f4;--muted:#b2cec5;--accent:#91cbc3;--line:#42675e;--shadow:0 6px 22px #080e0c33}
+:is(.lj-theme,.color-default-probe):is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon])){--bg:#faf8ff;--surface:#fff;--ink:#493d59;--muted:#75657e;--accent:#65479a;--line:#e1d5ef;--shadow:0 6px 22px #493d590d}
+:is(.lj-theme,.color-default-probe):is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))[data-mode=dark]{--bg:#241e2c;--surface:#32293e;--ink:#f5eefb;--muted:#ccbadb;--accent:#c7abea;--line:#635071;--shadow:0 6px 22px #100b1533}
+/* One semantic vocabulary. Local ThemeBoundary clears inherited custom values
+   before resolving its own bank, so cancelling a preview cannot leak colors. */
+.lj-theme{
+ --reader-page-background:initial;--reader-card-background:initial;--reader-body-text:initial;--reader-heading-text:initial;--reader-muted-text:initial;--reader-nav-background:initial;--reader-nav-text:initial;--reader-link:initial;--reader-primary-background:initial;--reader-primary-text:initial;--reader-secondary-background:initial;--reader-secondary-text:initial;--reader-tag-background:initial;--reader-tag-text:initial;--reader-border:initial;--reader-accent:initial;
+ --ui-page:var(--reader-page-background,var(--bg));--ui-card:var(--reader-card-background,var(--surface));--ui-panel:var(--ui-card);--ui-modal:var(--ui-card);
+ --ui-ink:var(--reader-body-text,var(--ink));--ui-heading:var(--reader-heading-text,var(--ink));--ui-muted:var(--reader-muted-text,var(--muted));--ui-accent:var(--reader-accent,var(--accent));--ui-link:var(--reader-link,var(--ui-accent));--ui-line:var(--reader-border,var(--line));
+ --ui-nav:var(--reader-nav-background,var(--ui-card));--ui-nav-ink:var(--reader-nav-text,var(--ui-ink));--ui-primary:var(--reader-primary-background,var(--ui-accent));--ui-primary-ink:var(--reader-primary-text,#fff);
+ --ui-secondary:var(--reader-secondary-background,var(--ui-card));--ui-secondary-ink:var(--reader-secondary-text,var(--ui-ink));--ui-tag:var(--reader-tag-background,color-mix(in oklab,var(--ui-card),var(--ui-accent) 12%));--ui-tag-ink:var(--reader-tag-text,var(--ui-ink));
+ --ui-soft:color-mix(in oklab,var(--ui-card),var(--ui-accent) 7%);--ui-hover:color-mix(in oklab,var(--ui-card),var(--ui-accent) 12%);--ui-active:color-mix(in oklab,var(--ui-card),var(--ui-accent) 20%);--ui-focus:var(--ui-accent);
+ --ui-danger:#9b3039;--ui-danger-bg:#fff0f0;--ui-danger-ink:#fff;--ui-success:#285e45;--ui-success-bg:#edf7f0;--ui-warning:#78551c;--ui-warning-bg:#fff6e4;
+ --ui-space-1:4px;--ui-space-2:8px;--ui-space-3:12px;--ui-space-4:16px;--ui-space-5:24px;--ui-space-6:32px;--ui-space-7:48px;
+ --ui-control-height:44px;--ui-radius:var(--radius,12px);--ui-control-radius:var(--ui-radius);--ui-shadow:var(--shadow,none);--ui-width:1600px;--ui-reading-width:74ch;--ui-font:var(--body,system-ui,sans-serif);--ui-title-font:var(--heading,system-ui,sans-serif);--ui-duration:140ms;--ui-layer-menu:20;--ui-layer-modal:100;
+ --studio-bg:var(--ui-page);--studio-paper:var(--ui-panel);--studio-ink:var(--ui-ink);--studio-muted:var(--ui-muted);--studio-line:var(--ui-line);--studio-accent:var(--ui-accent);--studio-danger:var(--ui-danger);
+ --paper:var(--ui-card)
+}
+.lj-theme[data-mode=dark]{color-scheme:dark;--ui-primary-ink:var(--reader-primary-text,var(--bg));--ui-danger:#ffb7be;--ui-danger-bg:#46252c;--ui-danger-ink:#251a1d;--ui-success:#bae6c8;--ui-success-bg:#213b2c;--ui-warning:#f2d296;--ui-warning-bg:#3d321e}
+.lj-theme[data-mode=light]{color-scheme:light}
+.lj-theme[data-appearance=split][data-style=modern-flat]{--radius:8px;--ui-shadow:none;--heading:system-ui,sans-serif}
+.lj-theme[data-appearance=split][data-style=editorial]{--radius:0px;--ui-shadow:none;--heading:Georgia,'Noto Serif SC','Songti SC',serif}
+.lj-theme[data-appearance=split][data-style=modern-soft]{--radius:24px;--ui-shadow:0 6px 24px color-mix(in srgb,var(--ui-ink) 6%,transparent);--heading:ui-rounded,system-ui,sans-serif;--ui-control-radius:12px}
+.lj-theme[data-appearance=split][data-style=glass]{--radius:20px;--ui-shadow:0 10px 32px color-mix(in srgb,var(--ui-ink) 9%,transparent);--heading:system-ui,sans-serif}
+@supports(backdrop-filter:blur(8px)){
+ .lj-theme[data-style=glass]:not([data-custom~=card_background]){--ui-panel:color-mix(in srgb,var(--ui-card) 92%,transparent)}
+}
+
+.lj-theme{--ui-ornament:none;--garden-opacity:1;--garden-leaf-shadow:72%;--garden-leaf-mid:42%;--garden-leaf-light:14%;--garden-petal-mid:28%;--garden-petal-light:7%}
+.lj-theme[data-style=modern-soft],.lj-theme[data-style=glass]{--ui-ornament:flex}
+.lj-theme[data-mode=dark]{--garden-opacity:.86;--garden-leaf-shadow:84%;--garden-leaf-mid:62%;--garden-leaf-light:30%;--garden-petal-mid:46%;--garden-petal-light:22%}
+.lj-theme{--ui-backdrop:var(--ui-page)}
+.lj-theme[data-theme=glass][data-style=glass][data-palette=legacy]:not([data-custom~=page_background]){--ui-backdrop:radial-gradient(ellipse at 10% 10%,#ccdce8,transparent 50%),radial-gradient(ellipse at 95% 35%,#e8dbd0,transparent 50%),var(--bg)}
+.lj-theme[data-theme=glass][data-style=glass][data-palette=legacy][data-mode=dark]:not([data-custom~=page_background]){--ui-backdrop:radial-gradient(ellipse at 5% 5%,#2c465b,transparent 50%),radial-gradient(ellipse at 95% 35%,#3b3442,transparent 50%),var(--bg)}
+
+.lj-theme{--garden-celadon:none;--garden-lilac:none}
+.lj-theme:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])){--garden-celadon:block;--garden-lilac:none}
+.lj-theme:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon])){--garden-celadon:none;--garden-lilac:block}
+
+.lj-theme[data-style=glass]:is([data-palette=celadon],[data-palette=lilac]):not([data-custom~=page_background]){--ui-backdrop:radial-gradient(ellipse at 8% 8%,color-mix(in oklab,var(--ui-card),var(--ui-accent) 22%),transparent 52%),radial-gradient(ellipse at 92% 35%,var(--ui-soft),transparent 60%),var(--ui-page)}
+.lj-theme{--ui-text-small:14px;--ui-text-body:16px;--ui-text-management:15px;--ui-text-lead:20px;--ui-overlay:color-mix(in srgb,var(--ui-ink) 42%,transparent)}
+/* Legacy component consumers share the same validated inputs, not a second bank. */
+.lj-theme[data-theme][data-style][data-mode][data-custom~=card_background]{--surface:var(--reader-card-background)}
+.lj-theme[data-theme][data-style][data-mode][data-custom~=body_text]{--ink:var(--reader-body-text)}
+.lj-theme[data-theme][data-style][data-mode][data-custom~=muted_text]{--muted:var(--reader-muted-text)}
+.lj-theme[data-theme][data-style][data-mode][data-custom~=border]{--line:var(--reader-border)}
+.lj-theme[data-theme][data-style][data-mode][data-custom~=accent]{--accent:var(--reader-accent)}

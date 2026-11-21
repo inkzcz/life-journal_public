@@ -1,0 +1,80 @@
+{
+  "format": "life-journal-lunar-license-research-v1",
+  "baseline": "lunardate==0.2.2",
+  "candidate": "lunar-python==1.4.9",
+  "lunar_years": [
+    1900,
+    2099
+  ],
+  "inputs": 148800,
+  "valid_baseline_dates": 73058,
+  "invalid_baseline_inputs": 75742,
+  "conversion_differences": 124,
+  "differences_by_year": [
+    {
+      "year": 1933,
+      "count": 31
+    },
+    {
+      "year": 1954,
+      "count": 31
+    },
+    {
+      "year": 1978,
+      "count": 31
+    },
+    {
+      "year": 2057,
+      "count": 31
+    }
+  ],
+  "reverse_checked": 73058,
+  "reverse_differences": 120,
+  "leap_month_difference_years": [],
+  "counterexamples": [
+    {
+      "lunar": [
+        1933,
+        5,
+        30,
+        true
+      ],
+      "baseline": null,
+      "candidate": "1933-07-22"
+    },
+    {
+      "lunar": [
+        1954,
+        10,
+        30,
+        false
+      ],
+      "baseline": "1954-11-25",
+      "candidate": null
+    },
+    {
+      "lunar": [
+        1978,
+        7,
+        30,
+        false
+      ],
+      "baseline": null,
+      "candidate": "1978-09-02"
+    },
+    {
+      "lunar": [
+        2057,
+        8,
+        30,
+        false
+      ],
+      "baseline": null,
+      "candidate": "2057-09-28"
+    }
+  ],
+  "seconds": 85.09,
+  "production_dependency_changed": false,
+  "drop_in_compatible": false,
+  "existing_calendar_tests_exit_code": 0
+}

@@ -1,0 +1,67 @@
+/* Approved A · paper garden. Structure is limited to Soft; Glass borrows only
+   the quieter accents. No fifth style, persisted flag or extra palette. */
+.lj-theme{
+ --garden-foliage:color-mix(in oklab,var(--reader-accent,var(--accent)) 72%,var(--reader-muted-text,var(--muted)));
+ --garden-petal:var(--reader-accent,var(--accent));
+ --garden-paper:var(--reader-card-background,var(--surface));
+ --garden-ink:var(--reader-body-text,var(--ink));
+ --garden-line:var(--reader-border,var(--line));
+}
+/* The lilac default has grey-sage foliage, as a botanical counterpoint rather
+   than a third palette. Explicit accent overrides recolor every illustration. */
+.lj-theme:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon])):not([data-custom~=accent]){--garden-foliage:color-mix(in oklab,#839476 70%,var(--reader-muted-text,var(--muted)))}
+.lj-theme[data-mode=dark]{--garden-foliage:color-mix(in oklab,var(--reader-accent,var(--accent)) 58%,var(--reader-muted-text,var(--muted)))}
+.botanical-illustration{overflow:visible;pointer-events:none}
+.botanical-leaf-shadow{stop-color:color-mix(in oklab,var(--garden-foliage) var(--garden-leaf-shadow,72%),var(--garden-paper))}
+.botanical-leaf-mid{stop-color:color-mix(in oklab,var(--garden-foliage) var(--garden-leaf-mid,42%),var(--garden-paper))}
+.botanical-leaf-light{stop-color:color-mix(in oklab,var(--garden-foliage) var(--garden-leaf-light,14%),var(--garden-paper))}
+.botanical-leaf-edge{stroke:var(--garden-foliage);stroke-width:.65;stroke-opacity:.6;stroke-linejoin:round}
+.botanical-leaf-fold{fill:var(--garden-foliage);opacity:.09}
+.botanical-vein{fill:none;stroke:var(--garden-foliage);stroke-width:.55;stroke-opacity:.52;stroke-linecap:round}
+.botanical-stem{fill:none;stroke:var(--garden-foliage);stroke-width:1.1;stroke-opacity:.76;stroke-linecap:round;stroke-linejoin:round}
+.botanical-trunk{stroke-width:2.1}
+.botanical-calyx{fill:var(--garden-foliage);opacity:.8}
+.botanical-petal-shadow{stop-color:color-mix(in oklab,var(--garden-petal) 64%,var(--garden-paper))}
+.botanical-petal-mid{stop-color:color-mix(in oklab,var(--garden-petal) var(--garden-petal-mid,28%),var(--garden-paper))}
+.botanical-petal-light{stop-color:color-mix(in oklab,var(--garden-petal) var(--garden-petal-light,7%),var(--garden-paper))}
+.botanical-petal-edge{stroke:var(--garden-petal);stroke-opacity:.48;stroke-width:.65;stroke-linejoin:round}
+.botanical-petal-vein{stroke:var(--garden-petal);stroke-width:.5;stroke-opacity:.32;fill:none;stroke-linecap:round}
+.botanical-flower-heart{fill:var(--garden-petal);opacity:.64}
+.botanical-pollen{fill:none;stroke:var(--garden-foliage);stroke-width:.8;stroke-linecap:round;opacity:.65}
+.botanical-bell-light{stop-color:var(--garden-paper)}
+.botanical-bell-mid{stop-color:color-mix(in oklab,var(--garden-paper) 90%,#d9bf88)}
+.botanical-bell-shadow{stop-color:color-mix(in oklab,var(--garden-paper) 78%,var(--garden-foliage))}
+.botanical-bell-edge{stroke:color-mix(in oklab,var(--garden-foliage) 35%,var(--garden-paper));stroke-width:.7}
+.botanical-bell-fold{fill:none;stroke:var(--garden-foliage);stroke-opacity:.22;stroke-width:.6}
+.botanical-wash{stop-color:var(--garden-foliage);stop-opacity:.13}.botanical-clear{stop-color:var(--garden-foliage);stop-opacity:0}
+.botanical-mist{fill:var(--garden-foliage);opacity:.035}
+.botanical-celadon{display:var(--garden-celadon,none)}.botanical-lilac{display:var(--garden-lilac,none)}
+
+/* No frame around the illustration: the bough grows out of the sidebar's
+   lower edge. It remains in document flow and never sits over a navigation hit. */
+.blog[data-style] .workspace-nav .theme-ornament[data-placement=sidebar]{height:192px;margin:10px -10px -10px;width:calc(100% + 20px);justify-content:flex-start;align-items:flex-end;overflow:hidden;isolation:isolate}
+.blog[data-style] .workspace-nav .theme-ornament[data-placement=sidebar] .botanical-illustration{width:100%;height:auto;flex:none;transform:translateY(4px)}
+.blog .theme-ornament[data-placement=header]{height:56px;max-width:1500px;align-items:flex-start;padding-inline:24px}
+.blog .theme-ornament[data-placement=header] .botanical-illustration{width:142px;height:54px;opacity:.72}
+.blog[data-style=glass] .theme-ornament{opacity:.48}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-nav{padding:12px 10px;border:1px solid var(--garden-line);background:linear-gradient(165deg,var(--soft-step-1),var(--garden-paper));box-shadow:0 5px 22px color-mix(in srgb,var(--garden-ink) 4%,transparent);border-radius:24px}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-nav>button[aria-current=step]{border-radius:20px 8px 20px 8px;background:var(--reader-secondary-background,var(--soft-step-3))}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-main>[data-workspace-module]{box-shadow:0 8px 28px color-mix(in srgb,var(--garden-ink) 5%,transparent);border-color:var(--garden-line)}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-module-heading{padding-block:23px;background:linear-gradient(105deg,var(--soft-step-1),var(--garden-paper) 85%)}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-module-heading::after{height:2px;width:88px;border-radius:70%;background:linear-gradient(90deg,var(--soft-accent),transparent)}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-context{border-radius:28px 9px 28px 9px;background:var(--soft-step-1);border:1px solid var(--garden-line)}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-save{border:1px solid var(--garden-line);border-bottom:3px solid var(--soft-step-3);border-radius:22px;background:var(--garden-paper);box-shadow:0 6px 24px color-mix(in srgb,var(--garden-ink) 5%,transparent)}
+.blog[data-appearance=split][data-style=modern-soft] .writing-header{background:var(--reader-nav-background,var(--soft-step-1));border-radius:0 0 20px 20px}
+.blog[data-appearance=split][data-style=modern-soft] .article-heading{border-left:2px solid var(--soft-step-4);padding-inline:20px}
+.blog[data-appearance=split][data-style=modern-soft] .article-heading::after{content:'';display:block;width:120px;height:1px;margin-top:24px;background:linear-gradient(90deg,var(--soft-accent),transparent)}
+/* Explicit surfaces always win over derived paper washes. */
+.blog[data-custom~=card_background][data-style=modern-soft] :is(.workspace-module-heading,.workspace-context){background:var(--reader-card-background)}
+.blog[data-custom~=nav_background][data-style=modern-soft] .workspace-nav{background:var(--reader-nav-background)}
+.blog[data-custom~=nav_text][data-style=modern-soft] .workspace-nav>button{color:var(--reader-nav-text)}
+@media(max-width:800px){
+ .blog .theme-ornament{display:none!important}
+ .blog[data-appearance=split][data-style=modern-soft] .workspace-nav{padding:8px;border-radius:16px;box-shadow:none}
+ .blog[data-appearance=split][data-style=modern-soft] .workspace-module-heading{padding-block:18px}
+ .blog[data-appearance=split][data-style=modern-soft] .workspace-save{border-radius:16px}
+}
+@media(prefers-reduced-motion:reduce){.botanical-illustration{animation:none;transition:none}}

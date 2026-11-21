@@ -1,0 +1,52 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Lunar
+Upstream-Contact: Fung F. Lee <lee@umunhum.stanford.edu>
+Source: https://web.archive.org/web/20051027042122/https://umunhum.stanford.edu/~lee/chicomp/chicomp.html
+
+Files: *
+Copyright: 1988,1989,1991,1992,2001 Fung F. Lee <lee@umunhum.stanford.edu>
+                                    and Ricky Yeung <cryeung@hotmail.com>
+License: GPL-2+
+
+Files: lunar.c
+Copyright: 1988,1989,1991,1992,2001 Fung F. Lee <lee@umunhum.stanford.edu>
+           2002, 2006, 2013 Anthony Fok <foka@debian.org>
+           2015             Xie Xun <xiexun162534@gmail.com>
+License: GPL-2+
+
+Files: lunar.1 Makefile
+Copyright: 1988,1989,1991,1992,2001 Fung F. Lee <lee@umunhum.stanford.edu>
+                                    and Ricky Yeung <cryeung@hotmail.com>
+           2002, 2006, 2013 Anthony Fok <foka@debian.org>
+License: GPL-2+
+
+Files: lunar.bitmap
+Copyright: 1991? Weimin Liu <weimin@alpha.ece.jhu.edu>
+License: GPL-2+
+
+Files: debian/*
+Copyright: 2002, 2006, 2013, 2015 Anthony Fok <foka@debian.org>
+           2020-2025 xiao sheng wen <atzlinux@sina.com>
+License: GPL-2+
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or any
+ later version.
+ .
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see https://www.gnu.org/licenses/.
+ .
+ The last version of this program was released on July 23, 1992 as
+ version 2.1a.  This program was first released under the terms of GNU
+ GPL on October 28, 2001 as version 2.2.  Both versions are identical
+ except for the license text.
+ .
+ The complete text of the GNU General Public License can be found
+ in "/usr/share/common-licenses/GPL-2" on your Debian system.

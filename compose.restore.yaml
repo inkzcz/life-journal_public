@@ -1,0 +1,6 @@
+# Only for a separately named project with NEW empty DB/media targets.
+services:
+  maintenance:
+    volumes:
+      - ${MEDIA_DATA_DIR:?Set a verified NEW empty media directory}:/data/media:rw
+      - ${RESTORE_INPUT_DIR:?Set the verified backup input directory}:/backups:ro

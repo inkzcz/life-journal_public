@@ -1,0 +1,12 @@
+<script setup lang="ts">
+import {ref,watch} from 'vue'
+import {NodeViewWrapper,nodeViewProps} from '@tiptap/vue-3'
+import {entryNames,validEntry,type Entry} from './entries'
+import EntryForm from './EntryForm.vue'
+const props=defineProps(nodeViewProps),opened=ref(false),error=ref('')
+const draft=ref<Entry>(JSON.parse(JSON.stringify(props.node.attrs.value)))
+watch(opened,()=>{draft.value=JSON.parse(JSON.stringify(props.node.attrs.value));error.value=''})
+function save(){if(!props.editor.isEditable)return;if(!validEntry(draft.value)){error.value='请填写名称并核对字段';return}if(draft.value.kind!==props.node.attrs.value.kind){error.value='修改已有卡片的类型请新增另一张卡片';return}props.updateAttributes({value:JSON.parse(JSON.stringify(draft.value))});opened.value=false}
+</script>
+<template><NodeViewWrapper class="entry-card" contenteditable="false" :id="'entry-'+node.attrs.value.id"><button type="button" class="quiet" :disabled="!editor.isEditable" @click="opened=!opened">@{{node.attrs.value.kind}} · {{entryNames[node.attrs.value.kind as keyof typeof entryNames]}} · {{node.attrs.value.name}}（点击编辑）</button><form v-if="opened" @submit.stop.prevent="save" @mousedown.stop @click.stop><EntryForm :value="draft" :disabled="!editor.isEditable"/><p role="status">{{error}}</p><div class="entry-card-actions"><button type="submit" :disabled="!editor.isEditable">保存卡片</button><button type="button" class="quiet" :disabled="!editor.isEditable" @click="opened=false">取消</button><button type="button" class="quiet" :disabled="!editor.isEditable" @click="deleteNode">移除卡片（保留媒体和历史）</button></div></form></NodeViewWrapper></template>
+<style scoped>.entry-card{margin:16px 0;border:1px solid var(--line);padding:12px;border-radius:var(--ui-radius);background:var(--paper);min-width:0}.entry-card>button{max-width:100%;overflow-wrap:anywhere}.entry-card-actions{position:sticky;bottom:0;background:var(--paper);padding:10px 0 max(10px,env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:8px}</style>

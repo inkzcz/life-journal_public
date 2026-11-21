@@ -1,0 +1,3217 @@
+{
+  "format": "life-journal-reviewed-notices-v1",
+  "scope": "Verified public upstream copyright/legal text only; never a blanket secret-scanner exception",
+  "files": [
+    {
+      "path": "third_party/licenses/Caddy-Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origins": [
+        "Previously verified upstream legal text; see license-provenance.json"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0035f89e5317f3cec389383e8727788521b0fde3e75cea881fa0e92e1d48cb57.txt",
+      "sha256": "0035f89e5317f3cec389383e8727788521b0fde3e75cea881fa0e92e1d48cb57",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libunistring2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/008938a3441801ca3960f8e3ccb4c0738e7996442a53063141d57d3769a7344d.txt",
+      "sha256": "008938a3441801ca3960f8e3ccb4c0738e7996442a53063141d57d3769a7344d",
+      "origins": [
+        "https://registry.npmjs.org/vite/-/vite-6.4.4.tgz :: npm/vite/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/00fd7be5d907a6bcc409a80f2d565f508673db4761d54623691f89ae3aa20fc7.txt",
+      "sha256": "00fd7be5d907a6bcc409a80f2d565f508673db4761d54623691f89ae3aa20fc7",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libbsd0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f.txt",
+      "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f",
+      "origins": [
+        "https://static.crates.io/crates/aho-corasick/aho-corasick-1.1.3.crate :: notices/aho-corasick/1.1.3/COPYING",
+        "https://static.crates.io/crates/memchr/memchr-2.7.4.crate :: notices/memchr/2.7.4/COPYING"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/030511beb4d9d620ad09914c369c36ec0528dcf301d1923cc643c948ee7c6a38.txt",
+      "sha256": "030511beb4d9d620ad09914c369c36ec0528dcf301d1923cc643c948ee7c6a38",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libpcre2-8-0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/033df283c9686328c4ba0670394585219888c1b9f61f7fa749f9120a4db5c7c0.txt",
+      "sha256": "033df283c9686328c4ba0670394585219888c1b9f61f7fa749f9120a4db5c7c0",
+      "origins": [
+        "Go module github.com/dunglas/go-urlpattern@v1.0.0; verified h1:AmMwIDXWJFezeE1v38rxvQRGvvzTlityFuifLLVfoQQ= :: go/github.com/dunglas/go-urlpattern@v1.0.0/dunglas/go-urlpattern@v1.0.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0444c6991eead6822f7b9102e654448d51624431119546492e8b231db42c48bb.txt",
+      "sha256": "0444c6991eead6822f7b9102e654448d51624431119546492e8b231db42c48bb",
+      "origins": [
+        "https://static.crates.io/crates/ahash/ahash-0.8.12.crate :: notices/ahash/0.8.12/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/04575fc5bfae19a9b63100f8691f901a2e15a399011ac02db435a9ef27295551.txt",
+      "sha256": "04575fc5bfae19a9b63100f8691f901a2e15a399011ac02db435a9ef27295551",
+      "origins": [
+        "https://registry.npmjs.org/@vitest/mocker/-/mocker-5.0.5.tgz :: npm/@vitest/mocker/package/LICENSE",
+        "https://registry.npmjs.org/@vitest/spy/-/spy-5.0.5.tgz :: npm/@vitest/spy/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/050bbca6960784db52ff387271bf2ecc5cbed7cf8581b415d528a6ecb6585015.txt",
+      "sha256": "050bbca6960784db52ff387271bf2ecc5cbed7cf8581b415d528a6ecb6585015",
+      "origins": [
+        "https://raw.githubusercontent.com/vuejs/vue-devtools/df6ab6bb7791a7a525a97990de73b3ea5e9a1941/LICENSE :: npm/@vue/devtools-api/upstream-LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0589f544f68ffc436e6e21efec2cf7cc2dbb2ac09ce6cb8a8cdb75ab74489716.txt",
+      "sha256": "0589f544f68ffc436e6e21efec2cf7cc2dbb2ac09ce6cb8a8cdb75ab74489716",
+      "origins": [
+        "Go module github.com/zeebo/blake3@v0.2.4; verified h1:KYQPkhpRtcqh0ssGYcKLG1JYvddkEA8QwCM/yBqhaZI= :: go/github.com/zeebo/blake3@v0.2.4/zeebo/blake3@v0.2.4/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/05a3af14dd6f2e357727c4d445660072be70b11e7c27b9dc735c9de4bb65ddcb.txt",
+      "sha256": "05a3af14dd6f2e357727c4d445660072be70b11e7c27b9dc735c9de4bb65ddcb",
+      "origins": [
+        "Go module github.com/manifoldco/promptui@v0.9.0; verified h1:3V4HzJk1TtXW1MTZMP7mdlwbBpIinw3HztaIlYthEiA= :: go/github.com/manifoldco/promptui@v0.9.0/manifoldco/promptui@v0.9.0/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/061dc50af2cd9340703daf61978af3200cf681b12ea67a323c33ba109a23a45e.txt",
+      "sha256": "061dc50af2cd9340703daf61978af3200cf681b12ea67a323c33ba109a23a45e",
+      "origins": [
+        "https://static.crates.io/crates/lru/lru-0.18.5.crate :: notices/lru/0.18.5/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/06319d84c3e5ed096036f6a9310a030c7e84e50dff2b8a6792285c83ec0ada73.txt",
+      "sha256": "06319d84c3e5ed096036f6a9310a030c7e84e50dff2b8a6792285c83ec0ada73",
+      "origins": [
+        "Audited business TAR: usr/share/doc/bash/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0819ea84597f2051f7381c26a67d4119be0770c6ec977ff63c59e26251db2ac0.txt",
+      "sha256": "0819ea84597f2051f7381c26a67d4119be0770c6ec977ff63c59e26251db2ac0",
+      "origins": [
+        "Go module dario.cat/mergo@v1.0.2; verified h1:85+piFYR1tMbRrLcDwR18y4UKJ3aH1Tbzi24VRW1TK8= :: go/dario.cat/mergo@v1.0.2/mergo@v1.0.2/testdata/license.json"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/08683b14bda8ae3538abf19e1879e853a39e3b8276a8d673363b529d15a61c1a.txt",
+      "sha256": "08683b14bda8ae3538abf19e1879e853a39e3b8276a8d673363b529d15a61c1a",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/s2/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/08eab1118c80885fa1fa6a6dd7303f65a379fcb3733e063d20d1bbc2c76e6fa1.txt",
+      "sha256": "08eab1118c80885fa1fa6a6dd7303f65a379fcb3733e063d20d1bbc2c76e6fa1",
+      "origins": [
+        "Go module github.com/mattn/go-isatty@v0.0.24; verified h1:tGZZoVgT/KiqK1c8ocVLeDS8BSWMRd47J3Lbz7vsReI= :: go/github.com/mattn/go-isatty@v0.0.24/mattn/go-isatty@v0.0.24/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0a8d61ed3cbfd5312326e8126c31ce9c627a283adc99131b56896d29ada04b2d.txt",
+      "sha256": "0a8d61ed3cbfd5312326e8126c31ce9c627a283adc99131b56896d29ada04b2d",
+      "origins": [
+        "Go module github.com/google/uuid@v1.6.0; verified h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0= :: go/github.com/google/uuid@v1.6.0/google/uuid@v1.6.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90.txt",
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pycparser-3.12.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9.txt",
+      "sha256": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9",
+      "origins": [
+        "https://static.crates.io/crates/smallvec/smallvec-1.16.2.crate :: notices/smallvec/1.16.2/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0cbec745d85ea775450b2d54fac55277197f429e52d611f72852ed420450620e.txt",
+      "sha256": "0cbec745d85ea775450b2d54fac55277197f429e52d611f72852ed420450620e",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libattr1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.txt",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "origins": [
+        "https://static.crates.io/crates/portable-atomic/portable-atomic-1.6.0.crate :: notices/portable-atomic/1.6.0/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0d9e582ee4bff57bf1189c9e514e6da7ce277f9cd3bc2d488b22fbb39a6d87cf.txt",
+      "sha256": "0d9e582ee4bff57bf1189c9e514e6da7ce277f9cd3bc2d488b22fbb39a6d87cf",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0db7c9ebb3717e526f34f87dd1ee8bc77d36846e29cb0cec9246f7138fbe962b.txt",
+      "sha256": "0db7c9ebb3717e526f34f87dd1ee8bc77d36846e29cb0cec9246f7138fbe962b",
+      "origins": [
+        "Go module github.com/beorn7/perks@v1.0.1; verified h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM= :: go/github.com/beorn7/perks@v1.0.1/beorn7/perks@v1.0.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0e4c9a9b6c71019cbbea3bdc20b01223110a9035700f9c960c8fcbf78c2325ce.txt",
+      "sha256": "0e4c9a9b6c71019cbbea3bdc20b01223110a9035700f9c960c8fcbf78c2325ce",
+      "origins": [
+        "https://registry.npmjs.org/@floating-ui/core/-/core-1.8.0.tgz :: npm/@floating-ui/core/package/LICENSE",
+        "https://registry.npmjs.org/@floating-ui/dom/-/dom-1.8.0.tgz :: npm/@floating-ui/dom/package/LICENSE",
+        "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.2.12.tgz :: npm/@floating-ui/utils/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0ee8d65c982acb051d709d3128e8413bf1a15194fddbde3ece711d2f8f295a95.txt",
+      "sha256": "0ee8d65c982acb051d709d3128e8413bf1a15194fddbde3ece711d2f8f295a95",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libip4tc2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0f1cde79bd80a75f9029ae9a8c252b642223027ef36f6989c63a8230aae576a7.txt",
+      "sha256": "0f1cde79bd80a75f9029ae9a8c252b642223027ef36f6989c63a8230aae576a7",
+      "origins": [
+        "Audited business TAR: usr/share/doc/base-passwd/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f.txt",
+      "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f",
+      "origins": [
+        "https://static.crates.io/crates/aho-corasick/aho-corasick-1.1.3.crate :: notices/aho-corasick/1.1.3/LICENSE-MIT",
+        "https://static.crates.io/crates/memchr/memchr-2.7.4.crate :: notices/memchr/2.7.4/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/0fac2374380621b22e6b50451057721a9c52935b02d16d106a9f04897f061d0e.txt",
+      "sha256": "0fac2374380621b22e6b50451057721a9c52935b02d16d106a9f04897f061d0e",
+      "origins": [
+        "https://raw.githubusercontent.com/lddubeau/saxes/211fa0ebec9b628affc09219199639887174bfc3/LICENSE :: npm/saxes/upstream-LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/10fa24a602fde465db603cd5d546e37e33642a73cd24ddf5910be81724fec8b2.txt",
+      "sha256": "10fa24a602fde465db603cd5d546e37e33642a73cd24ddf5910be81724fec8b2",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/s2/cmd/internal/readahead/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/110244b02140866ee37d17fa7449436a377ec3b85a481fbb208f4c87964382de.txt",
+      "sha256": "110244b02140866ee37d17fa7449436a377ec3b85a481fbb208f4c87964382de",
+      "origins": [
+        "Go module google.golang.org/api@v0.298.0; verified h1:YW18RkHBMZBA1ergX0m4biagzgbiPTb2uTsRsDPWNRY= :: go/google.golang.org/api@v0.298.0/api@v0.298.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4.txt",
+      "sha256": "110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/GFDL-1.3"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/116f84ddc1395c402d545cc62278a402b38c0f118fd032d45b35e96384597c56.txt",
+      "sha256": "116f84ddc1395c402d545cc62278a402b38c0f118fd032d45b35e96384597c56",
+      "origins": [
+        "Audited business TAR: usr/local/lib/python3.12/site-packages/pip/_vendor/vendor.txt",
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pip/_vendor/vendor.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76.txt",
+      "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76",
+      "origins": [
+        "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz :: npm/@babel/helper-string-parser/package/LICENSE",
+        "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz :: npm/@babel/helper-validator-identifier/package/LICENSE",
+        "https://registry.npmjs.org/@babel/types/-/types-7.29.8.tgz :: npm/@babel/types/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/11d55bd4541c75ee7879547ac49089c489163dae49551389713c3d026cab383e.txt",
+      "sha256": "11d55bd4541c75ee7879547ac49089c489163dae49551389713c3d026cab383e",
+      "origins": [
+        "https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz :: npm/csstype/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e.txt",
+      "sha256": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e",
+      "origins": [
+        "https://static.crates.io/crates/libc/libc-0.2.185.crate :: notices/libc/0.2.185/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/13654b052f885cb3fa47d7343e13975d9c8a64c3bcd84993c35d5eb01f22b23f.txt",
+      "sha256": "13654b052f885cb3fa47d7343e13975d9c8a64c3bcd84993c35d5eb01f22b23f",
+      "origins": [
+        "Go module github.com/alecthomas/chroma/v2@v2.27.0; verified h1:FodwmyOBgJULFYmDqibcp9pvfDLWdtPRh9v/r5BXYZs= :: go/github.com/alecthomas/chroma/v2@v2.27.0/alecthomas/chroma/v2@v2.27.0/COPYING"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/13f4cc9fbc8d4a447b28aa84019c10ad4abf4b5f6919db061bf6690ccc23bc02.txt",
+      "sha256": "13f4cc9fbc8d4a447b28aa84019c10ad4abf4b5f6919db061bf6690ccc23bc02",
+      "origins": [
+        "https://static.crates.io/crates/radium/radium-0.7.0.crate :: notices/radium/0.7.0/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/167d04422f2fdf76ab565878c23be8ba0c2ebb2c57a5dac0a5a59ccd27e747a5.txt",
+      "sha256": "167d04422f2fdf76ab565878c23be8ba0c2ebb2c57a5dac0a5a59ccd27e747a5",
+      "origins": [
+        "Audited business TAR: usr/share/doc/mawk/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/17c4a26a5995911064bdfb8af6a5dacd2c29b2648da47045fe25c746dee23b2d.txt",
+      "sha256": "17c4a26a5995911064bdfb8af6a5dacd2c29b2648da47045fe25c746dee23b2d",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libjson-c5/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/17fb24bc303763f3fe1911ee24e5225c7ad59f0e3a5d8123e9b730c100a306a6.txt",
+      "sha256": "17fb24bc303763f3fe1911ee24e5225c7ad59f0e3a5d8123e9b730c100a306a6",
+      "origins": [
+        "https://raw.githubusercontent.com/vuejs/vue/bed04a77e575d6c4c1d903f60087dca874f7213e/LICENSE :: npm/@vue/compiler-vue2/upstream-LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/183adac21e7d96c508c8fd34d394b7b6708bc81564ad1bad61ab66143a008cd2.txt",
+      "sha256": "183adac21e7d96c508c8fd34d394b7b6708bc81564ad1bad61ab66143a008cd2",
+      "origins": [
+        "Go module github.com/slackhq/nebula@v1.11.2; verified h1:eP61cSfUuoEVGViD50gZBsAbBLPUAhoNOYewPmEwPG4= :: go/github.com/slackhq/nebula@v1.11.2/slackhq/nebula@v1.11.2/dist/windows/wintun/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/18951c084f68bce792efa2037685466628ebc1c67f4bff8b7147f3d5050e50a4.txt",
+      "sha256": "18951c084f68bce792efa2037685466628ebc1c67f4bff8b7147f3d5050e50a4",
+      "origins": [
+        "Go module github.com/cloudflare/circl@v1.6.5; verified h1:O64F26HEqNhznd/hrC5KZXVKYuKM2rx4deZDTc4ihQA= :: go/github.com/cloudflare/circl@v1.6.5/cloudflare/circl@v1.6.5/ecc/p384/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df.txt",
+      "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df",
+      "origins": [
+        "https://static.crates.io/crates/zerocopy/zerocopy-0.8.25.crate :: notices/zerocopy/0.8.25/LICENSE-MIT",
+        "https://static.crates.io/crates/zerocopy-derive/zerocopy-derive-0.8.25.crate :: notices/zerocopy-derive/0.8.25/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04.txt",
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/idna-3.20.dist-info/licenses/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1ae07514be1d7bb33f0698f8d91fb51b8b9fe1463157ec1c72081a49b9bc6f40.txt",
+      "sha256": "1ae07514be1d7bb33f0698f8d91fb51b8b9fe1463157ec1c72081a49b9bc6f40",
+      "origins": [
+        "Go module go.opentelemetry.io/contrib/bridges/prometheus@v0.71.0; verified h1:9qgxsFLskbDMXl8WMqThoF6w8yGJgCumn9qRc67OmnI= :: go/go.opentelemetry.io/contrib/bridges/prometheus@v0.71.0/contrib/bridges/prometheus@v0.71.0/LICENSE",
+        "Go module go.opentelemetry.io/contrib/exporters/autoexport@v0.71.0; verified h1:VCsJbp0YLyPtx2tu5Vgv2a2/qLoaMCj8hT2uZ34+Mx0= :: go/go.opentelemetry.io/contrib/exporters/autoexport@v0.71.0/contrib/exporters/autoexport@v0.71.0/LICENSE",
+        "Go module go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.71.0; verified h1:3g7B90UzBltIDKq1/5mrTGxTnOFDV0ICOhLoxiZ8jlg= :: go/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.71.0/contrib/instrumentation/net/http/otelhttp@v0.71.0/LICENSE",
+        "Go module go.opentelemetry.io/contrib/propagators/autoprop@v0.71.0; verified h1:uy7dcw6v3XK3LMGj2sB9CXtJtTHX8QA9pjSrLhvf86c= :: go/go.opentelemetry.io/contrib/propagators/autoprop@v0.71.0/contrib/propagators/autoprop@v0.71.0/LICENSE",
+        "Go module go.opentelemetry.io/contrib/propagators/aws@v1.46.0; verified h1:JslT1wq/5vb6lQsbdOqShvIEs7sDlf0IvKxNZdadfjY= :: go/go.opentelemetry.io/contrib/propagators/aws@v1.46.0/contrib/propagators/aws@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/contrib/propagators/b3@v1.46.0; verified h1:OFVqWObn7xLIbOjE/koO0LS9fZJNgAyBD0msA+UQAoc= :: go/go.opentelemetry.io/contrib/propagators/b3@v1.46.0/contrib/propagators/b3@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/contrib/propagators/jaeger@v1.46.0; verified h1:uxl0SGcmuBkHj/Adl9oftEAyiawQBPL5RzMAmt/Yvq4= :: go/go.opentelemetry.io/contrib/propagators/jaeger@v1.46.0/contrib/propagators/jaeger@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/contrib/propagators/ot@v1.46.0; verified h1:SxC/1xmJJJdGQTNmavqW8ju85TRXiZHeFaQdnEMCWLE= :: go/go.opentelemetry.io/contrib/propagators/ot@v1.46.0/contrib/propagators/ot@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel@v1.46.0; verified h1:FHt5/CDyVxi/8IM1CH7VE/rRgq3kLHa2mSTVMO8AWyc= :: go/go.opentelemetry.io/otel@v1.46.0/otel@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc@v0.22.0; verified h1:Bu39F5tzJct+f2IZbB8989fwyTps3c8e7EsUQsz+vs8= :: go/go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc@v0.22.0/otel/exporters/otlp/otlplog/otlploggrpc@v0.22.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp@v0.22.0; verified h1:lYk7RmxdLK865qLwibroNGldHa1U7SWKYYvNjlK7PIo= :: go/go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp@v0.22.0/otel/exporters/otlp/otlplog/otlploghttp@v0.22.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.46.0; verified h1:qkDYCAFiZXLcs1L4aY+tP2wguQ4kURANqHOQMA2et2s= :: go/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.46.0/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.46.0; verified h1:AP23h/mFgb/lc7tdck1Kfn9qxsM8TAeNPCU5C3pzaps= :: go/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.46.0/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.46.0; verified h1:OFnwLJr+pF3iHrlGSzbxyuo6/6HyBlnlN1CWEJmBVcw= :: go/go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.46.0/otel/exporters/otlp/otlptrace@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.46.0; verified h1:w53CDeOA/Kurp7yRsegSr6pbbr759dOvJ+yNmWM6Hxs= :: go/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.46.0/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.46.0; verified h1:KrC1YrQeSt46ITMWAbgQx1M1eV1/1TKzttrBzymPmss= :: go/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.46.0/otel/exporters/otlp/otlptrace/otlptracehttp@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/prometheus@v0.68.0; verified h1:QOf2IftqQwITVRJpnn0M7M9ZCbgWfxz4P7i9C9yc2N4= :: go/go.opentelemetry.io/otel/exporters/prometheus@v0.68.0/otel/exporters/prometheus@v0.68.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/stdout/stdoutlog@v0.22.0; verified h1:kvMAiLEudKmk+CSG+iYbU8vTUGNNDaf/V09OO5lrTwI= :: go/go.opentelemetry.io/otel/exporters/stdout/stdoutlog@v0.22.0/otel/exporters/stdout/stdoutlog@v0.22.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.46.0; verified h1:PR9eAf7o0dQs3hshZNZpE9aW2dXWX/KdDf6pJilVD3U= :: go/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.46.0/otel/exporters/stdout/stdoutmetric@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.46.0; verified h1:KdRxPiAoMptR3vfWzvjjvutTsSiwbC2uG0496rzZNfo= :: go/go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.46.0/otel/exporters/stdout/stdouttrace@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/log@v0.22.0; verified h1:5DBNnfvaJ6CVdkJ+Jle8Tzs50aSSv49TXGj9XRsEYw0= :: go/go.opentelemetry.io/otel/log@v0.22.0/otel/log@v0.22.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/metric@v1.46.0; verified h1:yBnkXvgV7AXFILZc5K6IZe/CBFF3OS7BJ8ov6/lj0K8= :: go/go.opentelemetry.io/otel/metric@v1.46.0/otel/metric@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/sdk@v1.46.0; verified h1:h5CNQQjEbuQXY/JfZtgt3i7HVFV3aHPO2OAwO2eTYPI= :: go/go.opentelemetry.io/otel/sdk@v1.46.0/otel/sdk@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/sdk/log@v0.22.0; verified h1:PRL+s6P63XT4E/bheEflopPUpVxuvANqZwtt89yhoGk= :: go/go.opentelemetry.io/otel/sdk/log@v0.22.0/otel/sdk/log@v0.22.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/sdk/metric@v1.46.0; verified h1:0piZ26EG4RBfebb2jhDH6ERCYHoVWduc3kLgPCwSnSE= :: go/go.opentelemetry.io/otel/sdk/metric@v1.46.0/otel/sdk/metric@v1.46.0/LICENSE",
+        "Go module go.opentelemetry.io/otel/trace@v1.46.0; verified h1:OULy7ccdJnZtJ0UDYFOIGaCmiWzJ8Vi2G/Rsu60qs1c= :: go/go.opentelemetry.io/otel/trace@v1.46.0/otel/trace@v1.46.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1b6a897efd39b20b3cdce8cd306160d115dbded39d855ceeffe21dc11e4d53df.txt",
+      "sha256": "1b6a897efd39b20b3cdce8cd306160d115dbded39d855ceeffe21dc11e4d53df",
+      "origins": [
+        "Go module github.com/quic-go/qpack@v0.6.0; verified h1:g7W+BMYynC1LbYLSqRt8PBg5Tgwxn214ZZR34VIOjz8= :: go/github.com/quic-go/qpack@v0.6.0/quic-go/qpack@v0.6.0/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1b8c222691a2fdd7cd890b571f2ee199576d6dcb59bd837ef50dba37271fa0bf.txt",
+      "sha256": "1b8c222691a2fdd7cd890b571f2ee199576d6dcb59bd837ef50dba37271fa0bf",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libpq5/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175.txt",
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
+      "origins": [
+        "https://registry.npmjs.org/@vue/compiler-core/-/compiler-core-3.5.44.tgz :: npm/@vue/compiler-core/package/LICENSE",
+        "https://registry.npmjs.org/@vue/compiler-dom/-/compiler-dom-3.5.44.tgz :: npm/@vue/compiler-dom/package/LICENSE",
+        "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-3.5.44.tgz :: npm/@vue/compiler-sfc/package/LICENSE",
+        "https://registry.npmjs.org/@vue/compiler-ssr/-/compiler-ssr-3.5.44.tgz :: npm/@vue/compiler-ssr/package/LICENSE",
+        "https://registry.npmjs.org/@vue/reactivity/-/reactivity-3.5.44.tgz :: npm/@vue/reactivity/package/LICENSE",
+        "https://registry.npmjs.org/@vue/runtime-core/-/runtime-core-3.5.44.tgz :: npm/@vue/runtime-core/package/LICENSE",
+        "https://registry.npmjs.org/@vue/runtime-dom/-/runtime-dom-3.5.44.tgz :: npm/@vue/runtime-dom/package/LICENSE",
+        "https://registry.npmjs.org/@vue/server-renderer/-/server-renderer-3.5.44.tgz :: npm/@vue/server-renderer/package/LICENSE",
+        "https://registry.npmjs.org/@vue/shared/-/shared-3.5.44.tgz :: npm/@vue/shared/package/LICENSE",
+        "https://registry.npmjs.org/vue/-/vue-3.5.44.tgz :: npm/vue/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1ca415a294c0e56958c4f795b3f1f69ea3479bca53d7811f5cdd020a258949db.txt",
+      "sha256": "1ca415a294c0e56958c4f795b3f1f69ea3479bca53d7811f5cdd020a258949db",
+      "origins": [
+        "Audited business TAR: usr/share/doc/e2fsprogs/copyright",
+        "Audited business TAR: usr/share/doc/libcom-err2/copyright",
+        "Audited business TAR: usr/share/doc/libext2fs2/copyright",
+        "Audited business TAR: usr/share/doc/libss2/copyright",
+        "Audited business TAR: usr/share/doc/logsave/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1ca5dd5098fe2e1c0f0d05196f5b3da8b414a807702e6ca8b536eb5fd3059130.txt",
+      "sha256": "1ca5dd5098fe2e1c0f0d05196f5b3da8b414a807702e6ca8b536eb5fd3059130",
+      "origins": [
+        "Audited business TAR: usr/share/doc/gzip/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1cbe51b907662f6cb1492b16c359384a595180bf0e4d101603ed525e75c4e484.txt",
+      "sha256": "1cbe51b907662f6cb1492b16c359384a595180bf0e4d101603ed525e75c4e484",
+      "origins": [
+        "https://registry.npmjs.org/magic-string/-/magic-string-1.4.3.tgz :: npm/@vitest/mocker/node_modules/magic-string/package/LICENSE",
+        "https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz :: npm/magic-string/package/LICENSE",
+        "https://registry.npmjs.org/magic-string/-/magic-string-1.4.3.tgz :: npm/vitest/node_modules/magic-string/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1e5d3ddaf5cbc111c8517df39e6f252e4c16dbda26b7cc1ad54c9e3efb0586be.txt",
+      "sha256": "1e5d3ddaf5cbc111c8517df39e6f252e4c16dbda26b7cc1ad54c9e3efb0586be",
+      "origins": [
+        "https://static.crates.io/crates/enum_dispatch/enum_dispatch-0.3.13.crate :: notices/enum_dispatch/0.3.13/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1eace90552df4f5941b61a907e20e555e16483ae6127b650bef5a1a2af8102c0.txt",
+      "sha256": "1eace90552df4f5941b61a907e20e555e16483ae6127b650bef5a1a2af8102c0",
+      "origins": [
+        "Audited business TAR: usr/local/lib/python3.12/site-packages/pip-25.0.1.dist-info/AUTHORS.txt",
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pip-25.0.1.dist-info/AUTHORS.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/1ef7b0f3816510e2c4727a6e45b770ddb5ab123d73074e7f0b424767db0f9f7b.txt",
+      "sha256": "1ef7b0f3816510e2c4727a6e45b770ddb5ab123d73074e7f0b424767db0f9f7b",
+      "origins": [
+        "Go module github.com/caddyserver/zerossl@v0.1.6; verified h1:1yrhTx5DWi43wOJPQ+Y4mVl++EPmSqqT/4REW//lsas= :: go/github.com/caddyserver/zerossl@v0.1.6/caddyserver/zerossl@v0.1.6/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/20873bd48d04a4e4075ee881ec2a5f3a3b14bf4920018b1131a7c52ec9b4a318.txt",
+      "sha256": "20873bd48d04a4e4075ee881ec2a5f3a3b14bf4920018b1131a7c52ec9b4a318",
+      "origins": [
+        "Go module github.com/grpc-ecosystem/grpc-gateway/v2@v2.30.0; verified h1:/Tnpcb2E0Pz/tN9s3bfEY2Q8ePCEX9iuS+cneUwncnw= :: go/github.com/grpc-ecosystem/grpc-gateway/v2@v2.30.0/grpc-ecosystem/grpc-gateway/v2@v2.30.0/internal/casing/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/20c7855c364d57ea4c97889a5e8d98470a9952dade37bd9248b9a54431670e5e.txt",
+      "sha256": "20c7855c364d57ea4c97889a5e8d98470a9952dade37bd9248b9a54431670e5e",
+      "origins": [
+        "https://static.crates.io/crates/form_urlencoded/form_urlencoded-1.2.2.crate :: notices/form_urlencoded/1.2.2/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2130216d5ab4c02134f8247f32999feda0abe1eaf028218baeac445c19ce4cea.txt",
+      "sha256": "2130216d5ab4c02134f8247f32999feda0abe1eaf028218baeac445c19ce4cea",
+      "origins": [
+        "https://registry.npmjs.org/assertion-error/-/assertion-error-2.0.1.tgz :: npm/assertion-error/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/219920e865eee70b7dcfc948a86b099e7f4fe2de01bcca2ca9a20c0a033f2b59.txt",
+      "sha256": "219920e865eee70b7dcfc948a86b099e7f4fe2de01bcca2ca9a20c0a033f2b59",
+      "origins": [
+        "https://static.crates.io/crates/synstructure/synstructure-0.13.1.crate :: notices/synstructure/0.13.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2252a5b1e2b1d3663b53ea77051b8ed065cb9270a3d1174d5d6ead8a2de051b6.txt",
+      "sha256": "2252a5b1e2b1d3663b53ea77051b8ed065cb9270a3d1174d5d6ead8a2de051b6",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/gzhttp/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/22975ebe413674bc619428a26e53412013dccffa69e2f27100dbd8d946fde287.txt",
+      "sha256": "22975ebe413674bc619428a26e53412013dccffa69e2f27100dbd8d946fde287",
+      "origins": [
+        "Go module github.com/smallstep/pkcs7@v0.2.3; verified h1:bhoQ3TeZmdoXTatcwxCbk+FMcdsyr0gYrrW2Xq2qr+s= :: go/github.com/smallstep/pkcs7@v0.2.3/smallstep/pkcs7@v0.2.3/internal/cryptobyte/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/22adc4abdece712a737573672f082fd61ac2b21df878efb87ffcff4354a07f26.txt",
+      "sha256": "22adc4abdece712a737573672f082fd61ac2b21df878efb87ffcff4354a07f26",
+      "origins": [
+        "Go module github.com/mitchellh/reflectwalk@v1.0.2; verified h1:G2LzWKi524PWgd3mLHV8Y5k7s6XUvT0Gef6zxSIeXaQ= :: go/github.com/mitchellh/reflectwalk@v1.0.2/mitchellh/reflectwalk@v1.0.2/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/22c68811e174cbbfb3813d4135918df4f540959c14d872e601d9abe83d3cde8f.txt",
+      "sha256": "22c68811e174cbbfb3813d4135918df4f540959c14d872e601d9abe83d3cde8f",
+      "origins": [
+        "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz :: npm/tinyglobby/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/22ec6791c91ba42c0516a05f4cbdde019aae4687f8a38c5ca7e8a69ee68f851d.txt",
+      "sha256": "22ec6791c91ba42c0516a05f4cbdde019aae4687f8a38c5ca7e8a69ee68f851d",
+      "origins": [
+        "https://registry.npmjs.org/tough-cookie/-/tough-cookie-6.0.2.tgz :: npm/tough-cookie/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3.txt",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "origins": [
+        "https://static.crates.io/crates/displaydoc/displaydoc-0.2.5.crate :: notices/displaydoc/0.2.5/LICENSE-MIT",
+        "https://static.crates.io/crates/itoa/itoa-1.0.11.crate :: notices/itoa/1.0.11/LICENSE-MIT",
+        "https://static.crates.io/crates/lexical-parse-float/lexical-parse-float-1.0.6.crate :: notices/lexical-parse-float/1.0.6/LICENSE-MIT",
+        "https://static.crates.io/crates/lexical-parse-integer/lexical-parse-integer-1.0.6.crate :: notices/lexical-parse-integer/1.0.6/LICENSE-MIT",
+        "https://static.crates.io/crates/lexical-util/lexical-util-1.0.7.crate :: notices/lexical-util/1.0.7/LICENSE-MIT",
+        "https://static.crates.io/crates/once_cell/once_cell-1.21.3.crate :: notices/once_cell/1.21.3/LICENSE-MIT",
+        "https://static.crates.io/crates/portable-atomic/portable-atomic-1.6.0.crate :: notices/portable-atomic/1.6.0/LICENSE-MIT",
+        "https://static.crates.io/crates/proc-macro2/proc-macro2-1.0.107.crate :: notices/proc-macro2/1.0.107/LICENSE-MIT",
+        "https://static.crates.io/crates/quote/quote-1.0.44.crate :: notices/quote/1.0.44/LICENSE-MIT",
+        "https://static.crates.io/crates/serde/serde-1.0.229.crate :: notices/serde/1.0.229/LICENSE-MIT",
+        "https://static.crates.io/crates/serde_core/serde_core-1.0.229.crate :: notices/serde_core/1.0.229/LICENSE-MIT",
+        "https://static.crates.io/crates/serde_derive/serde_derive-1.0.229.crate :: notices/serde_derive/1.0.229/LICENSE-MIT",
+        "https://static.crates.io/crates/serde_json/serde_json-1.0.151.crate :: notices/serde_json/1.0.151/LICENSE-MIT",
+        "https://static.crates.io/crates/syn/syn-2.0.82.crate :: notices/syn/2.0.82/LICENSE-MIT",
+        "https://static.crates.io/crates/syn/syn-3.0.6.crate :: notices/syn/3.0.6/LICENSE-MIT",
+        "https://static.crates.io/crates/unicode-ident/unicode-ident-1.0.12.crate :: notices/unicode-ident/1.0.12/LICENSE-MIT",
+        "https://static.crates.io/crates/wasi/wasi-0.14.2+wasi-0.2.4.crate :: notices/wasi/0.14.2+wasi-0.2.4/LICENSE-MIT",
+        "https://raw.githubusercontent.com/bytecodealliance/wit-bindgen/f2393e6e98fa5f9236cac580db8a3fc9de6a4b70/LICENSE-MIT :: notices/wit-bindgen-rt/0.39.0/LICENSE-MIT",
+        "https://static.crates.io/crates/zmij/zmij-1.0.6.crate :: notices/zmij/1.0.6/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/242d37e7cab25cbafc36cc973ee88f9345fddf066afe4f72b7ac3d9ad4e24cce.txt",
+      "sha256": "242d37e7cab25cbafc36cc973ee88f9345fddf066afe4f72b7ac3d9ad4e24cce",
+      "origins": [
+        "https://registry.npmjs.org/jsdom/-/jsdom-30.1.3.tgz :: npm/jsdom/package/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1.txt",
+      "sha256": "24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libbrotli1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/24e86c5ca53d6bfd8e0c47988160daa62d10a74997fe11f651e1d9533c78bff6.txt",
+      "sha256": "24e86c5ca53d6bfd8e0c47988160daa62d10a74997fe11f651e1d9533c78bff6",
+      "origins": [
+        "Audited business TAR: usr/share/doc/coreutils/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5.txt",
+      "sha256": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5",
+      "origins": [
+        "https://static.crates.io/crates/target-lexicon/target-lexicon-0.13.4.crate :: notices/target-lexicon/0.13.4/LICENSE",
+        "https://static.crates.io/crates/wasi/wasi-0.14.2+wasi-0.2.4.crate :: notices/wasi/0.14.2+wasi-0.2.4/LICENSE-Apache-2.0_WITH_LLVM-exception"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac.txt",
+      "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac",
+      "origins": [
+        "https://static.crates.io/crates/autocfg/autocfg-1.3.0.crate :: notices/autocfg/1.3.0/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/28576a98c02916f720f05aa4a9e30dabfb91cc153efeecd63d34616694d9ff60.txt",
+      "sha256": "28576a98c02916f720f05aa4a9e30dabfb91cc153efeecd63d34616694d9ff60",
+      "origins": [
+        "Go module github.com/KimMachineGun/automemlimit@v1.0.0; verified h1:+MqlvDE/pkJNjk1rU+O14QsH8k10nJAD0frB0lsxyvw= :: go/github.com/KimMachineGun/automemlimit@v1.0.0/KimMachineGun/automemlimit@v1.0.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/292dcc67fc22ad11156da2b7a154da74b65e63e0f673f3d301a5ed6df85327fe.txt",
+      "sha256": "292dcc67fc22ad11156da2b7a154da74b65e63e0f673f3d301a5ed6df85327fe",
+      "origins": [
+        "Audited business TAR: usr/share/doc/postgresql-client-common/copyright",
+        "Audited business TAR: usr/share/doc/postgresql-common/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/29b68325fe026047d13e187b44c33b2acacf7dc647dec4583702e59f235e13b5.txt",
+      "sha256": "29b68325fe026047d13e187b44c33b2acacf7dc647dec4583702e59f235e13b5",
+      "origins": [
+        "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-5.2.4.tgz :: npm/@vitejs/plugin-vue/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/29e9fe5074bd27e0e5d5d110394fbbcd841baee2651a3c4b4560a632702cede4.txt",
+      "sha256": "29e9fe5074bd27e0e5d5d110394fbbcd841baee2651a3c4b4560a632702cede4",
+      "origins": [
+        "https://static.crates.io/crates/getrandom/getrandom-0.3.3.crate :: notices/getrandom/0.3.3/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2a5341732bde88aeb3b066492df6e15bf10d082761f9e3a251236ce80419d6ba.txt",
+      "sha256": "2a5341732bde88aeb3b066492df6e15bf10d082761f9e3a251236ce80419d6ba",
+      "origins": [
+        "Go module github.com/dunglas/httpsfv@v1.1.1; verified h1:HoSs101zIE9I23DlqlmljJ/OIi7ILwrH347pXhRZdxI= :: go/github.com/dunglas/httpsfv@v1.1.1/dunglas/httpsfv@v1.1.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2a8a5d6197bb97a018b8a190dd3ed853d750ca87c8e80c17aad41d6c6ff448e1.txt",
+      "sha256": "2a8a5d6197bb97a018b8a190dd3ed853d750ca87c8e80c17aad41d6c6ff448e1",
+      "origins": [
+        "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz :: npm/fsevents/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2afdd30d54b4d62b6f488a6bcc1546e84ec5061f13f4209c03d012348783795a.txt",
+      "sha256": "2afdd30d54b4d62b6f488a6bcc1546e84ec5061f13f4209c03d012348783795a",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pydantic_core-2.50.5.dist-info/licenses/LICENSE",
+        "https://static.crates.io/crates/speedate/speedate-0.18.0.crate :: notices/speedate/0.18.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2b53671050f6319be6fcdcafa434e8ccb8af629359b4afc83185867204f3927d.txt",
+      "sha256": "2b53671050f6319be6fcdcafa434e8ccb8af629359b4afc83185867204f3927d",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libedit2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2be6c75f36f3022ea015fea7b1b7135ce67d477ee721d0fc6c98678badb13b8b.txt",
+      "sha256": "2be6c75f36f3022ea015fea7b1b7135ce67d477ee721d0fc6c98678badb13b8b",
+      "origins": [
+        "Go module github.com/urfave/cli@v1.22.17; verified h1:SYzXoiPfQjHBbkYxbew5prZHS1TOLT3ierW8SYLqtVQ= :: go/github.com/urfave/cli@v1.22.17/urfave/cli@v1.22.17/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2c8d4ff4244edf09d99dcd428d278e47a059d24f0030b38c1ab38e93b1c8030c.txt",
+      "sha256": "2c8d4ff4244edf09d99dcd428d278e47a059d24f0030b38c1ab38e93b1c8030c",
+      "origins": [
+        "Go module github.com/quic-go/quic-go@v0.63.0; verified h1:LIFGHI4PFUhhw2dDD1ARHdCff143ffMHwZtbnbuJ78A= :: go/github.com/quic-go/quic-go@v0.63.0/quic-go/quic-go@v0.63.0/assets/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067.txt",
+      "sha256": "2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067",
+      "origins": [
+        "Go module filippo.io/bigmod@v0.1.0; verified h1:UNzDk7y9ADKST+axd9skUpBQeW7fG2KrTZyOE4uGQy8= :: go/filippo.io/bigmod@v0.1.0/bigmod@v0.1.0/LICENSE",
+        "Go module filippo.io/edwards25519@v1.2.0; verified h1:crnVqOiS4jqYleHd9vaKZ+HKtHfllngJIiOpNpoJsjo= :: go/filippo.io/edwards25519@v1.2.0/edwards25519@v1.2.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2db9097f7b3750c1c9426996d21fe443d339131fb758c2167d2d5fabe8e6cbf9.txt",
+      "sha256": "2db9097f7b3750c1c9426996d21fe443d339131fb758c2167d2d5fabe8e6cbf9",
+      "origins": [
+        "Go module github.com/Masterminds/semver/v3@v3.5.0; verified h1:kQceYJfbupGfZOKZQg0kou0DgAKhzDg2NZPAwZ/2OOE= :: go/github.com/Masterminds/semver/v3@v3.5.0/Masterminds/semver/v3@v3.5.0/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2e0c79a5024c1ac2ea8752980bbd4ee8c53297abc583d72f315ad0b5bd4c2e26.txt",
+      "sha256": "2e0c79a5024c1ac2ea8752980bbd4ee8c53297abc583d72f315ad0b5bd4c2e26",
+      "origins": [
+        "Go module github.com/slackhq/nebula@v1.11.2; verified h1:eP61cSfUuoEVGViD50gZBsAbBLPUAhoNOYewPmEwPG4= :: go/github.com/slackhq/nebula@v1.11.2/slackhq/nebula@v1.11.2/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/2e97627cb278aa7556fb9e8817368302301a595b6c7582512b8d74c57b773652.txt",
+      "sha256": "2e97627cb278aa7556fb9e8817368302301a595b6c7582512b8d74c57b773652",
+      "origins": [
+        "https://registry.npmjs.org/@babel/parser/-/parser-7.29.9.tgz :: npm/@babel/parser/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/30539a2df6a89d844f43c727505a3193a60515f8ec6cdede8cc515ed22941d1c.txt",
+      "sha256": "30539a2df6a89d844f43c727505a3193a60515f8ec6cdede8cc515ed22941d1c",
+      "origins": [
+        "Audited business TAR: usr/share/doc/bsdutils/copyright",
+        "Audited business TAR: usr/share/doc/libblkid1/copyright",
+        "Audited business TAR: usr/share/doc/libmount1/copyright",
+        "Audited business TAR: usr/share/doc/libsmartcols1/copyright",
+        "Audited business TAR: usr/share/doc/libuuid1/copyright",
+        "Audited business TAR: usr/share/doc/mount/copyright",
+        "Audited business TAR: usr/share/doc/util-linux/copyright",
+        "Audited business TAR: usr/share/doc/util-linux-extra/copyright",
+        "Audited business TAR: usr/share/doc/libfdisk1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3108b546bcff5d346923a82f48b2d252ca722f9088076db6d145f6b67757ad6c.txt",
+      "sha256": "3108b546bcff5d346923a82f48b2d252ca722f9088076db6d145f6b67757ad6c",
+      "origins": [
+        "https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz :: npm/decimal.js/package/LICENCE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3227488750adebf5a8b33cc4105a109ae3d3267191c2a9ac7a2ecc38805ad4e8.txt",
+      "sha256": "3227488750adebf5a8b33cc4105a109ae3d3267191c2a9ac7a2ecc38805ad4e8",
+      "origins": [
+        "Go module github.com/tailscale/tscert@v0.0.0-20251216020129-aea342f6d747; verified h1:RnBbFMmodYzhC6adOjTbtUQXyzV8dcvKYbolzs6Qch0= :: go/github.com/tailscale/tscert@v0.0.0-20251216020129-aea342f6d747/tailscale/tscert@v0.0.0-20251216020129-aea342f6d747/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9.txt",
+      "sha256": "32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9",
+      "origins": [
+        "https://static.crates.io/crates/pyo3/pyo3-0.30.1.crate :: notices/pyo3/0.30.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/pyo3/pyo3-0.30.1.crate :: notices/pyo3/0.30.1/pyo3-runtime/LICENSE-APACHE",
+        "https://static.crates.io/crates/pyo3-build-config/pyo3-build-config-0.30.1.crate :: notices/pyo3-build-config/0.30.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/pyo3-ffi/pyo3-ffi-0.30.1.crate :: notices/pyo3-ffi/0.30.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/pyo3-macros/pyo3-macros-0.30.1.crate :: notices/pyo3-macros/0.30.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/pyo3-macros-backend/pyo3-macros-backend-0.30.1.crate :: notices/pyo3-macros-backend/0.30.1/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/33431c2ec626405f633ec9ee4bf169f6ec49a4ee39b2dd9a5cc0cd5478d8266a.txt",
+      "sha256": "33431c2ec626405f633ec9ee4bf169f6ec49a4ee39b2dd9a5cc0cd5478d8266a",
+      "origins": [
+        "Go module github.com/smallstep/cli-utils@v0.12.2; verified h1:lGzM9PJrH/qawbzMC/s2SvgLdJPKDWKwKzx9doCVO+k= :: go/github.com/smallstep/cli-utils@v0.12.2/smallstep/cli-utils@v0.12.2/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3591a8e4de849d910c5ee9045388344ef151c23b10cf8c6b1950f89f1ba1569c.txt",
+      "sha256": "3591a8e4de849d910c5ee9045388344ef151c23b10cf8c6b1950f89f1ba1569c",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libreadline8/copyright",
+        "Audited business TAR: usr/share/doc/readline-common/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/35e85e8e9bbb71492c5f5dddf39ed65b68775a02ad8d710c25d097b497f06c49.txt",
+      "sha256": "35e85e8e9bbb71492c5f5dddf39ed65b68775a02ad8d710c25d097b497f06c49",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libzstd1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673.txt",
+      "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "origins": [
+        "https://registry.npmjs.org/mdn-data/-/mdn-data-2.27.1.tgz :: npm/mdn-data/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397.txt",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "origins": [
+        "https://static.crates.io/crates/cfg-if/cfg-if-1.0.0.crate :: notices/cfg-if/1.0.0/LICENSE-MIT",
+        "https://static.crates.io/crates/js-sys/js-sys-0.3.77.crate :: notices/js-sys/0.3.77/LICENSE-MIT",
+        "https://static.crates.io/crates/wasm-bindgen/wasm-bindgen-0.2.100.crate :: notices/wasm-bindgen/0.2.100/LICENSE-MIT",
+        "https://static.crates.io/crates/wasm-bindgen-backend/wasm-bindgen-backend-0.2.100.crate :: notices/wasm-bindgen-backend/0.2.100/LICENSE-MIT",
+        "https://static.crates.io/crates/wasm-bindgen-macro/wasm-bindgen-macro-0.2.100.crate :: notices/wasm-bindgen-macro/0.2.100/LICENSE-MIT",
+        "https://static.crates.io/crates/wasm-bindgen-macro-support/wasm-bindgen-macro-support-0.2.100.crate :: notices/wasm-bindgen-macro-support/0.2.100/LICENSE-MIT",
+        "https://static.crates.io/crates/wasm-bindgen-shared/wasm-bindgen-shared-0.2.100.crate :: notices/wasm-bindgen-shared/0.2.100/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361.txt",
+      "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/h11-0.16.0.dist-info/licenses/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/lunardate-0.2.2.dist-info/LICENSE.txt",
+        "https://www.gnu.org/licenses/gpl-3.0.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf.txt",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "origins": [
+        "Audited business TAR: usr/local/lib/python3.12/LICENSE.txt",
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/typing_extensions-4.16.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3c377fad2e5ae1d7081c7c2f16da867a87cca1d1f5f1aa7ed0b8a16bb553142a.txt",
+      "sha256": "3c377fad2e5ae1d7081c7c2f16da867a87cca1d1f5f1aa7ed0b8a16bb553142a",
+      "origins": [
+        "Go module github.com/mitchellh/copystructure@v1.2.0; verified h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa15WveJJGw= :: go/github.com/mitchellh/copystructure@v1.2.0/mitchellh/copystructure@v1.2.0/LICENSE",
+        "Go module github.com/mitchellh/go-ps@v1.0.0; verified h1:i6ampVEEF4wQFF+bkYfwYgY+F/uYJDktmvLPf7qIgjc= :: go/github.com/mitchellh/go-ps@v1.0.0/mitchellh/go-ps@v1.0.0/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3e07c02046bf3c2a73f060636997e0323dbe92a2d4ba43ef9e6b05a1031ae4c4.txt",
+      "sha256": "3e07c02046bf3c2a73f060636997e0323dbe92a2d4ba43ef9e6b05a1031ae4c4",
+      "origins": [
+        "Go module github.com/chzyer/readline@v1.5.1; verified h1:upd/6fQk4src78LMRzh5vItIt361/o4uq553V8B5sGI= :: go/github.com/chzyer/readline@v1.5.1/chzyer/readline@v1.5.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04.txt",
+      "sha256": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "origins": [
+        "https://www.mozilla.org/media/MPL/2.0/index.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/3fa4ca83dcc9237839b1bdeb2e6d16bdfb5ec0c5ce42b24694d8bbf0dcbef72c.txt",
+      "sha256": "3fa4ca83dcc9237839b1bdeb2e6d16bdfb5ec0c5ce42b24694d8bbf0dcbef72c",
+      "origins": [
+        "https://static.crates.io/crates/utf16_iter/utf16_iter-1.0.5.crate :: notices/utf16_iter/1.0.5/LICENSE-MIT",
+        "https://static.crates.io/crates/utf8_iter/utf8_iter-1.0.4.crate :: notices/utf8_iter/1.0.4/LICENSE-MIT",
+        "https://static.crates.io/crates/write16/write16-1.0.0.crate :: notices/write16/1.0.0/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/401dcf98d8ef2b712ec6ab310dbf727fc2cdce290bfde5b6d0b609a927530217.txt",
+      "sha256": "401dcf98d8ef2b712ec6ab310dbf727fc2cdce290bfde5b6d0b609a927530217",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libtirpc-common/copyright",
+        "Audited business TAR: usr/share/doc/libtirpc3/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/409ae7da5df143584d1ae1e94bd0f1d5b3b2d134d1e354cf3160cdbf263849d1.txt",
+      "sha256": "409ae7da5df143584d1ae1e94bd0f1d5b3b2d134d1e354cf3160cdbf263849d1",
+      "origins": [
+        "Go module github.com/bits-and-blooms/bitset@v1.25.0; verified h1:0Ro0qF4abCkM6SqWPVj29sFhAbMPAZpaDD7xhJ10beM= :: go/github.com/bits-and-blooms/bitset@v1.25.0/bits-and-blooms/bitset@v1.25.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/40c7e1f2118531f038ca22999bd976901254e1bc5cd1b0f0211bdd064c599987.txt",
+      "sha256": "40c7e1f2118531f038ca22999bd976901254e1bc5cd1b0f0211bdd064c599987",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libc-bin/copyright",
+        "Audited business TAR: usr/share/doc/libc6/copyright",
+        "Audited business TAR: usr/share/doc/libc-l10n/copyright",
+        "Audited business TAR: usr/share/doc/locales/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/411781fd38700f2357a14126d0ab048164ab881f1dcb335c1bb932e232c9a2f5.txt",
+      "sha256": "411781fd38700f2357a14126d0ab048164ab881f1dcb335c1bb932e232c9a2f5",
+      "origins": [
+        "https://static.crates.io/crates/bitvec/bitvec-1.0.1.crate :: notices/bitvec/1.0.1/LICENSE.txt",
+        "https://static.crates.io/crates/wyz/wyz-0.5.1.crate :: notices/wyz/0.5.1/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/41650d7a87bcbc5ba394f581876ccdcf3f4cbf31f01168f1584db6b3db532691.txt",
+      "sha256": "41650d7a87bcbc5ba394f581876ccdcf3f4cbf31f01168f1584db6b3db532691",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libcryptsetup12/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/41702469f28e8ff406345e3d1dd0c741f11bdfca319264f67036efd6aaa79e4b.txt",
+      "sha256": "41702469f28e8ff406345e3d1dd0c741f11bdfca319264f67036efd6aaa79e4b",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libidn2-0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/42d9b4d610396b1e8d1303dcb9487af3f5a2d2709623cf03a04cf76acdf6c5e3.txt",
+      "sha256": "42d9b4d610396b1e8d1303dcb9487af3f5a2d2709623cf03a04cf76acdf6c5e3",
+      "origins": [
+        "Audited business TAR: usr/share/doc/grep/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4302abcc1ea1b6cbe8d19c79b892acf78878030220210707c19006828866207c.txt",
+      "sha256": "4302abcc1ea1b6cbe8d19c79b892acf78878030220210707c19006828866207c",
+      "origins": [
+        "Audited business TAR: usr/share/doc/librtmp1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4365ef6255ad553fce69dd4bc0e093472c5d0e41b8ea493a545cc926ce171aa6.txt",
+      "sha256": "4365ef6255ad553fce69dd4bc0e093472c5d0e41b8ea493a545cc926ce171aa6",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libmd0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/436bc5a105d8e57dcd8778730f3754f7bf39c14d2f530e4cde4bd2d17a83ec3d.txt",
+      "sha256": "436bc5a105d8e57dcd8778730f3754f7bf39c14d2f530e4cde4bd2d17a83ec3d",
+      "origins": [
+        "https://static.crates.io/crates/uuid/uuid-1.23.4.crate :: notices/uuid/1.23.4/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/45d196313c2647d313cc65ca9b093d2d6974b64d35ee7346f2c60c9d518dff2c.txt",
+      "sha256": "45d196313c2647d313cc65ca9b093d2d6974b64d35ee7346f2c60c9d518dff2c",
+      "origins": [
+        "https://registry.npmjs.org/xmlchars/-/xmlchars-2.2.0.tgz :: npm/xmlchars/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20.txt",
+      "sha256": "4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20",
+      "origins": [
+        "Go module google.golang.org/protobuf@v1.36.12; verified h1:pJOKDDOyeXErUroCihFAd5LQuwXBSpVnKGrj5o/fwxc= :: go/google.golang.org/protobuf@v1.36.12/protobuf@v1.36.12/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/483acb265f182907d1caf6cff9c16c96f31325ed23792832cc5d8b12d5f88c8a.txt",
+      "sha256": "483acb265f182907d1caf6cff9c16c96f31325ed23792832cc5d8b12d5f88c8a",
+      "origins": [
+        "https://registry.npmjs.org/he/-/he-1.2.0.tgz :: npm/he/package/LICENSE-MIT.txt",
+        "https://registry.npmjs.org/is-potential-custom-element-name/-/is-potential-custom-element-name-1.0.1.tgz :: npm/is-potential-custom-element-name/package/LICENSE-MIT.txt",
+        "https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz :: npm/punycode/package/LICENSE-MIT.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea.txt",
+      "sha256": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/markupsafe-3.0.4.dist-info/licenses/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/497fcdb9fae55924c12f55f05cbe83a096662e5c591d79b74e4a8f23bab5ffee.txt",
+      "sha256": "497fcdb9fae55924c12f55f05cbe83a096662e5c591d79b74e4a8f23bab5ffee",
+      "origins": [
+        "Go module github.com/prometheus/procfs@v0.22.0; verified h1:6q9+/JL9IKAPbCmBrv9n5O5Ty3NKnciV5X7YGw0oics= :: go/github.com/prometheus/procfs@v0.22.0/prometheus/procfs@v0.22.0/NOTICE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/499d6d466d064e0460427967a344e2a32fcb86ea8c6cd1a285ec4f1fa03fba67.txt",
+      "sha256": "499d6d466d064e0460427967a344e2a32fcb86ea8c6cd1a285ec4f1fa03fba67",
+      "origins": [
+        "https://registry.npmjs.org/tr46/-/tr46-7.0.0.tgz :: npm/tr46/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/49b5db19990a3e3cc1a9ed716aed231f6f3c1c217e58f62ae4dc2818c6d3e9cc.txt",
+      "sha256": "49b5db19990a3e3cc1a9ed716aed231f6f3c1c217e58f62ae4dc2818c6d3e9cc",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libcap-ng0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/49d4d143fed599deb502a0fe6e02f49832f87e9a3a4cd0502e469596d50faa6d.txt",
+      "sha256": "49d4d143fed599deb502a0fe6e02f49832f87e9a3a4cd0502e469596d50faa6d",
+      "origins": [
+        "https://registry.npmjs.org/bidi-js/-/bidi-js-1.1.0.tgz :: npm/bidi-js/package/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484.txt",
+      "sha256": "4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/markdown_it_py-4.3.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4b82c8dd6e55001a5921bea1d6db20be5c51e5976d892e870324026c23f37b6f.txt",
+      "sha256": "4b82c8dd6e55001a5921bea1d6db20be5c51e5976d892e870324026c23f37b6f",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libxslt1.1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4c22cf66ddd6dfae2ac4e034342f93a9c96581d5e88c7bb700a125a71cf66cd7.txt",
+      "sha256": "4c22cf66ddd6dfae2ac4e034342f93a9c96581d5e88c7bb700a125a71cf66cd7",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libllvm19/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4cdb9af102dfbb0ca03d87d6f650a505df098646a4080f4665b389ad9c6caa02.txt",
+      "sha256": "4cdb9af102dfbb0ca03d87d6f650a505df098646a4080f4665b389ad9c6caa02",
+      "origins": [
+        "Go module cel.dev/cel-go@v0.32.0; verified h1:irvpFKr5EuGPyxeME03ERh0rii1TX+BDAnB9eL3IvNk= :: go/cel.dev/cel-go@v0.32.0/cel-go@v0.32.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4da95ec4ecb65b738d470b7d762894ad9c97da93e6cbfb18b570fc2c96f4b871.txt",
+      "sha256": "4da95ec4ecb65b738d470b7d762894ad9c97da93e6cbfb18b570fc2c96f4b871",
+      "origins": [
+        "https://static.crates.io/crates/arrayvec/arrayvec-0.7.8.crate :: notices/arrayvec/0.7.8/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4ebaa5bc59e454e68f4acd5af948938b9a0759cef31cc8d6afcec9c9fd1d10eb.txt",
+      "sha256": "4ebaa5bc59e454e68f4acd5af948938b9a0759cef31cc8d6afcec9c9fd1d10eb",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libassuan0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e.txt",
+      "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/fastapi-0.165.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/51a0c9ec7f8b7634181b8d4c03e5b5d204ac21d6e72f46c313973424664b2e6b.txt",
+      "sha256": "51a0c9ec7f8b7634181b8d4c03e5b5d204ac21d6e72f46c313973424664b2e6b",
+      "origins": [
+        "Go module github.com/sirupsen/logrus@v1.10.2; verified h1:G2SED73/qrAu6YwbdxOD6peLkCBI3z7L+ykJFTXJBBo= :: go/github.com/sirupsen/logrus@v1.10.2/sirupsen/logrus@v1.10.2/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/528eec83cb836a0adda9f8fc3d6a2a70a710d6cc0be9a155f92212c8df28acfa.txt",
+      "sha256": "528eec83cb836a0adda9f8fc3d6a2a70a710d6cc0be9a155f92212c8df28acfa",
+      "origins": [
+        "https://registry.npmjs.org/data-urls/-/data-urls-8.0.0.tgz :: npm/data-urls/package/LICENSE.txt",
+        "https://registry.npmjs.org/html-encoding-sniffer/-/html-encoding-sniffer-7.0.0.tgz :: npm/html-encoding-sniffer/package/LICENSE.txt",
+        "https://registry.npmjs.org/whatwg-mimetype/-/whatwg-mimetype-5.0.0.tgz :: npm/whatwg-mimetype/package/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/52b7cf37d674ca47296cf6270a95ecda0ecbef976cc090d702acbd741e36b3b4.txt",
+      "sha256": "52b7cf37d674ca47296cf6270a95ecda0ecbef976cc090d702acbd741e36b3b4",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libapparmor1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/530424aebdd0e73f53238d1f89df250057bc8d8ce090cf5954197fadce5bf226.txt",
+      "sha256": "530424aebdd0e73f53238d1f89df250057bc8d8ce090cf5954197fadce5bf226",
+      "origins": [
+        "https://registry.npmjs.org/rope-sequence/-/rope-sequence-1.3.4.tgz :: npm/rope-sequence/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0.txt",
+      "sha256": "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/anyio-4.16.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/54ad56db6145102d0182741cd3a7ff2e978f950a2b1bd74f412ebee732de3c9c.txt",
+      "sha256": "54ad56db6145102d0182741cd3a7ff2e978f950a2b1bd74f412ebee732de3c9c",
+      "origins": [
+        "Go module github.com/google/certificate-transparency-go@v1.3.3; verified h1:hq/rSxztSkXN2tx/3jQqF6Xc0O565UQPdHrOWvZwybo= :: go/github.com/google/certificate-transparency-go@v1.3.3/google/certificate-transparency-go@v1.3.3/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/57163c71bd8a5289660892827dd0dfaa7fef47f89deedc9dc6711ced7d0a28d7.txt",
+      "sha256": "57163c71bd8a5289660892827dd0dfaa7fef47f89deedc9dc6711ced7d0a28d7",
+      "origins": [
+        "Audited business TAR: usr/share/doc/debconf/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/572ad60ad184d8f52c6dc66d83a61a68f137db560b3452ce00588c9ecf128a65.txt",
+      "sha256": "572ad60ad184d8f52c6dc66d83a61a68f137db560b3452ce00588c9ecf128a65",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libtasn1-6/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5803fa925ae1703b9c752921c95a321570e6cabf06fcf2de895ddaf1687cebef.txt",
+      "sha256": "5803fa925ae1703b9c752921c95a321570e6cabf06fcf2de895ddaf1687cebef",
+      "origins": [
+        "https://registry.npmjs.org/dompurify/-/dompurify-3.4.17.tgz :: npm/dompurify/package/src/license_header"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/58e6f3677452cca096ce5328ebf7de37a1406bbeeb2f263c1b2ededc8c7d0228.txt",
+      "sha256": "58e6f3677452cca096ce5328ebf7de37a1406bbeeb2f263c1b2ededc8c7d0228",
+      "origins": [
+        "https://registry.npmjs.org/linkifyjs/-/linkifyjs-4.3.3.tgz :: npm/linkifyjs/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5994050a30e496c232c87078def26f1e50fb5b0188ae216662d28dbba3cc3922.txt",
+      "sha256": "5994050a30e496c232c87078def26f1e50fb5b0188ae216662d28dbba3cc3922",
+      "origins": [
+        "Go module github.com/smallstep/certificates@v0.30.2; verified h1:1G3xBi8sJ740iA1mMPW2Svv7EIZKJ4Zf/iQtA5QlN0Y= :: go/github.com/smallstep/certificates@v0.30.2/smallstep/certificates@v0.30.2/debian/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5a5e7ca0e9f3f9679977e3a3e9ede45ad92885a3297ea78e766979f9866c5a16.txt",
+      "sha256": "5a5e7ca0e9f3f9679977e3a3e9ede45ad92885a3297ea78e766979f9866c5a16",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libcrypt1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63.txt",
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/cffi-2.1.1.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5bbff5f646ce750ac0a347e7f91793279b7422a1119820b5f75d98879c201c68.txt",
+      "sha256": "5bbff5f646ce750ac0a347e7f91793279b7422a1119820b5f75d98879c201c68",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libicu72/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5be1f3465bba68a626777f984878814aaf35e7ef8e9fd314d469bcf887050fb8.txt",
+      "sha256": "5be1f3465bba68a626777f984878814aaf35e7ef8e9fd314d469bcf887050fb8",
+      "origins": [
+        "https://registry.npmjs.org/postcss/-/postcss-8.5.30.tgz :: npm/postcss/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5c0476add4c38b55d0ed5ac11b85e00c38f26e1caee20dfe3ab58190103d1fbc.txt",
+      "sha256": "5c0476add4c38b55d0ed5ac11b85e00c38f26e1caee20dfe3ab58190103d1fbc",
+      "origins": [
+        "Go module github.com/cenkalti/backoff/v5@v5.0.3; verified h1:ZN+IMa753KfX5hd8vVaMixjnqRZ3y8CuJKRKj1xcsSM= :: go/github.com/cenkalti/backoff/v5@v5.0.3/cenkalti/backoff/v5@v5.0.3/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5d588eb3b157d52112afea935c88a7ff9efddc1e2d95a42c25d3b96ad9055008.txt",
+      "sha256": "5d588eb3b157d52112afea935c88a7ff9efddc1e2d95a42c25d3b96ad9055008",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/BSD"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5d7e88625cbc52ce4a5da7902d7afb09255635b5a60de640e202b1af943b9a19.txt",
+      "sha256": "5d7e88625cbc52ce4a5da7902d7afb09255635b5a60de640e202b1af943b9a19",
+      "origins": [
+        "Go module go.uber.org/automaxprocs@v1.6.0; verified h1:O3y2/QNTOdbF+e/dpXNNW7Rx2hZ4sTIPyybbxyNqTUs= :: go/go.uber.org/automaxprocs@v1.6.0/automaxprocs@v1.6.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5d966570d7a442d4e969892860a914e542c97f262c873baee8f0aa48e1f40212.txt",
+      "sha256": "5d966570d7a442d4e969892860a914e542c97f262c873baee8f0aa48e1f40212",
+      "origins": [
+        "Go module github.com/klauspost/cpuid/v2@v2.4.0; verified h1:S6Hrbc7+ywsr0r+RLapfGBHfyefhCTwEh3A0tV913Dw= :: go/github.com/klauspost/cpuid/v2@v2.4.0/klauspost/cpuid/v2@v2.4.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5e05b024f653a5ce199e77cbbbd42fb5553562ec714b819421ed0c3e552a75d7.txt",
+      "sha256": "5e05b024f653a5ce199e77cbbbd42fb5553562ec714b819421ed0c3e552a75d7",
+      "origins": [
+        "https://static.crates.io/crates/stable_deref_trait/stable_deref_trait-1.2.0.crate :: notices/stable_deref_trait/1.2.0/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283.txt",
+      "sha256": "5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283",
+      "origins": [
+        "Go module github.com/spf13/cobra@v1.10.2; verified h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU= :: go/github.com/spf13/cobra@v1.10.2/spf13/cobra@v1.10.2/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/5e77ddcac7fb682d696bc4b034dc2869e5a9011e8c2ed3c570ab8db0f4506931.txt",
+      "sha256": "5e77ddcac7fb682d696bc4b034dc2869e5a9011e8c2ed3c570ab8db0f4506931",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libsasl2-2/copyright",
+        "Audited business TAR: usr/share/doc/libsasl2-modules-db/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/600244c8052c8c1d307043fafacbc83b429c171dd8e08f5a537c0a54014585ee.txt",
+      "sha256": "600244c8052c8c1d307043fafacbc83b429c171dd8e08f5a537c0a54014585ee",
+      "origins": [
+        "Go module github.com/prometheus/common@v0.71.0; verified h1:9KDAKb7Mj3HEVKyFCK6Dc/HIwlBzZIN2l7/lrHl3KK8= :: go/github.com/prometheus/common@v0.71.0/prometheus/common@v0.71.0/NOTICE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/627c695f80fdac6412d66e6ad4160a4acb41923ca7ee3fd7e112e105f0ff46b9.txt",
+      "sha256": "627c695f80fdac6412d66e6ad4160a4acb41923ca7ee3fd7e112e105f0ff46b9",
+      "origins": [
+        "Go module google.golang.org/grpc@v1.83.2; verified h1:EManeRomTObA0BU7I8vXgg/78uE5MJ9M8B39EX2WscU= :: go/google.golang.org/grpc@v1.83.2/grpc@v1.83.2/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a.txt",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "origins": [
+        "https://static.crates.io/crates/itoa/itoa-1.0.11.crate :: notices/itoa/1.0.11/LICENSE-APACHE",
+        "https://static.crates.io/crates/libc/libc-0.2.185.crate :: notices/libc/0.2.185/LICENSE-APACHE",
+        "https://static.crates.io/crates/proc-macro2/proc-macro2-1.0.107.crate :: notices/proc-macro2/1.0.107/LICENSE-APACHE",
+        "https://static.crates.io/crates/quote/quote-1.0.44.crate :: notices/quote/1.0.44/LICENSE-APACHE",
+        "https://static.crates.io/crates/serde/serde-1.0.229.crate :: notices/serde/1.0.229/LICENSE-APACHE",
+        "https://static.crates.io/crates/serde_core/serde_core-1.0.229.crate :: notices/serde_core/1.0.229/LICENSE-APACHE",
+        "https://static.crates.io/crates/serde_derive/serde_derive-1.0.229.crate :: notices/serde_derive/1.0.229/LICENSE-APACHE",
+        "https://static.crates.io/crates/serde_json/serde_json-1.0.151.crate :: notices/serde_json/1.0.151/LICENSE-APACHE",
+        "https://static.crates.io/crates/syn/syn-2.0.82.crate :: notices/syn/2.0.82/LICENSE-APACHE",
+        "https://static.crates.io/crates/syn/syn-3.0.6.crate :: notices/syn/3.0.6/LICENSE-APACHE",
+        "https://static.crates.io/crates/unicode-ident/unicode-ident-1.0.12.crate :: notices/unicode-ident/1.0.12/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104.txt",
+      "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "origins": [
+        "Audited business TAR: usr/local/lib/python3.12/site-packages/pip-25.0.1.dist-info/LICENSE.txt",
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pip-25.0.1.dist-info/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/641806738b0c6a3d03168c2649e6b94205198bb66cd557e6bae3a20b71c9bb0b.txt",
+      "sha256": "641806738b0c6a3d03168c2649e6b94205198bb66cd557e6bae3a20b71c9bb0b",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libselinux1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb.txt",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+      "origins": [
+        "https://static.crates.io/crates/bitflags/bitflags-2.9.1.crate :: notices/bitflags/2.9.1/LICENSE-MIT",
+        "https://static.crates.io/crates/log/log-0.4.27.crate :: notices/log/0.4.27/LICENSE-MIT",
+        "https://static.crates.io/crates/num-bigint/num-bigint-0.4.6.crate :: notices/num-bigint/0.4.6/LICENSE-MIT",
+        "https://static.crates.io/crates/num-integer/num-integer-0.1.46.crate :: notices/num-integer/0.1.46/LICENSE-MIT",
+        "https://static.crates.io/crates/num-traits/num-traits-0.2.19.crate :: notices/num-traits/0.2.19/LICENSE-MIT",
+        "https://static.crates.io/crates/regex/regex-1.13.1.crate :: notices/regex/1.13.1/LICENSE-MIT",
+        "https://static.crates.io/crates/regex-automata/regex-automata-0.4.18.crate :: notices/regex-automata/0.4.18/LICENSE-MIT",
+        "https://static.crates.io/crates/regex-syntax/regex-syntax-0.8.11.crate :: notices/regex-syntax/0.8.11/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6582629e2979466878f6014313dcc2f3756c9616148682227ce3063dde310750.txt",
+      "sha256": "6582629e2979466878f6014313dcc2f3756c9616148682227ce3063dde310750",
+      "origins": [
+        "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz :: npm/picocolors/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/65f94e99ddaf4f5d1782a6dae23f35d4293a9a01444a13135a6887017d353cee.txt",
+      "sha256": "65f94e99ddaf4f5d1782a6dae23f35d4293a9a01444a13135a6887017d353cee",
+      "origins": [
+        "https://static.crates.io/crates/bumpalo/bumpalo-3.19.0.crate :: notices/bumpalo/3.19.0/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/66550c0ad5ca7ec1e08683e5f872cc45c741f311eee3b8ee484206ecbf9c740d.txt",
+      "sha256": "66550c0ad5ca7ec1e08683e5f872cc45c741f311eee3b8ee484206ecbf9c740d",
+      "origins": [
+        "Go module github.com/miekg/dns@v1.1.73; verified h1:uhT8nJxmTrPJYClxVxTCX+CVn6qnzSiybRk72Z6DgrE= :: go/github.com/miekg/dns@v1.1.73/miekg/dns@v1.1.73/COPYRIGHT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/666f1951be1d543e744818d232bb311a4a310fd1d344288642c796fca39af3c7.txt",
+      "sha256": "666f1951be1d543e744818d232bb311a4a310fd1d344288642c796fca39af3c7",
+      "origins": [
+        "Go module github.com/pires/go-proxyproto@v0.15.0; verified h1:dTshmNbFm/D+0+sbrxUuddPOZ5Y0B7c5NhtsBkm6LqI= :: go/github.com/pires/go-proxyproto@v0.15.0/pires/go-proxyproto@v0.15.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/66e8a6491399ee36b111ba6df0af68ee82b375fb6fbfd54c8382c9dc3fbd9c9a.txt",
+      "sha256": "66e8a6491399ee36b111ba6df0af68ee82b375fb6fbfd54c8382c9dc3fbd9c9a",
+      "origins": [
+        "Go module github.com/mgutz/ansi@v0.0.0-20200706080929-d51e80ef957d; verified h1:5PJl274Y63IEHC+7izoQE9x6ikvDFZS2mDVS3drnohI= :: go/github.com/mgutz/ansi@v0.0.0-20200706080929-d51e80ef957d/mgutz/ansi@v0.0.0-20200706080929-d51e80ef957d/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/67dd4031ca283ba2f0def195329740f237e7ba30ef26e3dce3afa7f73cb62c8b.txt",
+      "sha256": "67dd4031ca283ba2f0def195329740f237e7ba30ef26e3dce3afa7f73cb62c8b",
+      "origins": [
+        "Audited business TAR: usr/share/doc/ucf/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/681e386e44a19d7d0674b4320272c90e66b6610b741e7e6305f8219c42e85366.txt",
+      "sha256": "681e386e44a19d7d0674b4320272c90e66b6610b741e7e6305f8219c42e85366",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/LGPL-2"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/683fcd416d83b64781e229a3c2a598462fbf55c5c9fea54be244766b22c033cf.txt",
+      "sha256": "683fcd416d83b64781e229a3c2a598462fbf55c5c9fea54be244766b22c033cf",
+      "origins": [
+        "Go module github.com/antlr4-go/antlr/v4@v4.13.1; verified h1:SqQKkuVZ+zWkMMNkjy5FZe5mr5WURWnlpmOuzYWrPrQ= :: go/github.com/antlr4-go/antlr/v4@v4.13.1/antlr4-go/antlr/v4@v4.13.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/68f12f6e2c33688699249c01d8f9623c534da20aa71989c57b061b7bc1676d14.txt",
+      "sha256": "68f12f6e2c33688699249c01d8f9623c534da20aa71989c57b061b7bc1676d14",
+      "origins": [
+        "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.1.7.tgz :: npm/brace-expansion/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/68f5b9f5ea36881a0942ba02f558e9e1faf76cc09cb165ad801744c61b738844.txt",
+      "sha256": "68f5b9f5ea36881a0942ba02f558e9e1faf76cc09cb165ad801744c61b738844",
+      "origins": [
+        "https://static.crates.io/crates/unicode-ident/unicode-ident-1.0.12.crate :: notices/unicode-ident/1.0.12/LICENSE-UNICODE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/693ff28ec216d5112ac1bbfe64ef539005867d1c7bd427b57d579683293b947f.txt",
+      "sha256": "693ff28ec216d5112ac1bbfe64ef539005867d1c7bd427b57d579683293b947f",
+      "origins": [
+        "Go module google.golang.org/grpc@v1.83.2; verified h1:EManeRomTObA0BU7I8vXgg/78uE5MJ9M8B39EX2WscU= :: go/google.golang.org/grpc@v1.83.2/grpc@v1.83.2/NOTICE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6a0d712ff4c257b13183759363dce13459da5b6cd938b082c2401c02914ca4c6.txt",
+      "sha256": "6a0d712ff4c257b13183759363dce13459da5b6cd938b082c2401c02914ca4c6",
+      "origins": [
+        "Go module github.com/smallstep/scep@v0.0.0-20260331191114-261f960a40d1; verified h1:lpXBkQKj1rT1oGX/2idvt8xbrOrnoQxH/+CjoeMxs9E= :: go/github.com/smallstep/scep@v0.0.0-20260331191114-261f960a40d1/smallstep/scep@v0.0.0-20260331191114-261f960a40d1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6a134e51aa31496c15a741592fc5d782b2dbf8d8b6b8524e15c8520ae0cd6374.txt",
+      "sha256": "6a134e51aa31496c15a741592fc5d782b2dbf8d8b6b8524e15c8520ae0cd6374",
+      "origins": [
+        "https://registry.npmjs.org/why-is-node-running/-/why-is-node-running-3.2.1.tgz :: npm/why-is-node-running/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6a358d2540ca14048f02d366f23787c0a480157e58f058113f0e27168dd4e447.txt",
+      "sha256": "6a358d2540ca14048f02d366f23787c0a480157e58f058113f0e27168dd4e447",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/internal/lz4ref/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35.txt",
+      "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libssl3/copyright",
+        "Audited business TAR: usr/share/doc/openssl/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6c7011e93f643b112c4cc3622131e28a30477afad6c4f5efe466b13aa7f603cc.txt",
+      "sha256": "6c7011e93f643b112c4cc3622131e28a30477afad6c4f5efe466b13aa7f603cc",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libaudit-common/copyright",
+        "Audited business TAR: usr/share/doc/libaudit1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6c79faa15168885fb88a316ae0df18f486deafddefdc16826cdc56dfbd421e24.txt",
+      "sha256": "6c79faa15168885fb88a316ae0df18f486deafddefdc16826cdc56dfbd421e24",
+      "origins": [
+        "Go module github.com/prometheus/client_model@v0.6.3; verified h1:O0jaTVAYNxTHYInEPFJt5I3+sN8zqBtVMPTB1qyxiEo= :: go/github.com/prometheus/client_model@v0.6.3/prometheus/client_model@v0.6.3/NOTICE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6cb0631f71c7749763fd3dd1d5bee52dd1070ec17f2edc1710079ad070bd2fbd.txt",
+      "sha256": "6cb0631f71c7749763fd3dd1d5bee52dd1070ec17f2edc1710079ad070bd2fbd",
+      "origins": [
+        "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz :: npm/source-map-js/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6da0653a365b80ab31478dbfe9e7c358e80d58b6d2b52b4e16b4dbb42d7d9f5c.txt",
+      "sha256": "6da0653a365b80ab31478dbfe9e7c358e80d58b6d2b52b4e16b4dbb42d7d9f5c",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libseccomp2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6e68d94a03a0e3e327ddf3e86d1ebedc14eece3922022618fc246a36296fd0cc.txt",
+      "sha256": "6e68d94a03a0e3e327ddf3e86d1ebedc14eece3922022618fc246a36296fd0cc",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/alembic-1.20.1.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6ee0feb1f6ef996ff5a68600f8cf98909cf412d39ef3cdceaefd87d636fa1b7f.txt",
+      "sha256": "6ee0feb1f6ef996ff5a68600f8cf98909cf412d39ef3cdceaefd87d636fa1b7f",
+      "origins": [
+        "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz :: npm/require-from-string/package/license"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/6fac0a40e0507e3ba32cd3471c808fa5ba4b088700bd22d81250f40f6cc74db5.txt",
+      "sha256": "6fac0a40e0507e3ba32cd3471c808fa5ba4b088700bd22d81250f40f6cc74db5",
+      "origins": [
+        "Go module github.com/smallstep/certificates@v0.30.2; verified h1:1G3xBi8sJ740iA1mMPW2Svv7EIZKJ4Zf/iQtA5QlN0Y= :: go/github.com/smallstep/certificates@v0.30.2/smallstep/certificates@v0.30.2/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/719320e425e8e6da53a55e0fcfa2f2ed9b1332cea16abd65321bd651b2a88568.txt",
+      "sha256": "719320e425e8e6da53a55e0fcfa2f2ed9b1332cea16abd65321bd651b2a88568",
+      "origins": [
+        "Audited business TAR: usr/share/doc/sed/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/719a251ceca49c057ea90a1152af6546b767ec88e6d573bb6324454267b32c22.txt",
+      "sha256": "719a251ceca49c057ea90a1152af6546b767ec88e6d573bb6324454267b32c22",
+      "origins": [
+        "https://registry.npmjs.org/css-tree/-/css-tree-3.2.1.tgz :: npm/css-tree/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7365cc8878a1d7ce155a58c4ca09c3d7a6be413efa5334a80ea842912b669349.txt",
+      "sha256": "7365cc8878a1d7ce155a58c4ca09c3d7a6be413efa5334a80ea842912b669349",
+      "origins": [
+        "https://static.crates.io/crates/equivalent/equivalent-1.0.3.crate :: notices/equivalent/1.0.3/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7442bdadcd44e818fddd786057db07639cc68225c389c7c240d3bb3984b05173.txt",
+      "sha256": "7442bdadcd44e818fddd786057db07639cc68225c389c7c240d3bb3984b05173",
+      "origins": [
+        "Audited business TAR: usr/share/doc/dpkg/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/74a7b790488334d8a15bb0349ef1ceed3d4bb107f1c175460d5049217f0b5b89.txt",
+      "sha256": "74a7b790488334d8a15bb0349ef1ceed3d4bb107f1c175460d5049217f0b5b89",
+      "origins": [
+        "Go module github.com/miekg/dns@v1.1.73; verified h1:uhT8nJxmTrPJYClxVxTCX+CVn6qnzSiybRk72Z6DgrE= :: go/github.com/miekg/dns@v1.1.73/miekg/dns@v1.1.73/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/74db5baf44a41b1000312c673544b3374e4198af5605c7f9080a402cec42cfa3.txt",
+      "sha256": "74db5baf44a41b1000312c673544b3374e4198af5605c7f9080a402cec42cfa3",
+      "origins": [
+        "https://static.crates.io/crates/regex-syntax/regex-syntax-0.8.11.crate :: notices/regex-syntax/0.8.11/src/unicode_tables/LICENSE-UNICODE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7534601cc4fa513804d16490359f5831e7b6a1212da3bbf948bebdd4c8799783.txt",
+      "sha256": "7534601cc4fa513804d16490359f5831e7b6a1212da3bbf948bebdd4c8799783",
+      "origins": [
+        "Audited business TAR: usr/share/doc/init-system-helpers/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7543dfe82fa61d5bb2478c78cbd9dfb2cbd500b6ac2893b24ed925773b67fb70.txt",
+      "sha256": "7543dfe82fa61d5bb2478c78cbd9dfb2cbd500b6ac2893b24ed925773b67fb70",
+      "origins": [
+        "https://registry.npmjs.org/prosemirror-changeset/-/prosemirror-changeset-2.4.4.tgz :: npm/prosemirror-changeset/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/75863f712f8f0603b0dba33edf4b725bab80fc858a51756e5905a3c4c8087169.txt",
+      "sha256": "75863f712f8f0603b0dba33edf4b725bab80fc858a51756e5905a3c4c8087169",
+      "origins": [
+        "https://registry.npmjs.org/alien-signals/-/alien-signals-1.0.13.tgz :: npm/alien-signals/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/75e1ca97a84a9da6051dee0114333388216f2c4a5a028296b882ff3d57274735.txt",
+      "sha256": "75e1ca97a84a9da6051dee0114333388216f2c4a5a028296b882ff3d57274735",
+      "origins": [
+        "Go module github.com/russross/blackfriday/v2@v2.1.0; verified h1:JIOH55/0cWyOuilr9/qlrm0BSXldqnqwMsf35Ld67mk= :: go/github.com/russross/blackfriday/v2@v2.1.0/russross/blackfriday/v2@v2.1.0/LICENSE.txt",
+        "Go module github.com/smallstep/cli-utils@v0.12.2; verified h1:lGzM9PJrH/qawbzMC/s2SvgLdJPKDWKwKzx9doCVO+k= :: go/github.com/smallstep/cli-utils@v0.12.2/smallstep/cli-utils@v0.12.2/pkg/blackfriday/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/769d154fbde32a915af110b1123650bc79f4cbe675acc66e005265bf069c6c6c.txt",
+      "sha256": "769d154fbde32a915af110b1123650bc79f4cbe675acc66e005265bf069c6c6c",
+      "origins": [
+        "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz :: npm/@jridgewell/sourcemap-codec/package/LICENSE",
+        "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz :: npm/@jridgewell/trace-mapping/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/76d031db3924c26849d42a8c676b4faf2e2e294c2de4238e54964c9510e762a5.txt",
+      "sha256": "76d031db3924c26849d42a8c676b4faf2e2e294c2de4238e54964c9510e762a5",
+      "origins": [
+        "Go module go.step.sm/crypto@v0.91.0; verified h1:0mN0DwVOvUuh7VbyTnxABZuAkxwak/Grp8Y/b4YaZDU= :: go/go.step.sm/crypto@v0.91.0/crypto@v0.91.0/internal/utils/utfbom/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e.txt",
+      "sha256": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e",
+      "origins": [
+        "Go module github.com/quic-go/quic-go@v0.63.0; verified h1:LIFGHI4PFUhhw2dDD1ARHdCff143ffMHwZtbnbuJ78A= :: go/github.com/quic-go/quic-go@v0.63.0/quic-go/quic-go@v0.63.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/77de76c8641705a00dd174939155bc26b6cfa03e3d6a2d8d41990940a59fad82.txt",
+      "sha256": "77de76c8641705a00dd174939155bc26b6cfa03e3d6a2d8d41990940a59fad82",
+      "origins": [
+        "Audited business TAR: usr/share/doc/pinentry-curses/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/78cad457d5ea7318230f3d969d4cdf29cef45524a1fc8ca3a97646da1ad7a841.txt",
+      "sha256": "78cad457d5ea7318230f3d969d4cdf29cef45524a1fc8ca3a97646da1ad7a841",
+      "origins": [
+        "Go module github.com/fxamacker/cbor/v2@v2.9.4; verified h1:xwjVlxEMR3S605oUlgBjKLTTeGFciYPGYCtF/35LKGo= :: go/github.com/fxamacker/cbor/v2@v2.9.4/fxamacker/cbor/v2@v2.9.4/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/78d2a34606a0302057ec499a3b3c07bcbc43ca334064ce4c80891a0f69c8f6c6.txt",
+      "sha256": "78d2a34606a0302057ec499a3b3c07bcbc43ca334064ce4c80891a0f69c8f6c6",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libsepol2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/78e9df8f8153c91c762ec970b82d224ac4d30f05aa7773e7e17e268141e53873.txt",
+      "sha256": "78e9df8f8153c91c762ec970b82d224ac4d30f05aa7773e7e17e268141e53873",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libsqlite3-0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/78fbac9e571c2ee260deb2a1941a8a18f0a85e3f39c23d08e2dcee6da4841998.txt",
+      "sha256": "78fbac9e571c2ee260deb2a1941a8a18f0a85e3f39c23d08e2dcee6da4841998",
+      "origins": [
+        "https://registry.npmjs.org/vitest/-/vitest-5.0.5.tgz :: npm/vitest/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/792c48c5a849a15fdf9e37e8bcf9e6d1dd13b32b46c642a748a0a46a9919d473.txt",
+      "sha256": "792c48c5a849a15fdf9e37e8bcf9e6d1dd13b32b46c642a748a0a46a9919d473",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/markdown_it_py-4.3.0.dist-info/licenses/LICENSE.markdown-it"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/795b66147ea5ad692991caa7008ece551fb0fa88b9c53656223bd1518dc58ab2.txt",
+      "sha256": "795b66147ea5ad692991caa7008ece551fb0fa88b9c53656223bd1518dc58ab2",
+      "origins": [
+        "Audited business TAR: usr/share/doc/netbase/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0.txt",
+      "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0",
+      "origins": [
+        "https://static.crates.io/crates/heck/heck-0.5.0.crate :: notices/heck/0.5.0/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7c195dee59dd2338b87926657674cc39d06c7c93b8ae13c86ca07749a4be50ad.txt",
+      "sha256": "7c195dee59dd2338b87926657674cc39d06c7c93b8ae13c86ca07749a4be50ad",
+      "origins": [
+        "Go module google.golang.org/api@v0.298.0; verified h1:YW18RkHBMZBA1ergX0m4biagzgbiPTb2uTsRsDPWNRY= :: go/google.golang.org/api@v0.298.0/api@v0.298.0/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7c605df6e28667a9603118e98274f64a49ce3eed0d26fccce9534a345e0ef955.txt",
+      "sha256": "7c605df6e28667a9603118e98274f64a49ce3eed0d26fccce9534a345e0ef955",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/mdurl-0.1.2.dist-info/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7c6cc83c84eaa249a85bf12fe3eedd831bb50c696e8890b5248223ae68c7b408.txt",
+      "sha256": "7c6cc83c84eaa249a85bf12fe3eedd831bb50c696e8890b5248223ae68c7b408",
+      "origins": [
+        "https://registry.npmjs.org/expect-type/-/expect-type-1.4.0.tgz :: npm/expect-type/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7c7134b9f7b978c03fca875517cf398db91f19bbb8109b6685e742aa3f57468e.txt",
+      "sha256": "7c7134b9f7b978c03fca875517cf398db91f19bbb8109b6685e742aa3f57468e",
+      "origins": [
+        "https://static.crates.io/crates/jiter/jiter-0.19.0.crate :: notices/jiter/0.19.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7cdf9db3b91cc77b9ec947ad0c7126140f00e34528b67c3a58e9fc1a98055e14.txt",
+      "sha256": "7cdf9db3b91cc77b9ec947ad0c7126140f00e34528b67c3a58e9fc1a98055e14",
+      "origins": [
+        "https://registry.npmjs.org/@asamuzakjp/dom-selector/-/dom-selector-10.0.4.tgz :: npm/@asamuzakjp/dom-selector/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7d366aef5ba325150246de1d7820c4c9926cd27ca61a69948492b26cd3b61601.txt",
+      "sha256": "7d366aef5ba325150246de1d7820c4c9926cd27ca61a69948492b26cd3b61601",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libgmp10/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/7d9c79b73fd956319a90cd210441498b225e00960352c4c6d447436481bb0eec.txt",
+      "sha256": "7d9c79b73fd956319a90cd210441498b225e00960352c4c6d447436481bb0eec",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libnsl2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/804b59b25f2c31bd278f9202a19ae49a3945aa2664387e2d0a128c7cacc61ec3.txt",
+      "sha256": "804b59b25f2c31bd278f9202a19ae49a3945aa2664387e2d0a128c7cacc61ec3",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/typing_inspection-0.4.5.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/807f874c81a0dbce7d4e32b1a4e1ef1e094b9a3fe8579f34e60fda4f2077289c.txt",
+      "sha256": "807f874c81a0dbce7d4e32b1a4e1ef1e094b9a3fe8579f34e60fda4f2077289c",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libz3-4/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8108e14b5cb2b6bcd51583d3849ef0c2b5c4de61758256c20308bc70d1775dbb.txt",
+      "sha256": "8108e14b5cb2b6bcd51583d3849ef0c2b5c4de61758256c20308bc70d1775dbb",
+      "origins": [
+        "Go module github.com/felixge/httpsnoop@v1.1.0; verified h1:3YtUj32ZZkqZtt3sZZsClsymw/QDuVfpNhoA31zeORc= :: go/github.com/felixge/httpsnoop@v1.1.0/felixge/httpsnoop@v1.1.0/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90.txt",
+      "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+      "origins": [
+        "https://static.crates.io/crates/lexical-parse-float/lexical-parse-float-1.0.6.crate :: notices/lexical-parse-float/1.0.6/LICENSE-APACHE",
+        "https://static.crates.io/crates/lexical-parse-integer/lexical-parse-integer-1.0.6.crate :: notices/lexical-parse-integer/1.0.6/LICENSE-APACHE",
+        "https://static.crates.io/crates/lexical-util/lexical-util-1.0.7.crate :: notices/lexical-util/1.0.7/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643.txt",
+      "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/GPL-2"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/832ed535ff3c3d025a8d2348eb1b697b89addcf2eaadbc17650262040b9145e2.txt",
+      "sha256": "832ed535ff3c3d025a8d2348eb1b697b89addcf2eaadbc17650262040b9145e2",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libbz2-1.0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32.txt",
+      "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32",
+      "origins": [
+        "https://static.crates.io/crates/zerocopy/zerocopy-0.8.25.crate :: notices/zerocopy/0.8.25/LICENSE-BSD",
+        "https://static.crates.io/crates/zerocopy-derive/zerocopy-derive-0.8.25.crate :: notices/zerocopy-derive/0.8.25/LICENSE-BSD"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/84dab06b5c1baf3a7a45c3cdc5f98fb121234e98fdd6266c3f773d54fcdc4f54.txt",
+      "sha256": "84dab06b5c1baf3a7a45c3cdc5f98fb121234e98fdd6266c3f773d54fcdc4f54",
+      "origins": [
+        "Audited business TAR: usr/share/doc/gpgv/copyright",
+        "Audited business TAR: usr/share/doc/dirmngr/copyright",
+        "Audited business TAR: usr/share/doc/gnupg/copyright",
+        "Audited business TAR: usr/share/doc/gnupg-l10n/copyright",
+        "Audited business TAR: usr/share/doc/gnupg-utils/copyright",
+        "Audited business TAR: usr/share/doc/gpg/copyright",
+        "Audited business TAR: usr/share/doc/gpg-agent/copyright",
+        "Audited business TAR: usr/share/doc/gpg-wks-client/copyright",
+        "Audited business TAR: usr/share/doc/gpg-wks-server/copyright",
+        "Audited business TAR: usr/share/doc/gpgconf/copyright",
+        "Audited business TAR: usr/share/doc/gpgsm/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/85275778bfeeb4461375e42feb6a52343e521286ef7ba073e98a37a8c6f5143c.txt",
+      "sha256": "85275778bfeeb4461375e42feb6a52343e521286ef7ba073e98a37a8c6f5143c",
+      "origins": [
+        "Audited business TAR: usr/share/doc/dmsetup/copyright",
+        "Audited business TAR: usr/share/doc/libdevmapper1.02.1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8548bfb2bc1913396df38c548a6ec60b8dbcac3b0800485a40569c8bdd184471.txt",
+      "sha256": "8548bfb2bc1913396df38c548a6ec60b8dbcac3b0800485a40569c8bdd184471",
+      "origins": [
+        "Go module github.com/prometheus/client_golang@v1.24.1; verified h1:JnJkREXzWxUdCuPFpIWZiPispT9xVV59uiuyR2bPlnU= :: go/github.com/prometheus/client_golang@v1.24.1/prometheus/client_golang@v1.24.1/NOTICE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8582c87d9a6baa28f7827c5205b7d16c3179bc794ebd4c7cc287c49a89b7eaa1.txt",
+      "sha256": "8582c87d9a6baa28f7827c5205b7d16c3179bc794ebd4c7cc287c49a89b7eaa1",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/s2/cmd/internal/filepathx/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8654d7cc7cdae1f31bb67a3ce5bf35d512c0bdfffd071df757edc54153cc7930.txt",
+      "sha256": "8654d7cc7cdae1f31bb67a3ce5bf35d512c0bdfffd071df757edc54153cc7930",
+      "origins": [
+        "Audited business TAR: usr/share/doc/diffutils/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/869c30f368eb08735e779027b9f4bc9fea2f39624351856aebe42741f0bc0884.txt",
+      "sha256": "869c30f368eb08735e779027b9f4bc9fea2f39624351856aebe42741f0bc0884",
+      "origins": [
+        "https://registry.npmjs.org/orderedmap/-/orderedmap-2.1.1.tgz :: npm/orderedmap/package/LICENSE",
+        "https://registry.npmjs.org/w3c-keyname/-/w3c-keyname-2.2.8.tgz :: npm/w3c-keyname/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8760fd36efa1d7186f8769d4e76a3e678045b94d54465bf6f2db5eb871c7c27f.txt",
+      "sha256": "8760fd36efa1d7186f8769d4e76a3e678045b94d54465bf6f2db5eb871c7c27f",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libgpg-error0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/88707653d5414f2242d597302a769565107ac139817b8ca321b3928cc1346c50.txt",
+      "sha256": "88707653d5414f2242d597302a769565107ac139817b8ca321b3928cc1346c50",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/argon2_cffi_bindings-26.2.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/88a2379b3ca34bf5c57127aff9dcb802bbb60ece0805cdbda65b3bd115f971d9.txt",
+      "sha256": "88a2379b3ca34bf5c57127aff9dcb802bbb60ece0805cdbda65b3bd115f971d9",
+      "origins": [
+        "Go module github.com/mattn/go-colorable@v0.1.15; verified h1:+u9SLTRGnXv73cEsnsmoZBom+dMU88B2M0aDcWy0/jY= :: go/github.com/mattn/go-colorable@v0.1.15/mattn/go-colorable@v0.1.15/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8a1af140fdfbf5afd3df27f7e662f989c5b963a300020dfafce42033cae9e004.txt",
+      "sha256": "8a1af140fdfbf5afd3df27f7e662f989c5b963a300020dfafce42033cae9e004",
+      "origins": [
+        "https://registry.npmjs.org/lru-cache/-/lru-cache-11.5.3.tgz :: npm/lru-cache/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8a4b6c44eebfb026d23719a348145a661a555568dbfdc11618ff2d0dd9306b00.txt",
+      "sha256": "8a4b6c44eebfb026d23719a348145a661a555568dbfdc11618ff2d0dd9306b00",
+      "origins": [
+        "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.2.tgz :: npm/es-module-lexer/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8a6dcbabe7179f9c8489c08a7d874d0f1e093ae7449e03756ccf87cb9d0e296e.txt",
+      "sha256": "8a6dcbabe7179f9c8489c08a7d874d0f1e093ae7449e03756ccf87cb9d0e296e",
+      "origins": [
+        "https://registry.npmjs.org/estree-walker/-/estree-walker-3.0.3.tgz :: npm/@vitest/mocker/node_modules/estree-walker/package/LICENSE",
+        "https://registry.npmjs.org/estree-walker/-/estree-walker-2.0.2.tgz :: npm/estree-walker/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8b43ce8accd61e9d370b5ca9e9c4f953279b5c239926c62315b40e24df51b726.txt",
+      "sha256": "8b43ce8accd61e9d370b5ca9e9c4f953279b5c239926c62315b40e24df51b726",
+      "origins": [
+        "https://static.crates.io/crates/idna_adapter/idna_adapter-1.2.0.crate :: notices/idna_adapter/1.2.0/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8b4e95f5cf0dc40269c99f7b787203ffe04ded245ca2427422c196efa2b2f42a.txt",
+      "sha256": "8b4e95f5cf0dc40269c99f7b787203ffe04ded245ca2427422c196efa2b2f42a",
+      "origins": [
+        "https://static.crates.io/crates/tap/tap-1.0.1.crate :: notices/tap/1.0.1/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8b53da37d73289d9df7317b3a2dbe16491f1fa9fec8b77b86d69704b40ce2c26.txt",
+      "sha256": "8b53da37d73289d9df7317b3a2dbe16491f1fa9fec8b77b86d69704b40ce2c26",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libdb5.3/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8bce3b45e49ecd1461f223b46de133d8f62cd39f745cfdaf81bee554b908bd42.txt",
+      "sha256": "8bce3b45e49ecd1461f223b46de133d8f62cd39f745cfdaf81bee554b908bd42",
+      "origins": [
+        "https://static.crates.io/crates/strum/strum-0.28.0.crate :: notices/strum/0.28.0/LICENSE",
+        "https://static.crates.io/crates/strum_macros/strum_macros-0.28.0.crate :: notices/strum_macros/0.28.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8bea8cf2f94cd8b37a0b8b3a2b974122b9194c1165e6ad508e366c74679e8817.txt",
+      "sha256": "8bea8cf2f94cd8b37a0b8b3a2b974122b9194c1165e6ad508e366c74679e8817",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libgdbm6/copyright",
+        "Audited business TAR: usr/share/doc/libgdbm-compat4/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8c1d171bc5d341ad9cd33d5e2c39b96a82c7bd49b3ae89a470c37e5822232054.txt",
+      "sha256": "8c1d171bc5d341ad9cd33d5e2c39b96a82c7bd49b3ae89a470c37e5822232054",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/mako-1.4.3.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d.txt",
+      "sha256": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+      "origins": [
+        "https://registry.npmjs.org/parse5/-/parse5-8.0.1.tgz :: npm/parse5/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4.txt",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pyyaml-6.0.3.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8d427fd87bc9579ea368fde3d49f9ca22eac857f91a9dec7e3004bdfab7dee86.txt",
+      "sha256": "8d427fd87bc9579ea368fde3d49f9ca22eac857f91a9dec7e3004bdfab7dee86",
+      "origins": [
+        "Go module github.com/pkg/errors@v0.9.1; verified h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4= :: go/github.com/pkg/errors@v0.9.1/pkg/errors@v0.9.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8e3a3f82f59a60958f56ca08f445647c32a4733dc7ca6c2c46f6eb898471ab9c.txt",
+      "sha256": "8e3a3f82f59a60958f56ca08f445647c32a4733dc7ca6c2c46f6eb898471ab9c",
+      "origins": [
+        "https://registry.npmjs.org/marked/-/marked-17.0.6.tgz :: npm/@tiptap/markdown/node_modules/marked/package/LICENSE.md",
+        "https://registry.npmjs.org/marked/-/marked-18.1.1.tgz :: npm/marked/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/8fbcc77ed31f480a85654e9b6d1d25cbb95b62e9dc5159ae1565bca684c3e1dc.txt",
+      "sha256": "8fbcc77ed31f480a85654e9b6d1d25cbb95b62e9dc5159ae1565bca684c3e1dc",
+      "origins": [
+        "Audited business TAR: usr/share/doc/findutils/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad.txt",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "origins": [
+        "Go module golang.org/x/crypto@v0.57.0; verified h1:3ZVCjf8Ggz7zneR/EHRVx68Ctf+2pmIMP2UFhh9cC6M= :: go/golang.org/x/crypto@v0.57.0/x/crypto@v0.57.0/LICENSE",
+        "Go module golang.org/x/crypto/x509roots/fallback@v0.0.0-20261030153154-30a33513ff6d; verified h1:5NBkmd8MXirajj6AAEpi4HFVJnVkBNPTL1ggYAKqaws= :: go/golang.org/x/crypto/x509roots/fallback@v0.0.0-20261030153154-30a33513ff6d/x/crypto/x509roots/fallback@v0.0.0-20261030153154-30a33513ff6d/LICENSE",
+        "Go module golang.org/x/exp@v0.0.0-20260908205506-85c1c2202aba; verified h1:Ck8QetSgk912qxWLMCKxd0in+aiyBQyDSMae6e/xmpU= :: go/golang.org/x/exp@v0.0.0-20260908205506-85c1c2202aba/x/exp@v0.0.0-20260908205506-85c1c2202aba/LICENSE",
+        "Go module golang.org/x/net@v0.60.0; verified h1:79p50tfZlm0J9YfoDsSi639qSXNGVwEzOPLCxM2FsYU= :: go/golang.org/x/net@v0.60.0/x/net@v0.60.0/LICENSE",
+        "Go module golang.org/x/oauth2@v0.37.0; verified h1:JUlcxA8oAtauLfiH8FX2/FkAWHAdi0QtGCGc+hofE98= :: go/golang.org/x/oauth2@v0.37.0/x/oauth2@v0.37.0/LICENSE",
+        "Go module golang.org/x/sync@v0.23.0; verified h1:KameEIfc1IkluZyXWLn39Wd4tURc6GbCiISGiZm2bQk= :: go/golang.org/x/sync@v0.23.0/x/sync@v0.23.0/LICENSE",
+        "Go module golang.org/x/sys@v0.48.0; verified h1:bbX/i/6MgT9BVLM9RT1thmxL04yeTAhbEz4SyadbXoo= :: go/golang.org/x/sys@v0.48.0/x/sys@v0.48.0/LICENSE",
+        "Go module golang.org/x/term@v0.46.0; verified h1:3+OXuTbaKDgwk8jTi3aSLHRlmWqHEUDUtxnbFigO4YE= :: go/golang.org/x/term@v0.46.0/x/term@v0.46.0/LICENSE",
+        "Go module golang.org/x/text@v0.42.0; verified h1:JbOZXgfeCPU9gacVtYliJqOhD+zhrEqK4LfdpmlUZqI= :: go/golang.org/x/text@v0.42.0/x/text@v0.42.0/LICENSE",
+        "Go module golang.org/x/time@v0.16.0; verified h1:vMb6ptszcQMkcwiRTAuNNU50gom6++Q/6gY2hDM6VDE= :: go/golang.org/x/time@v0.16.0/x/time@v0.16.0/LICENSE",
+        "https://raw.githubusercontent.com/golang/go/go1.27.3/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/91a2845c4db44e7497b514b98634a674c737986ad0db81599307cf733bf850b2.txt",
+      "sha256": "91a2845c4db44e7497b514b98634a674c737986ad0db81599307cf733bf850b2",
+      "origins": [
+        "https://registry.npmjs.org/vue-router/-/vue-router-4.6.4.tgz :: npm/vue-router/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816.txt",
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libgssapi-krb5-2/copyright",
+        "Audited business TAR: usr/share/doc/libk5crypto3/copyright",
+        "Audited business TAR: usr/share/doc/libkrb5-3/copyright",
+        "Audited business TAR: usr/share/doc/libkrb5support0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/94189fc5a9a7b7224d96e1a0cfdfe9be0df2018b04bf21d591627ab96b30cad1.txt",
+      "sha256": "94189fc5a9a7b7224d96e1a0cfdfe9be0df2018b04bf21d591627ab96b30cad1",
+      "origins": [
+        "Audited business TAR: usr/share/doc/hostname/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/947e32047a166cd05f04e45938d172b412c07cbee0b9735afd14bae30e02c2f6.txt",
+      "sha256": "947e32047a166cd05f04e45938d172b412c07cbee0b9735afd14bae30e02c2f6",
+      "origins": [
+        "https://registry.npmjs.org/@csstools/color-helpers/-/color-helpers-6.1.2.tgz :: npm/@csstools/color-helpers/package/LICENSE.md",
+        "https://registry.npmjs.org/@csstools/css-syntax-patches-for-csstree/-/css-syntax-patches-for-csstree-1.1.15.tgz :: npm/@csstools/css-syntax-patches-for-csstree/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9482894dde0cdc3eea4abff3a9c54495d2a1ae4c6c87f4f647908ee0078b5b80.txt",
+      "sha256": "9482894dde0cdc3eea4abff3a9c54495d2a1ae4c6c87f4f647908ee0078b5b80",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libargon2-1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/949aa74c306e61ac17d96a8c4eb52d69f803722fa5b5009dec83c37b65c730ec.txt",
+      "sha256": "949aa74c306e61ac17d96a8c4eb52d69f803722fa5b5009dec83c37b65c730ec",
+      "origins": [
+        "Go module github.com/aryann/difflib@v0.0.0-20210328193216-ff5ff6dc229b; verified h1:uUXgbcPDK3KpW29o4iy7GtuappbWT0l5NaMo9H9pJDw= :: go/github.com/aryann/difflib@v0.0.0-20210328193216-ff5ff6dc229b/aryann/difflib@v0.0.0-20210328193216-ff5ff6dc229b/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9596b9028339d66c285422237728d6170e1e29d0b0d9adf0e9f1bda82e2391ce.txt",
+      "sha256": "9596b9028339d66c285422237728d6170e1e29d0b0d9adf0e9f1bda82e2391ce",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libpam-modules/copyright",
+        "Audited business TAR: usr/share/doc/libpam-modules-bin/copyright",
+        "Audited business TAR: usr/share/doc/libpam-runtime/copyright",
+        "Audited business TAR: usr/share/doc/libpam0g/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/95db2f9da663f2bfe2aabe9c72fce9d6c9ae767b912f397d7823f50bd55a1a7d.txt",
+      "sha256": "95db2f9da663f2bfe2aabe9c72fce9d6c9ae767b912f397d7823f50bd55a1a7d",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libgcrypt20/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc.txt",
+      "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+      "origins": [
+        "https://raw.githubusercontent.com/golang/go/go1.27.3/PATENTS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9836bfe2ef94505bbf29701e8c90799ab1a5fd966d26d60d019a822cdbf3d61a.txt",
+      "sha256": "9836bfe2ef94505bbf29701e8c90799ab1a5fd966d26d60d019a822cdbf3d61a",
+      "origins": [
+        "Audited business TAR: usr/share/doc/usr-is-merged/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/98978241c573785aa7c8504e399bb66cfb3c40c1f20507a0d3c7580bfbf9d8d4.txt",
+      "sha256": "98978241c573785aa7c8504e399bb66cfb3c40c1f20507a0d3c7580bfbf9d8d4",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libssh2-1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/99aab70a96f3ecab683d8a319d9070af2213ae4c1601fb053fbe85e1361e32fe.txt",
+      "sha256": "99aab70a96f3ecab683d8a319d9070af2213ae4c1601fb053fbe85e1361e32fe",
+      "origins": [
+        "https://static.crates.io/crates/lexical-parse-float/lexical-parse-float-1.0.6.crate :: notices/lexical-parse-float/1.0.6/LICENSE.md",
+        "https://static.crates.io/crates/lexical-parse-integer/lexical-parse-integer-1.0.6.crate :: notices/lexical-parse-integer/1.0.6/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9a2dfb4a5abc7e84be2cc41f1089be665519c9409549296f6c19de57ab1d37c2.txt",
+      "sha256": "9a2dfb4a5abc7e84be2cc41f1089be665519c9409549296f6c19de57ab1d37c2",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libacl1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9a39f2aadab11a3697edd668ff2d8ad885b649737b7ab4d3bf12b34e5ada0c86.txt",
+      "sha256": "9a39f2aadab11a3697edd668ff2d8ad885b649737b7ab4d3bf12b34e5ada0c86",
+      "origins": [
+        "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz :: npm/fdir/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d.txt",
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/click-8.5.1.dist-info/licenses/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9be5d04bb4d706914d5bf943710da4afeb42048f7c529902fb57c82762a991a9.txt",
+      "sha256": "9be5d04bb4d706914d5bf943710da4afeb42048f7c529902fb57c82762a991a9",
+      "origins": [
+        "Go module github.com/dlclark/regexp2/v2@v2.8.0; verified h1:CekDhPLGfm+GAJmPVFIG+5dqMIQPkyHJll7BbdneDfw= :: go/github.com/dlclark/regexp2/v2@v2.8.0/dlclark/regexp2/v2@v2.8.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3.txt",
+      "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3",
+      "origins": [
+        "https://static.crates.io/crates/zerocopy/zerocopy-0.8.25.crate :: notices/zerocopy/0.8.25/LICENSE-APACHE",
+        "https://static.crates.io/crates/zerocopy-derive/zerocopy-derive-0.8.25.crate :: notices/zerocopy-derive/0.8.25/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9d1c4cccf5d2f76af9c966c354011fc6c1db268a36f033bed58c5f0680efb7b5.txt",
+      "sha256": "9d1c4cccf5d2f76af9c966c354011fc6c1db268a36f033bed58c5f0680efb7b5",
+      "origins": [
+        "Go module github.com/caddyserver/caddy/v2@v2.11.9; verified h1:bhZtcRKQOq0fuLvEgCdPYvUxXyGn9kzjG4lh2332DTE= :: go/github.com/caddyserver/caddy/v2@v2.11.9/caddyserver/caddy/v2@v2.11.9/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6.txt",
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6",
+      "origins": [
+        "Audited business TAR: usr/share/doc/zlib1g/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a123c93b07e781919ae996276ac02bb1c8b19dfde88176cd1240ab277c14a4ce.txt",
+      "sha256": "a123c93b07e781919ae996276ac02bb1c8b19dfde88176cd1240ab277c14a4ce",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libxxhash0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a15b1d1b168954c92ff7fb1620382418f7c72f4f4d251ee791d1098ad68ab0c4.txt",
+      "sha256": "a15b1d1b168954c92ff7fb1620382418f7c72f4f4d251ee791d1098ad68ab0c4",
+      "origins": [
+        "Go module github.com/grpc-ecosystem/grpc-gateway/v2@v2.30.0; verified h1:/Tnpcb2E0Pz/tN9s3bfEY2Q8ePCEX9iuS+cneUwncnw= :: go/github.com/grpc-ecosystem/grpc-gateway/v2@v2.30.0/grpc-ecosystem/grpc-gateway/v2@v2.30.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a1bd5deadb6a06dd74efa852c1b8b23f63b67f2214fbe9c8bd591da51da69268.txt",
+      "sha256": "a1bd5deadb6a06dd74efa852c1b8b23f63b67f2214fbe9c8bd591da51da69268",
+      "origins": [
+        "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz :: npm/balanced-match/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499.txt",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/CC0-1.0"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a21d6c8d3fc631198b97e57584697f7f9c37805c71c6cf9a12e4442b40394b88.txt",
+      "sha256": "a21d6c8d3fc631198b97e57584697f7f9c37805c71c6cf9a12e4442b40394b88",
+      "origins": [
+        "https://registry.npmjs.org/undici/-/undici-8.12.2.tgz :: npm/undici/package/lib/web/fetch/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a22b9d5763f574e5db347c30acc0b33eaf4846767c03d2e27d012e864e79a824.txt",
+      "sha256": "a22b9d5763f574e5db347c30acc0b33eaf4846767c03d2e27d012e864e79a824",
+      "origins": [
+        "https://registry.npmjs.org/path-browserify/-/path-browserify-1.0.1.tgz :: npm/path-browserify/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a2d51b7515acfaff2f7a88688650f2fc4fd99561383e72bba2305e3db59a1647.txt",
+      "sha256": "a2d51b7515acfaff2f7a88688650f2fc4fd99561383e72bba2305e3db59a1647",
+      "origins": [
+        "Go module github.com/go-chi/chi/v5@v5.4.0; verified h1:+ufzvFTGKyin26Or5DLrlIDq4ygIDBVcj7oVNeeaYFE= :: go/github.com/go-chi/chi/v5@v5.4.0/go-chi/chi/v5@v5.4.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a2dc8fac0f496e1c58aff67018cf0c6b88336316afa5642f9335b71642e28aa8.txt",
+      "sha256": "a2dc8fac0f496e1c58aff67018cf0c6b88336316afa5642f9335b71642e28aa8",
+      "origins": [
+        "Audited business TAR: usr/share/doc/liblzma5/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a34ae32a5eba61e535835a8de7c398f47e420247d339bc400a3b9c618ba29a3d.txt",
+      "sha256": "a34ae32a5eba61e535835a8de7c398f47e420247d339bc400a3b9c618ba29a3d",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libnghttp2-14/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a386cd51aa512e321a9e132b0db989d19c43b090029f33f554f1c98785992584.txt",
+      "sha256": "a386cd51aa512e321a9e132b0db989d19c43b090029f33f554f1c98785992584",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libjson-perl/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a3f046d279b767f56f9bfbd7bdc66561be99da2c52a4d78cda108c58f975f1b5.txt",
+      "sha256": "a3f046d279b767f56f9bfbd7bdc66561be99da2c52a4d78cda108c58f975f1b5",
+      "origins": [
+        "Audited business TAR: usr/share/doc/sensible-utils/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a4c3e5b19700dd3cc5961663d204bd7150f65f913314682aede5931548c436d5.txt",
+      "sha256": "a4c3e5b19700dd3cc5961663d204bd7150f65f913314682aede5931548c436d5",
+      "origins": [
+        "Audited business TAR: usr/share/doc/login/copyright",
+        "Audited business TAR: usr/share/doc/passwd/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a555f1194fdac34da70fb416968f7e2217b02352c26c1eac2fa45fcb4290ae8d.txt",
+      "sha256": "a555f1194fdac34da70fb416968f7e2217b02352c26c1eac2fa45fcb4290ae8d",
+      "origins": [
+        "Go module github.com/x448/float16@v0.8.4; verified h1:qLwI1I70+NjRFUR3zs1JPUCgaCXSh3SW62uAKT1mSBM= :: go/github.com/x448/float16@v0.8.4/x448/float16@v0.8.4/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a55959c4e3e8917bfa857359bb641115336276a6cc97408fd8197e079fb18470.txt",
+      "sha256": "a55959c4e3e8917bfa857359bb641115336276a6cc97408fd8197e079fb18470",
+      "origins": [
+        "Go module github.com/cpuguy83/go-md2man/v2@v2.0.7; verified h1:zbFlGlXEAKlwXpmvle3d8Oe3YnkKIK4xSRTd3sHPnBo= :: go/github.com/cpuguy83/go-md2man/v2@v2.0.7/cpuguy83/go-md2man/v2@v2.0.7/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a56351045b45475385a9479d7310208ff0be9489babdb4e635fcea5d7dc1fb02.txt",
+      "sha256": "a56351045b45475385a9479d7310208ff0be9489babdb4e635fcea5d7dc1fb02",
+      "origins": [
+        "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.15.tgz :: npm/@volar/language-core/package/LICENSE",
+        "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.15.tgz :: npm/@volar/source-map/package/LICENSE",
+        "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.15.tgz :: npm/@volar/typescript/package/LICENSE",
+        "https://registry.npmjs.org/@vue/language-core/-/language-core-2.2.12.tgz :: npm/@vue/language-core/package/LICENSE",
+        "https://registry.npmjs.org/vue-tsc/-/vue-tsc-2.2.12.tgz :: npm/vue-tsc/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2.txt",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "origins": [
+        "https://static.crates.io/crates/ahash/ahash-0.8.12.crate :: notices/ahash/0.8.12/LICENSE-APACHE",
+        "https://static.crates.io/crates/arrayvec/arrayvec-0.7.8.crate :: notices/arrayvec/0.7.8/LICENSE-APACHE",
+        "https://static.crates.io/crates/autocfg/autocfg-1.3.0.crate :: notices/autocfg/1.3.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/base64/base64-0.23.1.crate :: notices/base64/0.23.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/bitflags/bitflags-2.9.1.crate :: notices/bitflags/2.9.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/bumpalo/bumpalo-3.19.0.crate :: notices/bumpalo/3.19.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/cfg-if/cfg-if-1.0.0.crate :: notices/cfg-if/1.0.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/displaydoc/displaydoc-0.2.5.crate :: notices/displaydoc/0.2.5/LICENSE-APACHE",
+        "https://static.crates.io/crates/equivalent/equivalent-1.0.3.crate :: notices/equivalent/1.0.3/LICENSE-APACHE",
+        "https://static.crates.io/crates/form_urlencoded/form_urlencoded-1.2.2.crate :: notices/form_urlencoded/1.2.2/LICENSE-APACHE",
+        "https://static.crates.io/crates/hashbrown/hashbrown-0.17.1.crate :: notices/hashbrown/0.17.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/heck/heck-0.5.0.crate :: notices/heck/0.5.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/idna/idna-1.1.0.crate :: notices/idna/1.1.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/idna_adapter/idna_adapter-1.2.0.crate :: notices/idna_adapter/1.2.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/indexmap/indexmap-2.14.0.crate :: notices/indexmap/2.14.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/js-sys/js-sys-0.3.77.crate :: notices/js-sys/0.3.77/LICENSE-APACHE",
+        "https://static.crates.io/crates/log/log-0.4.27.crate :: notices/log/0.4.27/LICENSE-APACHE",
+        "https://static.crates.io/crates/num-bigint/num-bigint-0.4.6.crate :: notices/num-bigint/0.4.6/LICENSE-APACHE",
+        "https://static.crates.io/crates/num-integer/num-integer-0.1.46.crate :: notices/num-integer/0.1.46/LICENSE-APACHE",
+        "https://static.crates.io/crates/num-traits/num-traits-0.2.19.crate :: notices/num-traits/0.2.19/LICENSE-APACHE",
+        "https://static.crates.io/crates/once_cell/once_cell-1.21.3.crate :: notices/once_cell/1.21.3/LICENSE-APACHE",
+        "https://static.crates.io/crates/percent-encoding/percent-encoding-2.3.2.crate :: notices/percent-encoding/2.3.2/LICENSE-APACHE",
+        "https://static.crates.io/crates/regex/regex-1.13.1.crate :: notices/regex/1.13.1/LICENSE-APACHE",
+        "https://static.crates.io/crates/regex-automata/regex-automata-0.4.18.crate :: notices/regex-automata/0.4.18/LICENSE-APACHE",
+        "https://static.crates.io/crates/regex-syntax/regex-syntax-0.8.11.crate :: notices/regex-syntax/0.8.11/LICENSE-APACHE",
+        "https://static.crates.io/crates/smallvec/smallvec-1.16.2.crate :: notices/smallvec/1.16.2/LICENSE-APACHE",
+        "https://static.crates.io/crates/stable_deref_trait/stable_deref_trait-1.2.0.crate :: notices/stable_deref_trait/1.2.0/LICENSE-APACHE",
+        "https://static.crates.io/crates/url/url-2.5.8.crate :: notices/url/2.5.8/LICENSE-APACHE",
+        "https://static.crates.io/crates/uuid/uuid-1.23.4.crate :: notices/uuid/1.23.4/LICENSE-APACHE",
+        "https://static.crates.io/crates/version_check/version_check-0.9.5.crate :: notices/version_check/0.9.5/LICENSE-APACHE",
+        "https://static.crates.io/crates/wasi/wasi-0.14.2+wasi-0.2.4.crate :: notices/wasi/0.14.2+wasi-0.2.4/LICENSE-APACHE",
+        "https://static.crates.io/crates/wasm-bindgen/wasm-bindgen-0.2.100.crate :: notices/wasm-bindgen/0.2.100/LICENSE-APACHE",
+        "https://static.crates.io/crates/wasm-bindgen-backend/wasm-bindgen-backend-0.2.100.crate :: notices/wasm-bindgen-backend/0.2.100/LICENSE-APACHE",
+        "https://static.crates.io/crates/wasm-bindgen-macro/wasm-bindgen-macro-0.2.100.crate :: notices/wasm-bindgen-macro/0.2.100/LICENSE-APACHE",
+        "https://static.crates.io/crates/wasm-bindgen-macro-support/wasm-bindgen-macro-support-0.2.100.crate :: notices/wasm-bindgen-macro-support/0.2.100/LICENSE-APACHE",
+        "https://static.crates.io/crates/wasm-bindgen-shared/wasm-bindgen-shared-0.2.100.crate :: notices/wasm-bindgen-shared/0.2.100/LICENSE-APACHE",
+        "https://raw.githubusercontent.com/bytecodealliance/wit-bindgen/f2393e6e98fa5f9236cac580db8a3fc9de6a4b70/LICENSE-APACHE :: notices/wit-bindgen-rt/0.39.0/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9.txt",
+      "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+      "origins": [
+        "https://registry.npmjs.org/xml-name-validator/-/xml-name-validator-5.0.0.tgz :: npm/xml-name-validator/package/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27.txt",
+      "sha256": "a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27",
+      "origins": [
+        "https://registry.npmjs.org/undici/-/undici-8.12.2.tgz :: npm/undici/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a6f36438e46fb911859f3b9c4cad045ba64e1af3d8f4512c60258fa2d7552d28.txt",
+      "sha256": "a6f36438e46fb911859f3b9c4cad045ba64e1af3d8f4512c60258fa2d7552d28",
+      "origins": [
+        "https://registry.npmjs.org/std-env/-/std-env-4.3.0.tgz :: npm/std-env/package/LICENCE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a7c131b21e6e73b3b085a7d9f1637b68f5f92b832cc6f462e0c978fbe7841ccb.txt",
+      "sha256": "a7c131b21e6e73b3b085a7d9f1637b68f5f92b832cc6f462e0c978fbe7841ccb",
+      "origins": [
+        "Audited business TAR: usr/share/doc/curl/copyright",
+        "Audited business TAR: usr/share/doc/libcurl4/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47.txt",
+      "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+      "origins": [
+        "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz :: npm/typescript/package/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a7d06854714a1ca99f6dbd1a1641dde5bcf28635be149f6554449618f8f427f3.txt",
+      "sha256": "a7d06854714a1ca99f6dbd1a1641dde5bcf28635be149f6554449618f8f427f3",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libsystemd0/copyright",
+        "Audited business TAR: usr/share/doc/libudev1/copyright",
+        "Audited business TAR: usr/share/doc/libsystemd-shared/copyright",
+        "Audited business TAR: usr/share/doc/systemd/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a889cc4dbee2ae172c179856b25d75b0b7a5a136e1b97109b9b590b2ff1a879c.txt",
+      "sha256": "a889cc4dbee2ae172c179856b25d75b0b7a5a136e1b97109b9b590b2ff1a879c",
+      "origins": [
+        "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-8.0.1.tgz :: npm/webidl-conversions/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a973b4498c13eb74baa2a8e5c351426a6826f2fcdd909916dbe53ee2e755fd71.txt",
+      "sha256": "a973b4498c13eb74baa2a8e5c351426a6826f2fcdd909916dbe53ee2e755fd71",
+      "origins": [
+        "Go module github.com/dustin/go-humanize@v1.1.0; verified h1:dbKTrvD0klcbBV/h4AWJdMuZogJACoMlvWIWZ5b2xWg= :: go/github.com/dustin/go-humanize@v1.1.0/dustin/go-humanize@v1.1.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a9d04f47f0615c0ce48bdbe2ff58d5c174279d9f20f044ef29249632302a4ab3.txt",
+      "sha256": "a9d04f47f0615c0ce48bdbe2ff58d5c174279d9f20f044ef29249632302a4ab3",
+      "origins": [
+        "https://files.pythonhosted.org/packages/01/90/35031dd219c3e3a1d8ca4e158c03eda31a89ccef024e884066ffb9b27856/lunar_python-1.4.9.tar.gz"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3.txt",
+      "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pydantic-2.14.4.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/aa1376b9bc5dea6f30cdefde40c176a254f247d2814d0a9929395138631b2ae0.txt",
+      "sha256": "aa1376b9bc5dea6f30cdefde40c176a254f247d2814d0a9929395138631b2ae0",
+      "origins": [
+        "Go module github.com/munnerz/goautoneg@v0.0.0-20191010083416-a7dc8b61c822; verified h1:C3w9PqII01/Oq1c1nUAm88MOHcQC9l5mIlSMApZMrHA= :: go/github.com/munnerz/goautoneg@v0.0.0-20191010083416-a7dc8b61c822/munnerz/goautoneg@v0.0.0-20191010083416-a7dc8b61c822/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf.txt",
+      "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+      "origins": [
+        "https://static.crates.io/crates/getrandom/getrandom-0.3.3.crate :: notices/getrandom/0.3.3/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ab499c75a0f0da8e0fe83bf9ba3a27e5c39705310f07107c6c66b69958d2401c.txt",
+      "sha256": "ab499c75a0f0da8e0fe83bf9ba3a27e5c39705310f07107c6c66b69958d2401c",
+      "origins": [
+        "https://static.crates.io/crates/base64/base64-0.23.1.crate :: notices/base64/0.23.1/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ab654de803cdaa9e2819ab2e934bdf7f757e308649ec231d78e80e92425cdc34.txt",
+      "sha256": "ab654de803cdaa9e2819ab2e934bdf7f757e308649ec231d78e80e92425cdc34",
+      "origins": [
+        "https://registry.npmjs.org/w3c-xmlserializer/-/w3c-xmlserializer-6.0.0.tgz :: npm/w3c-xmlserializer/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ad7cb339e58a88918a883d553ca236795191f027e158788a8b33f747ff502fb2.txt",
+      "sha256": "ad7cb339e58a88918a883d553ca236795191f027e158788a8b33f747ff502fb2",
+      "origins": [
+        "Audited business TAR: usr/share/doc/sysvinit-utils/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ae842a63dd9bc829c95a2ec22dda25a08e422a368b71dbca67a45cde7c4a4b81.txt",
+      "sha256": "ae842a63dd9bc829c95a2ec22dda25a08e422a368b71dbca67a45cde7c4a4b81",
+      "origins": [
+        "https://registry.npmjs.org/@bramus/specificity/-/specificity-2.4.3.tgz :: npm/@bramus/specificity/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/aefd0cce553f24945ce1c692c3c4f9fda581f078ba82977845715cd18565b3bd.txt",
+      "sha256": "aefd0cce553f24945ce1c692c3c4f9fda581f078ba82977845715cd18565b3bd",
+      "origins": [
+        "Go module github.com/slackhq/nebula@v1.11.2; verified h1:eP61cSfUuoEVGViD50gZBsAbBLPUAhoNOYewPmEwPG4= :: go/github.com/slackhq/nebula@v1.11.2/slackhq/nebula@v1.11.2/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6.txt",
+      "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6",
+      "origins": [
+        "https://static.crates.io/crates/pyo3/pyo3-0.30.1.crate :: notices/pyo3/0.30.1/LICENSE-MIT",
+        "https://static.crates.io/crates/pyo3/pyo3-0.30.1.crate :: notices/pyo3/0.30.1/pyo3-runtime/LICENSE-MIT",
+        "https://static.crates.io/crates/pyo3-build-config/pyo3-build-config-0.30.1.crate :: notices/pyo3-build-config/0.30.1/LICENSE-MIT",
+        "https://static.crates.io/crates/pyo3-ffi/pyo3-ffi-0.30.1.crate :: notices/pyo3-ffi/0.30.1/LICENSE-MIT",
+        "https://static.crates.io/crates/pyo3-macros/pyo3-macros-0.30.1.crate :: notices/pyo3-macros/0.30.1/LICENSE-MIT",
+        "https://static.crates.io/crates/pyo3-macros-backend/pyo3-macros-backend-0.30.1.crate :: notices/pyo3-macros-backend/0.30.1/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/afcc052a946b4117667527211b4ca303f07044f5585222f4c8f577e0764b2123.txt",
+      "sha256": "afcc052a946b4117667527211b4ca303f07044f5585222f4c8f577e0764b2123",
+      "origins": [
+        "Audited business TAR: usr/share/doc/postgresql-17/copyright",
+        "Audited business TAR: usr/share/doc/postgresql-client-17/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b0da1764fe4d13d610b695536fc3f2ebc362482d053a1cd258e36975bc6b97a7.txt",
+      "sha256": "b0da1764fe4d13d610b695536fc3f2ebc362482d053a1cd258e36975bc6b97a7",
+      "origins": [
+        "Go module github.com/cloudflare/circl@v1.6.5; verified h1:O64F26HEqNhznd/hrC5KZXVKYuKM2rx4deZDTc4ihQA= :: go/github.com/cloudflare/circl@v1.6.5/cloudflare/circl@v1.6.5/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744.txt",
+      "sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744",
+      "origins": [
+        "https://static.crates.io/crates/foldhash/foldhash-0.2.0.crate :: notices/foldhash/0.2.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b143053a4862ab354831487b5f8bd31dc9ffdc589d15de9d9c764332a0209796.txt",
+      "sha256": "b143053a4862ab354831487b5f8bd31dc9ffdc589d15de9d9c764332a0209796",
+      "origins": [
+        "Audited business TAR: usr/share/doc/adduser/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b181da80336ff9dd1043fc8be1a764d7382363433319aa872e4d2cb5ce2a3066.txt",
+      "sha256": "b181da80336ff9dd1043fc8be1a764d7382363433319aa872e4d2cb5ce2a3066",
+      "origins": [
+        "https://registry.npmjs.org/chai/-/chai-6.3.0.tgz :: npm/chai/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b32aecaae84643700a33bc9ee83fa9b36938d35aa7b61b5042092eca77ddb732.txt",
+      "sha256": "b32aecaae84643700a33bc9ee83fa9b36938d35aa7b61b5042092eca77ddb732",
+      "origins": [
+        "Audited business TAR: usr/share/doc/debian-archive-keyring/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5.txt",
+      "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+      "origins": [
+        "https://static.crates.io/crates/idna/idna-1.1.0.crate :: notices/idna/1.1.0/LICENSE-MIT",
+        "https://static.crates.io/crates/percent-encoding/percent-encoding-2.3.2.crate :: notices/percent-encoding/2.3.2/LICENSE-MIT",
+        "https://static.crates.io/crates/url/url-2.5.8.crate :: notices/url/2.5.8/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b4081907f0d9a4110736fa6540dc8ca9d7d60a20878b5d78f84916cc04907bdc.txt",
+      "sha256": "b4081907f0d9a4110736fa6540dc8ca9d7d60a20878b5d78f84916cc04907bdc",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libldap-2.5-0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "origins": [
+        "Go module github.com/caddyserver/certmagic@v0.25.6; verified h1:vHMtFSLKTa6kuZz6w0SnRMpQ388tSkww8ye355BgAM4= :: go/github.com/caddyserver/certmagic@v0.25.6/caddyserver/certmagic@v0.25.6/LICENSE.txt",
+        "Go module github.com/go-logr/logr@v1.4.4; verified h1:tG4xh9yMsRCAiodLVTxyrkzSZ9+o0L1Kg/+cPVcbP/8= :: go/github.com/go-logr/logr@v1.4.4/go-logr/logr@v1.4.4/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681.txt",
+      "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681",
+      "origins": [
+        "https://registry.npmjs.org/esbuild/-/esbuild-0.25.12.tgz :: npm/esbuild/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b4701305243d8d746f4acaafe15d94f946251b05691bd6917fef41dd15e9ee12.txt",
+      "sha256": "b4701305243d8d746f4acaafe15d94f946251b05691bd6917fef41dd15e9ee12",
+      "origins": [
+        "Audited business TAR: usr/share/doc/apt/copyright",
+        "Audited business TAR: usr/share/doc/libapt-pkg6.0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b52f3ca17b45473cb0da6ec46748949101fcf0dda1fd5d8b306e6c97fd41af4d.txt",
+      "sha256": "b52f3ca17b45473cb0da6ec46748949101fcf0dda1fd5d8b306e6c97fd41af4d",
+      "origins": [
+        "Audited business TAR: usr/share/doc/perl-base/copyright",
+        "Audited business TAR: usr/share/doc/libperl5.36/copyright",
+        "Audited business TAR: usr/share/doc/perl/copyright",
+        "Audited business TAR: usr/share/doc/perl-modules-5.36/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b6944d386e87ccf49d9632da083685a4b7624733e686a7fe283dd2d428341d77.txt",
+      "sha256": "b6944d386e87ccf49d9632da083685a4b7624733e686a7fe283dd2d428341d77",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/argon2_cffi-25.1.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b6ddf4cb3d840ebaf0d3db861f30e920f0eab5b5ab285af14408ca6af8d024bb.txt",
+      "sha256": "b6ddf4cb3d840ebaf0d3db861f30e920f0eab5b5ab285af14408ca6af8d024bb",
+      "origins": [
+        "https://metadata.ftp-master.debian.org/changelogs/main/l/lunar/lunar_2.2-10_copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b7e650f3fce5c53249d1cdc608b54df156a97edd636cf9d23498d0cfe7aec63e.txt",
+      "sha256": "b7e650f3fce5c53249d1cdc608b54df156a97edd636cf9d23498d0cfe7aec63e",
+      "origins": [
+        "https://static.crates.io/crates/version_check/version_check-0.9.5.crate :: notices/version_check/0.9.5/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b7fd9b73ea99602016a326e0b62e6646060d18febdd065ceca8bb482208c3d88.txt",
+      "sha256": "b7fd9b73ea99602016a326e0b62e6646060d18febdd065ceca8bb482208c3d88",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/Artistic"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b84c864ba35df1f3160ad00a4e4ee32e8a95783c3d3604301b2909163ff198cf.txt",
+      "sha256": "b84c864ba35df1f3160ad00a4e4ee32e8a95783c3d3604301b2909163ff198cf",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libksba8/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b8514c577c1c4b46cee454d5a882b15fa411e72c5bd7f801f241591789fce61a.txt",
+      "sha256": "b8514c577c1c4b46cee454d5a882b15fa411e72c5bd7f801f241591789fce61a",
+      "origins": [
+        "Go module github.com/spf13/pflag@v1.0.10; verified h1:4EBh2KAYBwaONj6b2Ye1GiHfwjqyROoF4RwYO+vPwFk= :: go/github.com/spf13/pflag@v1.0.10/spf13/pflag@v1.0.10/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b8778b155bfde5a28b023a558753c0fa058a52bb9de35c343c250be1bbcdedab.txt",
+      "sha256": "b8778b155bfde5a28b023a558753c0fa058a52bb9de35c343c250be1bbcdedab",
+      "origins": [
+        "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz :: npm/@jridgewell/resolve-uri/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b92ba0f6ee02f2309628bfdadb123668a17c016e475ba477b857d33470d9d625.txt",
+      "sha256": "b92ba0f6ee02f2309628bfdadb123668a17c016e475ba477b857d33470d9d625",
+      "origins": [
+        "Go module github.com/shopspring/decimal@v1.4.0; verified h1:bxl37RwXBklmTi0C79JfXCEBD1cqqHt0bbgBAGFp81k= :: go/github.com/shopspring/decimal@v1.4.0/shopspring/decimal@v1.4.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b95218cd9607855a6536384c0262922b30a0c2bf56e4ced790240f3a3bac4722.txt",
+      "sha256": "b95218cd9607855a6536384c0262922b30a0c2bf56e4ced790240f3a3bac4722",
+      "origins": [
+        "Go module github.com/googleapis/gax-go/v2@v2.25.0; verified h1:77gyzCOrTyzPKfzGZJG/V5DO4/Kuamek8W+cYJQ4U8k= :: go/github.com/googleapis/gax-go/v2@v2.25.0/googleapis/gax-go/v2@v2.25.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/b99b8bf533b7f509c0087da904b7c5a35373cf2cf5691c274368520318500a12.txt",
+      "sha256": "b99b8bf533b7f509c0087da904b7c5a35373cf2cf5691c274368520318500a12",
+      "origins": [
+        "Audited business TAR: usr/share/doc/ssl-cert/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/bb7e5c24b3e27bbba5671dd710d159a0066833bda4caa1d55d8027ffed539337.txt",
+      "sha256": "bb7e5c24b3e27bbba5671dd710d159a0066833bda4caa1d55d8027ffed539337",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libgnutls30/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/bbafb0cf52d34465fc69f5ffd22d724224f6a2f28402c88b045c69d88af06aaf.txt",
+      "sha256": "bbafb0cf52d34465fc69f5ffd22d724224f6a2f28402c88b045c69d88af06aaf",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libpsl5/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/bd4539377980dd797fc6a51d90e664e52b2b2625b2158f01d4c68b5fe107eacb.txt",
+      "sha256": "bd4539377980dd797fc6a51d90e664e52b2b2625b2158f01d4c68b5fe107eacb",
+      "origins": [
+        "https://registry.npmjs.org/@asamuzakjp/css-color/-/css-color-7.1.7.tgz :: npm/@asamuzakjp/css-color/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/bea61e0c172868e07845cf50423f97f093a9a46de167dbbe333a38be610c8e00.txt",
+      "sha256": "bea61e0c172868e07845cf50423f97f093a9a46de167dbbe333a38be610c8e00",
+      "origins": [
+        "Audited business TAR: usr/share/doc/tar/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c15d721c37e277a11584547de6d618541501f7aa10c4e32a945a4f9ff36cb0f6.txt",
+      "sha256": "c15d721c37e277a11584547de6d618541501f7aa10c4e32a945a4f9ff36cb0f6",
+      "origins": [
+        "Go module go.etcd.io/bbolt@v1.5.0; verified h1:S7GAl7Fxv12yohbwFfIbQCGDWbQbtDGPET4P/bD4lxU= :: go/go.etcd.io/bbolt@v1.5.0/bbolt@v1.5.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c1d6f653c38c80294dc7994647ba0dcc508ce64a86996303c804efa2f7982bff.txt",
+      "sha256": "c1d6f653c38c80294dc7994647ba0dcc508ce64a86996303c804efa2f7982bff",
+      "origins": [
+        "Go module github.com/yuin/goldmark@v1.8.6; verified h1:d0VcaP1sx9GkFVkoW+KtggpGi2KZ965i14b0+bDQST4= :: go/github.com/yuin/goldmark@v1.8.6/yuin/goldmark@v1.8.6/LICENSE",
+        "Go module github.com/yuin/goldmark-highlighting/v2@v2.0.0-20230729083705-37449abec8cc; verified h1:+IAOyRda+RLrxa1WC7umKOZRsGq4QrFFMYApOeHzQwQ= :: go/github.com/yuin/goldmark-highlighting/v2@v2.0.0-20230729083705-37449abec8cc/yuin/goldmark-highlighting/v2@v2.0.0-20230729083705-37449abec8cc/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c2382787dab8660e35020c56ff1eccabc7738427e6154a9c4e627295cd477aba.txt",
+      "sha256": "c2382787dab8660e35020c56ff1eccabc7738427e6154a9c4e627295cd477aba",
+      "origins": [
+        "Go module github.com/grpc-ecosystem/grpc-gateway/v2@v2.30.0; verified h1:/Tnpcb2E0Pz/tN9s3bfEY2Q8ePCEX9iuS+cneUwncnw= :: go/github.com/grpc-ecosystem/grpc-gateway/v2@v2.30.0/grpc-ecosystem/grpc-gateway/v2@v2.30.0/protoc-gen-openapiv3/internal/genopenapi/testdata/license_missing_name.prototext"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c2b97b3281be272711909076c8402499b4b5a3216196af47a25b1d3674d86152.txt",
+      "sha256": "c2b97b3281be272711909076c8402499b4b5a3216196af47a25b1d3674d86152",
+      "origins": [
+        "Go module go.uber.org/zap@v1.28.0; verified h1:IZzaP1Fv73/T/pBMLk4VutPl36uNC+OSUh3JLG3FIjo= :: go/go.uber.org/zap@v1.28.0/zap@v1.28.0/LICENSE",
+        "Go module go.uber.org/zap/exp@v0.3.0; verified h1:6JYzdifzYkGmTdRR59oYH+Ng7k49H9qVpWwNSsGJj3U= :: go/go.uber.org/zap/exp@v0.3.0/zap/exp@v0.3.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383.txt",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "origins": [
+        "https://registry.npmjs.org/@types/chai/-/chai-5.2.3.tgz :: npm/@types/chai/chai/LICENSE",
+        "https://registry.npmjs.org/@types/deep-eql/-/deep-eql-4.0.2.tgz :: npm/@types/deep-eql/deep-eql/LICENSE",
+        "https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz :: npm/@types/estree/estree/LICENSE",
+        "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz :: npm/@types/trusted-types/trusted-types/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c42285aa32440c3b5358fd4805b817cd8d6e1795111d2e4c547530be41896b2d.txt",
+      "sha256": "c42285aa32440c3b5358fd4805b817cd8d6e1795111d2e4c547530be41896b2d",
+      "origins": [
+        "https://static.crates.io/crates/r-efi/r-efi-5.2.0.crate :: notices/r-efi/5.2.0/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c480873f0ff2b7e2c539bdd84fb4da4178d8d02479c94924f7bffeafb7add358.txt",
+      "sha256": "c480873f0ff2b7e2c539bdd84fb4da4178d8d02479c94924f7bffeafb7add358",
+      "origins": [
+        "Go module github.com/rs/xid@v1.6.0; verified h1:fV591PaemRlL6JfRxGDEPl69wICngIQ3shQtzfy2gxU= :: go/github.com/rs/xid@v1.6.0/rs/xid@v1.6.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c58cb5a2d94f35f0e9b0f1a038d48b73477aa12782ff17328c21d8a86f5f99d5.txt",
+      "sha256": "c58cb5a2d94f35f0e9b0f1a038d48b73477aa12782ff17328c21d8a86f5f99d5",
+      "origins": [
+        "Audited business TAR: usr/share/doc/wget/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c62fe37d22203046611112bc10a9e03a39a7f73bec1b061e7c615326166d9ff5.txt",
+      "sha256": "c62fe37d22203046611112bc10a9e03a39a7f73bec1b061e7c615326166d9ff5",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libkeyutils1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c64182d48160db948b6aa97a984f1a32974ce4d2053900361264cd33853796cb.txt",
+      "sha256": "c64182d48160db948b6aa97a984f1a32974ce4d2053900361264cd33853796cb",
+      "origins": [
+        "https://registry.npmjs.org/tldts/-/tldts-7.4.18.tgz :: npm/tldts/package/LICENSE",
+        "https://registry.npmjs.org/tldts-core/-/tldts-core-7.4.18.tgz :: npm/tldts-core/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08.txt",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+      "origins": [
+        "https://static.crates.io/crates/hex/hex-0.4.3.crate :: notices/hex/0.4.3/LICENSE-APACHE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c669138cb1eb01fbb745e8e460b291e4f2869c14a40061390b6095d845ed4c82.txt",
+      "sha256": "c669138cb1eb01fbb745e8e460b291e4f2869c14a40061390b6095d845ed4c82",
+      "origins": [
+        "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.2.0.tgz :: npm/vscode-uri/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c6b7cb962f530f40ff1f746f7d3005011eb1b1482b9c74c1f25acc44a565cd7d.txt",
+      "sha256": "c6b7cb962f530f40ff1f746f7d3005011eb1b1482b9c74c1f25acc44a565cd7d",
+      "origins": [
+        "Go module go.step.sm/crypto@v0.91.0; verified h1:0mN0DwVOvUuh7VbyTnxABZuAkxwak/Grp8Y/b4YaZDU= :: go/go.step.sm/crypto@v0.91.0/crypto@v0.91.0/internal/bcrypt_pbkdf/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/opentelemetry_api-1.45.2.dist-info/licenses/LICENSE",
+        "Go module github.com/go-logr/stdr@v1.2.2; verified h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag= :: go/github.com/go-logr/stdr@v1.2.2/go-logr/stdr@v1.2.2/LICENSE",
+        "Go module github.com/google/certificate-transparency-go@v1.3.3; verified h1:hq/rSxztSkXN2tx/3jQqF6Xc0O565UQPdHrOWvZwybo= :: go/github.com/google/certificate-transparency-go@v1.3.3/google/certificate-transparency-go@v1.3.3/third_party/prometheus/LICENSE",
+        "Go module github.com/mholt/acmez/v3@v3.1.7; verified h1:XTqpuUcRdRoIBuDoI+M4mCnRnPTPN4rqH3Mb723Rg4U= :: go/github.com/mholt/acmez/v3@v3.1.7/mholt/acmez/v3@v3.1.7/LICENSE",
+        "Go module github.com/nlnwa/whatwg-url@v0.6.2; verified h1:jU61lU2ig4LANydbEJmA2nPrtCGiKdtgT0rmMd2VZ/Q= :: go/github.com/nlnwa/whatwg-url@v0.6.2/nlnwa/whatwg-url@v0.6.2/LICENSE",
+        "Go module github.com/prometheus/client_golang@v1.24.1; verified h1:JnJkREXzWxUdCuPFpIWZiPispT9xVV59uiuyR2bPlnU= :: go/github.com/prometheus/client_golang@v1.24.1/prometheus/client_golang@v1.24.1/LICENSE",
+        "Go module github.com/prometheus/client_model@v0.6.3; verified h1:O0jaTVAYNxTHYInEPFJt5I3+sN8zqBtVMPTB1qyxiEo= :: go/github.com/prometheus/client_model@v0.6.3/prometheus/client_model@v0.6.3/LICENSE",
+        "Go module github.com/prometheus/common@v0.71.0; verified h1:9KDAKb7Mj3HEVKyFCK6Dc/HIwlBzZIN2l7/lrHl3KK8= :: go/github.com/prometheus/common@v0.71.0/prometheus/common@v0.71.0/LICENSE",
+        "Go module github.com/prometheus/otlptranslator@v1.0.0; verified h1:s0LJW/iN9dkIH+EnhiD3BlkkP5QVIUVEoIwkU+A6qos= :: go/github.com/prometheus/otlptranslator@v1.0.0/prometheus/otlptranslator@v1.0.0/LICENSE",
+        "Go module github.com/prometheus/procfs@v0.22.0; verified h1:6q9+/JL9IKAPbCmBrv9n5O5Ty3NKnciV5X7YGw0oics= :: go/github.com/prometheus/procfs@v0.22.0/prometheus/procfs@v0.22.0/LICENSE",
+        "Go module github.com/smallstep/linkedca@v0.26.0; verified h1:NsxTVo3zI3KwOFFiVodeHtuGgKq0b5kOUXVLjjNTvXY= :: go/github.com/smallstep/linkedca@v0.26.0/smallstep/linkedca@v0.26.0/LICENSE",
+        "Go module github.com/smallstep/truststore@v0.13.0; verified h1:90if9htAOblavbMeWlqNLnO9bsjjgVv2hQeQJCi/py4= :: go/github.com/smallstep/truststore@v0.13.0/smallstep/truststore@v0.13.0/LICENSE",
+        "Go module go.opentelemetry.io/auto/sdk@v1.2.1; verified h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64= :: go/go.opentelemetry.io/auto/sdk@v1.2.1/auto/sdk@v1.2.1/LICENSE",
+        "Go module go.opentelemetry.io/proto/otlp@v1.11.0; verified h1:5rrYs0Ykyj50sdU/JU0x8etU+LubXWb+gED6TbEdMIk= :: go/go.opentelemetry.io/proto/otlp@v1.11.0/proto/otlp@v1.11.0/LICENSE",
+        "Go module go.step.sm/crypto@v0.91.0; verified h1:0mN0DwVOvUuh7VbyTnxABZuAkxwak/Grp8Y/b4YaZDU= :: go/go.step.sm/crypto@v0.91.0/crypto@v0.91.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c8024e31c1de453fea90f22a221968835cc7af9d520274a2576c9ec9976055b0.txt",
+      "sha256": "c8024e31c1de453fea90f22a221968835cc7af9d520274a2576c9ec9976055b0",
+      "origins": [
+        "Go module github.com/shurcooL/sanitized_anchor_name@v1.0.0; verified h1:PdmoCO6wvbs+7yrJyMORt4/BmY5IYyJwS/kOiWx8mHo= :: go/github.com/shurcooL/sanitized_anchor_name@v1.0.0/shurcooL/sanitized_anchor_name@v1.0.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/c96e5ecb55ac593157ad1d21d1f44a611187f494a0f04c235a1ae692c88d6ba9.txt",
+      "sha256": "c96e5ecb55ac593157ad1d21d1f44a611187f494a0f04c235a1ae692c88d6ba9",
+      "origins": [
+        "https://registry.npmjs.org/@tiptap/core/-/core-3.32.0.tgz :: npm/@tiptap/core/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-blockquote/-/extension-blockquote-3.32.0.tgz :: npm/@tiptap/extension-blockquote/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-bold/-/extension-bold-3.32.0.tgz :: npm/@tiptap/extension-bold/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-bubble-menu/-/extension-bubble-menu-3.32.0.tgz :: npm/@tiptap/extension-bubble-menu/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-bullet-list/-/extension-bullet-list-3.32.0.tgz :: npm/@tiptap/extension-bullet-list/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-code/-/extension-code-3.32.0.tgz :: npm/@tiptap/extension-code/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-code-block/-/extension-code-block-3.32.0.tgz :: npm/@tiptap/extension-code-block/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-document/-/extension-document-3.32.0.tgz :: npm/@tiptap/extension-document/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-dropcursor/-/extension-dropcursor-3.32.0.tgz :: npm/@tiptap/extension-dropcursor/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-floating-menu/-/extension-floating-menu-3.32.0.tgz :: npm/@tiptap/extension-floating-menu/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-gapcursor/-/extension-gapcursor-3.32.0.tgz :: npm/@tiptap/extension-gapcursor/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-hard-break/-/extension-hard-break-3.32.0.tgz :: npm/@tiptap/extension-hard-break/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-heading/-/extension-heading-3.32.0.tgz :: npm/@tiptap/extension-heading/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-horizontal-rule/-/extension-horizontal-rule-3.32.0.tgz :: npm/@tiptap/extension-horizontal-rule/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-italic/-/extension-italic-3.32.0.tgz :: npm/@tiptap/extension-italic/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-link/-/extension-link-3.32.0.tgz :: npm/@tiptap/extension-link/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-list/-/extension-list-3.32.0.tgz :: npm/@tiptap/extension-list/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-list-item/-/extension-list-item-3.32.0.tgz :: npm/@tiptap/extension-list-item/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-list-keymap/-/extension-list-keymap-3.32.0.tgz :: npm/@tiptap/extension-list-keymap/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-ordered-list/-/extension-ordered-list-3.32.0.tgz :: npm/@tiptap/extension-ordered-list/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-paragraph/-/extension-paragraph-3.32.0.tgz :: npm/@tiptap/extension-paragraph/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-strike/-/extension-strike-3.32.0.tgz :: npm/@tiptap/extension-strike/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-text/-/extension-text-3.32.0.tgz :: npm/@tiptap/extension-text/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extension-underline/-/extension-underline-3.32.0.tgz :: npm/@tiptap/extension-underline/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/extensions/-/extensions-3.32.0.tgz :: npm/@tiptap/extensions/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/markdown/-/markdown-3.32.0.tgz :: npm/@tiptap/markdown/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/pm/-/pm-3.32.0.tgz :: npm/@tiptap/pm/package/LICENSE",
+        "https://registry.npmjs.org/@tiptap/starter-kit/-/starter-kit-3.32.0.tgz :: npm/@tiptap/starter-kit/package/LICENSE.md",
+        "https://registry.npmjs.org/@tiptap/vue-3/-/vue-3-3.32.0.tgz :: npm/@tiptap/vue-3/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ca2ca597320220c00ef6dc0fe5d0d82025548d6d4ba80e85615eb691f9021f93.txt",
+      "sha256": "ca2ca597320220c00ef6dc0fe5d0d82025548d6d4ba80e85615eb691f9021f93",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libhogweed6/copyright",
+        "Audited business TAR: usr/share/doc/libnettle8/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ca5cc852fbcbe4598fe1f8b04c103c8073a64fa9cbb14b358bfdd87232ae8bd9.txt",
+      "sha256": "ca5cc852fbcbe4598fe1f8b04c103c8073a64fa9cbb14b358bfdd87232ae8bd9",
+      "origins": [
+        "https://registry.npmjs.org/undici/-/undici-8.12.2.tgz :: npm/undici/package/lib/milo/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14.txt",
+      "sha256": "cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14",
+      "origins": [
+        "Go module github.com/coreos/go-oidc/v3@v3.21.0; verified h1:wZo4Q9Pum8dYEj0eMUPrqR+kvuGkeUplbLpNCkBqoWM= :: go/github.com/coreos/go-oidc/v3@v3.21.0/coreos/go-oidc/v3@v3.21.0/LICENSE",
+        "Go module github.com/google/go-tspi@v0.3.0; verified h1:ADtq8RKfP+jrTyIWIZDIYcKOMecRqNJFOew2IT0Inus= :: go/github.com/google/go-tspi@v0.3.0/google/go-tspi@v0.3.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/cb61132bc0fc7b26ef5a82ee18b2fb644a1362f4f286ed980ff22e408471f59a.txt",
+      "sha256": "cb61132bc0fc7b26ef5a82ee18b2fb644a1362f4f286ed980ff22e408471f59a",
+      "origins": [
+        "Audited business TAR: usr/share/doc/tzdata/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/cb7684632b729955293cab8a0bbf4134d53d9532a30761c33c8a4878302a7bd3.txt",
+      "sha256": "cb7684632b729955293cab8a0bbf4134d53d9532a30761c33c8a4878302a7bd3",
+      "origins": [
+        "Go module dario.cat/mergo@v1.0.2; verified h1:85+piFYR1tMbRrLcDwR18y4UKJ3aH1Tbzi24VRW1TK8= :: go/dario.cat/mergo@v1.0.2/mergo@v1.0.2/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/cb992345949ccd6e8394b2cd6c465f7b897c864f845937dbf64e8997f389e164.txt",
+      "sha256": "cb992345949ccd6e8394b2cd6c465f7b897c864f845937dbf64e8997f389e164",
+      "origins": [
+        "https://registry.npmjs.org/entities/-/entities-7.0.1.tgz :: npm/entities/package/LICENSE",
+        "https://registry.npmjs.org/entities/-/entities-8.1.0.tgz :: npm/parse5/node_modules/entities/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ccfe62f0f73541f1c76a6d33aed26290391685c43f914a5e24c6b1f72cddcdff.txt",
+      "sha256": "ccfe62f0f73541f1c76a6d33aed26290391685c43f914a5e24c6b1f72cddcdff",
+      "origins": [
+        "Audited business TAR: usr/share/doc/ca-certificates/examples/ca-certificates-local/debian/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ceb4a97e3600dc270b6b15cb8c1a42158efbdcd23f0e1256143ebd72f1d5fb56.txt",
+      "sha256": "ceb4a97e3600dc270b6b15cb8c1a42158efbdcd23f0e1256143ebd72f1d5fb56",
+      "origins": [
+        "Go module github.com/ccoveille/go-safecast/v2@v2.0.1; verified h1:2+mIu3gXtwmWelBia2kkxfB8eP4orTHDH7ClSlWkd6I= :: go/github.com/ccoveille/go-safecast/v2@v2.0.1/ccoveille/go-safecast/v2@v2.0.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/cebc084d54e6dd99e53292ddb4bc1cdb63d9bfcd9ce438fe3aa6eb106d79e2ea.txt",
+      "sha256": "cebc084d54e6dd99e53292ddb4bc1cdb63d9bfcd9ce438fe3aa6eb106d79e2ea",
+      "origins": [
+        "https://registry.npmjs.org/tinybench/-/tinybench-6.2.2.tgz :: npm/tinybench/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/cf63099896d1c0f6529c41b8d95738e6fea342ffba609187d339c4f38ce36ecc.txt",
+      "sha256": "cf63099896d1c0f6529c41b8d95738e6fea342ffba609187d339c4f38ce36ecc",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libdebconfclient0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/python_multipart-0.0.34.dist-info/licenses/LICENSE.txt",
+        "https://registry.npmjs.org/dompurify/-/dompurify-3.4.17.tgz :: npm/dompurify/package/LICENSE",
+        "Go module cel.dev/expr@v0.25.3; verified h1:A2jO8jwOugrrovveCWfj0KEZOfqiLgAcwjpHPhzIGw0= :: go/cel.dev/expr@v0.25.3/expr@v0.25.3/LICENSE",
+        "Go module cloud.google.com/go/auth@v0.23.3; verified h1:UMK+oBtuNGMCR/6i6mmySUItqjOazpJrbmZyhGbGBWo= :: go/cloud.google.com/go/auth@v0.23.3/go/auth@v0.23.3/LICENSE",
+        "Go module cloud.google.com/go/auth/oauth2adapt@v0.2.8; verified h1:keo8NaayQZ6wimpNSmW5OPc283g65QNIiLpZnkHRbnc= :: go/cloud.google.com/go/auth/oauth2adapt@v0.2.8/go/auth/oauth2adapt@v0.2.8/LICENSE",
+        "Go module cloud.google.com/go/compute/metadata@v0.9.1; verified h1:CTE1OWBQ0vnF5uHwdFAQJvMQ0Fi/KRcqqKTo9V0F8Ik= :: go/cloud.google.com/go/compute/metadata@v0.9.1/go/compute/metadata@v0.9.1/LICENSE",
+        "Go module github.com/Masterminds/goutils@v1.1.1; verified h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI= :: go/github.com/Masterminds/goutils@v1.1.1/Masterminds/goutils@v1.1.1/LICENSE.txt",
+        "Go module github.com/caddyserver/caddy/v2@v2.11.9; verified h1:bhZtcRKQOq0fuLvEgCdPYvUxXyGn9kzjG4lh2332DTE= :: go/github.com/caddyserver/caddy/v2@v2.11.9/caddyserver/caddy/v2@v2.11.9/LICENSE",
+        "Go module github.com/go-jose/go-jose/v3@v3.0.5; verified h1:BLLJWbC4nMZOfuPVxoZIxeYsn6Nl2r1fITaJ78UQlVQ= :: go/github.com/go-jose/go-jose/v3@v3.0.5/go-jose/go-jose/v3@v3.0.5/LICENSE",
+        "Go module github.com/go-jose/go-jose/v4@v4.1.6; verified h1:sNRkftxFJxwsILiQukqp5z83QBSmntVwmgRY7AqBDO4= :: go/github.com/go-jose/go-jose/v4@v4.1.6/go-jose/go-jose/v4@v4.1.6/LICENSE",
+        "Go module github.com/google/certificate-transparency-go@v1.3.3; verified h1:hq/rSxztSkXN2tx/3jQqF6Xc0O565UQPdHrOWvZwybo= :: go/github.com/google/certificate-transparency-go@v1.3.3/google/certificate-transparency-go@v1.3.3/LICENSE",
+        "Go module github.com/google/go-tpm@v0.9.8; verified h1:slArAR9Ft+1ybZu0lBwpSmpwhRXaa85hWtMinMyRAWo= :: go/github.com/google/go-tpm@v0.9.8/google/go-tpm@v0.9.8/LICENSE",
+        "Go module github.com/google/s2a-go@v0.1.10; verified h1:EMp+aOuXN6l8cE/gjF5Bt+vyZxsUuyCWe9chDWR/+uU= :: go/github.com/google/s2a-go@v0.1.10/google/s2a-go@v0.1.10/LICENSE.md",
+        "Go module github.com/googleapis/enterprise-certificate-proxy@v0.3.22; verified h1:NU4XpII6jD+Dxcot94fqjE+AfJoE/lQP9q3faYGzC/c= :: go/github.com/googleapis/enterprise-certificate-proxy@v0.3.22/googleapis/enterprise-certificate-proxy@v0.3.22/LICENSE",
+        "Go module github.com/smallstep/go-attestation@v0.4.4-0.20260814222900-a849f4e2cd68; verified h1:KcK2guFXrE5sX/nvF1b+atHP6DjRB1gCv3ppyTXB2Zk= :: go/github.com/smallstep/go-attestation@v0.4.4-0.20260814222900-a849f4e2cd68/smallstep/go-attestation@v0.4.4-0.20260814222900-a849f4e2cd68/LICENSE",
+        "Go module google.golang.org/genproto/googleapis/api@v0.0.0-20260921155816-b14227669459; verified h1:GS9OIt/j7c8bvBjYNgnKQysVfmV7e4jM0H8ZK95G4t8= :: go/google.golang.org/genproto/googleapis/api@v0.0.0-20260921155816-b14227669459/genproto/googleapis/api@v0.0.0-20260921155816-b14227669459/LICENSE",
+        "Go module google.golang.org/genproto/googleapis/rpc@v0.0.0-20260921155816-b14227669459; verified h1:b0xCahf3FK2m2Cv0p4vTozGPWncCvLfwV86UNg8xWU8= :: go/google.golang.org/genproto/googleapis/rpc@v0.0.0-20260921155816-b14227669459/genproto/googleapis/rpc@v0.0.0-20260921155816-b14227669459/LICENSE",
+        "Go module google.golang.org/grpc@v1.83.2; verified h1:EManeRomTObA0BU7I8vXgg/78uE5MJ9M8B39EX2WscU= :: go/google.golang.org/grpc@v1.83.2/grpc@v1.83.2/LICENSE",
+        "https://static.crates.io/crates/utf16_iter/utf16_iter-1.0.5.crate :: notices/utf16_iter/1.0.5/LICENSE-APACHE",
+        "https://static.crates.io/crates/utf8_iter/utf8_iter-1.0.4.crate :: notices/utf8_iter/1.0.4/LICENSE-APACHE",
+        "https://static.crates.io/crates/write16/write16-1.0.0.crate :: notices/write16/1.0.0/LICENSE-APACHE",
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d00d032f517721b45c56c70c46bf904ebb71ad313df4d4db7722266b38069665.txt",
+      "sha256": "d00d032f517721b45c56c70c46bf904ebb71ad313df4d4db7722266b38069665",
+      "origins": [
+        "https://registry.npmjs.org/@csstools/css-calc/-/css-calc-3.4.3.tgz :: npm/@csstools/css-calc/package/LICENSE.md",
+        "https://registry.npmjs.org/@csstools/css-color-parser/-/css-color-parser-4.2.6.tgz :: npm/@csstools/css-color-parser/package/LICENSE.md",
+        "https://registry.npmjs.org/@csstools/css-parser-algorithms/-/css-parser-algorithms-4.0.2.tgz :: npm/@csstools/css-parser-algorithms/package/LICENSE.md",
+        "https://registry.npmjs.org/@csstools/css-tokenizer/-/css-tokenizer-4.0.2.tgz :: npm/@csstools/css-tokenizer/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d01c6d371866b3c7a1a7e20994d88d2ce83f22974ec6d3596a6125b44495813d.txt",
+      "sha256": "d01c6d371866b3c7a1a7e20994d88d2ce83f22974ec6d3596a6125b44495813d",
+      "origins": [
+        "Go module github.com/smallstep/pkcs7@v0.2.3; verified h1:bhoQ3TeZmdoXTatcwxCbk+FMcdsyr0gYrrW2Xq2qr+s= :: go/github.com/smallstep/pkcs7@v0.2.3/smallstep/pkcs7@v0.2.3/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d0cd141b0c322fded5dfad1d4645bb2fedfc05b7321fe1009469638190d59ef9.txt",
+      "sha256": "d0cd141b0c322fded5dfad1d4645bb2fedfc05b7321fe1009469638190d59ef9",
+      "origins": [
+        "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz :: npm/picomatch/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d11323827fa4edeaafc437cc5b91b6971b335f0127efeeb42bf5122fe8657e8f.txt",
+      "sha256": "d11323827fa4edeaafc437cc5b91b6971b335f0127efeeb42bf5122fe8657e8f",
+      "origins": [
+        "https://registry.npmjs.org/minimatch/-/minimatch-9.0.9.tgz :: npm/minimatch/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d18f6323b71b0b768bb5e9616e36da390fbd39369a81807cca352de4e4e6aa0b.txt",
+      "sha256": "d18f6323b71b0b768bb5e9616e36da390fbd39369a81807cca352de4e4e6aa0b",
+      "origins": [
+        "Go module go.yaml.in/yaml/v3@v3.0.5; verified h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw= :: go/go.yaml.in/yaml/v3@v3.0.5/yaml/v3@v3.0.5/LICENSE",
+        "Go module gopkg.in/yaml.v3@v3.0.1; verified h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA= :: go/gopkg.in/yaml.v3@v3.0.1/yaml.v3@v3.0.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d1d2046ebbe6362f9ad8fd4d62e9074f2553f289c0e1de895a650f10ba5f4239.txt",
+      "sha256": "d1d2046ebbe6362f9ad8fd4d62e9074f2553f289c0e1de895a650f10ba5f4239",
+      "origins": [
+        "https://registry.npmjs.org/prosemirror-tables/-/prosemirror-tables-1.8.5.tgz :: npm/prosemirror-tables/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d21cb1c60785d6d3a84a7059323ccafc45c645b1bbda281c76a62d66ad2d7dc3.txt",
+      "sha256": "d21cb1c60785d6d3a84a7059323ccafc45c645b1bbda281c76a62d66ad2d7dc3",
+      "origins": [
+        "Go module github.com/BurntSushi/toml@v1.6.0; verified h1:dRaEfpa2VI55EwlIW72hMRHdWouJeRF7TPYhI+AUQjk= :: go/github.com/BurntSushi/toml@v1.6.0/BurntSushi/toml@v1.6.0/COPYING",
+        "Go module github.com/BurntSushi/toml@v1.6.0; verified h1:dRaEfpa2VI55EwlIW72hMRHdWouJeRF7TPYhI+AUQjk= :: go/github.com/BurntSushi/toml@v1.6.0/BurntSushi/toml@v1.6.0/cmd/toml-test-decoder/COPYING",
+        "Go module github.com/BurntSushi/toml@v1.6.0; verified h1:dRaEfpa2VI55EwlIW72hMRHdWouJeRF7TPYhI+AUQjk= :: go/github.com/BurntSushi/toml@v1.6.0/BurntSushi/toml@v1.6.0/cmd/toml-test-encoder/COPYING",
+        "Go module github.com/BurntSushi/toml@v1.6.0; verified h1:dRaEfpa2VI55EwlIW72hMRHdWouJeRF7TPYhI+AUQjk= :: go/github.com/BurntSushi/toml@v1.6.0/BurntSushi/toml@v1.6.0/cmd/tomlv/COPYING"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d298ca9d57c94e16547637f1d7122481ecdb83932c9b901fac349c4c382b82eb.txt",
+      "sha256": "d298ca9d57c94e16547637f1d7122481ecdb83932c9b901fac349c4c382b82eb",
+      "origins": [
+        "Go module github.com/huandu/xstrings@v1.6.1; verified h1:yYdKSd6Sjv3fNZt9BDjl1FDsPNfQEaYi19L5LzK2JKs= :: go/github.com/huandu/xstrings@v1.6.1/huandu/xstrings@v1.6.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d3be0f43fe14da244f97c451bbae789c0acf868612598a69f5f22a289abeca40.txt",
+      "sha256": "d3be0f43fe14da244f97c451bbae789c0acf868612598a69f5f22a289abeca40",
+      "origins": [
+        "Audited business TAR: usr/share/doc/liblz4-1/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d4ff111fa30ac75e28dca3868de957a3b73ff50b76bc4b8fe5c3a1f008d26703.txt",
+      "sha256": "d4ff111fa30ac75e28dca3868de957a3b73ff50b76bc4b8fe5c3a1f008d26703",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/snappy/xerial/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d64d73b7e2ffc460053728197c024cc67927f8dd784cb98a058ce6d76479dd40.txt",
+      "sha256": "d64d73b7e2ffc460053728197c024cc67927f8dd784cb98a058ce6d76479dd40",
+      "origins": [
+        "Go module github.com/DeRuina/timberjack@v1.4.8; verified h1:V7SIoCzkyWD93WmyKECSX+tMu/hLqQQvptlhEsbBIhI= :: go/github.com/DeRuina/timberjack@v1.4.8/DeRuina/timberjack@v1.4.8/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d77d235e41d54594865151f4751e835c5a82322b0e87ace266567c3391a4b912.txt",
+      "sha256": "d77d235e41d54594865151f4751e835c5a82322b0e87ace266567c3391a4b912",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/GPL-1"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d8e94ae5fdb5433fcae2961aeb1a8cf17174d6f4a0465d24bf37dd8a038bd439.txt",
+      "sha256": "d8e94ae5fdb5433fcae2961aeb1a8cf17174d6f4a0465d24bf37dd8a038bd439",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/GFDL-1.2"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/d98c53f281321baad38164aa9ae6e368a9253be6ec51bd26a759b5e72b326f4a.txt",
+      "sha256": "d98c53f281321baad38164aa9ae6e368a9253be6ec51bd26a759b5e72b326f4a",
+      "origins": [
+        "Audited business TAR: usr/share/doc/dash/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/da4db1480d9beea3483a2eda5c53b22238d0827d57da162b48f122e04d2d9987.txt",
+      "sha256": "da4db1480d9beea3483a2eda5c53b22238d0827d57da162b48f122e04d2d9987",
+      "origins": [
+        "https://registry.npmjs.org/nanoid/-/nanoid-3.3.20.tgz :: npm/nanoid/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/da8191658b3452ce9caf31638ba61dab31a38c619fa39df119812e050f592fd3.txt",
+      "sha256": "da8191658b3452ce9caf31638ba61dab31a38c619fa39df119812e050f592fd3",
+      "origins": [
+        "Audited business TAR: usr/share/doc/gcc-12-base/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/db480f236292a093e77a83c35431a8496624e1e664a3547768a9ce2bdde39877.txt",
+      "sha256": "db480f236292a093e77a83c35431a8496624e1e664a3547768a9ce2bdde39877",
+      "origins": [
+        "https://registry.npmjs.org/whatwg-url/-/whatwg-url-17.3.0.tgz :: npm/whatwg-url/package/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dbad9a1f3fee465db42b92cb8a41ddaae028248fdcc54f46f1e72f7707d21dc2.txt",
+      "sha256": "dbad9a1f3fee465db42b92cb8a41ddaae028248fdcc54f46f1e72f7707d21dc2",
+      "origins": [
+        "Go module github.com/Masterminds/sprig/v3@v3.3.0; verified h1:mQh0Yrg1XPo6vjYXgtf5OtijNAKJRNcTdOOGZe3tPhs= :: go/github.com/Masterminds/sprig/v3@v3.3.0/Masterminds/sprig/v3@v3.3.0/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dbffd380d59504ba19fcf87ff5a1a33c37edf66d5b09966b0ad5368ab87bc2af.txt",
+      "sha256": "dbffd380d59504ba19fcf87ff5a1a33c37edf66d5b09966b0ad5368ab87bc2af",
+      "origins": [
+        "https://registry.npmjs.org/@exodus/bytes/-/bytes-1.16.0.tgz :: npm/@exodus/bytes/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dc1db0b5d17455adc37b693ff8e409c9a80f603e441695825518c36f786c963e.txt",
+      "sha256": "dc1db0b5d17455adc37b693ff8e409c9a80f603e441695825518c36f786c963e",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/sqlalchemy-2.1.9.dist-info/licenses/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551.txt",
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/LGPL-2.1"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf.txt",
+      "sha256": "dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/starlette-1.10.0.dist-info/licenses/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dccd26c6fd9c296daf44d0bc56bb4efc566edd4880381b3331c9a63e6e471338.txt",
+      "sha256": "dccd26c6fd9c296daf44d0bc56bb4efc566edd4880381b3331c9a63e6e471338",
+      "origins": [
+        "Go module github.com/coreos/go-oidc/v3@v3.21.0; verified h1:wZo4Q9Pum8dYEj0eMUPrqR+kvuGkeUplbLpNCkBqoWM= :: go/github.com/coreos/go-oidc/v3@v3.21.0/coreos/go-oidc/v3@v3.21.0/NOTICE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dcdabe03bef2382a130640d1c3a4cd5ec42aba1035095c38272fde694eb72405.txt",
+      "sha256": "dcdabe03bef2382a130640d1c3a4cd5ec42aba1035095c38272fde694eb72405",
+      "origins": [
+        "Go module go.uber.org/multierr@v1.11.0; verified h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0= :: go/go.uber.org/multierr@v1.11.0/multierr@v1.11.0/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dd26a7abddd02e2d0aba97805b31f248ef7835d9e10da289b22e3b8ab78b324d.txt",
+      "sha256": "dd26a7abddd02e2d0aba97805b31f248ef7835d9e10da289b22e3b8ab78b324d",
+      "origins": [
+        "Go module github.com/go-jose/go-jose/v3@v3.0.5; verified h1:BLLJWbC4nMZOfuPVxoZIxeYsn6Nl2r1fITaJ78UQlVQ= :: go/github.com/go-jose/go-jose/v3@v3.0.5/go-jose/go-jose/v3@v3.0.5/json/LICENSE",
+        "Go module github.com/go-jose/go-jose/v4@v4.1.6; verified h1:sNRkftxFJxwsILiQukqp5z83QBSmntVwmgRY7AqBDO4= :: go/github.com/go-jose/go-jose/v4@v4.1.6/go-jose/go-jose/v4@v4.1.6/json/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce.txt",
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/pillow-12.3.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/df52411dcd3c8f5897bbbec8c94e971519e13e75818c263e9a99a86255dd301b.txt",
+      "sha256": "df52411dcd3c8f5897bbbec8c94e971519e13e75818c263e9a99a86255dd301b",
+      "origins": [
+        "https://registry.npmjs.org/muggle-string/-/muggle-string-0.4.1.tgz :: npm/muggle-string/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/df6909abb38f4e84d237d8617e948bdbb391b2004ecf573863011d54a88ccf22.txt",
+      "sha256": "df6909abb38f4e84d237d8617e948bdbb391b2004ecf573863011d54a88ccf22",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libnpth0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/dfffb9ec737eaba985243e95a549bd8c3a4d462032cfe603e2a6704c346427b6.txt",
+      "sha256": "dfffb9ec737eaba985243e95a549bd8c3a4d462032cfe603e2a6704c346427b6",
+      "origins": [
+        "Go module github.com/prometheus/client_golang@v1.24.1; verified h1:JnJkREXzWxUdCuPFpIWZiPispT9xVV59uiuyR2bPlnU= :: go/github.com/prometheus/client_golang@v1.24.1/prometheus/client_golang@v1.24.1/internal/github.com/golang/gddo/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e00e6a86c598f9e24ced0180a70a5f2f2e45e133d93adf2b17ce8a06ce4b1b51.txt",
+      "sha256": "e00e6a86c598f9e24ced0180a70a5f2f2e45e133d93adf2b17ce8a06ce4b1b51",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libsemanage-common/copyright",
+        "Audited business TAR: usr/share/doc/libsemanage2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118.txt",
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/psycopg-3.3.9.dist-info/licenses/LICENSE.txt",
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/psycopg_binary-3.3.9.dist-info/licenses/LICENSE.txt",
+        "https://www.gnu.org/licenses/lgpl-3.0.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e60a5642e12e340060e4e519a65b2eb0330be2917854841c644e36268f607d54.txt",
+      "sha256": "e60a5642e12e340060e4e519a65b2eb0330be2917854841c644e36268f607d54",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libcap2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e75b5c81dc881b74f84c306c2d0b7db1affbe78d9c0feb5722eb432fd534bea5.txt",
+      "sha256": "e75b5c81dc881b74f84c306c2d0b7db1affbe78d9c0feb5722eb432fd534bea5",
+      "origins": [
+        "Go module github.com/libdns/libdns@v1.1.1; verified h1:wPrHrXILoSHKWJKGd0EiAVmiJbFShguILTg9leS/P/U= :: go/github.com/libdns/libdns@v1.1.1/libdns/libdns@v1.1.1/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e85e1bcad3a915dc7e6f41412bc5bdeba275cadd817896ea0451f2140a93967c.txt",
+      "sha256": "e85e1bcad3a915dc7e6f41412bc5bdeba275cadd817896ea0451f2140a93967c",
+      "origins": [
+        "Audited business TAR: usr/share/doc/ca-certificates/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e862bb5b904fb5513c3e14288d7a25a12eb0ecc7847a0a965d310e9a955e7cb9.txt",
+      "sha256": "e862bb5b904fb5513c3e14288d7a25a12eb0ecc7847a0a965d310e9a955e7cb9",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/sqlalchemy-2.1.9.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e8b534ea455c397714900d701cbdaf20154f02e970607c5bb4d71c4b3d499055.txt",
+      "sha256": "e8b534ea455c397714900d701cbdaf20154f02e970607c5bb4d71c4b3d499055",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libkmod2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7.txt",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/certifi-2026.10.23.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ecc269ef87fd38a1d98e30bfac9ba964a9dbd9315c3770fed98d4d7cb5882055.txt",
+      "sha256": "ecc269ef87fd38a1d98e30bfac9ba964a9dbd9315c3770fed98d4d7cb5882055",
+      "origins": [
+        "https://static.crates.io/crates/indexmap/indexmap-2.14.0.crate :: notices/indexmap/2.14.0/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ed139379f7c874f0ee75f3ddcc2e01091dd828d84ee1a0bdff6a1c5673ee6e58.txt",
+      "sha256": "ed139379f7c874f0ee75f3ddcc2e01091dd828d84ee1a0bdff6a1c5673ee6e58",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libp11-kit0/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ee48679d379ca6b4493d5e231094d85f818dd9be40b1a4f234fb7ff657ee35d9.txt",
+      "sha256": "ee48679d379ca6b4493d5e231094d85f818dd9be40b1a4f234fb7ff657ee35d9",
+      "origins": [
+        "https://registry.npmjs.org/obug/-/obug-3.0.0.tgz :: npm/obug/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ee746b96cfa5be73c3ea3e4cfb1285e9b315d4c9267f99b2ee9c5d911d9fe3f4.txt",
+      "sha256": "ee746b96cfa5be73c3ea3e4cfb1285e9b315d4c9267f99b2ee9c5d911d9fe3f4",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libxml2/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ef0b452ced6304db2ce78ca66de1fc7b97bab05bc1750c95df359ed3fe1d65c8.txt",
+      "sha256": "ef0b452ced6304db2ce78ca66de1fc7b97bab05bc1750c95df359ed3fe1d65c8",
+      "origins": [
+        "https://registry.npmjs.org/prosemirror-commands/-/prosemirror-commands-1.7.2.tgz :: npm/prosemirror-commands/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-dropcursor/-/prosemirror-dropcursor-1.8.4.tgz :: npm/prosemirror-dropcursor/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-gapcursor/-/prosemirror-gapcursor-1.4.1.tgz :: npm/prosemirror-gapcursor/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-history/-/prosemirror-history-1.5.1.tgz :: npm/prosemirror-history/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-inputrules/-/prosemirror-inputrules-1.5.1.tgz :: npm/prosemirror-inputrules/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-keymap/-/prosemirror-keymap-1.2.3.tgz :: npm/prosemirror-keymap/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-model/-/prosemirror-model-1.25.12.tgz :: npm/prosemirror-model/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-schema-list/-/prosemirror-schema-list-1.5.1.tgz :: npm/prosemirror-schema-list/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-state/-/prosemirror-state-1.4.4.tgz :: npm/prosemirror-state/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-transform/-/prosemirror-transform-1.12.2.tgz :: npm/prosemirror-transform/package/LICENSE",
+        "https://registry.npmjs.org/prosemirror-view/-/prosemirror-view-1.42.6.tgz :: npm/prosemirror-view/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371.txt",
+      "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/uvicorn-0.54.0.dist-info/licenses/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f0974fb41778e23c94111ff90da0546de8971f8270c58877283d372e6bd7f17e.txt",
+      "sha256": "f0974fb41778e23c94111ff90da0546de8971f8270c58877283d372e6bd7f17e",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libtinfo6/copyright",
+        "Audited business TAR: usr/share/doc/ncurses-base/copyright",
+        "Audited business TAR: usr/share/doc/ncurses-bin/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f0e4a9d181cbbbc742355f1723a4273fff79d999fd4d65caa2dc92fbcc5937be.txt",
+      "sha256": "f0e4a9d181cbbbc742355f1723a4273fff79d999fd4d65caa2dc92fbcc5937be",
+      "origins": [
+        "Go module github.com/pbnjay/memory@v0.0.0-20210728143218-7b4eea64cf58; verified h1:onHthvaw9LFnH4t2DcNVpwGmV9E1BkGknEliJkfwQj0= :: go/github.com/pbnjay/memory@v0.0.0-20210728143218-7b4eea64cf58/pbnjay/memory@v0.0.0-20210728143218-7b4eea64cf58/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f200ff9bad73385db2ed81e23ee2c1fe069eb5776e17fae4ee85ad0a9e1361a5.txt",
+      "sha256": "f200ff9bad73385db2ed81e23ee2c1fe069eb5776e17fae4ee85ad0a9e1361a5",
+      "origins": [
+        "Go module github.com/miekg/dns@v1.1.73; verified h1:uhT8nJxmTrPJYClxVxTCX+CVn6qnzSiybRk72Z6DgrE= :: go/github.com/miekg/dns@v1.1.73/miekg/dns@v1.1.73/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f32684fdc4a08d433c818514dff0fa2d6a212e16359a6ba522f05b1b0f9470b5.txt",
+      "sha256": "f32684fdc4a08d433c818514dff0fa2d6a212e16359a6ba522f05b1b0f9470b5",
+      "origins": [
+        "Go module github.com/smallstep/nosql@v0.8.0; verified h1:FBTCUfKPmWYbrozW+RBKu+fnvbn+zr5rVli/XB4Jp4A= :: go/github.com/smallstep/nosql@v0.8.0/smallstep/nosql@v0.8.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2.txt",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "origins": [
+        "https://static.crates.io/crates/icu_collections/icu_collections-1.5.0.crate :: notices/icu_collections/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_locid/icu_locid-1.5.0.crate :: notices/icu_locid/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_locid_transform/icu_locid_transform-1.5.0.crate :: notices/icu_locid_transform/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_locid_transform_data/icu_locid_transform_data-1.5.0.crate :: notices/icu_locid_transform_data/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_normalizer/icu_normalizer-1.5.0.crate :: notices/icu_normalizer/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_normalizer_data/icu_normalizer_data-1.5.0.crate :: notices/icu_normalizer_data/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_properties/icu_properties-1.5.1.crate :: notices/icu_properties/1.5.1/LICENSE",
+        "https://static.crates.io/crates/icu_properties_data/icu_properties_data-1.5.0.crate :: notices/icu_properties_data/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_provider/icu_provider-1.5.0.crate :: notices/icu_provider/1.5.0/LICENSE",
+        "https://static.crates.io/crates/icu_provider_macros/icu_provider_macros-1.5.0.crate :: notices/icu_provider_macros/1.5.0/LICENSE",
+        "https://static.crates.io/crates/litemap/litemap-0.7.3.crate :: notices/litemap/0.7.3/LICENSE",
+        "https://static.crates.io/crates/tinystr/tinystr-0.7.6.crate :: notices/tinystr/0.7.6/LICENSE",
+        "https://static.crates.io/crates/writeable/writeable-0.5.5.crate :: notices/writeable/0.5.5/LICENSE",
+        "https://static.crates.io/crates/yoke/yoke-0.7.4.crate :: notices/yoke/0.7.4/LICENSE",
+        "https://static.crates.io/crates/yoke-derive/yoke-derive-0.7.4.crate :: notices/yoke-derive/0.7.4/LICENSE",
+        "https://static.crates.io/crates/zerofrom/zerofrom-0.1.4.crate :: notices/zerofrom/0.1.4/LICENSE",
+        "https://static.crates.io/crates/zerofrom-derive/zerofrom-derive-0.1.4.crate :: notices/zerofrom-derive/0.1.4/LICENSE",
+        "https://static.crates.io/crates/zerovec/zerovec-0.10.4.crate :: notices/zerovec/0.10.4/LICENSE",
+        "https://static.crates.io/crates/zerovec-derive/zerovec-derive-0.10.3.crate :: notices/zerovec-derive/0.10.3/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f566a9f97bacdaf00d9f21dd991e81dc11201c4e016c86b470799429a1c9a79c.txt",
+      "sha256": "f566a9f97bacdaf00d9f21dd991e81dc11201c4e016c86b470799429a1c9a79c",
+      "origins": [
+        "Go module github.com/cespare/xxhash/v2@v2.3.0; verified h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs= :: go/github.com/cespare/xxhash/v2@v2.3.0/cespare/xxhash/v2@v2.3.0/LICENSE.txt",
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/zstd/internal/xxhash/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f69f157b0be75da373605dbc8bbf142e8924ee82d8f44f11bcaf351335bf98cf.txt",
+      "sha256": "f69f157b0be75da373605dbc8bbf142e8924ee82d8f44f11bcaf351335bf98cf",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/internal/snapref/LICENSE",
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/snappy/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f6c2dd3a67b576eafb89b80200b8b1627230bf3821a0c14cb99a22ac19107d00.txt",
+      "sha256": "f6c2dd3a67b576eafb89b80200b8b1627230bf3821a0c14cb99a22ac19107d00",
+      "origins": [
+        "Go module go.yaml.in/yaml/v3@v3.0.5; verified h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw= :: go/go.yaml.in/yaml/v3@v3.0.5/yaml/v3@v3.0.5/NOTICE",
+        "Go module gopkg.in/yaml.v3@v3.0.1; verified h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA= :: go/gopkg.in/yaml.v3@v3.0.1/yaml.v3@v3.0.1/NOTICE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f6f3821e64460346c1ed1a15fb32b94ad241617276b60726c1350ca315309463.txt",
+      "sha256": "f6f3821e64460346c1ed1a15fb32b94ad241617276b60726c1350ca315309463",
+      "origins": [
+        "Go module github.com/klauspost/compress@v1.20.1; verified h1:T7kKElXUMXrUJ2E9QhQhxFtcK5rPyLdsGZvdbLMPdiQ= :: go/github.com/klauspost/compress@v1.20.1/klauspost/compress@v1.20.1/snappy/AUTHORS"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f790cc576999f5998c766d3d26d7d64dc368e805a98461484f65e8d961ec6d9f.txt",
+      "sha256": "f790cc576999f5998c766d3d26d7d64dc368e805a98461484f65e8d961ec6d9f",
+      "origins": [
+        "https://static.crates.io/crates/funty/funty-2.0.0.crate :: notices/funty/2.0.0/LICENSE.txt"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f7bdb3426d045cd50efd4953026e3eb5a83d0199f458a075602611b9344da5b9.txt",
+      "sha256": "f7bdb3426d045cd50efd4953026e3eb5a83d0199f458a075602611b9344da5b9",
+      "origins": [
+        "https://static.crates.io/crates/hex/hex-0.4.3.crate :: notices/hex/0.4.3/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f83d2ecba1ea4d99957e81c50bebbd076a128194288a3ec22cc8ccdb77c43087.txt",
+      "sha256": "f83d2ecba1ea4d99957e81c50bebbd076a128194288a3ec22cc8ccdb77c43087",
+      "origins": [
+        "Audited business TAR: usr/share/doc/libffi8/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f849fc26a7a99981611a3a370e83078deb617d12a45776d6c4cada4d338be469.txt",
+      "sha256": "f849fc26a7a99981611a3a370e83078deb617d12a45776d6c4cada4d338be469",
+      "origins": [
+        "Audited business TAR: usr/share/common-licenses/MPL-1.1"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f940b0598a75f4df245260058fbefde6e65c405dcb31e1deb3d2b002a8a431f9.txt",
+      "sha256": "f940b0598a75f4df245260058fbefde6e65c405dcb31e1deb3d2b002a8a431f9",
+      "origins": [
+        "lunardate 0.2.2 published source, copyright header lines 1-7; no implementation/data copied"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/f95f668fe64081ddb4153b322e34fdd719b991285ed08177d5ad7133b7988d92.txt",
+      "sha256": "f95f668fe64081ddb4153b322e34fdd719b991285ed08177d5ad7133b7988d92",
+      "origins": [
+        "https://registry.npmjs.org/tinyexec/-/tinyexec-1.3.1.tgz :: npm/tinyexec/package/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fa1bd040c5bdeefe65b3821cebf474f2733ce65df13089bd151dda1778e62fe8.txt",
+      "sha256": "fa1bd040c5bdeefe65b3821cebf474f2733ce65df13089bd151dda1778e62fe8",
+      "origins": [
+        "https://registry.npmjs.org/rollup/-/rollup-4.64.9.tgz :: npm/rollup/package/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85.txt",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "origins": [
+        "https://registry.npmjs.org/dompurify/-/dompurify-3.4.17.tgz :: npm/dompurify/package/LICENSE-MPL"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fc0a2f71df4e8f047902da53d1f85301be43e0f360fc167057a2d04658ed2ba9.txt",
+      "sha256": "fc0a2f71df4e8f047902da53d1f85301be43e0f360fc167057a2d04658ed2ba9",
+      "origins": [
+        "Go module google.golang.org/api@v0.298.0; verified h1:YW18RkHBMZBA1ergX0m4biagzgbiPTb2uTsRsDPWNRY= :: go/google.golang.org/api@v0.298.0/api@v0.298.0/internal/third_party/uritemplates/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fd2d797e208bcfb713510e47a89867191180943e1167d44c2acd8ff1b88e5c10.txt",
+      "sha256": "fd2d797e208bcfb713510e47a89867191180943e1167d44c2acd8ff1b88e5c10",
+      "origins": [
+        "Audited business TAR: usr/share/doc/debianutils/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fd7e4aae7e7b05f217bcf2d02322825c360e66c52c4c2f1b28d784d6297a1c23.txt",
+      "sha256": "fd7e4aae7e7b05f217bcf2d02322825c360e66c52c4c2f1b28d784d6297a1c23",
+      "origins": [
+        "Audited business TAR: usr/share/doc/base-files/copyright"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5.txt",
+      "sha256": "fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.md"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fe1049884b1a0d9342901e88e07f32925d24b3121d9972b6a6805fb9824b095d.txt",
+      "sha256": "fe1049884b1a0d9342901e88e07f32925d24b3121d9972b6a6805fb9824b095d",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/annotated_types-0.8.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/feb6d17a0e7a64e5ab0f7e2b0e0ee3e69c1a6396626fd554dc0cddaa06851b44.txt",
+      "sha256": "feb6d17a0e7a64e5ab0f7e2b0e0ee3e69c1a6396626fd554dc0cddaa06851b44",
+      "origins": [
+        "Go module github.com/spf13/cast@v1.10.0; verified h1:h2x0u2shc1QuLHfxi+cTJvs30+ZAHOGRic8uyGTDWxY= :: go/github.com/spf13/cast@v1.10.0/spf13/cast@v1.10.0/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2.txt",
+      "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2",
+      "origins": [
+        "https://static.crates.io/crates/hashbrown/hashbrown-0.17.1.crate :: notices/hashbrown/0.17.1/LICENSE-MIT"
+      ]
+    },
+    {
+      "path": "third_party/licenses/evidence/fff170779a6acbf65abdb405c087f1cee1786691e4a96a4034517e4a504a0cdf.txt",
+      "sha256": "fff170779a6acbf65abdb405c087f1cee1786691e4a96a4034517e4a504a0cdf",
+      "origins": [
+        "Audited business TAR: opt/venv/lib/python3.12/site-packages/annotated_doc-0.0.7.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "path": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "origins": [
+        "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/LICENSE (ISC and retained Feather MIT grant)"
+      ]
+    },
+    {
+      "path": "third_party/licenses/lunardate-GPL-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "origins": [
+        "Previously verified upstream legal text; see license-provenance.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "format": "life-journal-source-scope-v1",
+  "distribution": "source-only",
+  "original_license_proposal": "GPL-3.0-or-later",
+  "license_effective": true,
+  "third_party_relicensed": false,
+  "current_combination_under_gpl_version": 3,
+  "future_combined_license_versions_guaranteed": false,
+  "source_includes_prebuilt_binaries": false,
+  "items": [
+    {
+      "component": "Life Journal original backend/frontend/scripts/tests",
+      "included": "source",
+      "category": "A",
+      "condition": "Phase A original grant approved within the owner-controlled protectable source/increment scope. Third-party grants unchanged; phase B pending."
+    },
+    {
+      "component": "Alembic template scaffolding and 13 Lucide icon geometries",
+      "included": "MIT template adaptations; ISC/applicable MIT icon source data, with verbatim grants and attribution",
+      "category": "A",
+      "condition": "Source copies explicitly inventoried in source-review.json and icon-provenance.json; not covered by original inkzcz notice."
+    },
+    {
+      "component": "409 existing legal texts plus one pinned Lucide ISC/MIT notice",
+      "included": "verbatim legal text",
+      "category": "A",
+      "condition": "Preserve upstream grants, attribution and exact hashes; does not relicense implementations."
+    },
+    {
+      "component": "lunardate 0.2.2",
+      "included": "requirements reference and GPL/ancestry notices, no vendored implementation",
+      "category": "A",
+      "condition": "Production behavior retained. GPLv3 declared; do not infer later-version grant for all upstream contributions."
+    },
+    {
+      "component": "psycopg / psycopg-binary",
+      "included": "dependency reference and license evidence, no wheel/shared libraries",
+      "category": "C",
+      "condition": "LGPL-3.0-only unchanged. Native bundles/source/replacement mechanism apply to future binary distribution."
+    },
+    {
+      "component": "npm dependencies including the two tool notice gaps",
+      "included": "package/lock references, no node_modules or compiled frontend",
+      "category": "C",
+      "condition": "Missing tool-package notice files do not block this source snapshot without their code/binaries; revisit vendoring/bundling."
+    },
+    {
+      "component": "Caddy / Debian / PostgreSQL / Go modules",
+      "included": "Dockerfile references and supplemental notices, no executables/layers",
+      "category": "C",
+      "condition": "Actual binary build recipe, versions and corresponding-source delivery are future-image requirements."
+    },
+    {
+      "component": "Pydantic-core Cargo dependency evidence",
+      "included": "inventory/notice evidence, no Rust implementations or wheel",
+      "category": "C",
+      "condition": "Exact wheel/source correspondence required when distributing the compiled artifact."
+    },
+    {
+      "component": "certifi / DOMPurify and other licensed dependencies",
+      "included": "references/notices only",
+      "category": "A",
+      "condition": "Retain existing component grants. If code is later copied/modified/bundled, recheck applicable MPL/Apache/etc conditions."
+    },
+    {
+      "component": "GitHub hosted workflow execution",
+      "included": "read-only workflow source",
+      "category": "D",
+      "condition": "Unavailable Actions is not recorded as passed; local results and platform limits recorded separately."
+    }
+  ],
+  "source_blockers": [
+    "Phase B owner approval of the actual post-activation candidate commit, destination repository, manifest SHA256 and source tree SHA256 pending"
+  ],
+  "binary_only_blockers": [
+    "Bundled native library/source/build correspondence",
+    "GPL/LGPL corresponding source delivery and replacement validation",
+    "Binary notices, actual container/load/upgrade and platform acceptance"
+  ],
+  "owner_declaration_received": true,
+  "personal_development_and_employer_exclusion_declared_by_owner": true,
+  "public_copyright_holder": "inkzcz",
+  "proposed_copyright_notice": "Copyright (C) 2026 inkzcz",
+  "source_third_party_review_complete": true,
+  "final_source_rights_clearance_complete": true,
+  "source_review_file": "third_party/source-review.json",
+  "runtime_library_implementations_vendored": false,
+  "third_party_source_fragments_included": [
+    "Alembic template scaffolding",
+    "Pinned Lucide icon geometry"
+  ],
+  "selected_original_license": "GPL-3.0-or-later",
+  "owner_authorization_scope": "phase-a-original-source-license-only",
+  "original_rights_scope": "owner-controlled-protectable-original-source-and-original-increments",
+  "publication_approved": false,
+  "source_third_party_review_scope": "Previously accepted bounded source plus phase-A original activation/gate/document/test delta; not a universal third-party title guarantee"
+}

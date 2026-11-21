@@ -1,0 +1,34 @@
+/* Geometry is independent of legacy theme identity and palette tokens. */
+.blog[data-appearance=split][data-style=modern-flat]{--radius:8px;--heading:system-ui,sans-serif;--gap:24px;--shadow:none}
+.blog[data-appearance=split][data-style=editorial]{--radius:0px;--heading:Georgia,'Noto Serif SC',serif;--gap:40px;--shadow:none}
+.blog[data-appearance=split][data-style=modern-soft]{--radius:24px;--heading:ui-rounded,system-ui,sans-serif;--gap:32px}
+.blog[data-appearance=split][data-style=glass]{--radius:20px;--heading:system-ui,sans-serif;--gap:30px;--shadow:0 12px 32px color-mix(in srgb,var(--ink) 9%,transparent)}
+.blog[data-appearance=split][data-style] :is(button,input:not([type=checkbox]):not([type=radio]),textarea,select){border-radius:var(--radius)}
+.blog[data-appearance=split][data-style] :is(.story-card,.reading-toc,.reading-context,.reading-places,.article-gallery,.related-stories,.workspace-context){border-radius:var(--radius)}
+.blog[data-appearance=split][data-style] .workspace-main>[data-workspace-module]{border-radius:var(--radius)}
+.blog[data-appearance=split][data-style] .workspace-module-heading{border-radius:var(--radius) var(--radius) 0 0}
+.blog[data-appearance=split][data-style=modern-flat] :is(.workspace-main>[data-workspace-module],.workspace-context,.reading-toc,.reading-places,.article-gallery,.related-stories){box-shadow:none}
+.blog[data-appearance=split][data-style=modern-flat] .workspace-nav{border-radius:8px;box-shadow:none}
+.blog[data-appearance=split][data-style=editorial] .workspace-module-heading h2{font-family:var(--heading);font-size:26px;font-weight:500}
+.blog[data-appearance=split][data-style=editorial] .workspace-main>[data-workspace-module]{border-inline:0;border-top:2px solid var(--partition-ink);box-shadow:none}
+.blog[data-appearance=split][data-style=editorial] .workspace-nav{background:transparent;border:0;border-radius:0;border-left:1px solid var(--partition-line)}
+.blog[data-appearance=split][data-style=editorial] .workspace-nav>button{border-radius:0;font-family:var(--heading)}
+.blog[data-appearance=split][data-style=editorial] .workspace-module-heading{background:transparent;border-radius:0}
+.blog[data-appearance=split][data-style=editorial] .workspace-module-heading::after{display:none}
+.blog[data-appearance=split][data-style=editorial] .article-heading h1{font-family:var(--heading);font-weight:400;letter-spacing:-.025em}
+.blog[data-appearance=split][data-style=editorial] .workspace-save{border-radius:0;box-shadow:none;border-block:1px solid var(--partition-ink)}
+.blog[data-appearance=split][data-style=modern-soft] .workspace-module-heading h2{font-weight:650;letter-spacing:.01em}
+.blog[data-palette]:not([data-palette=legacy]){background:var(--reader-page-background,var(--bg))}
+.blog[data-appearance=split][data-style=glass][data-palette]:not([data-palette=legacy]):not([data-custom~=page_background]){background:radial-gradient(ellipse at 12% 8%,var(--soft-step-3),transparent 48%),radial-gradient(ellipse at 90% 38%,var(--soft-step-2),transparent 55%),var(--bg)}
+.blog[data-appearance=split][data-style=glass] :is(.workspace-main>[data-workspace-module],.workspace-nav,.reading-context,.reading-toc){backdrop-filter:blur(12px);box-shadow:var(--shadow)}
+.blog[data-appearance=split][data-style=glass]:not([data-custom~=card_background]) :is(.workspace-main>[data-workspace-module],.workspace-context,.reading-context){background:color-mix(in srgb,var(--surface) 88%,transparent)}
+/* Decorations belong to a style, not every colored surface. */
+.blog[data-appearance=split][data-style=modern-flat] .theme-ornament,.blog[data-appearance=split][data-style=editorial] .theme-ornament{display:none}
+.blog[data-appearance=split][data-style=glass] .theme-ornament{opacity:.65}
+.appearance-dimension{margin-block:20px;padding:16px;border:1px solid var(--ui-line);border-radius:12px}
+.appearance-dimension legend{font-weight:700;padding-inline:8px}.style-choice{display:grid;gap:8px;border:1px solid var(--ui-line);border-radius:10px;padding:16px;background:var(--ui-card)}.style-choice small{font-size:13px}.style-choice:has(input:checked),.palette-choice:has(input:checked){outline:2px solid var(--ui-accent);outline-offset:2px}
+.legacy-palette-note{font-size:14px;line-height:1.7;padding:12px;border-left:3px solid var(--ui-accent);background:var(--ui-soft)}
+
+/* Raw legacy configurations retain their previous geometry until a user opts in. */
+.blog[data-appearance=legacy][data-theme=celadon]{--radius:26px;--gap:36px;--ratio:1.3;--heading:ui-rounded,system-ui,sans-serif}
+.blog.reader-archive[data-appearance=split]{background:var(--reader-page-background,var(--bg));color:var(--reader-body-text,var(--ink))}

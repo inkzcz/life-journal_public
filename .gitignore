@@ -1,0 +1,39 @@
+.env
+.env.*
+!.env.example
+!.env.nas.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+dist/
+*.sql
+*.dump
+media/
+
+/frontend/dist-design-preview/
+
+# Local-only image bundles; never commit Docker TARs
+/image-bundles/
+*.tar
+*.tar.partial
+
+# Local release packages and partial bundles; never commit images
+/release/
+
+# Never publish runtime files or scanner evidence
+postgres/
+backup/
+backups/
+*.sqlite*
+*.db
+*.pem
+*.key
+*.p12
+*.pfx
+.audit/
+.open-source-export/
+
+# Generated synthetic fixture packages
+*.zip

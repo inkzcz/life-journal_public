@@ -1,0 +1,13 @@
+{
+  "lunardate-GPL-3.0.txt": {
+    "package": "lunardate",
+    "version": "0.2.2",
+    "source": "https://pypi.org/project/lunardate/0.2.2/",
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  },
+  "Caddy-Apache-2.0.txt": {
+    "source": "https://github.com/caddyserver/caddy/blob/v2.11.9/LICENSE",
+    "license": "Apache-2.0",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  }
+}

@@ -1,0 +1,21 @@
+DRAFT ONLY - NOT AN ACTIVE LICENSE GRANT
+Personal development and attribution declarations received on 2026-11-21.
+Bounded source provenance review is complete; owner acceptance and final license/publication approval are pending.
+Do not add this notice to source files or treat it as authorization.
+
+Proposed notice, with owner-declared attribution; adoption is NOT authorized yet:
+
+Copyright (C) 2026 inkzcz
+
+The original Life Journal source covered by this notice is free software:
+you can redistribute it and/or modify it under the terms of the GNU General
+Public License as published by the Free Software Foundation, either version
+3 of the License, or (at your option) any later version.
+
+It is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for details.
+
+Third-party components and their notices retain their own existing licenses.
+This proposed notice does not grant later-version rights for those components.
+The complete version 3 text is in GPL-3.0.txt. No root LICENSE is active yet.

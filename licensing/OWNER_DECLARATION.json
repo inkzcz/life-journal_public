@@ -1,0 +1,20 @@
+{
+  "format": "life-journal-owner-declaration-v1",
+  "received_on": "2026-11-21",
+  "date_timezone": "Asia/Shanghai",
+  "basis": "Owner statement in the private PR #46 preparation task; not an independent legal certificate",
+  "personal_project_lead_declared": true,
+  "sole_human_developer_declared": true,
+  "development_assistance_declared": [
+    "ChatGPT",
+    "Codex"
+  ],
+  "other_developers_declared": false,
+  "company_or_employer_code_declared": false,
+  "public_copyright_holder": "inkzcz",
+  "proposed_copyright_notice": "Copyright (C) 2026 inkzcz",
+  "preferred_spdx": "GPL-3.0-or-later",
+  "all_third_party_rights_reviewed": false,
+  "final_license_authorization": false,
+  "publication_approved": false
+}

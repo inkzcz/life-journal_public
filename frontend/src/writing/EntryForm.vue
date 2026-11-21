@@ -1,0 +1,15 @@
+<script setup lang="ts">
+import {ref} from 'vue'
+import {entryFields,entryNames,type Entry} from './entries'
+import PrivatePreview from '../admin/PrivatePreview.vue'
+import {request} from '../api'
+import type {Asset} from '../admin/archive'
+const props=defineProps<{value:Entry;disabled?:boolean}>()
+const places=ref<any[]>([]),placeSearch=ref('')
+async function findPlaces(){try{places.value=(await request('/admin/archive/places?q='+encodeURIComponent(placeSearch.value)+'&page_size=50')).items}catch{error.value='读取地点失败'}}
+const photos=ref<Asset[]>([]),search=ref(''),error=ref('')
+async function load(){try{photos.value=(await request('/admin/archive/media?q='+encodeURIComponent(search.value)+'&page_size=24')).items;error.value=''}catch{error.value='无法读取媒体，请重试'}}
+function toggle(id:string){const i=props.value.media_ids.indexOf(id);if(i>=0)props.value.media_ids.splice(i,1);else if(props.value.media_ids.length<100)props.value.media_ids.push(id)}
+</script>
+<template><div class="entry-form"><label>记录类型<select aria-label="记录类型" v-model="value.kind" :disabled="disabled"><option v-for="(name,k) in entryNames" :value="k">{{name}}</option></select></label><label>{{value.kind==='t'?'航班号 / 车次':'名称'}}<input v-model="value.name" maxlength="200" required :disabled="disabled"/></label><template v-if="value.kind==='l'||value.kind==='f'"><label>搜索已有地点<input v-model="placeSearch"/></label><button type="button" @click="findPlaces">查找地点</button><label>关联地点<select aria-label="关联地点" v-model="value.fields.place_id"><option value="">不指定</option><option v-for="p in places" :key="p.id" :value="p.id">{{p.name}} · {{p.region||p.city}}</option></select></label></template><label v-for="[key,label,type] in entryFields[value.kind].filter(f=>f[0]!=='place_id')" :key="key">{{label}}<input v-model="value.fields[key]" :type="type||'text'" maxlength="4000" :disabled="disabled"/></label><details><summary>票据和相关照片（已选 {{value.media_ids.length}} 张）</summary><label>搜索媒体<input v-model="search" :disabled="disabled"/></label><button type="button" :disabled="disabled" @click="load">选择已有照片</button><p role="status">{{error}}</p><div class="entry-media"><button v-for="p in photos" :key="p.id" type="button" :aria-pressed="value.media_ids.includes(p.id)" :disabled="disabled" @click="toggle(p.id)"><PrivatePreview :id="p.id" :alt="p.alt"/>{{p.title||p.filename}}</button></div><div v-for="id in value.media_ids" :key="id" class="entry-selected"><PrivatePreview :id="id" alt="关联照片"/><button type="button" :disabled="disabled" @click="toggle(id)">移除此图片关联</button></div></details></div></template>
+<style scoped>.entry-form{min-width:0}.entry-form label{display:block}.entry-form input,.entry-form select{width:100%;max-width:100%;box-sizing:border-box}.entry-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.entry-media img,.entry-selected img{max-width:100%;max-height:120px}.entry-media button[aria-pressed=true]{outline:2px solid var(--accent)}.entry-selected{display:inline-block;width:45%;margin:2%}</style>

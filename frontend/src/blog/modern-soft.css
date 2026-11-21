@@ -1,0 +1,43 @@
+/* All derived surfaces honor explicit card, page, border and accent choices.
+   Dark mode uses its own base/ink/accent; the same mixing steps remain legible. */
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))){
+ --soft-accent:var(--reader-accent,var(--accent));--soft-card:var(--reader-card-background,var(--surface));
+ --soft-step-1:color-mix(in oklab,var(--soft-card),var(--soft-accent) 8%);
+ --soft-step-2:color-mix(in oklab,var(--soft-card),var(--soft-accent) 14%);
+ --soft-step-3:color-mix(in oklab,var(--soft-card),var(--soft-accent) 24%);
+ --soft-step-4:color-mix(in oklab,var(--soft-card),var(--soft-accent) 40%);
+ --soft-step-5:color-mix(in oklab,var(--soft-card),var(--soft-accent) 62%);
+ --partition-secondary:var(--soft-step-1);--partition-tint:22%
+}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon])))[data-mode=dark]{--partition-tint:18%}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .workspace-nav{padding:10px;border:1px solid var(--partition-line);background:var(--soft-step-1);border-radius:20px}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .workspace-nav>button[aria-current=step]{background:var(--reader-secondary-background,var(--soft-step-3))}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .workspace-module-heading{background:var(--soft-step-1)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .module-icon{background:var(--soft-step-3)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .workspace-body :is(.writing-toolbar,.markdown-help,.upload-folder,.source-image-controls){background:var(--soft-step-2)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .workspace-context{background:var(--soft-step-1)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .activity-day{background:var(--soft-step-2);border-radius:0 8px 8px 0;padding-block:7px}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) :is(.activity-config,.itinerary-extract,.photo-note){border-color:var(--partition-line)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .reading-toc{background:var(--soft-step-1)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .reading-toc [aria-current=location]{background:var(--soft-step-3)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .reading-places>div{background:var(--soft-step-1);box-shadow:none}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))):not([data-custom~=tag_background]) :is(.blog-tag,.article-sections a,.tag-pills a,.tag-picker .tag-pills li){background:var(--soft-step-2)}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .workspace-save{border-top:3px solid var(--soft-step-4)}
+.blog:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac]))[data-mode=light].writing-page:not([data-custom~=page_background]){background-color:var(--bg)}
+.theme-ornament{display:none;pointer-events:none;user-select:none}
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .theme-ornament{display:flex;justify-content:flex-end;height:54px;max-width:1500px;margin:0 auto;overflow:hidden}
+.theme-ornament svg{width:130px;height:58px;flex:none}
+.theme-ornament .ornament-celadon,.theme-ornament .ornament-lilac{display:none}
+.blog:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])) .ornament-celadon,.blog:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon])) .ornament-lilac{display:block}
+.theme-ornament .tone-1{fill:var(--soft-step-1)}.theme-ornament .tone-2{fill:var(--soft-step-2)}.theme-ornament .tone-3{fill:var(--soft-step-3)}.theme-ornament .tone-4{fill:var(--soft-step-5)}
+.theme-ornament .ornament-line{fill:none;stroke:var(--soft-accent);stroke-width:1.5;stroke-linecap:round;opacity:.65}
+.blog .workspace-nav .theme-ornament{height:82px;justify-content:center;margin-top:8px;width:100%}
+.blog .workspace-nav .theme-ornament svg{width:160px;height:78px}
+.theme-palette{display:flex;gap:0;height:16px;margin:12px 0;border-radius:8px;overflow:hidden}
+.theme-palette i{flex:1;background:var(--swatch)}.theme-palette i:nth-child(2){opacity:.75}.theme-palette i:nth-child(3){opacity:.55}.theme-palette i:nth-child(4){opacity:.35}.theme-palette i:nth-child(5){opacity:.15}
+.theme-choice[data-swatch=celadon]{--swatch:#327b74;background:var(--ui-soft);border-color:var(--ui-line)}
+.theme-choice[data-swatch=soft]{--swatch:#65479a;background:var(--ui-soft);border-color:var(--ui-line)}
+.theme-choice[data-swatch=modern]{--swatch:#276346}.theme-choice[data-swatch=editorial]{--swatch:#71412d}.theme-choice[data-swatch=glass]{--swatch:#294f70}
+@media(max-width:800px){.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .theme-ornament{display:none}.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .workspace-nav{padding:8px;gap:6px}}
+
+.blog:is(:is([data-palette=celadon],[data-theme=celadon]:not([data-palette=lilac])),:is([data-palette=lilac],[data-theme=soft]:not([data-palette=celadon]))) .tag-picker .tag-pills li{background:var(--reader-tag-background,var(--soft-step-2));color:var(--reader-tag-text,var(--ink));border:1px solid var(--reader-border,var(--line));border-radius:12px;padding:2px 8px}

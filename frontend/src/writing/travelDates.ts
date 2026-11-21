@@ -1,0 +1,2 @@
+import type {Field} from '../admin/types'
+export function travelFields(fields:Field[]){fields=fields.filter(f=>!f.purpose);return {start:fields.find(f=>f.active&&f.kind==='date'&&['出发日期','旅行开始日期'].includes(f.name)),end:fields.find(f=>f.active&&f.kind==='date'&&['返回日期','旅行结束日期'].includes(f.name)),companions:fields.find(f=>f.active&&f.name==='同行人'),lodging:fields.filter(f=>['住宿','酒店','住宿说明'].includes(f.name))}}

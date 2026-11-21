@@ -1,0 +1,70 @@
+/* Management layout consumes shared semantic tokens. */
+.studio{display:grid;grid-template-columns:224px minmax(0,1fr);min-height:100vh;background:var(--studio-bg);color:var(--studio-ink);font:15px/1.7 var(--ui-font)}
+.studio *{box-sizing:border-box}
+.studio-sidebar{padding:32px 22px;border-right:1px solid var(--studio-line);background:var(--studio-paper);position:sticky;top:0;align-self:start;height:100dvh;overflow:auto}
+.studio-brand{display:block;color:var(--studio-ink);text-decoration:none;font:26px/1.5 var(--ui-title-font)}
+.studio-brand small{display:block;font:12px/1.8 system-ui,sans-serif;color:var(--studio-muted);margin-top:4px}
+.studio-navigation summary{cursor:pointer;min-height:44px;padding:10px 0;color:var(--studio-muted);font-size:13px;margin-top:24px}
+.studio .recovery-nav{display:flex;flex-direction:column;gap:4px;margin:10px 0 0;align-items:stretch}
+.studio .recovery-nav a{padding:12px 14px;border-radius:var(--ui-radius);min-height:46px;text-decoration:none;color:var(--studio-ink)}
+.studio .recovery-nav a[aria-current=page]{background:var(--studio-bg);font-weight:650;border-left:3px solid var(--studio-accent)}
+.studio-caption{font-size:12px;color:var(--studio-muted);margin-top:40px}
+.studio-workspace{min-width:0;padding:0 30px}
+.studio .container{max-width:1240px;padding:32px 0;margin:auto}
+.studio h1:not(:where(.blog *)){font:500 clamp(26px,3vw,38px)/1.4 Georgia,"Songti SC",serif;color:var(--studio-ink);overflow-wrap:anywhere}
+.studio :is(h2,h3,h4):not(:where(.blog *)){color:var(--studio-ink);line-height:1.5;overflow-wrap:anywhere}
+.studio h2:not(:where(.blog *)){font-size:21px}.studio h3:not(:where(.blog *)){font-size:18px}
+.studio header:not(:where(.blog *)){border-color:var(--studio-line);gap:16px}
+.studio a:not(:where(.blog *)){color:var(--studio-accent);overflow-wrap:anywhere;text-underline-offset:4px}
+.studio .card{background:var(--studio-paper);border:1px solid var(--studio-line);box-shadow:none;border-radius:var(--ui-radius);padding:24px}
+.studio :is(.field-config,.resource-picker,.linked-item){background:var(--studio-bg);border-color:var(--studio-line);border-radius:var(--ui-radius)}
+.studio :is(input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea):not(:where(.blog *)){background:var(--studio-paper);color:var(--studio-ink);border-color:var(--studio-line);max-width:100%;min-width:0;font-size:16px;border-radius:var(--ui-radius);line-height:1.5}
+.studio :is(input[type=checkbox],input[type=radio]){width:auto;accent-color:var(--studio-accent)}
+.studio label:not(:where(.blog *)){font-size:14px;color:var(--studio-ink);line-height:1.6}
+.studio button:not(:where(.blog *)){background:var(--ui-primary);color:var(--ui-primary-ink);min-height:44px;padding:10px 16px;border-radius:var(--ui-radius);line-height:1.45;white-space:normal;overflow-wrap:anywhere;max-width:100%}
+.studio button:not(:where(.blog *)).quiet{color:var(--studio-accent);background:transparent;border:1px solid var(--studio-line)}
+.studio .danger{background:var(--studio-danger);color:var(--ui-card)}
+.studio .entry{background:transparent;color:var(--studio-ink);border-radius:0;border-color:var(--studio-line);padding-block:16px}
+.studio .entry.active{background:var(--studio-bg);border-left:3px solid var(--studio-accent)}
+.studio :is(.entry small,.muted,.sub,.eyebrow,.resource-item small){color:var(--studio-muted)}
+.studio .resource-item{background:var(--studio-bg);color:var(--studio-ink)}
+.studio :is(.notice,.error){border:1px solid currentColor;border-left-width:3px;border-radius:var(--ui-radius);padding:14px;overflow-wrap:anywhere}
+.studio .error{color:var(--ui-danger);background:var(--ui-card)}.studio .notice{color:var(--ui-accent);background:var(--ui-card)}
+.studio .admin-layout{grid-template-columns:minmax(210px,.7fr) minmax(0,2fr);gap:24px}
+.studio .admin-tabs{gap:8px;margin:18px 0 24px}
+.studio .admin-tabs button{background:transparent;color:var(--studio-ink);border:1px solid var(--studio-line)}
+.studio .admin-tabs button.active{background:var(--ui-primary);color:var(--ui-primary-ink)}
+.studio .admin-save{background:var(--studio-paper);border-color:var(--studio-line);box-shadow:none;padding:16px 0;position:sticky;bottom:0;z-index:3}
+.studio .record-tools{flex-wrap:wrap;gap:12px}.studio .record-tools label{min-width:0}
+.studio .record-field{padding-block:4px;border-bottom:1px solid var(--studio-line)}
+.studio .admin-editor{min-width:0}.studio .admin-editor textarea{line-height:1.9}
+.studio .markdown{line-height:1.9;max-width:760px}.studio .markdown pre{background:var(--studio-bg)}
+.studio .resource-detail,.studio .resource-layout{min-width:0}
+.studio .resource-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.studio .maintenance-admin>.card{margin-block:22px}
+.studio .maintenance-admin>p{max-width:850px}.studio .backup-row{overflow-wrap:anywhere}
+.studio :is(button,a,input,select,textarea,summary):not(:where(.blog *)):focus-visible{outline:3px solid var(--studio-accent);outline-offset:3px}
+.studio :is(button,input,select,textarea):disabled{cursor:not-allowed;opacity:.55}
+.studio-skip{position:fixed;left:-10000px;top:8px;z-index:100;background:var(--studio-paper);padding:12px}
+.studio-skip:focus{left:12px}
+.studio .preview-panel .blog{font-size:17px}
+/* Embedded reader uses its own theme; never apply management palette inside it. */
+
+@media(max-width:1100px){.studio{grid-template-columns:190px minmax(0,1fr)}.studio-workspace{padding-inline:22px}.studio-sidebar{padding-inline:16px}.studio .admin-layout{grid-template-columns:1fr}.studio .resource-layout{grid-template-columns:1fr}}
+@media(max-width:760px){.studio{display:block}.studio-sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--studio-line);padding:18px 16px}.studio-brand{font-size:23px}.studio-navigation summary{margin-top:8px}.studio .recovery-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0;gap:4px}.studio-caption{display:none}.studio-workspace{padding-inline:16px}.studio .container{padding-block:24px}.studio header:not(:where(.blog *)){flex-wrap:wrap}.studio .card{padding:18px}.studio .admin-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.studio .admin-heading{gap:10px}.studio .editor-meta{grid-template-columns:1fr}.studio .admin-save .actions{align-items:stretch}.studio .admin-save button{flex:1}.studio .resource-tools form label{min-width:0}.studio :is(.selected-media,.option-row){min-width:0}.studio .record-tools{align-items:stretch;flex-direction:column}}
+@media(max-width:360px){.studio-workspace{padding-inline:12px}.studio .card{padding:12px}.studio .recovery-nav{grid-template-columns:1fr}.studio button:not(:where(.blog *)){font-size:14px}}
+@media(prefers-reduced-motion:reduce){.studio *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.studio .writing-main{padding-bottom:24px;border-bottom:1px solid var(--studio-line)}
+.studio .writing-properties{padding-block:24px}
+.studio .writing-main textarea{min-height:320px}
+
+.studio .admin-layout>aside.card{max-height:560px;overflow:auto;scrollbar-gutter:stable}
+@media(max-width:760px){.studio .admin-layout>aside.card{max-height:320px}}
+/* Legacy auxiliary panels must use management tokens in system dark mode too. */
+.studio .color-editor .color-row{background:var(--studio-paper);color:var(--studio-ink);border-color:var(--studio-line)}
+.studio .site-admin .theme-choice{color:var(--ui-ink)}
+.studio .history-admin .scope-note{background:var(--studio-bg);color:var(--studio-ink);border-left:3px solid var(--studio-accent)}
+.studio .connections-view .attached-grid figcaption,.studio .markdown blockquote{color:var(--studio-muted);border-color:var(--studio-line)}
+/* Custom site/navigation names remain readable on narrow screens. */
+.studio-brand,.studio .recovery-nav a{overflow-wrap:anywhere;min-width:0;max-width:100%}

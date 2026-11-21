@@ -1,0 +1,22 @@
+{
+  "format": "life-journal-phase-a-authorization-v1",
+  "phase": "A",
+  "approved": true,
+  "received_on": "2026-11-21",
+  "date_timezone": "Asia/Shanghai",
+  "basis": "Explicit project owner approval in the private PR #46 preparation task; recorded statement, not a fabricated signature or independent title certificate",
+  "reviewed_commit": "b105f82022141892933e7f4c6f2028c4760c2042",
+  "reviewed_plan": "licensing/ACTIVATION_PLAN.DRAFT.md",
+  "reviewed_plan_sha256": "264ad83cfbe4ee0917d12ab7582dfe2995181d4672a88d0f776aab91d8d9672b",
+  "selected_spdx": "GPL-3.0-or-later",
+  "copyright_notice": "Copyright (C) 2026 inkzcz",
+  "authorization_scope": "phase-a-original-source-license-only",
+  "original_rights_scope": "owner-controlled-protectable-original-source-and-original-increments",
+  "third_party_review_acceptance": "Previously reviewed bounded source snapshot, including Alembic MIT attribution and Lucide replacement; not a universal rights guarantee",
+  "third_party_relicensed": false,
+  "publication_approved": false,
+  "repository_creation_or_public_push_authorized": false,
+  "source_only": true,
+  "historical_owner_declaration_sha256": "d3e0bd5d2cbb65ea60a8e2525a85a760fafcc68fb72e86e67f6a2b18ed8c676e",
+  "review_scope": "Previously reviewed b105f820 source plus the authorized original phase-A license/gate/document/test implementation delta"
+}

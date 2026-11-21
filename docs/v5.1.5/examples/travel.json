@@ -1,0 +1,75 @@
+{
+  "format": "life-journal.exchange",
+  "version": 1,
+  "records": [
+    {
+      "key": "paperboat",
+      "type_slug": "travel",
+      "title": "纸舟城的虚构旅行",
+      "display_date": "2026-11-05",
+      "body": "完全虚构的导入测试，未使用任何个人文章或照片。",
+      "tags": [
+        "虚构演示"
+      ],
+      "travel": {
+        "start_date": "2026-10-01",
+        "end_date": "2026-10-02"
+      },
+      "foods": [
+        {
+          "place_key": "cafe-a",
+          "day": "2026-10-01",
+          "time": "12:00",
+          "review": "虚构体验 A",
+          "media_keys": [
+            "plate-a"
+          ]
+        },
+        {
+          "place_key": "cafe-b",
+          "day": "2026-10-02",
+          "time": "12:00",
+          "review": "虚构体验 B",
+          "media_keys": [
+            "plate-b"
+          ]
+        }
+      ],
+      "photos": [
+        {
+          "media_key": "plate-a",
+          "taken_on": "2026-10-01"
+        },
+        {
+          "media_key": "plate-b",
+          "taken_on": "2026-10-02"
+        }
+      ],
+      "cover_key": "plate-a"
+    }
+  ],
+  "media": [
+    {
+      "key": "plate-a",
+      "path": "photos/plate-a.jpg"
+    },
+    {
+      "key": "plate-b",
+      "path": "photos/plate-b.jpg"
+    }
+  ],
+  "places": [
+    {
+      "key": "cafe-a",
+      "kind": "f",
+      "name": "合成小馆甲",
+      "city": "纸舟城"
+    },
+    {
+      "key": "cafe-b",
+      "kind": "f",
+      "name": "合成小馆乙",
+      "city": "纸舟城"
+    }
+  ]
+}

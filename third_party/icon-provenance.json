@@ -1,0 +1,154 @@
+{
+  "format": "life-journal-icon-provenance-v1",
+  "upstream_repository": "lucide-icons/lucide",
+  "upstream_commit": "c1a02a04d4f3f7049d44567d62b8b06cff0b9103",
+  "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+  "old_path_origins_proved": false,
+  "old_paths_removed_from_current_source": true,
+  "old_source_disposition": "Unproven old geometry replaced; no claim of original ownership or retrospective clearance. Original private history remains intact.",
+  "icons": [
+    {
+      "group": "module",
+      "key": "basic",
+      "icon": "notebook-text",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/notebook-text.svg",
+      "upstream_file_sha256": "f4fd882aaa00be2d0459bd72d44f2b6f4f59bf2786cc415efff69a51b74ab630",
+      "path_sha256": "3aef464375f657b0a9393f301c820296067b622a3411a97cde359aac70e08c2e",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "module",
+      "key": "body",
+      "icon": "pencil-line",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/pencil-line.svg",
+      "upstream_file_sha256": "cd0814e0744b4a81f9ccb1d4db9ee34de0e11f2cf82fa1522a86a8056e065e00",
+      "path_sha256": "46fdae258bd278f7c83804b571793b19882a89f42b5fb5156c71aa5a7060a35e",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "module",
+      "key": "media",
+      "icon": "images",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/images.svg",
+      "upstream_file_sha256": "f853679adfac703296d71cf0a55945af93144927bc50c9ce72eac809300aad8c",
+      "path_sha256": "e8670185187a1b091481c8896706f4edbcf3f48d81c79e8effc4e8d89fb44026",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "module",
+      "key": "itinerary",
+      "icon": "calendar-days",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/calendar-days.svg",
+      "upstream_file_sha256": "9330eb8d7c4989e97b6361314abbf02953243c602874725c9e58ceca00da3bd7",
+      "path_sha256": "8379a2670c38aed15128435dfe04ce9094effc3e22eae96b0dcd5b3a1c39ec98",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "module",
+      "key": "relations",
+      "icon": "link",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/link.svg",
+      "upstream_file_sha256": "4f3237183dcaabfac92f4e94c776a9a9e45c3c5e77a921061a6b34b61eb5413f",
+      "path_sha256": "86df6c3da5fa671087e3c8d554c09f541d92425662ccfe4b79cbcb9fef149584",
+      "license": "ISC AND MIT",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "module",
+      "key": "publish",
+      "icon": "send",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/send.svg",
+      "upstream_file_sha256": "a489257f447b808ab6b258ae888fa49686885bbc30a7a2774d97a01f11f9cd5e",
+      "path_sha256": "4923e76bf30530776d2f00c804902e027bf4ab163af3662005ebeccca155a2ea",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "place",
+      "key": "l",
+      "icon": "map-pin",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/map-pin.svg",
+      "upstream_file_sha256": "16f1042a62f1bda20ebab8bfc1cb79c0be285c980dea6c2c733a17902631405b",
+      "path_sha256": "b0cf24a85412472a88879b3e970fbdb3ff0853afb84726701b075e4bf9ec09cf",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "place",
+      "key": "f",
+      "icon": "utensils",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/utensils.svg",
+      "upstream_file_sha256": "9b5eb803bc342b8503b6a154ff63a0f754ba52a13fa24c2e270d2ab89c70f76a",
+      "path_sha256": "34e53b29a836c27bf5e4e69e052bd53bd88f13894c4413dc20094fdd815b28a1",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "place",
+      "key": "s",
+      "icon": "mountain",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/mountain.svg",
+      "upstream_file_sha256": "fced3dd3ffb1472e62a13d92e72633e9c68a4655da3d8aa801bc65a041fe64be",
+      "path_sha256": "a0b82293e656e5a243cf520b98ae3773c84a59249d65403b38855c33b280cb23",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "place",
+      "key": "h",
+      "icon": "bed-double",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/bed-double.svg",
+      "upstream_file_sha256": "b8db0c1a2178019c7659f10d0461e5903eddd4e8bb8a826b380eba556278bac5",
+      "path_sha256": "4fe93035a426544e3bd432f3bac2f2f67ebdee739b4fab2c6c2e65ccc5134cfc",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "place",
+      "key": "t",
+      "icon": "bus-front",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/bus-front.svg",
+      "upstream_file_sha256": "4044efae177c87c8e700d9dc7079a65a1b31063241963fb48bacb75ebce72109",
+      "path_sha256": "2cf9849bdcedf0152dbc1a4fbc05015328d2edb90caa541d367f6aa0086dfb5d",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "place",
+      "key": "c",
+      "icon": "coffee",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/coffee.svg",
+      "upstream_file_sha256": "970595bdafac0df42c00b847d53fd00c2283ecc3b83881274de2aa7dbce2bbc8",
+      "path_sha256": "e6649e81ec43c81441ab1530968bd476d80de161fe79a9a1c3aee0951730ff04",
+      "license": "ISC",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    },
+    {
+      "group": "place",
+      "key": "p",
+      "icon": "shopping-bag",
+      "source": "https://github.com/lucide-icons/lucide/blob/c1a02a04d4f3f7049d44567d62b8b06cff0b9103/icons/shopping-bag.svg",
+      "upstream_file_sha256": "24a161961b559234b7a31af904dab18b437507336ba2decff3fe6b7772495896",
+      "path_sha256": "8b920eeb48609f6daefcb38532f795e660819453a7b418d643e35fe32a918a09",
+      "license": "ISC AND MIT",
+      "license_file": "third_party/licenses/lucide-c1a02a04d4f3.txt",
+      "modifications": "Element geometry converted to a single path; project stroke width retained; the images icon point uses the project outline style instead of its upstream filled style."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+/* Editor defaults change deliberately. Reader defaults remain the legacy values. */
+body .body-editor .immersive-prose{line-height:var(--lj-editor-line,1.5);padding:22px 24px;background:var(--surface,var(--paper,#fff));border:1px solid var(--line,#cbd5cc);border-radius:4px;min-height:45vh}
+body .body-editor .immersive-prose:focus-within,body .body-editor .immersive-prose:focus-visible{border-color:var(--accent);outline:2px solid var(--accent);outline-offset:2px}
+body .body-editor .immersive-prose p{margin:var(--lj-editor-gap,8px) 0}
+body .body-editor .immersive-prose :is(ul,ol){padding-left:1.5em;margin:var(--lj-editor-gap,8px) 0}
+body .body-editor .immersive-prose li{margin:0}body .body-editor .immersive-prose li>p{margin:4px 0}
+body .admin-content .body-editor textarea{line-height:var(--lj-editor-line,1.5)}
+.body-editor .writing-toolbar{padding:8px;background:var(--surface,var(--paper,#fff));border:1px solid var(--line,#cbd5cc);border-bottom:2px solid var(--line,#cbd5cc)}
+.immersive-prose:has(>p:only-child>br:only-child)>p:before{content:'写下故事，或直接粘贴图片…';color:var(--muted);pointer-events:none}
+.blog .blog-prose{line-height:var(--lj-reader-line,2)}
+.blog .article-body p{margin:var(--lj-reader-gap,1.25em) 0}
+.blog .article-body :is(ul,ol){margin:var(--lj-reader-gap,1.3em) 0}
+.blog .article-body li>p{margin:var(--lj-reader-gap,1.25em) 0}
+@media(max-width:800px){.blog .blog-prose{line-height:var(--lj-reader-line,1.95)}}
+@media(max-width:600px){body .body-editor .immersive-prose{padding:16px 12px;min-height:45dvh}}

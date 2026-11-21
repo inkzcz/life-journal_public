@@ -1,0 +1,34 @@
+/* All overrides stay inside the reader, including the embedded live preview.
+   No executable CSS is accepted; Vue sets only the 16 validated HEX variables. */
+.blog[data-theme][data-mode][data-custom~=page_background]{background:var(--reader-page-background)}
+.blog .blog-header{color:var(--reader-nav-text,var(--ink))}
+.blog .blog-brand,.blog .blog-nav{color:var(--reader-nav-text,var(--ink))}
+.blog .blog-nav [aria-current=page]{color:var(--reader-nav-text,var(--reader-accent,var(--accent)))}
+.blog[data-theme][data-mode][data-custom~=nav_background] .blog-header,.blog[data-theme][data-mode][data-custom~=nav_background] .nav-children{background:var(--reader-nav-background)}
+.blog[data-custom~=nav_text] .blog-header a,.blog[data-custom~=nav_text] .blog-header .blog-kicker,.blog[data-custom~=nav_text] .blog-header .blog-link{color:var(--reader-nav-text)}
+/* Preserve Glass's default translucent surface until a card override is set. */
+.blog[data-theme][data-mode][data-custom~=card_background] .story-card,.blog[data-theme][data-mode][data-custom~=card_background] .reading-places>div,.blog[data-theme][data-mode][data-custom~=card_background] .lightbox{background:var(--reader-card-background)}
+.blog .blog-prose a{color:var(--reader-link,var(--accent))}
+.blog[data-custom~=link] a:where(:not(.story-card):not(.blog-brand):not(.blog-cta)){color:var(--reader-link)}
+.blog[data-custom~=link] .blog-header a{color:var(--reader-nav-text,var(--ink))}
+.blog .blog-cta{color:var(--reader-primary-text,var(--accent))!important;background:var(--reader-primary-background,transparent)}
+.blog[data-custom~=primary_background] .blog-cta,.blog[data-custom~=primary_text] .blog-cta{padding:10px 18px;border-radius:var(--radius)}
+.blog .blog-primary{background:var(--reader-primary-background,var(--surface));color:var(--reader-primary-text,var(--ink))}
+.blog .article-sections a,.blog .blog-tag{background:var(--reader-tag-background,transparent);color:var(--reader-tag-text,var(--ink))}
+.blog[data-custom~=tag_background] .article-sections a,.blog[data-custom~=tag_background] .blog-tag{padding:4px 10px;border-radius:var(--radius)}
+.blog[data-custom~=heading_text] h1,.blog[data-custom~=heading_text] h2,.blog[data-custom~=heading_text] h3,.blog[data-custom~=heading_text] h4{color:var(--reader-heading-text)}
+.blog[data-custom~=border] .blog-header,.blog[data-custom~=border] .module-heading,.blog[data-custom~=border] .story-card{border-color:var(--reader-border)}
+/* Readability and dialog scrolling: keep controls visible on short/mobile screens. */
+.blog .blog-prose img{max-width:100%;height:auto}
+.blog .blog-prose :is(p,ul,ol){margin-block:1.1em}
+.blog .blog-prose :is(h2,h3)+p{margin-top:.7em}
+.blog .lightbox{overscroll-behavior:contain;overflow:auto;max-height:94dvh}
+.blog .lightbox p{overflow-wrap:anywhere}
+.blog .gallery-controls{position:sticky;top:-1px;z-index:1;background:var(--reader-card-background,var(--surface));padding-block:8px}
+.blog .gallery-controls span{color:var(--reader-body-text,var(--ink))}
+.blog .lightbox button:focus-visible{outline:3px solid var(--reader-accent,var(--accent));outline-offset:2px}
+.blog .life-records li,.blog .trip-day li{min-width:0}
+@media(max-width:520px){.blog .blog-prose{line-height:1.85}.blog .blog-header{gap:12px}.blog .mobile-menu{max-width:100%}.blog .gallery-controls{gap:8px}.blog .gallery-controls button{font-size:14px;min-height:44px}.blog .blog-pagination{flex-wrap:wrap}.site-admin .preview-panel>.blog{padding-inline:14px}.site-admin .preview-panel .blog-header{padding-inline:12px}}
+/* Component-scoped timeline styles load lazily; explicit tag overrides must win. */
+.blog[data-theme][data-custom~=tag_text] .blog-tag,.blog[data-theme][data-custom~=tag_text] .article-sections a{color:var(--reader-tag-text)}
+.blog .trip-day h4{color:var(--reader-heading-text,var(--ink))}

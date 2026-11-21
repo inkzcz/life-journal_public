@@ -1,0 +1,9 @@
+# Keep trusted builder payloads reproducible across Windows autocrlf checkouts.
+/scripts/*.py text eol=lf
+/scripts/release-local.ps1 -text
+/scripts/release_manifests/*.json -text
+/tools/build_windows_launcher.py text eol=lf
+/tools/windows/*.cmd -text whitespace=cr-at-eol
+# Upstream legal texts are evidence: preserve original LF/CRLF bytes and hashes.
+/third_party/licenses/** -text -whitespace
+/licensing/GPL-3.0.txt -text -whitespace

@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "bulletList",
+    "depth": 1,
+    "output": "- @f 合成餐厅\n  - :::lj-media-v1\n    {\"id\":\"11111111-1111-4111-8111-111111111111\",\"alt\":\"合成山景\",\"caption\":\"私人记忆\",\"width\":720,\"align\":\"center\"}\n    :::"
+  },
+  {
+    "kind": "bulletList",
+    "depth": 2,
+    "output": "- @f 合成餐厅\n  - @f 合成餐厅\n    - :::lj-media-v1\n      {\"id\":\"11111111-1111-4111-8111-111111111111\",\"alt\":\"合成山景\",\"caption\":\"私人记忆\",\"width\":720,\"align\":\"center\"}\n      :::"
+  },
+  {
+    "kind": "bulletList",
+    "depth": 3,
+    "output": "- @f 合成餐厅\n  - @f 合成餐厅\n    - @f 合成餐厅\n      - :::lj-media-v1\n        {\"id\":\"11111111-1111-4111-8111-111111111111\",\"alt\":\"合成山景\",\"caption\":\"私人记忆\",\"width\":720,\"align\":\"center\"}\n        :::"
+  },
+  {
+    "kind": "orderedList",
+    "depth": 1,
+    "output": "1. @f 合成餐厅\n   1. :::lj-media-v1\n      {\"id\":\"11111111-1111-4111-8111-111111111111\",\"alt\":\"合成山景\",\"caption\":\"私人记忆\",\"width\":720,\"align\":\"center\"}\n      :::"
+  },
+  {
+    "kind": "orderedList",
+    "depth": 2,
+    "output": "1. @f 合成餐厅\n   1. @f 合成餐厅\n      1. :::lj-media-v1\n         {\"id\":\"11111111-1111-4111-8111-111111111111\",\"alt\":\"合成山景\",\"caption\":\"私人记忆\",\"width\":720,\"align\":\"center\"}\n         :::"
+  },
+  {
+    "kind": "orderedList",
+    "depth": 3,
+    "output": "1. @f 合成餐厅\n   1. @f 合成餐厅\n      1. @f 合成餐厅\n         1. :::lj-media-v1\n            {\"id\":\"11111111-1111-4111-8111-111111111111\",\"alt\":\"合成山景\",\"caption\":\"私人记忆\",\"width\":720,\"align\":\"center\"}\n            :::"
+  }
+]

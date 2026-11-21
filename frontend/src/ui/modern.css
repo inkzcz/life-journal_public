@@ -1,0 +1,135 @@
+/* v5.1.1 Modern Soft: geometry uses existing semantic theme/override colors. */
+.blog[data-theme]{--radius:18px;--width:1600px}
+.blog button,.blog input:not([type=checkbox]):not([type=radio]),.blog textarea,.blog select{border-radius:11px}
+.blog .story-card,.blog .blog-empty{border-radius:18px}
+.blog .blog-header{padding-block:22px}
+.blog .blog-prose{max-width:74ch}
+.blog .article-body figure{overflow:hidden;border-radius:16px}
+.blog .article-body figure img{display:block;max-width:100%;height:auto}
+.blog .article-body li>div>p{margin-block:.5em}
+.blog .body-editor{border:1px solid var(--reader-border,var(--line));border-radius:18px;background:var(--reader-card-background,var(--surface));padding:18px;min-width:0}
+.blog .body-editor .immersive-prose{padding:20px 12px;min-height:48dvh}
+.blog .body-editor textarea{min-height:48dvh;border-radius:12px}
+.blog .writing-toolbar{border-radius:12px;gap:8px}
+.blog .writing-toolbar button{min-height:40px}
+.blog .writing-canvas{max-width:1600px}
+.blog .writing-canvas :is(input,textarea,select){min-width:0}
+.blog .reading-tools{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin:12px 0}
+.blog .reading-context{align-self:start;min-width:0;overflow-wrap:anywhere;padding:18px;border:1px solid var(--reader-border,var(--line));border-radius:18px;background:var(--reader-card-background,var(--surface))}
+.blog .reading-context h2{font-size:18px;margin:0 0 12px}.blog .reading-context p{font-size:14px;line-height:1.7}
+.blog .reading-toc{border:1px solid var(--reader-border,var(--line));border-radius:16px;padding:12px}
+.reading-frame.is-focused .reading-toc,.reading-frame.is-focused .reading-context{display:none}
+.reading-frame.is-focused .reading-layout{display:block!important}
+@container(min-width:1050px){
+ .reading-frame:not(.is-focused) .reading-layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px}
+ .reading-frame:not(.is-focused) .reading-layout.has-context{grid-template-columns:190px minmax(0,1fr) 210px}
+ .reading-frame:not(.is-focused) .reading-toc{grid-column:1;grid-row:1;position:sticky;top:20px;margin:0}
+ .reading-frame:not(.is-focused) .reading-article{grid-column:2;grid-row:1}
+ .reading-frame .reading-context{grid-column:3;grid-row:1;position:sticky;top:20px}
+}
+@media(max-width:800px){.blog .reading-context{margin-block:18px}.blog .body-editor{padding:12px}.blog .body-editor .immersive-prose{padding:12px 4px}.blog .reading-tools{justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.blog *, .blog *::before,.blog *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+.writing-workspace{display:grid;grid-template-columns:180px minmax(0,1fr) 200px;gap:24px;align-items:start;min-width:0}
+.workspace-main,.workspace-context{min-width:0}.workspace-nav{position:sticky;top:100px;display:grid;gap:8px}
+.workspace-nav button{text-align:left;min-height:44px}.workspace-nav [aria-current=step]{font-weight:700;border-color:var(--reader-accent,var(--accent));border-width:2px}
+.workspace-context{position:sticky;top:100px;padding:16px;border:1px solid var(--reader-border,var(--line));border-radius:18px;overflow-wrap:anywhere}
+.workspace-context h3{font-size:18px}.workspace-context p{font-size:14px;line-height:1.7}
+.workspace-save{position:sticky!important;top:0;z-index:10;background:var(--reader-card-background,var(--surface,var(--studio-paper)));padding:12px!important;border:1px solid var(--reader-border,var(--line,var(--studio-line)));border-radius:14px}
+.writing-workspace .editor-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:1200px){.writing-workspace{grid-template-columns:160px minmax(0,1fr)}.workspace-context{grid-column:2;position:static}}
+@media(max-width:800px){.writing-workspace{display:block}.workspace-nav{position:static;display:flex;flex-wrap:wrap;margin-bottom:16px}.workspace-nav button{flex:1 1 120px}.workspace-context{margin-top:16px}.workspace-save{top:0}.writing-workspace .editor-meta{grid-template-columns:1fr}}
+
+.writing-workspace.tools-hidden{grid-template-columns:180px minmax(0,1fr)}
+
+/* Soft partitions. Hue is decorative, never used as body text. Surface, ink,
+   controls and custom overrides retain their existing semantic tokens. */
+.blog{
+ --module-basic:var(--reader-accent,var(--accent));--module-body:var(--reader-accent,var(--accent));
+ --module-media:var(--reader-accent,var(--accent));--module-itinerary:var(--reader-accent,var(--accent));
+ --partition-card:var(--reader-card-background,var(--surface));
+ --partition-ink:var(--reader-body-text,var(--ink));
+ --partition-line:var(--reader-border,var(--line));
+ --partition-secondary:color-mix(in oklab,var(--partition-card) 96%,var(--partition-ink));
+ --partition-tint:14%;--partition-shadow:0 6px 22px color-mix(in srgb,var(--ink) 5%,transparent)
+}
+/* A chosen accent is authoritative; do not rotate its hue behind the user. */
+.blog[data-custom~=accent]{--module-basic:var(--reader-accent);--module-body:var(--reader-accent);--module-media:var(--reader-accent);--module-itinerary:var(--reader-accent)}
+.blog[data-mode=dark]{--partition-tint:20%;--partition-secondary:color-mix(in oklab,var(--partition-card) 94%,var(--partition-ink));--partition-shadow:0 6px 22px color-mix(in srgb,var(--bg) 28%,transparent)}
+.blog [data-workspace-module]{--section-accent:var(--module-body)}
+.blog [data-workspace-module=basic]{--section-accent:var(--module-basic)}
+.blog [data-workspace-module=media]{--section-accent:var(--module-media)}
+.blog [data-workspace-module=itinerary],.blog [data-workspace-module=publish]{--section-accent:var(--module-itinerary)}
+.blog [data-workspace-module=relations]{--section-accent:var(--module-media)}
+.blog .workspace-main{display:flex;flex-direction:column;gap:20px}
+.blog .writing-workspace .workspace-main>[data-workspace-module]{
+ background:var(--partition-card);border:1px solid var(--partition-line);border-radius:20px;
+ padding:24px;margin:0;box-shadow:var(--partition-shadow);min-width:0
+}
+.blog .workspace-module-heading{
+ display:flex;align-items:center;justify-content:flex-start;gap:14px;
+ margin:-24px -24px 24px;padding:20px 24px;border:0;border-bottom:1px solid var(--partition-line);
+ border-radius:19px 19px 0 0;background:var(--partition-card)
+}
+.blog .workspace-module-heading h2{font-size:21px;line-height:1.4;letter-spacing:0;margin:0 0 4px;color:var(--reader-heading-text,var(--ink))}
+.blog .workspace-module-heading p{font-size:13px;line-height:1.65;margin:0;color:var(--reader-muted-text,var(--muted))}
+.module-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex:0 0 38px;border-radius:12px}
+.blog .module-icon{background:color-mix(in oklab,var(--partition-card) 78%,var(--section-accent));color:var(--partition-ink);border:1px solid color-mix(in oklab,var(--partition-line) 75%,var(--section-accent))}
+.blog .workspace-nav{gap:9px}
+.blog .workspace-nav>button{display:flex;align-items:center;gap:10px;background:transparent;color:var(--reader-secondary-text,var(--ink));border:1px solid transparent;padding:10px;min-height:56px;position:relative;font-size:14px}
+.blog .workspace-nav .module-icon{background:transparent;border-color:transparent;width:32px;height:32px;flex-basis:32px;border-radius:10px}
+.blog .workspace-nav>button[aria-current=step]{background:color-mix(in oklab,var(--reader-secondary-background,var(--partition-card)),var(--section-accent) var(--partition-tint));border:2px solid var(--reader-accent,var(--accent));box-shadow:var(--partition-shadow);font-weight:750}
+.blog .workspace-nav>button[aria-current=step]::before{content:'';position:absolute;left:-1px;top:14px;bottom:14px;width:4px;border-radius:3px;background:var(--section-accent)}
+.blog[data-custom~=secondary_background] .workspace-nav>button[aria-current=step]{background:var(--reader-secondary-background)}
+.blog .workspace-nav>button:not([aria-current]):not(:disabled):hover{background:var(--partition-secondary);border-color:var(--partition-line)}
+.blog .workspace-context{background:var(--partition-card);border-color:var(--partition-line);box-shadow:var(--partition-shadow);border-top:3px solid var(--section-accent)}
+.blog .workspace-context h3{font-size:16px;margin-block:0 12px}.blog .workspace-context p+p{padding-top:10px;border-top:1px solid var(--partition-line)}
+.blog .workspace-body .body-editor{box-shadow:none;border:0;padding:0;background:transparent}
+.blog .workspace-body :is(.writing-toolbar,.markdown-help,.upload-folder,.source-image-controls){background:color-mix(in oklab,var(--partition-card),var(--module-body) 6%);border:1px solid var(--partition-line);border-radius:12px;padding:10px 12px;margin-block:12px}
+.blog .workspace-body .writing-toolbar{margin-top:16px;border-bottom-color:color-mix(in oklab,var(--partition-line) 60%,var(--section-accent))}
+.blog .workspace-body .immersive-prose,.blog .workspace-body textarea{background:var(--partition-card);border-radius:12px;border-color:var(--partition-line)}
+.blog .writing-workspace :is(.field-config,.template-form-group,.itinerary-extract){background:var(--partition-secondary);border:1px solid var(--partition-line);border-radius:14px;padding:16px}
+.blog .writing-workspace .activity-config>summary{font-weight:650;padding:8px 0;line-height:1.65}
+.blog .writing-workspace .activity-day{font-size:15px;margin-block:24px 10px;padding-left:12px;border-left:3px solid var(--section-accent)}
+.blog .writing-workspace .photo-note{padding:18px 0;border-color:var(--partition-line)}
+.blog .writing-workspace .writing-advanced>summary{display:flex;align-items:center;gap:12px;border-top:0;padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid var(--partition-line);font-size:19px;font-weight:650}
+.blog .workspace-save{box-shadow:var(--partition-shadow);gap:12px;background:var(--partition-card)}
+.blog .workspace-save .workspace-publish{background:var(--reader-primary-background,var(--accent));color:var(--reader-primary-text,var(--bg));border-color:var(--reader-primary-background,var(--accent));font-weight:700;padding-inline:22px}
+.blog .workspace-save .workspace-save-button{background:var(--reader-secondary-background,var(--partition-card));color:var(--reader-secondary-text,var(--ink));border:1px solid var(--partition-line);font-weight:650}
+.blog .workspace-save .save-status{flex:1;text-align:left;padding-inline:8px;font-size:13px;color:var(--reader-muted-text,var(--muted))}
+.blog .workspace-save .save-status small{font-size:11px}
+.blog .workspace-save button:not(:disabled):hover{box-shadow:0 0 0 2px var(--partition-line)}
+.blog .reading-toc{background:var(--partition-card);box-shadow:var(--partition-shadow);border-top:3px solid var(--module-body)}
+.blog .reading-toc [aria-current=location]{background:color-mix(in oklab,var(--partition-card),var(--module-body) var(--partition-tint));border-radius:8px;color:var(--reader-link,var(--ink))}
+.blog :is(.reading-places,.article-gallery,.related-stories){padding:24px;border:1px solid var(--partition-line);border-radius:20px;background:var(--partition-card);box-shadow:var(--partition-shadow)}
+.blog .reading-places>h2{border-left:4px solid var(--module-basic);padding-left:14px}
+.blog .article-gallery>h2{border-left:4px solid var(--module-media);padding-left:14px}
+.blog .trip-day>h3{border-left:4px solid var(--module-itinerary);padding-left:14px}
+.blog .template-module[data-module=gallery]>h2{border-left:4px solid var(--module-media);padding-left:14px}
+.blog .template-module[data-module=map]>h2{border-left:4px solid var(--module-basic);padding-left:14px}
+@media(max-width:800px){
+ .blog .writing-workspace .workspace-main>[data-workspace-module]{padding:18px;border-radius:18px}
+ .blog .workspace-module-heading{margin:-18px -18px 18px;padding:16px 18px}
+ .blog .workspace-module-heading h2{font-size:19px}
+ .blog .workspace-nav>button{min-height:48px;padding:8px;font-size:13px;flex-basis:140px}
+ .blog .workspace-save .save-status{flex-basis:100%;order:-1;padding-inline:0}
+ .blog .workspace-save>button{min-height:44px}
+ .blog :is(.reading-places,.article-gallery,.related-stories){padding:18px}
+}
+/* Separate the canvas from its cards without replacing custom page colors or
+   the Glass family's background image. */
+.blog.writing-page[data-mode=light]:not([data-custom~=page_background]){background-color:color-mix(in oklab,var(--bg) 97%,var(--ink))}
+.blog .writing-workspace .writing-main .tag-picker{background:var(--partition-secondary);border:1px solid var(--partition-line);border-radius:14px;padding:16px;margin-block:20px}
+.blog .writing-workspace .writing-main .tag-picker input{font-size:16px;line-height:1.5;padding:12px;border:1px solid var(--partition-line);border-radius:10px;background:var(--partition-card)}
+.blog .writing-workspace :is(input,textarea,[contenteditable],summary){scroll-margin-top:170px}
+
+/* One interaction hue per theme. Soft mint is local to places/itinerary;
+   explicit user accent remains authoritative, including navigation. */
+
+.blog .workspace-nav>button{--section-accent:var(--reader-accent,var(--accent))}
+.blog .workspace-nav>button[aria-current=step] .module-icon{background:color-mix(in oklab,var(--partition-card),var(--reader-accent,var(--accent)) 22%);border-color:var(--partition-line)}
+.blog .workspace-context{border-top-width:1px}
+.blog .workspace-module-heading{position:relative}
+.blog .workspace-module-heading::after{content:'';position:absolute;left:24px;bottom:-1px;width:48px;height:3px;border-radius:2px;background:var(--section-accent)}
+.blog .reading-places>h2{border-color:var(--module-itinerary)}
+.blog .writing-workspace .writing-main .tag-picker{background:transparent;border:0;border-radius:0;padding:0}
+.blog[data-theme=soft][data-mode=light].writing-page:not([data-custom~=page_background]){background-color:var(--bg)}

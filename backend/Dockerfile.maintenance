@@ -1,0 +1,21 @@
+FROM postgres:17-alpine
+WORKDIR /app
+RUN --mount=type=secret,id=build_ca \
+    if [ -f /run/secrets/build_ca ]; then SSL_CERT_FILE=/run/secrets/build_ca apk add --no-cache python3 py3-pip; else apk add --no-cache python3 py3-pip; fi && python3 -m venv /opt/venv
+ENV PATH=/opt/venv/bin:$PATH PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+COPY requirements.txt .
+RUN --mount=type=secret,id=build_ca \
+    if [ -f /run/secrets/build_ca ]; then PIP_CERT=/run/secrets/build_ca pip install --no-cache-dir -r requirements.txt; else pip install --no-cache-dir -r requirements.txt; fi
+COPY app ./app
+COPY alembic.ini .
+COPY alembic ./alembic
+ARG BUILD_INFO={}
+RUN BUILD_INFO="$BUILD_INFO" python -c 'import os,json;from pathlib import Path;Path("/app/BUILD_INFO.json").write_text(json.dumps(json.loads(os.environ["BUILD_INFO"])));Path("/app/BUILD_INFO.json").chmod(0o444)'
+ARG APP_VERSION=unversioned
+ENV LIFE_JOURNAL_VERSION=$APP_VERSION
+RUN printf '%s\n' "$APP_VERSION" > /app/BUILD_VERSION
+RUN addgroup -g 10001 appuser && adduser -D -u 10001 -G appuser appuser && mkdir -p /data/media && chown 10001:10001 /data/media && chmod -R a+rX /app
+ENV CONTAINER_ROLE=maintenance
+USER root
+ENTRYPOINT ["python", "-m", "app.container_entrypoint"]
+CMD ["python", "-m", "app.maintenance_worker"]

@@ -1,0 +1,727 @@
+{
+  "$defs": {
+    "Activity": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,63}$",
+          "title": "Key",
+          "type": "string"
+        },
+        "day": {
+          "format": "date",
+          "title": "Day",
+          "type": "string"
+        },
+        "time": {
+          "anyOf": [
+            {
+              "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time"
+        },
+        "kind": {
+          "default": "other",
+          "enum": [
+            "food",
+            "sight",
+            "transport",
+            "other"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "maxLength": 10000,
+          "title": "Description",
+          "type": "string"
+        },
+        "place_key": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Place Key"
+        },
+        "media_keys": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Media Keys",
+          "type": "array"
+        }
+      },
+      "required": [
+        "key",
+        "day",
+        "title"
+      ],
+      "title": "Activity",
+      "type": "object"
+    },
+    "Food": {
+      "additionalProperties": false,
+      "properties": {
+        "place_key": {
+          "maxLength": 64,
+          "title": "Place Key",
+          "type": "string"
+        },
+        "day": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Day"
+        },
+        "time": {
+          "anyOf": [
+            {
+              "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time"
+        },
+        "review": {
+          "default": "",
+          "maxLength": 10000,
+          "title": "Review",
+          "type": "string"
+        },
+        "media_keys": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Media Keys",
+          "type": "array"
+        }
+      },
+      "required": [
+        "place_key"
+      ],
+      "title": "Food",
+      "type": "object"
+    },
+    "Link": {
+      "additionalProperties": false,
+      "properties": {
+        "record_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Record Key"
+        },
+        "existing_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Existing Id"
+        },
+        "label": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "title": "Link",
+      "type": "object"
+    },
+    "Media": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,63}$",
+          "title": "Key",
+          "type": "string"
+        },
+        "path": {
+          "anyOf": [
+            {
+              "maxLength": 240,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Path"
+        },
+        "existing_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Existing Id"
+        },
+        "alt": {
+          "default": "",
+          "maxLength": 1000,
+          "title": "Alt",
+          "type": "string"
+        },
+        "caption": {
+          "default": "",
+          "maxLength": 2000,
+          "title": "Caption",
+          "type": "string"
+        },
+        "width": {
+          "default": 960,
+          "maximum": 1600,
+          "minimum": 120,
+          "title": "Width",
+          "type": "integer"
+        },
+        "widthPercent": {
+          "anyOf": [
+            {
+              "enum": [
+                30,
+                60,
+                100
+              ],
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Widthpercent"
+        },
+        "align": {
+          "default": "center",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "title": "Align",
+          "type": "string"
+        },
+        "layout": {
+          "default": "auto",
+          "enum": [
+            "auto",
+            "single",
+            "grid"
+          ],
+          "title": "Layout",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "title": "Media",
+      "type": "object"
+    },
+    "Photo": {
+      "additionalProperties": false,
+      "properties": {
+        "media_key": {
+          "maxLength": 64,
+          "title": "Media Key",
+          "type": "string"
+        },
+        "taken_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Taken On"
+        },
+        "place_key": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Place Key"
+        },
+        "group_name": {
+          "default": "",
+          "maxLength": 100,
+          "title": "Group Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "media_key"
+      ],
+      "title": "Photo",
+      "type": "object"
+    },
+    "Place": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,63}$",
+          "title": "Key",
+          "type": "string"
+        },
+        "kind": {
+          "default": "l",
+          "enum": [
+            "l",
+            "f",
+            "s",
+            "h",
+            "t",
+            "c",
+            "p"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "existing_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Existing Id"
+        },
+        "city": {
+          "default": "",
+          "maxLength": 100,
+          "title": "City",
+          "type": "string"
+        },
+        "address": {
+          "default": "",
+          "maxLength": 500,
+          "title": "Address",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "name"
+      ],
+      "title": "Place",
+      "type": "object"
+    },
+    "Record": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,63}$",
+          "title": "Key",
+          "type": "string"
+        },
+        "type_slug": {
+          "pattern": "^[a-z][a-z0-9_-]{0,79}$",
+          "title": "Type Slug",
+          "type": "string"
+        },
+        "schema_version": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Schema Version"
+        },
+        "template_slug": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]{0,79}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Template Slug"
+        },
+        "template_version": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Template Version"
+        },
+        "title": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "body": {
+          "default": "",
+          "maxLength": 300000,
+          "title": "Body",
+          "type": "string"
+        },
+        "summary": {
+          "default": "",
+          "maxLength": 500,
+          "title": "Summary",
+          "type": "string"
+        },
+        "display_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Display Date"
+        },
+        "tags": {
+          "items": {
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "Tags",
+          "type": "array"
+        },
+        "values": {
+          "additionalProperties": true,
+          "maxProperties": 50,
+          "title": "Values",
+          "type": "object"
+        },
+        "travel": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Travel"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "foods": {
+          "items": {
+            "$ref": "#/$defs/Food"
+          },
+          "maxItems": 100,
+          "title": "Foods",
+          "type": "array"
+        },
+        "photos": {
+          "items": {
+            "$ref": "#/$defs/Photo"
+          },
+          "maxItems": 100,
+          "title": "Photos",
+          "type": "array"
+        },
+        "cover_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cover Key"
+        },
+        "media_keys": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Media Keys",
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/$defs/Link"
+          },
+          "maxItems": 100,
+          "title": "Links",
+          "type": "array"
+        }
+      },
+      "required": [
+        "key",
+        "type_slug",
+        "title"
+      ],
+      "title": "Record",
+      "type": "object"
+    },
+    "Travel": {
+      "additionalProperties": false,
+      "properties": {
+        "start_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Date"
+        },
+        "end_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Date"
+        },
+        "activities": {
+          "items": {
+            "$ref": "#/$defs/Activity"
+          },
+          "maxItems": 300,
+          "title": "Activities",
+          "type": "array"
+        }
+      },
+      "title": "Travel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "life-journal.exchange",
+      "title": "Format",
+      "type": "string"
+    },
+    "version": {
+      "const": 1,
+      "title": "Version",
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/Record"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Records",
+      "type": "array"
+    },
+    "media": {
+      "items": {
+        "$ref": "#/$defs/Media"
+      },
+      "maxItems": 100,
+      "title": "Media",
+      "type": "array"
+    },
+    "places": {
+      "items": {
+        "$ref": "#/$defs/Place"
+      },
+      "maxItems": 100,
+      "title": "Places",
+      "type": "array"
+    },
+    "preferences": {
+      "additionalProperties": false,
+      "maxProperties": 20,
+      "properties": {
+        "require_start": {
+          "default": false,
+          "title": "Require Start",
+          "type": "boolean"
+        },
+        "require_end": {
+          "default": false,
+          "title": "Require End",
+          "type": "boolean"
+        },
+        "organize_by_day": {
+          "default": true,
+          "title": "Organize By Day",
+          "type": "boolean"
+        },
+        "day_headings": {
+          "default": true,
+          "title": "Day Headings",
+          "type": "boolean"
+        },
+        "suggest_tags": {
+          "default": true,
+          "title": "Suggest Tags",
+          "type": "boolean"
+        },
+        "itinerary_summary": {
+          "default": false,
+          "title": "Itinerary Summary",
+          "type": "boolean"
+        },
+        "formal_food_marks": {
+          "default": true,
+          "title": "Formal Food Marks",
+          "type": "boolean"
+        },
+        "photos_by_date": {
+          "default": true,
+          "title": "Photos By Date",
+          "type": "boolean"
+        },
+        "travel_summary": {
+          "default": false,
+          "title": "Travel Summary",
+          "type": "boolean"
+        },
+        "food_shop": {
+          "default": true,
+          "title": "Food Shop",
+          "type": "boolean"
+        },
+        "food_date": {
+          "default": true,
+          "title": "Food Date",
+          "type": "boolean"
+        },
+        "food_city": {
+          "default": true,
+          "title": "Food City",
+          "type": "boolean"
+        },
+        "food_address": {
+          "default": false,
+          "title": "Food Address",
+          "type": "boolean"
+        },
+        "food_review": {
+          "default": true,
+          "title": "Food Review",
+          "type": "boolean"
+        },
+        "food_link_travel": {
+          "default": false,
+          "title": "Food Link Travel",
+          "type": "boolean"
+        },
+        "photos_by_restaurant": {
+          "default": true,
+          "title": "Photos By Restaurant",
+          "type": "boolean"
+        },
+        "style": {
+          "default": "自然、真实，不编造未提供的事实。",
+          "maxLength": 4000,
+          "title": "Style",
+          "type": "string"
+        }
+      },
+      "title": "Preferences",
+      "type": "object"
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "records"
+  ],
+  "title": "Exchange",
+  "type": "object"
+}
