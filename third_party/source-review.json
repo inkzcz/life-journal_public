@@ -2,10 +2,10 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "Owner-authorized phase-A LICENSE/COPYRIGHT/authorization record, independent publication guard and original test/document delta; third-party implementations and existing legal texts unchanged",
+  "current_delta": "Post-publication original documentation, CI, in-memory synthetic fixtures and source-inventory checks; runtime, migration hashes, dependencies and third-party legal texts unchanged",
   "reviewed_on": "2026-11-21",
   "date_timezone": "Asia/Shanghai",
-  "scope": "Enumerated actual clean source snapshot only; no original Git history or prebuilt binaries",
+  "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
   "method": "Per-file source/asset/import/marker and scope review, targeted public upstream and local history checks, accepted owner project-development declaration. No global code plagiarism or legal title certification.",
   "hash_rule": "SHA256 of exported bytes with target Life Journal repository spelling and the generic example/life-journal spelling normalized outside third_party and full license text; self register has no recursive self-hash.",
   "review_complete": true,
@@ -117,6 +117,12 @@
       "source": "Existing factual package inventories, origin/index metadata and project review prose",
       "license": "GPL-3.0-or-later for original review prose; factual metadata and upstream legal grants preserved",
       "decision": "Supplemental prior-binary evidence is not a claim that binaries are shipped in this source snapshot."
+    },
+    {
+      "id": "P001",
+      "source": "Owner-authorized public maintenance task; original project documentation, CI and test changes authored for this task without importing private or external implementations",
+      "license": "GPL-3.0-or-later for owner-controlled protectable original maintenance contributions; factual metadata and existing third-party grants unchanged",
+      "decision": "Manual changed-file review: no added runtime dependency, third-party code, private data or assets; preserve full legal texts, original declaration and initial public history. Technical review is not global originality certification."
     }
   ],
   "files": [
@@ -157,9 +163,10 @@
       "classification": "project-config-with-external-references",
       "evidence": [
         "R001",
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "dc98b549ae7609a013fd97f6a437fba9a2f68422093ab24550fbc13bbf5fbb6d"
+      "sha256_canonical": "740f573d19f71fa826c6e5ff7126727400b823864f2d29c4d57f745c726961ad"
     },
     {
       "path": ".gitignore",
@@ -173,17 +180,19 @@
       "path": "CHANGELOG.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "1001b8440426d84a0d84d4bb1b44020a438a954d646116528b4a9d3c9a7e31ec"
+      "sha256_canonical": "51abfbc3daf33e03350d05a48f7f40b032a17db9def1076f0552e3a02a31b40c"
     },
     {
       "path": "CONTRIBUTING.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "e8f70814cca044b6443422e8612d741accae7b4661c9346ee6305d87900c72d3"
+      "sha256_canonical": "852e58dd294975e5292f006148785d47bbaef5ee1eaaa5d74c16cec9532b4a5b"
     },
     {
       "path": "COPYRIGHT.md",
@@ -214,25 +223,28 @@
       "path": "README.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "790939798fcb7e0c40752b340d28b42b143f738363d37f3a6a6b73feba14c379"
+      "sha256_canonical": "9583d765dcb90dff35313887f6b32a8bd40a548f41cbee5eac92633955cbd9ef"
     },
     {
       "path": "SECURITY.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "16cbb89e29827b70a7a3bd179d460215bb567fdf1788d08b892cdef497fd186e"
+      "sha256_canonical": "c61b6154faa5f58c72d9496579262fcd0ccfdea2ba53f43f731494c5f70b36e8"
     },
     {
       "path": "SOURCE_DISTRIBUTION.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "50bead94d2a8ada76635e31250366380fbf13010715c8395fd77f2850461faca"
+      "sha256_canonical": "1f69628eecae9a9e12df09ccf3d934412e4a3facb5b77f03a990954503e7cd6f"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -1467,52 +1479,82 @@
       "sha256_canonical": "f6c0350064b7a73b729d3015bb27521f287f6b6848d3414354bf92544631d1be"
     },
     {
+      "path": "docs/initial-source-snapshot.json",
+      "classification": "owner-declared-project-material",
+      "evidence": [
+        "P001"
+      ],
+      "sha256_canonical": "39eada0372fe37c5a4963316a9fedf52954d49fd6257d55ce08db0f9fb0149a4"
+    },
+    {
       "path": "docs/install.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "68e6ac4d5aa765cf04c2b07c25dbe04e5d9f8a2fad7eda8380bafee6c42df4e7"
+      "sha256_canonical": "aa2621ff8c1b63c3757ce8fbdfcc3ab78e0f88c8f768eea275782ca352856487"
     },
     {
       "path": "docs/known-limitations.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "04fe3f1eb2e5ed9f14089849a594d56d1814e5a1494bb9ba8e54d13b7de11de9"
+      "sha256_canonical": "467828ac2898222dfb89eb1e82ca0ec14b4f706ff93af49a165aa42d279d6d47"
     },
     {
       "path": "docs/licensing.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "b774250c2a3256208f8fd0bdbf461ecd034d7ce70121685bdf5560a92441c7fe"
+      "sha256_canonical": "cab9954823ae4f26a76fcc5704a98f0aff9cc7720876d40314c4ecbbaa2591fe"
     },
     {
       "path": "docs/local-validation.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "2dab7cee529a488a57bbbfd37c6b09892acf6a18c5204d17a885577f347d03ef"
+      "sha256_canonical": "7cea6de335df89843a7befa9a2087e59a572ca3ebd422c104d4971476919c86f"
     },
     {
       "path": "docs/open-source.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "02c38d1c1297bea8217df87f1ef6d756aebc2b52fda31c2a21fad87f41e9c440"
+      "sha256_canonical": "0598883293921377ea3348090c10958234bffb8f96678e0cc99b73f8e249a80f"
+    },
+    {
+      "path": "docs/release-v5.1.9.md",
+      "classification": "owner-declared-project-material",
+      "evidence": [
+        "P001"
+      ],
+      "sha256_canonical": "621271c2230592261a2119ec970026533e9f02a7f8aac118def23fbd04e2c8ce"
+    },
+    {
+      "path": "docs/upgrade-001.md",
+      "classification": "owner-declared-project-material",
+      "evidence": [
+        "P001"
+      ],
+      "sha256_canonical": "72e80431618b57727d22251398b1b1e2ff96bf007a5a7e2f59004bc88668fd42"
     },
     {
       "path": "docs/upgrade.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "946601ad3737f5fd357ad557848695e9fa1fce2d34a682b30a8ca593a8f09c64"
+      "sha256_canonical": "ff1510f17f45462cec472a0a675e8f2648561d40607d4fbd7b2176a33db869a0"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -3156,9 +3198,10 @@
       "path": "scripts/demo_fixtures.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P001"
       ],
-      "sha256_canonical": "fe7feb804110fbbe688f39591e63ad9e994f94d0375ac3f6bdda4b720c14251f"
+      "sha256_canonical": "c0eb5cb3d0954d88ba32b213968ee05ac7076c6f63063d62e9a4bdda290410df"
     },
     {
       "path": "scripts/image_private_keys.py",
@@ -3310,9 +3353,10 @@
       "path": "tests/conftest.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P001"
       ],
-      "sha256_canonical": "9ba0f2338d425f8ae539023b9d840b3d8641d188cba747d72b7f57fb15f766c2"
+      "sha256_canonical": "c09131b441a168c779dfc91ed4880796a882689718e9e80d1523e1279590a909"
     },
     {
       "path": "tests/debian_image_probe.py",
@@ -3321,6 +3365,14 @@
         "J005"
       ],
       "sha256_canonical": "4a263ecb7006d9ffd257d377cf57fbdd31e9ef1b0c727e1ed6695c78908120bb"
+    },
+    {
+      "path": "tests/docker_installation.py",
+      "classification": "owner-declared-project-material",
+      "evidence": [
+        "P001"
+      ],
+      "sha256_canonical": "52a5223262d25a50215877f90ed9ed526ad099fee2ffc6018e5d61933f487243"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -3385,6 +3437,14 @@
         "J005"
       ],
       "sha256_canonical": "95b576628745bb9b8440fb398c6cd230a7f118c885bf12e4a1bdfa560065df2c"
+    },
+    {
+      "path": "tests/synthetic_upgrade_probe.py",
+      "classification": "owner-declared-project-material",
+      "evidence": [
+        "P001"
+      ],
+      "sha256_canonical": "75a12a2798b639d90d5e2ca1cbd06e6824d21257a78c1d0c2095e161436cd2a4"
     },
     {
       "path": "tests/test_about.py",
@@ -3515,6 +3575,14 @@
       "sha256_canonical": "84df6cc1b519fa86734949791f1ef69b280e38189ddae3d3106b2732db4001ef"
     },
     {
+      "path": "tests/test_demo_fixtures.py",
+      "classification": "owner-declared-project-material",
+      "evidence": [
+        "P001"
+      ],
+      "sha256_canonical": "f683e693075496e1b444e092a7e09958f57ab27d6279061e3966760cca29a274"
+    },
+    {
       "path": "tests/test_discovery.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
@@ -3558,9 +3626,10 @@
       "path": "tests/test_exchange_core.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P001"
       ],
-      "sha256_canonical": "ff30b70d332ba6b1cab5e6966d8a5102f30bc78af9a813f074036be6dd22b3a2"
+      "sha256_canonical": "0ef43afb07a0ff39b928c83ec73c0e71ce0f80790c02353155ab6a24b8d0d92a"
     },
     {
       "path": "tests/test_exchange_invocations.py",
@@ -3574,9 +3643,10 @@
       "path": "tests/test_exchange_jobs.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P001"
       ],
-      "sha256_canonical": "79095bfda27b674ec4f87c14838bb5ecea3f7050b44d9470f87b89b8300872b4"
+      "sha256_canonical": "61826a1a50092d5992e87e2e4d4f993cd9e8e5613728793d96ba561fe9c07730"
     },
     {
       "path": "tests/test_exchange_migration.py",
@@ -3590,9 +3660,10 @@
       "path": "tests/test_exchange_preview.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P001"
       ],
-      "sha256_canonical": "08003894e4316901ba50a013ec65f2423ec2a82098c922b7f3eb6ff596f91044"
+      "sha256_canonical": "5e3786737bc9eaa5743935c51c3fcae59be7b6462478da678066849d8b54acdf"
     },
     {
       "path": "tests/test_exchange_protected_source.py",
@@ -3857,6 +3928,14 @@
         "J005"
       ],
       "sha256_canonical": "85c1e2917bf26a47f61ceec8858b7db0414ad2ec94aef7827b0d0108313c456d"
+    },
+    {
+      "path": "tests/test_source_inventory.py",
+      "classification": "owner-declared-project-material",
+      "evidence": [
+        "P001"
+      ],
+      "sha256_canonical": "e4cc5a4c9f1c2726b32f2202cfab080569a471979c550395ab73c8c24af05312"
     },
     {
       "path": "tests/test_source_provenance.py",
@@ -7287,7 +7366,8 @@
       "path": "third_party/source-review.json",
       "classification": "review-metadata",
       "evidence": [
-        "J006"
+        "J006",
+        "P001"
       ],
       "sha256_canonical": null
     },
@@ -7300,5 +7380,6 @@
       ],
       "sha256_canonical": "6d98ea52109b11e8f82aeb9cca5f70af74ccdb21beb90148ac8d77df9f8ec0d8"
     }
-  ]
+  ],
+  "maintenance_baseline": "cd3182450f6163d40f1e5221c9e4483850546884"
 }

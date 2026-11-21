@@ -32,7 +32,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "dc98b549ae7609a013fd97f6a437fba9a2f68422093ab24550fbc13bbf5fbb6d"
+      "sha256": "740f573d19f71fa826c6e5ff7126727400b823864f2d29c4d57f745c726961ad"
     },
     {
       "path": ".gitignore",
@@ -40,11 +40,11 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "1001b8440426d84a0d84d4bb1b44020a438a954d646116528b4a9d3c9a7e31ec"
+      "sha256": "51abfbc3daf33e03350d05a48f7f40b032a17db9def1076f0552e3a02a31b40c"
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "e8f70814cca044b6443422e8612d741accae7b4661c9346ee6305d87900c72d3"
+      "sha256": "852e58dd294975e5292f006148785d47bbaef5ee1eaaa5d74c16cec9532b4a5b"
     },
     {
       "path": "COPYRIGHT.md",
@@ -60,15 +60,15 @@
     },
     {
       "path": "README.md",
-      "sha256": "4ac28670abe9b0d9cdedb7af841f4edecd64790a399ba328c1a1b549c636b0d8"
+      "sha256": "81e17a9233c64b2ecac83dd30e5fda771b53a4a9dd854db939db8229d990a6ff"
     },
     {
       "path": "SECURITY.md",
-      "sha256": "16cbb89e29827b70a7a3bd179d460215bb567fdf1788d08b892cdef497fd186e"
+      "sha256": "c61b6154faa5f58c72d9496579262fcd0ccfdea2ba53f43f731494c5f70b36e8"
     },
     {
       "path": "SOURCE_DISTRIBUTION.md",
-      "sha256": "50bead94d2a8ada76635e31250366380fbf13010715c8395fd77f2850461faca"
+      "sha256": "1f69628eecae9a9e12df09ccf3d934412e4a3facb5b77f03a990954503e7cd6f"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -671,28 +671,40 @@
       "sha256": "f6c0350064b7a73b729d3015bb27521f287f6b6848d3414354bf92544631d1be"
     },
     {
+      "path": "docs/initial-source-snapshot.json",
+      "sha256": "40a11f50278818633c2d196c2edcc2f794b72ceaaf012ba1986008261ad26bbe"
+    },
+    {
       "path": "docs/install.md",
-      "sha256": "33e01a48ba6199c1a4d4265f057ca33db837df39196620ad2cc6390714bacd8b"
+      "sha256": "2cc78e04924f3126464a7d5701daf9e0495c161c5a1fe02fa482a41d5c46f96b"
     },
     {
       "path": "docs/known-limitations.md",
-      "sha256": "04fe3f1eb2e5ed9f14089849a594d56d1814e5a1494bb9ba8e54d13b7de11de9"
+      "sha256": "467828ac2898222dfb89eb1e82ca0ec14b4f706ff93af49a165aa42d279d6d47"
     },
     {
       "path": "docs/licensing.md",
-      "sha256": "b774250c2a3256208f8fd0bdbf461ecd034d7ce70121685bdf5560a92441c7fe"
+      "sha256": "cab9954823ae4f26a76fcc5704a98f0aff9cc7720876d40314c4ecbbaa2591fe"
     },
     {
       "path": "docs/local-validation.md",
-      "sha256": "2dab7cee529a488a57bbbfd37c6b09892acf6a18c5204d17a885577f347d03ef"
+      "sha256": "7cea6de335df89843a7befa9a2087e59a572ca3ebd422c104d4971476919c86f"
     },
     {
       "path": "docs/open-source.md",
-      "sha256": "d30b6d7625ea7081529ef088cd29c0cbe5645972199d886a773c5fbca0cfc853"
+      "sha256": "6b332a1a66a032168376223b11c76a460cbe692efa505fc58946e8e289bb3cf3"
+    },
+    {
+      "path": "docs/release-v5.1.9.md",
+      "sha256": "621271c2230592261a2119ec970026533e9f02a7f8aac118def23fbd04e2c8ce"
+    },
+    {
+      "path": "docs/upgrade-001.md",
+      "sha256": "72e80431618b57727d22251398b1b1e2ff96bf007a5a7e2f59004bc88668fd42"
     },
     {
       "path": "docs/upgrade.md",
-      "sha256": "946601ad3737f5fd357ad557848695e9fa1fce2d34a682b30a8ca593a8f09c64"
+      "sha256": "ff1510f17f45462cec472a0a675e8f2648561d40607d4fbd7b2176a33db869a0"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -1512,7 +1524,7 @@
     },
     {
       "path": "scripts/demo_fixtures.py",
-      "sha256": "fe7feb804110fbbe688f39591e63ad9e994f94d0375ac3f6bdda4b720c14251f"
+      "sha256": "c0eb5cb3d0954d88ba32b213968ee05ac7076c6f63063d62e9a4bdda290410df"
     },
     {
       "path": "scripts/image_private_keys.py",
@@ -1588,11 +1600,15 @@
     },
     {
       "path": "tests/conftest.py",
-      "sha256": "9ba0f2338d425f8ae539023b9d840b3d8641d188cba747d72b7f57fb15f766c2"
+      "sha256": "c09131b441a168c779dfc91ed4880796a882689718e9e80d1523e1279590a909"
     },
     {
       "path": "tests/debian_image_probe.py",
       "sha256": "4a263ecb7006d9ffd257d377cf57fbdd31e9ef1b0c727e1ed6695c78908120bb"
+    },
+    {
+      "path": "tests/docker_installation.py",
+      "sha256": "52a5223262d25a50215877f90ed9ed526ad099fee2ffc6018e5d61933f487243"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -1625,6 +1641,10 @@
     {
       "path": "tests/legacy_backend/service.py",
       "sha256": "95b576628745bb9b8440fb398c6cd230a7f118c885bf12e4a1bdfa560065df2c"
+    },
+    {
+      "path": "tests/synthetic_upgrade_probe.py",
+      "sha256": "75a12a2798b639d90d5e2ca1cbd06e6824d21257a78c1d0c2095e161436cd2a4"
     },
     {
       "path": "tests/test_about.py",
@@ -1691,6 +1711,10 @@
       "sha256": "84df6cc1b519fa86734949791f1ef69b280e38189ddae3d3106b2732db4001ef"
     },
     {
+      "path": "tests/test_demo_fixtures.py",
+      "sha256": "f683e693075496e1b444e092a7e09958f57ab27d6279061e3966760cca29a274"
+    },
+    {
       "path": "tests/test_discovery.py",
       "sha256": "679bb7b593cc96a79aca43848ee6f1717746a891cb7af0354809754c3711732e"
     },
@@ -1712,7 +1736,7 @@
     },
     {
       "path": "tests/test_exchange_core.py",
-      "sha256": "ff30b70d332ba6b1cab5e6966d8a5102f30bc78af9a813f074036be6dd22b3a2"
+      "sha256": "0ef43afb07a0ff39b928c83ec73c0e71ce0f80790c02353155ab6a24b8d0d92a"
     },
     {
       "path": "tests/test_exchange_invocations.py",
@@ -1720,7 +1744,7 @@
     },
     {
       "path": "tests/test_exchange_jobs.py",
-      "sha256": "79095bfda27b674ec4f87c14838bb5ecea3f7050b44d9470f87b89b8300872b4"
+      "sha256": "61826a1a50092d5992e87e2e4d4f993cd9e8e5613728793d96ba561fe9c07730"
     },
     {
       "path": "tests/test_exchange_migration.py",
@@ -1728,7 +1752,7 @@
     },
     {
       "path": "tests/test_exchange_preview.py",
-      "sha256": "08003894e4316901ba50a013ec65f2423ec2a82098c922b7f3eb6ff596f91044"
+      "sha256": "5e3786737bc9eaa5743935c51c3fcae59be7b6462478da678066849d8b54acdf"
     },
     {
       "path": "tests/test_exchange_protected_source.py",
@@ -1861,6 +1885,10 @@
     {
       "path": "tests/test_source_gpl_contract.py",
       "sha256": "85c1e2917bf26a47f61ceec8858b7db0414ad2ec94aef7827b0d0108313c456d"
+    },
+    {
+      "path": "tests/test_source_inventory.py",
+      "sha256": "e4cc5a4c9f1c2726b32f2202cfab080569a471979c550395ab73c8c24af05312"
     },
     {
       "path": "tests/test_source_provenance.py",
@@ -3572,7 +3600,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "78717bc1c9e79f60b03595efe7f8fa95d4dabc884128968ce69426ad6bbcec4d"
+      "sha256": "5e01d9e03d63cc555cd8535782ba1e508c124764ad065148a06f3bf5acd6f768"
     },
     {
       "path": "third_party/source-scope.json",
@@ -3584,5 +3612,11 @@
     "Generic deployment/docs/CI templates",
     "Historical publisher interfaces removed from local verifier support",
     "No private historical release locks or publishing workflows"
-  ]
+  ],
+  "maintenance": {
+    "based_on_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
+    "scope": "Original documentation, CI and synthetic-test maintenance; no business or schema changes",
+    "initial_snapshot_identity": "docs/initial-source-snapshot.json",
+    "source_commit_semantics": "Original export origin only, not the current maintained Git commit"
+  }
 }

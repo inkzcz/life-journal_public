@@ -1,16 +1,16 @@
-# 新安装指南（源码候选，待批准）
+# 新安装指南（v5.1.9 源码候选）
 
-v5.1.9当前只准备源码；没有随本次交付的业务TAR或数据库镜像。A阶段原创许可证已批准并激活，准备任务的实际公开B仍待独立批准。
+v5.1.9 源码候选已公开；没有随源码交付的业务 TAR 或数据库镜像。原创许可证与第三方权利边界见根 COPYRIGHT.md。
 [已知限制](known-limitations.md)尤其UPGRADE-001仍适用，不将本指南用于覆盖已有生产目录。
 
 ## 取得获准的源码
 
-以下仅在所有者批准B并建立新仓库后由部署者执行：
+在隔离的新部署目录执行：
 
 ```sh
 git clone https://github.com/inkzcz/life-journal_public.git life-journal-source
 cd life-journal-source
-git checkout --detach YOUR_APPROVED_FULL_PUBLIC_SHA
+git checkout --detach YOUR_REVIEWED_FULL_PUBLIC_SHA
 ```
 
 将占位值替换为新公开仓库获准的完整提交。只使用该新仓库自身的历史；不添加原私有remote或导入旧refs。
@@ -19,7 +19,7 @@ git checkout --detach YOUR_APPROVED_FULL_PUBLIC_SHA
 ## 自行构建唯一业务镜像
 
 按README的PowerShell或Bash命令用干净Git checkout构建。目标固定linux/amd64，业务标签为v5.1.9-candidate.加新仓库短SHA。
-Windows需Git/Python/Docker Desktop；Linux需本地Engine/Buildx。构建需要依赖网络；本轮不替部署者构建镜像。
+Windows需Git/Python/Docker Desktop；Linux需本地Engine/Buildx。构建需要依赖网络；构建和运行验证状态以 release-v5.1.9.md 为准。
 工具保留本地连接限制、实时脱敏日志、默认不加--pull、原生退出码和冲突保护，不覆盖/删除旧镜像或交付目录。
 
 本地工具只生成一个life-journal-app-候选标签-amd64.tar及SHA256SUMS、.sha256、images.json、manifest.json。
@@ -44,4 +44,4 @@ PG17镜像若不在本地，pull_policy:never必须停止；不得移除限制�
 如只在本机HTTP回环验收，显式设置COOKIE_SECURE=false；正式HTTPS恢复true。不要把回环验收端口直接暴露公网。
 恢复演练只用新空库/媒体目标，见backup-restore.md。已有站点升级必须另循upgrade.md，不能假定同版本号跨新构建兼容。
 
-本轮没有执行Windows Docker Desktop、新仓库云端CI或NAS部署验收。安装操作由部署者确认目标后自行执行，不自动访问任何NAS或真实数据。
+首次公开提交的云端 CI 已通过；Windows Docker Desktop 与 NAS 验收独立记录，不能由 Linux 结果替代。安装操作由部署者确认目标后自行执行，不自动访问任何NAS或真实数据。

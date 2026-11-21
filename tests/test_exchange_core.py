@@ -111,7 +111,8 @@ def test_checked_in_schema_and_real_examples_match_parser():
     assert json.loads((root/'content-exchange.schema.json').read_text())==Exchange.model_json_schema()
     assert len(parse((root/'examples/article.md').read_bytes(),'article.md').records)==1
     assert len(parse((root/'examples/travel.json').read_bytes(),'travel.json').records[0].foods)==2
-    value,photos=package((root/'examples/travel-with-photos.zip').read_bytes())
+    from scripts.demo_fixtures import example_bytes
+    value,photos=package(example_bytes(root.parents[1]))
     from PIL import Image
     assert len(photos)==2
     for data in photos.values():

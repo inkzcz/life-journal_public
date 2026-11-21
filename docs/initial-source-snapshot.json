@@ -1,0 +1,9 @@
+{
+  "repository": "inkzcz/life-journal_public",
+  "initial_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
+  "file_count": 892,
+  "manifest_sha256": "0fe3adc591d39459b5bc16f2ad193bf0ea899444de983c5efc464b9d8ad3f208",
+  "source_tree_sha256": "e252beaa6c4df61ff433176c6637fec2cd28ff9458019c0b54c54b7b1d945797",
+  "hash_definition": "sha256sums-lf-includes-export-manifest-v1",
+  "scope": "Historical first public snapshot, not an identity assertion for later maintenance trees"
+}

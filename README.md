@@ -1,35 +1,24 @@
 # Life Journal · 私人生活档案
 
-**v5.1.9 源码候选，尚非正式Tag/Release。** 所有者已明确批准并执行A阶段：有权许可的原创源码以GPL-3.0-or-later授权，见[LICENSE](LICENSE)和[COPYRIGHT.md](COPYRIGHT.md)。
-拟议仓库为 `inkzcz/life-journal_public`；仓库名和本文件不构成创建、上传或公开权限。
+Life Journal 是可自行部署的私人 Blog，包含文章与草稿、TipTap/Markdown 编辑、旅行/地点/行程、照片流与相册、公历/农历纪念日、主题及后台管理。
+前端 Vue 3，后端 FastAPI，数据库 PostgreSQL 17。一个 Debian Linux/amd64 业务镜像通过 `api`、`web`、`maintenance` 三个命令运行三个独立容器，数据库为独立第四容器。
 
-Life Journal 是可自行部署的私人Blog，提供文章与草稿、TipTap/Markdown、旅行/地点/行程、照片流与独立相册、
-公历/农历纪念日及提醒、主题外观和后台管理。前端Vue3，后端FastAPI，数据库PostgreSQL17。
-登录与角色权限、迁移保护、完整备份和独立空目标恢复机制保留，个人内容不会随源码公开。
+**当前为 v5.1.9 源码候选，尚未发布正式 Tag/Release 或预构建镜像。**
+公开仓库：https://github.com/inkzcz/life-journal_public 。首次公开提交为 `cd3182450f6163d40f1e5221c9e4483850546884`，以全新历史发布；维护变更通过分支和 PR 审核。
 
-## 首次源码范围与已激活的原创授权
+## 安装
 
-Copyright (C) 2026 inkzcz。GPL-3.0-or-later仅覆盖所有者有权许可、受版权保护的原创源码，包括改编文件中有权许可的原创增量。
-本轮正式授权记录见[PHASE_A_AUTHORIZATION.json](licensing/PHASE_A_AUTHORIZATION.json)；历史激活方案与通知草案保留作审核背景，当前法律通知以根LICENSE和COPYRIGHT.md为准。
-Alembic模板保留MIT，Lucide图标保留ISC及适用Feather MIT；其他第三方既有许可/版权不被项目候选许可覆盖。
-[来源审核](third_party/SOURCE_REVIEW.md)、[逐文件记录](third_party/source-review.json)和[第三方声明](THIRD_PARTY_NOTICES.md)应一并保留。
+从本仓库取得已审核的固定提交，在干净 Git checkout 中自行构建。源码 ZIP 没有正式 Annotated Tag 身份时不能用手填 SHA 绕过校验。
 
-首次只准备完整源码、迁移、测试、构建/Compose配置、虚构示例与法律文本，不提供预构建镜像、Docker TAR、wheel或编译前端。
-不复制原Git历史、私人配置、密钥、真实数据库/文章/媒体/备份、旧图片或未经审核素材。
-生产lunardate0.2.2及农历行为不变。源码清单/哈希已按新增LICENSE、COPYRIGHT和A授权记录重新生成；不得沿用激活前888文件预览的旧哈希。
+```sh
+git clone https://github.com/inkzcz/life-journal_public.git life-journal-source
+cd life-journal-source
+git checkout --detach YOUR_REVIEWED_FULL_PUBLIC_SHA
+candidate_revision=$(git rev-parse HEAD)
+python scripts/release_local.py --version "v5.1.9-candidate.${candidate_revision:0:7}" --revision "$candidate_revision"
+```
 
-## 自行构建和新安装
-
-以下步骤仅供所有者批准并建立新源码仓库后使用；本轮未创建该仓库或执行部署。
-从 `https://github.com/inkzcz/life-journal_public` 获取获准的固定提交，使用干净Git checkout。
-新仓库初始提交会产生新构建身份，不能把清单中的原准备SHA当成新仓库HEAD。
-候选没有正式Annotated Tag，下载ZIP不能绕过来源校验；优先使用Git checkout。
-
-一个Debian Linux/amd64业务镜像 `life-journal:<候选标签>` 通过 `api`、`web`、`maintenance` 三个启动命令运行独立容器。
-PostgreSQL17官方镜像由部署者独立准备，不打入业务TAR，Compose不会隐式拉取缺失镜像。
-Windows需要Git、Python3.10+、Docker Desktop Linux Containers/Buildx；Linux使用本机Docker Engine与Buildx。
-
-Windows PowerShell：
+Windows PowerShell（需 Git、Python 3.10+、Docker Desktop Linux Containers/Buildx）：
 
 ```powershell
 $Revision = (git rev-parse HEAD).Trim()
@@ -37,32 +26,28 @@ $Version = "v5.1.9-candidate.$($Revision.Substring(0,7))"
 .\scripts\release-local.cmd -Version $Version -Revision $Revision
 ```
 
-Linux Bash：
+构建需要依赖网络，工具仅连接本地 Docker，不默认添加 `--pull`，不推送镜像。
+工具只生成一个业务 TAR 及身份/校验文件，保留源码、架构、SHA256、镜像完整性、重复 load 和资源冲突保护。
+PostgreSQL 17 镜像由部署者另行准备，不放入业务 TAR；Compose 使用 `pull_policy: never`，镜像缺失会停止。
 
-```sh
-candidate_revision=$(git rev-parse HEAD)
-python scripts/release_local.py --version "v5.1.9-candidate.${candidate_revision:0:7}" --revision "$candidate_revision"
-```
+在新的部署目录私下复制 `.env.example` 为 `.env`，自行设置数据库密码、至少 32 字符随机 `SETUP_KEY`、镜像引用和新的持久目录。
+只运行 `docker compose --env-file .env config --quiet`，不要公开展开后的配置。
+导入业务镜像并准备数据库镜像后，`docker compose --env-file .env up -d --pull never` 等待 DB → Maintenance → API → Web 健康门禁。
+Web 默认绑定 `127.0.0.1:18080`，没有默认管理员账号或密码。通过受控 HTTPS 完成初始化后移除 `SETUP_KEY`；隔离回环 HTTP 验收才设置 `COOKIE_SECURE=false`。
+详见[安装指南](docs/install.md)。不要将新安装映射到现有生产数据目录。
 
-工具仅允许本地Docker连接，联网获取构建依赖，不默认加`--pull`，保留源码身份、SHA256、架构、镜像完整性、
-重复load和已有资源冲突保护；只输出一个业务TAR及校验/元数据，不推送镜像或自动连接NAS。
-这是部署者自行构建产物，不是本次源码发布附带的二进制。
+## 许可证与第三方
 
-新安装时私下复制`.env.example`为`.env`，自行设置数据库密码、至少32字符随机SETUP_KEY、候选业务标签、
-已有PG17镜像和新持久目录。Compose默认仅发布Web回环端口，等待DB→Maintenance→API→Web健康门禁。
-通过受控HTTPS初始化自己的管理员，完成后移除SETUP_KEY；项目无默认管理员账号或密码。
-具体步骤见[安装指南](docs/install.md)，不要将新安装目录直接映射到原生产数据。
+Copyright (C) 2026 inkzcz。所有者有权许可的原创源码及改编文件中的原创增量按 **GPL-3.0-or-later** 授权，见 [LICENSE](LICENSE) 与 [COPYRIGHT.md](COPYRIGHT.md)。
+第三方 MIT、ISC、GPLv3-only 等原有许可、版本选择和署名保留，不被重新授权。
+见[第三方声明](THIRD_PARTY_NOTICES.md)、[逐文件来源](third_party/source-review.json)、[再分发义务](third_party/REDISTRIBUTION.md)。生产 lunardate 及农历行为保留。
+源码不含私人配置、真实文章/照片/数据库/备份、原 Git 历史或预构建二进制。[源码范围](SOURCE_DISTRIBUTION.md)区分首次快照和后续维护。
 
-## 文档与已知限制
+## 验证状态和文档
 
-- [安装](docs/install.md)、[升级与回滚](docs/upgrade.md)、[备份恢复](docs/backup-restore.md)。
-- [开源声明](docs/open-source.md)、[已知限制](docs/known-limitations.md)、[许可证候选](docs/licensing.md)、[第三方再分发](third_party/REDISTRIBUTION.md)。
-- [安全](SECURITY.md)、[贡献](CONTRIBUTING.md)、[本地验收](docs/local-validation.md)、[虚构演示](examples/demo.md)。
+首次公开提交的 [GitHub Actions](https://github.com/inkzcz/life-journal_public/actions/runs/44915676538) 已成功完成 PostgreSQL/SQLite 回归、前端测试/类型检查/构建及 Compose 配置检查。这不代表 Docker 运行、Windows 或 NAS 验收通过。
+当前维护结果与正式发布阻塞项见 [v5.1.9 发布准备](docs/release-v5.1.9.md)。
 
-**UPGRADE-001：v5.1.8→v5.1.9的历史Maintenance升级失败仍未解决，本轮不复现；不要据源码整理直接生产升级。**
-原仓库Actions受付款/支出限制未启动，不记为通过；Linux本地结果不替代新仓库CI、Windows Docker Desktop或NAS验收。
-未来二进制对应源码/NOTICE/替换及平台验收仍单独保留，不能因源码公开自动宣称完成。
-
-本快照组装时A阶段已批准并执行，准备任务的B阶段公开操作尚未批准；须按精确提交、目标仓库、清单及源码树哈希另行批准。
-B状态描述本准备任务的操作授权，不给GPL接收者附加许可之外的分发限制。B记录留在快照外，避免修改已批准字节造成哈希自引用。
-本任务不会创建公开仓库、改变原私有仓库可见性或合并准备PR。
+**UPGRADE-001：历史 v5.1.8 → v5.1.9 Maintenance 失败原因尚未确认，不能直接据新安装成功宣称生产升级已通过。**
+请先阅读[升级/回滚](docs/upgrade.md)、[隔离分析](docs/upgrade-001.md)、[备份恢复](docs/backup-restore.md)和[已知限制](docs/known-limitations.md)。
+其他文档：[开源说明](docs/open-source.md)、[安装](docs/install.md)、[贡献](CONTRIBUTING.md)、[安全](SECURITY.md)、[本地验收](docs/local-validation.md)、[虚构示例](examples/demo.md)、[变更记录](CHANGELOG.md)。
