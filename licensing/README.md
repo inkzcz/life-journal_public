@@ -23,13 +23,12 @@ publication_approved=false：A不批准创建仓库、公开推送、合并或�
 lunardate0.2.2继续保留，不替换农历实现；祖先GPL-2+证据不被扩大为所有第三方贡献的未来版本授权。
 Psycopg的LGPL-3.0-only、MIT/ISC及其他授权保持原文，详见third_party/SOURCE_REVIEW.md和REDISTRIBUTION.md。
 
-## B阶段独立批准
+## 首次公开与历史 B 记录
 
-许可证激活不等于本准备任务有权公开。新的私有源码候选及全部文件哈希已经重新生成，
-需所有者对具体提交、目标仓库、manifest SHA256及源码树SHA256明确批准B。
-B批准记录应在快照外；不得通过修改已哈希的proposal或manifest来宣称快照已获批准，否则哈希会变化。
---require-license只验证A；--require-publication另核对外部B记录和精确字节，不执行创建或上传。
-这是对本准备任务操作的门禁，不是给合法GPL接收者附加许可限制。
+首次 892 文件源码快照已按所有者明确 B 批准公开，公开提交为 cd3182450f6163d40f1e5221c9e4483850546884，历史身份见 docs/initial-source-snapshot.json。
+原始 B 批准记录在快照外；proposal 和 A 记录的 publication_approved=false 只描述 A 阶段范围，保留原字节，不回写历史声明。
+--require-license 验证原创许可材料；--require-publication 是一次性准备操作的精确快照门禁，不是给合法 GPL 接收者附加分发限制。
+后续维护通过公开分支和 PR，当前来源/文件范围见 SOURCE_DISTRIBUTION.md 与 EXPORT_MANIFEST.json，不冒用首次快照哈希。
 
-原仓库继续Private，PR #46保持Draft；仅等待独立B批准，不执行公开、Tag/Release、镜像或NAS操作。
-未来二进制的对应源码、LGPL替换、NOTICE和平台验收是C类事项，不混作当前不含这些二进制的源码条件。
+原仓库继续 Private，原 PR 不变；当前维护不创建 Tag/Release、推送镜像或操作 NAS。
+未来二进制的对应源码、LGPL 替换、NOTICE 和平台验收是 C 类事项，不混作已公开源码的额外许可条件。

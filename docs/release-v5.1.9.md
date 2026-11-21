@@ -33,17 +33,27 @@
 首轮维护 CI 的 Docker 构建、单 TAR/重复 load、全层密钥扫描和 Debian/PG17/Caddy 探针已实际通过。
 构建探针观察到 Python3.12.16、PG17.12、Caddy2.11.9 和 libpq19；这些浮动依赖版本的对应源码/许可证证据不能由旧二进制清单自动代替，正式二进制分发前仍须重新核对。
 首轮新安装/初始化/登录/重启成功后，独立恢复在读取备份时失败：验收脚本用 docker compose exec 默认 root 创建备份，而恢复入口降权为 UID10001。
-本 PR 已将维护 CLI 和文档改为显式 --user 10001:10001；不递归修改已有数据、不改变入口权限策略，必须由后续实际 CI 验证修正。
+维护提交 ea27bc5c6f8c5adf03adab067e04c4755612c378 已将维护 CLI 和文档改为显式 --user 10001:10001；不递归修改已有数据、不改变入口权限策略。
+该提交的 [Docker 验收作业](https://github.com/inkzcz/life-journal_public/actions/runs/44922304391/job/136900841023) 已实际成功完成：
+- 单业务镜像构建、单 TAR、完整身份/架构/SHA256、重复 load 和全部引用层私钥扫描。
+- Debian/Python/PG17/Caddy/UID10001 探针；真实 BuildKit context 的隐私排除测试 1 passed。
+- 四容器健康、API HTTP200、Caddy 静态资源及代理、首次初始化/登录、重启和持久化。
+- 完整备份、独立空目标实际恢复及恢复后登录。
+- 0018_content_exchange → 0021_anniversary_calendar 合成库：真实 PG17 dump/restore/试迁移、原值/序列及 3 个媒体文件保留，第二次启动为 current。
+后续提交仅继续维护文档和清单；其完整 CI 仍须以对应提交 Checks 的真实结果确认，不把上述 Docker 作业等同于整条后续 CI 已成功。
 已加入真实 BuildKit context 合成验证；当前运行证据不等同于 Windows/NAS，也不把独立恢复或合成升级通过当成 UPGRADE-001 历史根因已确认。
 
 ## 正式发布门禁
 
 - [ ] 所有者审核并合并维护 PR，确认正确的正式发布提交；CI 实际成功。
 - [ ] 解决或明确接受 UPGRADE-001 的风险及支持范围；不能把新安装成功作为历史升级成功。
-- [ ] Docker 全新安装、四容器健康、初始化/登录、重启、备份和独立恢复结果完整。
+- [x] Linux Docker 全新安装、四容器健康、初始化/登录、重启、备份和独立恢复结果完整（上述实际作业证据；Windows/NAS 另列）。
 - [ ] Windows Docker Desktop 与 NAS 的平台验收分别完成，Linux 不替代。
 - [ ] 二进制对应源码、LGPL 替换、版权/NOTICE、构建对应完成，见 third_party/REDISTRIBUTION.md。
-- [ ] 单一业务镜像、Linux/amd64、全部引用层无不必要私钥、单 TAR 和重复 docker load、SHA256/源码身份复核。
+- [x] 验收镜像为单业务 Linux/amd64；全部引用层无不必要私钥，单 TAR/重复 docker load、SHA256/源码身份通过。正式发布提交需再次绑定构建。
 - [ ] 经所有者另行批准创建不覆盖历史的 Annotated Tag、正式 Release；本 PR 不执行。
 
 安装见 install.md；升级与回滚见 upgrade.md；完整备份恢复见 backup-restore.md。数据库镜像必须由部署者提前准备，本地发布工具不查询、构建或交付数据库镜像。
+
+二进制 C 类具体未完成项：当前 Dockerfile 没有显式把项目 LICENSE/COPYRIGHT、前端编译资源及单独复制的 Caddy 二进制的适用声明一起装入镜像；不能把源码目录中有法律文本当成镜像已包含。
+还须针对实际构建的 wheel/内附库与系统包重新固定版本和对应源码，完成 Psycopg/LGPL 替换或重组验证及适用 NOTICE/源码获取方式。当前验收镜像没有被发布，这些缺口继续阻止未来镜像分发，不撤销已有源码公开。

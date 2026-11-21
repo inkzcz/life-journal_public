@@ -138,9 +138,10 @@
       "path": ".env.example",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "9bbfe7fed520b0de112cd7702fc396af7539f35a3d1eb50ec5ff8c5de30d5a6c"
+      "sha256_canonical": "c9aee94265f4f3add36c47c757ce71024f92a0a82d07332279063a9744a54495"
     },
     {
       "path": ".env.nas.example",
@@ -1512,7 +1513,7 @@
         "J001",
         "P001"
       ],
-      "sha256_canonical": "cab9954823ae4f26a76fcc5704a98f0aff9cc7720876d40314c4ecbbaa2591fe"
+      "sha256_canonical": "33bd7100d0217e17435ca3c039b356e0348e656ee989a0494667b49c361d5d38"
     },
     {
       "path": "docs/local-validation.md",
@@ -1538,7 +1539,7 @@
       "evidence": [
         "P001"
       ],
-      "sha256_canonical": "98b88cfa0afa090ec0b5fa542bfe3e4c0f42c68aecb556fcc30ac1747af21254"
+      "sha256_canonical": "5cd8b4b79ee7177a5fe820dd387a1e1425e8e72f2912796971112279ba9e88c8"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -1546,7 +1547,7 @@
       "evidence": [
         "P001"
       ],
-      "sha256_canonical": "72e80431618b57727d22251398b1b1e2ff96bf007a5a7e2f59004bc88668fd42"
+      "sha256_canonical": "7071a72f97bfe020842ea02ad48e73927d61d89de1f04a9e1084a551adf5d9ac"
     },
     {
       "path": "docs/upgrade.md",
@@ -3159,9 +3160,10 @@
       "path": "licensing/README.md",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P001"
       ],
-      "sha256_canonical": "5ecb7be08ac17e1f340f05794badd4e550d75546ba3840ec8b6734bc93d041f1"
+      "sha256_canonical": "ef806a25f9baa991b2f2a78e12f546cfa6303b980631fe9bf73b09d051c5db2b"
     },
     {
       "path": "licensing/proposal.json",
@@ -4016,9 +4018,10 @@
       "classification": "project-review-and-factual-metadata",
       "evidence": [
         "R002",
-        "J006"
+        "J006",
+        "P001"
       ],
-      "sha256_canonical": "3359885439771ff5a16d8f39a64a7054aa7a20af518fc0d391608e026c62c89d"
+      "sha256_canonical": "473755c577b27938dc3094c3f7d3bc3a9b0566eb0e33143ae7ed68133e93f95a"
     },
     {
       "path": "third_party/SOURCE_REVIEW.md",
