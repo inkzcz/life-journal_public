@@ -5,11 +5,13 @@
 自己的正常部署可执行：
 
 ```sh
-docker compose --env-file .env exec -T maintenance python -m app.backup create
-docker compose --env-file .env exec -T maintenance python -m app.backup verify --id BACKUP_UUID
+docker compose --env-file .env exec --user 10001:10001 -T maintenance python -m app.backup create
+docker compose --env-file .env exec --user 10001:10001 -T maintenance python -m app.backup verify --id BACKUP_UUID
 ```
 
-用实际返回编号替换 BACKUP_UUID。创建、文件校验、真实恢复是不同结果；首次真实恢复前不淘汰旧副本，之后保护最后一次验证副本。外部复制任务独立核验。
+用实际返回编号替换 BACKUP_UUID。必须显式指定 UID/GID：`exec` 不会重新执行入口的降权逻辑，省略 `--user` 会以镜像默认 root 身份生成备份，之后 UID10001 恢复容器可能无法读取。
+不要递归 chown 已有备份来掩盖问题；已有错误属主的备份须保留并由管理员另行审核处理。
+创建、文件校验、真实恢复是不同结果；首次真实恢复前不淘汰旧副本，之后保护最后一次验证副本。外部复制任务独立核验。
 
 恢复必须是另一个项目名和新的空 DB/媒体目录；业务镜像与备份 app_version 完全匹配。设置自己的私密 .env，确认 DB_DATA_DIR、MEDIA_DATA_DIR 不指向原目录；RESTORE_INPUT_DIR 指向已核验备份根目录，通过 compose.restore.yaml 只读提供给 Maintenance。
 

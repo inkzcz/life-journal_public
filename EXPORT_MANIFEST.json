@@ -32,7 +32,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "740f573d19f71fa826c6e5ff7126727400b823864f2d29c4d57f745c726961ad"
+      "sha256": "b2e47aeb2705c4c6f95995f142bf679cd6c4696953b074ae1f4e514123a78928"
     },
     {
       "path": ".gitignore",
@@ -44,7 +44,7 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "852e58dd294975e5292f006148785d47bbaef5ee1eaaa5d74c16cec9532b4a5b"
+      "sha256": "35a121deb2c8ee01e4cec8f99735e6e2b6879a7dca38b0a6e0d88f2b843e0442"
     },
     {
       "path": "COPYRIGHT.md",
@@ -668,7 +668,7 @@
     },
     {
       "path": "docs/backup-restore.md",
-      "sha256": "f6c0350064b7a73b729d3015bb27521f287f6b6848d3414354bf92544631d1be"
+      "sha256": "087d04648ac5efcc104ae0881b68c248aa794f87b87248220c7933ba10855fe9"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -688,7 +688,7 @@
     },
     {
       "path": "docs/local-validation.md",
-      "sha256": "7cea6de335df89843a7befa9a2087e59a572ca3ebd422c104d4971476919c86f"
+      "sha256": "cfd5d7b4634e8c87d08005975543b80f316a5e96b098fde7e5a6866a6949c63f"
     },
     {
       "path": "docs/open-source.md",
@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/release-v5.1.9.md",
-      "sha256": "621271c2230592261a2119ec970026533e9f02a7f8aac118def23fbd04e2c8ce"
+      "sha256": "98b88cfa0afa090ec0b5fa542bfe3e4c0f42c68aecb556fcc30ac1747af21254"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -1608,7 +1608,7 @@
     },
     {
       "path": "tests/docker_installation.py",
-      "sha256": "52a5223262d25a50215877f90ed9ed526ad099fee2ffc6018e5d61933f487243"
+      "sha256": "36d3c34a6edc21ed833ea2e815e1ced3edaf9612209e944a586d13f7133f54b3"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -3600,7 +3600,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "5e01d9e03d63cc555cd8535782ba1e508c124764ad065148a06f3bf5acd6f768"
+      "sha256": "1fab0c8417c9b0815f0e8ba8e4c9b315e12a7a26bc0855e04ecdb4a1eabbf100"
     },
     {
       "path": "third_party/source-scope.json",

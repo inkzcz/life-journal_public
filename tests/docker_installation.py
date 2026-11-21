@@ -97,9 +97,9 @@ def main():
         compose(project,env,'up','-d','--pull','never','--wait','--wait-timeout','240')
         request=client(project,env);login(request,password)
         assert request('/api/setup/status')['required'] is False
-        backup=json.loads(compose(project,env,'exec','-T','maintenance','python','-m','app.backup','create').strip().splitlines()[-1])
+        backup=json.loads(compose(project,env,'exec','--user','10001:10001','-T','maintenance','python','-m','app.backup','create').strip().splitlines()[-1])
         backup_id=backup['id']
-        compose(project,env,'exec','-T','maintenance','python','-m','app.backup','verify','--id',backup_id)
+        compose(project,env,'exec','--user','10001:10001','-T','maintenance','python','-m','app.backup','verify','--id',backup_id)
         started.append((restore,restore_env,restore_override))
         compose(restore,restore_env,'up','-d','--pull','never','--wait','--wait-timeout','120','db',override=restore_override)
         # Use the existing empty-directory initializer, without starting API or

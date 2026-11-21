@@ -6,7 +6,7 @@
 
 前端：`cd frontend`，然后 `npm ci`、`npm test`、`npm run build`。
 
-测试图片和 ZIP 由 `scripts/demo_fixtures.py` 从合成 JSON 和 Pillow 色块在内存生成，不复制私人媒体，不提交生成的 ZIP。原私有工作流、发布收据和 Git 历史相关测试不进入新仓库；业务、迁移、权限、导入、相册、日历及单业务镜像测试保留。排除清单在私有准备 PR 中逐项审阅，不以删除失败业务测试获得通过。
+测试图片和 ZIP 由 `scripts/demo_fixtures.py` 从合成 JSON 和 Pillow 色块在内存生成，不复制私人媒体，不提交生成的 ZIP。原私有工作流、发布收据和 Git 历史相关测试不进入新仓库；业务、迁移、权限、导入、相册、日历及单业务镜像测试保留。当前来源和文件范围见 EXPORT_MANIFEST.json、third_party/source-review.json；维护更新必须逐项审核，不以删除失败业务测试获得通过。
 
 提交前运行 `python scripts/open_source_gate.py` 和完整脱敏的受信任 Gitleaks。真实 .env、数据、备份、TAR、截图和扫描原始结果不得进 Git。假 Token 在测试运行时用片段构造；不对整个 tests 目录豁免扫描。
 

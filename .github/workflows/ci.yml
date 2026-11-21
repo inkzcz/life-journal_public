@@ -92,6 +92,10 @@ jobs:
           python scripts/image_private_keys.py --archive "$RUNNER_TEMP/delivery/$tag/life-journal-app-$tag-amd64.tar"
       - name: Debian, PG17 tools, Caddy and privilege checks
         run: python tests/debian_image_probe.py --image-tag "$IMAGE_TAG" --output "$RUNNER_TEMP/debian-probe.json"
+      - name: Real BuildKit context excludes private files
+        run: |
+          python -m pip install 'pytest>=8,<10'
+          TEST_BUILDX_BUILDER=default python -m pytest -q -p no:cacheprovider tests/test_docker_context.py
       - name: Prepare official database image separately from the business delivery
         run: docker pull postgres:17-alpine
       - name: Isolated installation, restart, backup, restore and synthetic upgrade

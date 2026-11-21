@@ -5,8 +5,8 @@
 
 ## 工具与依赖
 
-Python 3.12、Node/npm（实际版本要记录）、Git、Gitleaks 8.30.1。需要 PostgreSQL 路径时只使用本机
-已安装的 PG17 工具和新空目录，不查询/拉取数据库镜像。包版本记录 names/versions，勿输出完整环境或秘密。
+Python 3.12、Node/npm（实际版本要记录）、Git、Gitleaks 8.30.1。需要 PostgreSQL 路径时使用本机 PG17 和新空目录，或单独提前准备的临时 PG17 容器。
+数据库镜像只属于测试基础设施，业务发布工具不查询、拉取或交付它。包版本记录 names/versions，勿输出完整环境或秘密。
 
 ```sh
 python --version

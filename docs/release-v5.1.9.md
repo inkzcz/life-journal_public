@@ -17,7 +17,24 @@
 ## 验收记录
 
 首次公开 main 的 Actions 44915676538 已真实成功完成：PostgreSQL/SQLite 全量回归、前端测试/类型检查/生产构建、Compose 配置及源码/许可/Gitleaks。
-维护分支及本地最新结果将在本 PR 验收后填写，未完成项目不记为通过。
+本地实际结果：
+
+| 项目 | 状态与范围 |
+| --- | --- |
+| PostgreSQL17 全量回归 | 843 passed / 2 skipped；跳过的是 SQLite 参数的 PG advisory-lock 项和需显式临时 BuildKit 的 context 项 |
+| SQLite 全量回归 | 753 passed / 92 skipped；PG 专用项与显式 Docker context 项不算 SQLite 已验证 |
+| 前端 | 311 tests passed；TypeScript/生产构建通过；相同参数两次构建 73 文件字节一致（本地 Node24.19.0/npm11.9.0，CI Node22 独立验证） |
+| 来源/许可证/公开契约专项 | 40 passed；410 份法律文本哈希有效且原样保留；无新增第三方实现或运行依赖 |
+| Compose 配置 | 本地仅合成配置 config --quiet 通过 |
+| 本地 Docker | 初次只读客户端状态目录失败；使用独立状态目录后因磁盘不足失败。未宣称本地构建/运行通过，未删除旧镜像/交付文件 |
+| 首轮本地 PG | 与 Docker 共享盘耗尽后出现失败并中止（exit130），不记通过；仅清理本轮合成容器/匿名卷后，使用新内存临时卷取得上面的独立通过结果 |
+| 维护 CI | 以本 PR 对应提交的 Checks 为准，不用首次 main 的绿色状态替代维护提交；完整结果在 PR 中记录 |
+
+首轮维护 CI 的 Docker 构建、单 TAR/重复 load、全层密钥扫描和 Debian/PG17/Caddy 探针已实际通过。
+构建探针观察到 Python3.12.16、PG17.12、Caddy2.11.9 和 libpq19；这些浮动依赖版本的对应源码/许可证证据不能由旧二进制清单自动代替，正式二进制分发前仍须重新核对。
+首轮新安装/初始化/登录/重启成功后，独立恢复在读取备份时失败：验收脚本用 docker compose exec 默认 root 创建备份，而恢复入口降权为 UID10001。
+本 PR 已将维护 CLI 和文档改为显式 --user 10001:10001；不递归修改已有数据、不改变入口权限策略，必须由后续实际 CI 验证修正。
+已加入真实 BuildKit context 合成验证；当前运行证据不等同于 Windows/NAS，也不把独立恢复或合成升级通过当成 UPGRADE-001 历史根因已确认。
 
 ## 正式发布门禁
 
