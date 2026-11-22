@@ -668,7 +668,7 @@
     },
     {
       "path": "docs/backup-restore.md",
-      "sha256": "087d04648ac5efcc104ae0881b68c248aa794f87b87248220c7933ba10855fe9"
+      "sha256": "c63858f5f7d4f4353f7c333453b7ef410a663bd60fab51ed7f0785e37329506d"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1608,7 +1608,7 @@
     },
     {
       "path": "tests/docker_installation.py",
-      "sha256": "36d3c34a6edc21ed833ea2e815e1ced3edaf9612209e944a586d13f7133f54b3"
+      "sha256": "86c54d881b6f3dfb6175a3b7a29896c6eac5bd9cf009718ed8717c787564fb43"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -1700,7 +1700,7 @@
     },
     {
       "path": "tests/test_compose.py",
-      "sha256": "b98d19bfcb8fbc6f5a313a6c03a33332f5394b3bd5152ab9360926a8906bed18"
+      "sha256": "a6c738868f94e6cf6e1b52c27101a6c69cf382f061cfe299a70a5000d9ff959d"
     },
     {
       "path": "tests/test_container_entrypoint.py",
@@ -3600,7 +3600,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "3efd1cf1b109af6fa91d1f0afce7b42f72a978f08450a29fc7bf1dfd7bddd5f6"
+      "sha256": "c5feea7576bf5cc7f62f6ab4d12ed4765555be22e7f6378bd45d4e22c8256d93"
     },
     {
       "path": "third_party/source-scope.json",
@@ -3617,6 +3617,7 @@
     "based_on_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
     "scope": "Original documentation, CI and synthetic-test maintenance; no business or schema changes",
     "initial_snapshot_identity": "docs/initial-source-snapshot.json",
-    "source_commit_semantics": "Original export origin only, not the current maintained Git commit"
+    "source_commit_semantics": "Original export origin only, not the current maintained Git commit",
+    "final_review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa"
   }
 }

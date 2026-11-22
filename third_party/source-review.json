@@ -2,7 +2,7 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "Post-publication original documentation, CI, in-memory synthetic fixtures and source-inventory checks; runtime, migration hashes, dependencies and third-party legal texts unchanged",
+  "current_delta": "Final review: isolated Compose process settings, private data-root guards, fail-closed cleanup and precise restore instructions; runtime/schema and existing legal texts unchanged",
   "reviewed_on": "2026-11-21",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
@@ -123,6 +123,14 @@
       "source": "Owner-authorized public maintenance task; original project documentation, CI and test changes authored for this task without importing private or external implementations",
       "license": "GPL-3.0-or-later for owner-controlled protectable original maintenance contributions; factual metadata and existing third-party grants unchanged",
       "decision": "Manual changed-file review: no added runtime dependency, third-party code, private data or assets; preserve full legal texts, original declaration and initial public history. Technical review is not global originality certification."
+    },
+    {
+      "id": "P002",
+      "review_date": "2026-11-22",
+      "review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa",
+      "source": "Owner-requested final pre-merge review; original test safeguards, regression assertions and restore documentation authored for the synthetic isolation and cleanup findings",
+      "license": "GPL-3.0-or-later for owner-controlled protectable original maintenance contributions; existing third-party grants unchanged",
+      "decision": "Reviewed exact five-file delta; no external implementations, assets, dependencies, owner declarations or legal text replaced. Merge/CI authorization is a separate operational status, not a source-origin assertion."
     }
   ],
   "files": [
@@ -1476,9 +1484,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P002"
       ],
-      "sha256_canonical": "087d04648ac5efcc104ae0881b68c248aa794f87b87248220c7933ba10855fe9"
+      "sha256_canonical": "c63858f5f7d4f4353f7c333453b7ef410a663bd60fab51ed7f0785e37329506d"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -3373,9 +3382,10 @@
       "path": "tests/docker_installation.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "P001"
+        "P001",
+        "P002"
       ],
-      "sha256_canonical": "36d3c34a6edc21ed833ea2e815e1ced3edaf9612209e944a586d13f7133f54b3"
+      "sha256_canonical": "86c54d881b6f3dfb6175a3b7a29896c6eac5bd9cf009718ed8717c787564fb43"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -3557,9 +3567,10 @@
       "path": "tests/test_compose.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P002"
       ],
-      "sha256_canonical": "b98d19bfcb8fbc6f5a313a6c03a33332f5394b3bd5152ab9360926a8906bed18"
+      "sha256_canonical": "a6c738868f94e6cf6e1b52c27101a6c69cf382f061cfe299a70a5000d9ff959d"
     },
     {
       "path": "tests/test_container_entrypoint.py",
@@ -7371,7 +7382,8 @@
       "classification": "review-metadata",
       "evidence": [
         "J006",
-        "P001"
+        "P001",
+        "P002"
       ],
       "sha256_canonical": null
     },
