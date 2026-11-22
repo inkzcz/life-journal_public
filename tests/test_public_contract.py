@@ -78,9 +78,12 @@ def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
     jobs=document['jobs']
     assert jobs['build']['needs']=='preflight' and jobs['build']['permissions']=={'contents':'read'}
     assert jobs['build']['with']['release_version']=='v5.1.9'
+    assert jobs['build']['with']['source_revision']=='${{ needs.preflight.outputs.revision }}'
+    assert jobs['build']['with']['annotated_tag_sha']=='${{ needs.preflight.outputs.tag_sha }}'
     publish=jobs['publish']
     assert publish['needs']==['preflight','build'] and publish['permissions']=={'contents':'write','actions':'read'}
     assert "github.ref == 'refs/tags/v5.1.9'" in publish['if']
+    assert "github.ref == 'refs/heads/main'" in publish['if'] and "github.event_name == 'workflow_dispatch'" in publish['if']
     assert not any(s.get('uses','').startswith('actions/checkout') for s in publish['steps'])
     for job in jobs.values():
         for step in job.get('steps',[]):
@@ -90,3 +93,15 @@ def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
     assert '--prerelease=false' in body and '--draft=false' in body
     assert 'gh release download v5.1.9' in body and 'sha256sum --check' in body
     assert not any(s in body for s in ('docker push','--force','--clobber','gh release edit'))
+
+
+def test_formal_source_uses_verified_tag_worktree_not_orchestration_head():
+    document=yaml.safe_load((ROOT/'.github/workflows/ci.yml').read_text())
+    steps=document['jobs']['docker-installation']['steps']
+    identity=next(s for s in steps if s.get('id')=='identity')['run']
+    assert 'git cat-file -t "$ANNOTATED_TAG_SHA"' in identity
+    assert 'git worktree add --detach "$app_root" "$SOURCE_REVISION"' in identity
+    assert 'python "$app_root/scripts/release_local.py"' in identity
+    assert 'git tag' not in identity and 'git push' not in identity
+    package=next(s['run'] for s in steps if 'prepare_distribution.py' in s.get('run',''))
+    assert '--root "$APP_ROOT" --orchestration-root .' in package

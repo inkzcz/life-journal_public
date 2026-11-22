@@ -11,6 +11,16 @@ additional charge. No written source offer or additional recipient restriction
 is imposed. Each third-party grant remains its own grant; the original project
 notice applies only to owner-controlled original code and increments.
 
+If the publication workflow is repaired after an immutable application tag was
+created, the application source commit remains that tag's original commit.
+`build_orchestration_commit` records the separately tested publisher commit;
+`build-orchestration/source.tar.gz` supplies its exact scripts/workflows when
+different. The image is freshly built from a detached worktree of the verified
+tag target, never relabelled from a candidate or rebuilt from an untagged newer
+application. The remote tag object is checked before/after publication and is
+never overwritten. This distinction also avoids actions/checkout's local
+peeled-tag reference being mistaken for the actual server-side annotation.
+
 ## Application and database library
 
 Extract application/life-journal-source.tar.gz. Build using its root Dockerfile

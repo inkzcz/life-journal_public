@@ -2,6 +2,7 @@ name: Formal v5.1.9 delivery
 on:
   push:
     tags: ['v5.1.9']
+  workflow_dispatch:
 permissions:
   contents: read
   actions: read
@@ -15,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       revision: ${{ steps.identity.outputs.revision }}
+      tag_sha: ${{ steps.identity.outputs.tag_sha }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -31,17 +33,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python scripts/release_preflight.py > "$RUNNER_TEMP/preflight.json"
-          python -c "import json,os; from pathlib import Path; d=json.loads((Path(os.environ['RUNNER_TEMP'])/'preflight.json').read_text()); print('revision='+d['revision'])" >> "$GITHUB_OUTPUT"
+          python -c "import json,os; from pathlib import Path; d=json.loads((Path(os.environ['RUNNER_TEMP'])/'preflight.json').read_text()); print('revision='+d['revision']); print('tag_sha='+d['tag_sha'])" >> "$GITHUB_OUTPUT"
   build:
     needs: preflight
     uses: ./.github/workflows/ci.yml
     with:
       release_version: v5.1.9
+      source_revision: ${{ needs.preflight.outputs.revision }}
+      annotated_tag_sha: ${{ needs.preflight.outputs.tag_sha }}
     permissions:
       contents: read
   publish:
     needs: [preflight, build]
-    if: github.repository == 'inkzcz/life-journal_public' && github.ref == 'refs/tags/v5.1.9'
+    if: github.repository == 'inkzcz/life-journal_public' && (github.ref == 'refs/tags/v5.1.9' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -50,6 +54,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: inkzcz/life-journal_public
       RELEASE_REVISION: ${{ needs.preflight.outputs.revision }}
+      ANNOTATED_TAG_SHA: ${{ needs.preflight.outputs.tag_sha }}
     steps:
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
@@ -86,6 +91,7 @@ jobs:
       - name: Create new formal Release and upload exactly the verified delivery
         working-directory: ${{ runner.temp }}/release
         run: |
+          test "$(gh api repos/inkzcz/life-journal_public/git/ref/tags/v5.1.9 --jq .object.sha)" = "$ANNOTATED_TAG_SHA"
           gh release create v5.1.9 --verify-tag --target "$RELEASE_REVISION" --title 'Life Journal v5.1.9' --notes-file RELEASE_NOTES.md --draft=false --prerelease=false --latest life-journal-app-v5.1.9-amd64.tar life-journal-source-and-licenses-v5.1.9.tar.gz life-journal-deploy-v5.1.9.zip manifest.json images.json SHA256SUMS.txt INSTALL.md UPGRADE.md KNOWN_LIMITATIONS.md RELEASE_NOTES.md
       - name: Download published attachments and verify bytes and actual TAR architecture
         run: |
@@ -106,3 +112,4 @@ jobs:
           print(json.dumps({'release_download_verified':True,'platform':'linux/amd64','tar_sha256':m['tar_sha256']}))
           PY
           gh release view v5.1.9 --json url,isDraft,isPrerelease,tagName
+          test "$(gh api repos/inkzcz/life-journal_public/git/ref/tags/v5.1.9 --jq .object.sha)" = "$ANNOTATED_TAG_SHA"

@@ -32,11 +32,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "133df2f17cac803661b7b4e7202dc941ebc6031a95ba995a11792795258365ef"
+      "sha256": "524d460b20a5b33b3532d3db419333cc857ec3128e33648abfe44dff4863f06c"
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "258ad6ddfffaf59abfe09865ddc021435696d566635b167958734ccff764d3e5"
+      "sha256": "fa24fb1457b8880d031e1a11a2bf4dd75a89addf6c40447668431120481b95be"
     },
     {
       "path": ".gitignore",
@@ -684,7 +684,7 @@
     },
     {
       "path": "docs/install.md",
-      "sha256": "2cc78e04924f3126464a7d5701daf9e0495c161c5a1fe02fa482a41d5c46f96b"
+      "sha256": "9fe1312b9405a83e246f57c068212eeadb68a67bac1e6ad7f73e85331feb9ae1"
     },
     {
       "path": "docs/known-limitations.md",
@@ -708,7 +708,7 @@
     },
     {
       "path": "docs/release-v5.1.9.md",
-      "sha256": "d2c30d4864c084420a1578dc818dda27343f2ebb743df0eb08e6535bfdc7789b"
+      "sha256": "bc4c9f6ca9dec1c148f8d7439b5cf7a12765b27080b0824353049941a981017f"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -716,7 +716,7 @@
     },
     {
       "path": "docs/upgrade.md",
-      "sha256": "ff1510f17f45462cec472a0a675e8f2648561d40607d4fbd7b2176a33db869a0"
+      "sha256": "3643d074cbee836d680371e225a522bb3696a5ba1501694e7cdd3dbf1d8588b8"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -1504,7 +1504,7 @@
     },
     {
       "path": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
-      "sha256": "b954a785d57308e183def45d70b7731dabd2ae9b8633a7c97061afbe183e746c"
+      "sha256": "7829c31a3baf96c397bb1bd308456f4b9c6c34ea14f0c729aaa6c105cb2aa94d"
     },
     {
       "path": "licensing/GPL-3.0.txt",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "scripts/prepare_distribution.py",
-      "sha256": "40a0f146e3a6db78c8191e0e6959c5c20a58b8267420cfeb0c05c95c8bbdc820"
+      "sha256": "9fe76de9956f9eb866a3f0a596fbfd5c7a1d0b0443af3a279ba4461fc98d6f44"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1596,7 +1596,7 @@
     },
     {
       "path": "scripts/release_preflight.py",
-      "sha256": "3e57312a46041b9e6633f0463acbf477a4f27553043d6d3ec5743dbf6872d87b"
+      "sha256": "257a0bd711041332f2ddbb7bd3112878ae2e231614e6f47be4c46a946006d65d"
     },
     {
       "path": "scripts/release_source.py",
@@ -1916,7 +1916,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "b69560efc93df63476e2d63d84b632ad7927a21a1038d78c6bc3eb3d059b865d"
+      "sha256": "b37150de2a8b5db7a86d8bfc6b298d03535d49b6d835f2c596ab64e233500141"
     },
     {
       "path": "tests/test_product_version.py",
@@ -1924,7 +1924,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "542039e08d6f209803f20ffca659b1a636f109ed49e23ed3d636b8ed2c54f766"
+      "sha256": "2eb33c497c7324b1f7ee015207e739d785f8af39c09a0d0b7cbd32b7731d670f"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -1937,6 +1937,10 @@
     {
       "path": "tests/test_recovery.py",
       "sha256": "6ebdf661931b6dd772ddd87e55c63042e7a321999b89f533821e56dbcb54780d"
+    },
+    {
+      "path": "tests/test_release_preflight.py",
+      "sha256": "590c3467af0d96d7d98362726f04760d7736a7b583b6f95275258ed72bbbd4cd"
     },
     {
       "path": "tests/test_release_source.py",
@@ -2004,7 +2008,7 @@
     },
     {
       "path": "third_party/SOURCE_BUILD.md",
-      "sha256": "98bb4af97c40c03393fd8b1ec95e9c984740d47b64e9f398e4ac594dd621c09d"
+      "sha256": "b9a03745b2f64abbefed4a9cdfae0407ae420cf9a54c5dd41781dfe5762e56b1"
     },
     {
       "path": "third_party/SOURCE_REVIEW.md",
@@ -3676,7 +3680,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "dc4652ee91d68e3b5f45c6ad4cdce7a9a290d812dbe73c664174ecee6278db9c"
+      "sha256": "9e681c37d59cc8ec64ec0920e051a2f12142bd99120d4ac470f912afe2fd311c"
     },
     {
       "path": "third_party/source-scope.json",

@@ -146,9 +146,23 @@ def copy_tree(source,target):
             except OSError:shutil.copyfile(path,dest)
 
 
+def write_deployment_zip(root,orchestration,target):
+    """Keep tagged deployment inputs/legal bytes and reviewed publisher guides."""
+    with zipfile.ZipFile(target,'x',compression=zipfile.ZIP_DEFLATED) as archive:
+        for name in ('compose.yaml','.env.example','LICENSE','COPYRIGHT.md'):
+            archive.write(root/name,name)
+        for name in ('install','upgrade','backup-restore','known-limitations','upgrade-001'):
+            path='docs/'+name+'.md'
+            archive.write(orchestration/path,path)
+
+
 def package(args):
     root=args.root.resolve();bundle=args.bundle.resolve()
     revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
+    orchestration=(args.orchestration_root or root).resolve()
+    orchestration_revision=subprocess.check_output(['git','-C',str(orchestration),'rev-parse','HEAD'],text=True).strip()
+    if subprocess.check_output(['git','-C',str(orchestration),'status','--porcelain','--untracked-files=no']):
+        raise ValueError('Publication orchestration source changed during verification')
     if subprocess.check_output(['git','-C',str(root),'status','--porcelain','--untracked-files=no']):
         raise ValueError('Tracked source changed during verification')
     delivery=read(bundle/'manifest.json');version=delivery['version']
@@ -232,15 +246,20 @@ def package(args):
     app=work/'application';app.mkdir()
     subprocess.run(['git','-C',str(root),'archive','--format=tar.gz','--prefix=life-journal/',
         '-o',str(app/'life-journal-source.tar.gz'),revision],check=True)
+    if orchestration_revision!=revision:
+        target=work/'build-orchestration';target.mkdir()
+        subprocess.run(['git','-C',str(orchestration),'archive','--format=tar.gz',
+            '--prefix=life-journal-orchestration/','-o',str(target/'source.tar.gz'),orchestration_revision],check=True)
     for name in ('LICENSE','COPYRIGHT.md'):
         shutil.copyfile(root/name,work/name)
     for name,path in [('installation.json',args.installation),('pillow-relink.json',args.pillow),
                       ('layer-scan.json',args.layers),('runtime-probe.json',args.debian)]:
         target=work/'validation'/name;target.parent.mkdir(exist_ok=True);shutil.copyfile(path,target)
     shutil.copyfile(root/'third_party/BINARY_NOTICE.md',work/'NOTICE.md')
-    shutil.copyfile(root/'third_party/SOURCE_BUILD.md',work/'BUILD_AND_REPLACE.md')
+    shutil.copyfile(orchestration/'third_party/SOURCE_BUILD.md',work/'BUILD_AND_REPLACE.md')
     receipt={'format':'life-journal-binary-corresponding-source-v1','version':version,
         'source_commit':revision,'platform':'linux/amd64','business_tar':expected_name,
+        'build_orchestration_commit':orchestration_revision,
         'business_tar_sha256':delivery['tar_sha256'][expected_name],
         'business_image_config_digest':delivery['images']['app']['config_digest'],
         'source_archive_records':source_report['records'],
@@ -258,14 +277,13 @@ def package(args):
     delivery['corresponding_source']={'file':source_name,'sha256':digest(args.output/source_name),
         'obligations_completed':True,'source_commit':revision,
         'source_manifest':'life-journal-source-and-licenses/DISTRIBUTION_MANIFEST.json'}
+    delivery['build_orchestration_commit']=orchestration_revision
     (args.output/'manifest.json').write_text(json.dumps(delivery,ensure_ascii=False,indent=2)+'\n')
     shutil.copyfile(bundle/'images.json',args.output/'images.json')
     for name,path in {'INSTALL.md':'docs/install.md','UPGRADE.md':'docs/upgrade.md',
                        'KNOWN_LIMITATIONS.md':'docs/known-limitations.md','RELEASE_NOTES.md':'docs/release-notes-v5.1.9.md'}.items():
-        shutil.copyfile(root/path,args.output/name)
-    with zipfile.ZipFile(args.output/('life-journal-deploy-'+version+'.zip'),'x',compression=zipfile.ZIP_DEFLATED) as archive:
-        for name in ('compose.yaml','.env.example','docs/install.md','docs/upgrade.md','docs/backup-restore.md','docs/known-limitations.md'):
-            archive.write(root/name,name)
+        shutil.copyfile(orchestration/path,args.output/name)
+    write_deployment_zip(root,orchestration,args.output/('life-journal-deploy-'+version+'.zip'))
     sums=''.join(digest(p)+'  '+p.name+'\n' for p in sorted(args.output.iterdir()) if p.is_file())
     if any(p.stat().st_size>=2*1024**3 for p in args.output.iterdir()):
         raise ValueError('Release asset exceeds GitHub 2GiB limit; no publication allowed')
@@ -280,6 +298,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     for name in ('root','bundle','evidence','sources','installation','pillow','layers','debian','output'):
         parser.add_argument('--'+name,type=Path,required=True)
+    parser.add_argument('--orchestration-root',type=Path)
     args=parser.parse_args()
     package(args)
 
