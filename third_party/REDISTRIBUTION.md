@@ -5,6 +5,34 @@
 首次 B 批准已绑定并公开指定快照，身份见 docs/initial-source-snapshot.json；它是准备操作授权，不增加 GPL 接收者限制。
 下面是此前范围与依赖说明的历史背景；其中“主许可未定”不代表当前状态。
 
+## v5.1.9 实际二进制的分发门禁
+
+所有者已授权在必要法律条件和CI通过后正式发布；Windows/Z4S改为发布后待本地验收，UPGRADE-001保持历史已知问题，不再作为阻塞，也不绕过迁移保护。
+授权记录独立于旧A/B源码授权，见 licensing/BINARY_RELEASE_AUTHORIZATION.json；第三方原有grant/版本/署名不改。
+
+| 实际组件/义务 | 本次实现及失败条件 |
+| --- | --- |
+| 原创GPL-3.0-or-later | 根LICENSE/COPYRIGHT、完整当前应用源码、构建/安装文件同处交付；不导入原私有Git历史。当前组合使用GPLv3，不为第三方GPL/LGPL-only追加未来版本。 |
+| Debian/PGDG的GPL/LGPL等组件 | 从实际dpkg Source/Version取得全部精确.dsc、orig/补丁文件；校验包名/版本、发布的SHA256和长度。snapshot的SHA1只是定位并额外校验，不冒称APT/上传者签名已验证；任何精确源文件缺失都失败。 |
+| Psycopg / psycopg-c 3.3.9，LGPL-3.0-only | 从发布sdist编译C扩展，动态链接系统libpq，保留加速接口；不再交付psycopg-binary及其14个内附库。源码、编译器/libpq配置、pip实际来源收据提供；实际动态替换并查询合成PG17通过后才可打包。 |
+| Pillow12.3.0内附库及LGPL FriBiDi shim | 保留原wheel功能、完整72KB级上游LICENSE/SBOM、对应Pillow sdist和首选源码/构建文件、FriBiDi来源/文本。实际修改shim源码、编译和重链接Pillow，再由UID10001加载、执行修改并验证接口；不把Psycopg的替换测试冒充Pillow重链接。未打包的可选libimagequant不得凭通用SBOM当作实际交付。 |
+| Python与Rust | 精确PyPI sdist SHA256、实际pip安装artifact来源、Cargo.lock全部registry archive校验；base pip的vendoring源码/通知在其完整sdist中。CPython源码SHA取自固定基础镜像。保留MPL(certifi)、BSD/MIT/Apache及Unicode等具体义务。 |
+| Caddy / Go | 读取实际二进制Go h1元数据，保留所有具名模块源码及原始LICENSE/NOTICE与Go运行时源码；生成根的等价构建配方在SOURCE_BUILD中。Apache/BSD组件不被误改授GPL，也不一概虚构GPL源码义务。 |
+| 实际编译浏览器模块 | 按emitted chunks逐包保留通知，保存integrity匹配npm档案及不可变上游首选TS/JS源码提交。只交付实际模块源码，不把两个未打包开发工具的来源缺口带入源码交付。 |
+| 替换/重组与用户权利 | 公开Library Corresponding Source、应用源码及实际可用的重建/安装方法；允许为调试库修改进行逆向工程，不增加合同禁止。源码身份校验不限制合法修改。 |
+| 最终绑定与同处交付 | prepare_distribution对源码/证据目录做严格文件白名单和哈希检查，拒绝额外配置/ZIP/数据文件；包内DISTRIBUTION_MANIFEST绑定唯一业务TAR、config、源码提交/版本及验证收据；所有附件SHA256登记。源码和二进制同处免费提供，不签发无履约准备的书面offer。 |
+
+410份既有法律文本保持原字节并随镜像/Web `/legal/` 提供，构建还读取实际包和浏览器通知。
+历史参考目录不是整个当前二进制的完成证明；各组件合法性以本次实际源码、许可证和收据为依据。
+镜像内binary-inventory/收集阶段清单是构建时事实记录，只有最终绑定的对应源码包记录完整交付门禁是否完成。
+任何必需组件、通知、源码或替换验证缺失，流程在Artifact/Release上传之前失败；不能靠手填“complete=true”代替材料。
+
+对应源码包可包含上游官方公开测试向量/版权身份；这些不代表项目私人数据。收集器只读取已验证业务TAR、公开上游和Git跟踪源码，不连接NAS或真实数据库。
+同一业务镜像用于API/Web/Maintenance；PostgreSQL数据库镜像始终由部署者独立管理，交付工具不查询/构建/导出它。
+完整重建与替换步骤见 SOURCE_BUILD.md，实际测试和哈希在逐构建附件收据中。
+
+以下为旧准备阶段取证背景，旧TAR哈希与“未完成/主许可未选”等历史状态不能替代本轮实际结果。
+
 <details>
 <summary>已审核的依赖与分发义务背景</summary>
 

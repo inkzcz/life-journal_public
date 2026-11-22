@@ -19,6 +19,29 @@ assert release['VERSION_CODENAME'].strip('"') == 'bookworm'
 assert sys.version_info[:2] == (3, 12)
 assert os.getuid() == os.getgid() == 10001
 assert platform.machine() == 'x86_64'
+# Check actual in-image legal copies, not just source-tree presence.
+import hashlib
+legal=Path('/usr/share/doc/life-journal')
+assert hashlib.sha256((legal/'LICENSE').read_bytes()).hexdigest() == '3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986'
+assert 'Copyright (C) 2026 inkzcz' in (legal/'COPYRIGHT.md').read_text()
+notices=json.loads((legal/'notice-index.json').read_text())['files']
+assert len(notices)==410
+for notice in notices:
+    relative=Path(notice['path']).relative_to('third_party')
+    assert hashlib.sha256((legal/relative).read_bytes()).hexdigest()==notice['sha256']
+    assert (legal/relative).read_bytes()==(Path('/srv/legal')/relative).read_bytes()
+browser=json.loads(Path('/srv/legal/browser-notices.json').read_text())
+assert browser['packages'] and browser['third_party_relicensed'] is False
+for package in browser['packages']:
+    for notice in package['notices']:
+        assert hashlib.sha256(notice['text'].encode()).hexdigest()==notice['sha256']
+inventory=json.loads((legal/'binary-inventory.json').read_text())
+assert inventory['debian'] and inventory['python'] and inventory['caddy_modules']
+assert inventory['corresponding_source_complete'] is False
+assert inventory['binary_redistribution_approved'] is False
+for package in inventory['debian']:
+    if package['notice']:
+        assert hashlib.sha256(Path(package['notice']['path']).read_bytes()).hexdigest()==package['notice']['sha256']
 def run(*args):
     return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT).strip()
 tools = {}
@@ -30,6 +53,15 @@ for name in ('initdb', 'pg_ctl', 'postgres', 'pg_dump', 'pg_restore'):
     tools[name] = {'path': path, 'version': version}
 assert not run('pg_lsclusters', '-h'), 'Unexpected baked database cluster'
 assert not shutil.which('node') and not shutil.which('npm')
+assert not shutil.which('gcc'), 'Build compiler must not enter the final runtime'
+import psycopg, psycopg_c.pq
+assert psycopg.pq.__impl__ == 'c'
+pq_linkage=run('ldd',psycopg_c.pq.__file__)
+assert 'libpq.so.5' in pq_linkage and 'not found' not in pq_linkage and '.libs/' not in pq_linkage
+from PIL import features
+pillow_features={name:features.version(name) for name in features.get_supported()}
+assert features.check('jpg') and features.check('webp') and features.check('avif')
+assert not features.check('libimagequant'), 'Unexpected optional GPL imagequant build requires separate source review'
 caddy = run('caddy', 'version')
 linked = subprocess.run(['ldd', '/usr/bin/caddy'], text=True, capture_output=True)
 linkage = linked.stdout + linked.stderr
@@ -56,7 +88,7 @@ with ThreadingHTTPServer(('127.0.0.1', 0), Healthy) as server:
         server.shutdown()
         thread.join(timeout=5)
 packages = run('dpkg-query', '-W', '-f=${Package}=${Version}\n', 'libc6', 'libpq5', 'postgresql-17', 'postgresql-client-17', 'ca-certificates')
-print(json.dumps({'python': sys.version, 'executable': sys.executable, 'libc': platform.libc_ver(), 'os': release, 'tools': tools, 'caddy': caddy, 'caddy_linkage': linkage.strip(), 'wget_compose_healthcheck': 'passed', 'packages': packages, 'uid': os.getuid(), 'gid': os.getgid()}, ensure_ascii=False))
+print(json.dumps({'python': sys.version, 'executable': sys.executable, 'libc': platform.libc_ver(), 'os': release, 'tools': tools, 'caddy': caddy, 'caddy_linkage': linkage.strip(), 'wget_compose_healthcheck': 'passed', 'packages': packages, 'uid': os.getuid(), 'gid': os.getgid(), 'preserved_legal_texts':len(notices), 'browser_packages':len(browser['packages']), 'binary_source_closure':'verified-by-companion-package-only', 'psycopg_c_linkage':pq_linkage,'pillow_features':pillow_features}, ensure_ascii=False))
 '''
 
 if __name__ == '__main__':
@@ -77,6 +109,7 @@ if __name__ == '__main__':
         '--entrypoint', 'python', '-i', 'life-journal:' + args.image_tag, '-c', PROBE,
     ], text=True)
     report = json.loads(output)
+    report['image_tag'] = args.image_tag
     report['default_snakeoil_key_and_certificate_absent'] = True
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(report, ensure_ascii=False, indent=2))

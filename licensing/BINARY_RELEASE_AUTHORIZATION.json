@@ -1,0 +1,32 @@
+{
+  "format": "life-journal-binary-release-authorization-v1",
+  "repository": "inkzcz/life-journal_public",
+  "version": "v5.1.9",
+  "binary_publication_approved": true,
+  "owner_confirmation_reference": "Owner's explicit Life Journal v5.1.9 formal Release execution instruction in this conversation; permits PR #2 fixes, normal merge, annotated tag, non-prerelease GitHub Release and attachments after necessary license and CI conditions pass.",
+  "original_license_authorization_unchanged": true,
+  "third_party_relicensed": false,
+  "required_conditions": [
+    "Exact binary/source/notice/build binding and necessary GPL/LGPL obligations completed",
+    "Final PR HEAD CI successful; normal merge commit; merged main checks successful",
+    "New annotated v5.1.9 tag; no existing tag or Release overwritten",
+    "One Linux/amd64 business image and one business Docker TAR; no PostgreSQL image in delivery"
+  ],
+  "windows_and_z4s_acceptance": "Owner will perform locally after release; not a release prerequisite; not recorded as passed",
+  "UPGRADE-001": "Known historical issue does not block release; not claimed fixed; migration protections remain mandatory",
+  "registry_push_approved": false,
+  "nas_access_approved": false,
+  "private_repository_changes_approved": false,
+  "technically_reviewed_workflows": {
+    ".github/workflows/ci.yml": {
+      "scope": "candidate-artifacts",
+      "sha256": "133df2f17cac803661b7b4e7202dc941ebc6031a95ba995a11792795258365ef",
+      "review": "Operator technical review within explicit owner instruction; not an owner signature or per-byte owner assertion."
+    },
+    ".github/workflows/release.yml": {
+      "scope": "v5.1.9-release",
+      "sha256": "258ad6ddfffaf59abfe09865ddc021435696d566635b167958734ccff764d3e5",
+      "review": "Operator technical review within explicit owner instruction; not an owner signature or per-byte owner assertion."
+    }
+  }
+}

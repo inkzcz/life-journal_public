@@ -163,3 +163,30 @@ def test_go_archives_match_binary_module_checksums(monkeypatch):
     assert review.go_archive(module)
     module['go_sum']='h1:synthetic-mismatch'
     with pytest.raises(ValueError,match='checksum'):review.go_archive(module)
+
+
+def test_verified_npm_sources_are_retained_only_after_integrity_check(tmp_path,monkeypatch):
+    import gzip
+    payload=gzip.compress(tar_bytes({'package/LICENSE':b'Synthetic notice\n','package/index.js':b'Synthetic source'}))
+    class Response(io.BytesIO):
+        url='https://registry.npmjs.org/synthetic/-/synthetic-1.tgz'
+    monkeypatch.setattr(review.urllib.request,'urlopen',lambda *a,**kw:Response(payload))
+    package={'resolved':Response.url,'integrity':'sha512-'+base64.b64encode(hashlib.sha512(payload).digest()).decode()}
+    review.npm_archive(package,tmp_path/'sources')
+    path=tmp_path/package['retained_source_archive']
+    assert path.read_bytes()==payload
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==package['retained_source_sha256']
+    package['integrity']='sha512-'+base64.b64encode(b'x'*64).decode()
+    before=list(tmp_path.rglob('*'))
+    with pytest.raises(ValueError,match='integrity'):review.npm_archive(package,tmp_path/'sources')
+    assert list(tmp_path.rglob('*'))==before
+
+
+def test_parallel_duplicate_sources_are_stored_once_without_overwrite(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+    source=b'Synthetic integrity-verified archive bytes'
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        paths=list(pool.map(lambda _:review.retain_source(tmp_path/'sources','npm',source),range(32)))
+    assert len(set(paths))==1
+    assert (tmp_path/paths[0]).read_bytes()==source
+    assert len(list((tmp_path/'sources').rglob('*.tgz')))==1

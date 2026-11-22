@@ -3,10 +3,13 @@
 Life Journal 是可自行部署的私人 Blog，包含文章与草稿、TipTap/Markdown 编辑、旅行/地点/行程、照片流与相册、公历/农历纪念日、主题及后台管理。
 前端 Vue 3，后端 FastAPI，数据库 PostgreSQL 17。一个 Debian Linux/amd64 业务镜像通过 `api`、`web`、`maintenance` 三个命令运行三个独立容器，数据库为独立第四容器。
 
-**当前为 v5.1.9 源码候选，尚未发布正式 Tag/Release 或预构建镜像。**
+v5.1.9 采用一个 Debian 业务镜像。正式附件以 [v5.1.9 Release](https://github.com/inkzcz/life-journal_public/releases/tag/v5.1.9) 为准；若页面或附件尚不存在，表示发行工作流还未完成，测试候选不能当作正式镜像。
 公开仓库：https://github.com/inkzcz/life-journal_public 。首次公开提交为 `cd3182450f6163d40f1e5221c9e4483850546884`，以全新历史发布；维护变更通过分支和 PR 审核。
 
 ## 安装
+
+使用正式附件无需在 Windows 安装 Git 或本地构建：下载业务 TAR、SHA256SUMS 和部署 ZIP，核验后在 NAS Docker 中导入。PostgreSQL17 镜像需自行提前准备。
+Windows Docker Desktop 和极空间Z4S 实机验收由所有者在发布后完成，当前均为**待本地验收**，不是已通过的测试。
 
 从本仓库取得已审核的固定提交，在干净 Git checkout 中自行构建。源码 ZIP 没有正式 Annotated Tag 身份时不能用手填 SHA 绕过校验。
 

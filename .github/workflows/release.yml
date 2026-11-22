@@ -1,0 +1,108 @@
+name: Formal v5.1.9 delivery
+on:
+  push:
+    tags: ['v5.1.9']
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+concurrency:
+  group: formal-v5.1.9
+  cancel-in-progress: false
+jobs:
+  preflight:
+    if: github.repository == 'inkzcz/life-journal_public'
+    runs-on: ubuntu-latest
+    outputs:
+      revision: ${{ steps.identity.outputs.revision }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Approved license and reviewed workflow gate
+        run: python scripts/open_source_gate.py --require-license
+      - name: Exact annotated tag, ordinary PR merge and completed main CI
+        id: identity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/release_preflight.py > "$RUNNER_TEMP/preflight.json"
+          python -c "import json,os; from pathlib import Path; d=json.loads((Path(os.environ['RUNNER_TEMP'])/'preflight.json').read_text()); print('revision='+d['revision'])" >> "$GITHUB_OUTPUT"
+  build:
+    needs: preflight
+    uses: ./.github/workflows/ci.yml
+    with:
+      release_version: v5.1.9
+    permissions:
+      contents: read
+  publish:
+    needs: [preflight, build]
+    if: github.repository == 'inkzcz/life-journal_public' && github.ref == 'refs/tags/v5.1.9'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: inkzcz/life-journal_public
+      RELEASE_REVISION: ${{ needs.preflight.outputs.revision }}
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: ${{ needs.build.outputs.artifact_name }}
+          path: ${{ runner.temp }}/release
+      - name: Validate complete attachment allowlist and bound source before publication
+        working-directory: ${{ runner.temp }}/release
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,re,tarfile
+          from pathlib import Path
+          names={'life-journal-app-v5.1.9-amd64.tar','life-journal-source-and-licenses-v5.1.9.tar.gz','life-journal-deploy-v5.1.9.zip','manifest.json','images.json','SHA256SUMS.txt','INSTALL.md','UPGRADE.md','KNOWN_LIMITATIONS.md','RELEASE_NOTES.md'}
+          assert {p.name for p in Path('.').iterdir()}==names
+          rows={}
+          for line in Path('SHA256SUMS.txt').read_text().splitlines():
+              sha,name=line.split('  ',1)
+              assert re.fullmatch('[0-9a-f]{64}',sha) and name in names-{'SHA256SUMS.txt'} and name not in rows
+              rows[name]=sha
+          assert set(rows)==names-{'SHA256SUMS.txt'}
+          for name,sha in rows.items():
+              with Path(name).open('rb') as stream: assert hashlib.file_digest(stream,'sha256').hexdigest()==sha
+          m=json.loads(Path('manifest.json').read_text())
+          assert m['version']=='v5.1.9' and m['platform']=='linux/amd64' and m['source']['revision']==os.environ['RELEASE_REVISION']
+          assert set(m['images'])=={'app'} and m['images']['app']['name']=='life-journal:v5.1.9'
+          assert m['corresponding_source']['obligations_completed'] is True
+          assert rows[m['corresponding_source']['file']]==m['corresponding_source']['sha256']
+          with tarfile.open('life-journal-source-and-licenses-v5.1.9.tar.gz') as archive:
+              member=archive.getmember('life-journal-source-and-licenses/DISTRIBUTION_MANIFEST.json')
+              assert member.size<8*1024**2
+              d=json.load(archive.extractfile(member))
+          assert d['binary_redistribution_obligations_completed'] is True and d['source_commit']==os.environ['RELEASE_REVISION']
+          assert d['business_tar_sha256']==rows['life-journal-app-v5.1.9-amd64.tar']
+          PY
+      - name: Create new formal Release and upload exactly the verified delivery
+        working-directory: ${{ runner.temp }}/release
+        run: |
+          gh release create v5.1.9 --verify-tag --target "$RELEASE_REVISION" --title 'Life Journal v5.1.9' --notes-file RELEASE_NOTES.md --draft=false --prerelease=false --latest life-journal-app-v5.1.9-amd64.tar life-journal-source-and-licenses-v5.1.9.tar.gz life-journal-deploy-v5.1.9.zip manifest.json images.json SHA256SUMS.txt INSTALL.md UPGRADE.md KNOWN_LIMITATIONS.md RELEASE_NOTES.md
+      - name: Download published attachments and verify bytes and actual TAR architecture
+        run: |
+          mkdir "$RUNNER_TEMP/downloaded"
+          gh release download v5.1.9 --dir "$RUNNER_TEMP/downloaded"
+          cd "$RUNNER_TEMP/downloaded"
+          sha256sum --check SHA256SUMS.txt
+          python - <<'PY'
+          import hashlib,json,tarfile
+          from pathlib import Path
+          m=json.loads(Path('manifest.json').read_text())
+          with tarfile.open('life-journal-app-v5.1.9-amd64.tar') as archive:
+              rows=json.load(archive.extractfile('manifest.json'));assert len(rows)==1
+              assert rows[0]['RepoTags']==['life-journal:v5.1.9']
+              raw=archive.extractfile(rows[0]['Config']).read();config=json.loads(raw)
+              assert config['architecture']=='amd64' and config['os']=='linux'
+              assert 'sha256:'+hashlib.sha256(raw).hexdigest()==m['images']['app']['config_digest']
+          print(json.dumps({'release_download_verified':True,'platform':'linux/amd64','tar_sha256':m['tar_sha256']}))
+          PY
+          gh release view v5.1.9 --json url,isDraft,isPrerelease,tagName

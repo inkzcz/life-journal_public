@@ -1,4 +1,40 @@
-# v5.1.9 Release 准备（草稿）
+# v5.1.9 正式发行门禁
+
+所有者于本次对话明确授权：完成必要法律条件和最终CI后，将PR #2转为Ready、普通Merge commit合并，
+在合并后的main创建新Annotated Tag v5.1.9，并由Actions构建、保存、创建非预发行Release和上传附件。
+本记录不伪造签名或精确确认时间；授权范围见 licensing/BINARY_RELEASE_AUTHORIZATION.json。
+原私有仓库、NAS及生产数据库/媒体/备份不在操作范围；不推送Registry、不覆盖历史Tag/Release。
+
+Windows Docker Desktop、极空间Z4S为**待本地验收**，由所有者发布后自行验证，不再是前置条件。
+UPGRADE-001保留为历史已知问题，不阻塞发行，也不宣称已修复。数据库版本/Alembic/备份恢复门禁仍强制。
+
+## 每次实际构建必须通过
+
+1. 公开源码/原许可证/逐文件来源与敏感信息检查；最终PR HEAD与合并main的真实CI成功。
+2. 固定Linux/amd64基础镜像digest与运行依赖版本，单业务镜像构建、单业务TAR、源码及配置身份、SHA256、重复load、全部镜像层扫描。
+3. Debian/Python/PG17工具/Caddy、四容器健康、登录/持久化、完整备份与独立恢复。PG数据库镜像只作为独立CI设施，不在业务交付。
+4. Psycopg C扩展从其sdist编译并动态链接系统libpq；实际修改库执行PG17查询。Pillow保留图片功能，LGPL shim必须实际修改源码、重编译/重链接后加载并验证接口。
+5. 每个实际安装Debian/PGDG包的精确.dsc及orig/补丁源码，Python sdist和原生构建收据，Rust锁定源码，实际Go模块/通知及浏览器首选源码；任何组件缺失就失败。
+6. sources.json与实际目录逐文件相符；拒绝额外ZIP、配置、数据库或未登记文件。输出仅白名单10附件，原始日志、合成DB、备份/媒体不进入Artifact。
+7. 对应源码包DISTRIBUTION_MANIFEST绑定本次TAR SHA256、镜像config、源码提交和依赖版本；SHA256SUMS记录实际所有附件。成对保存源码与二进制，不能用上游URL或旧410参考目录替代。
+
+## Actions与正式发行
+
+ci.yml对准备分支和main保存已完成上述门禁的成对候选附件；PR运行验证相同步骤但不上传。
+release.yml仅响应本仓库新v5.1.9标签：只读预检验证Annotated Tag正好指向PR #2的普通合并提交及已成功main CI；
+然后复用同一Docker验收/源码门禁，构建正式 life-journal:v5.1.9 和 life-journal-app-v5.1.9-amd64.tar。
+只有最后的publish作业持有contents:write，且不执行业务代码，核验所有附件后创建Release。
+随后重新下载附件、核对全部SHA256和实际TAR架构，完成后才可报告成功。
+CI源代码门禁对这两份工作流采用独立所有者授权与逐字节审核哈希，不对其他写权限/上传/发布放行。
+
+发行附件：唯一业务TAR、完整源码与许可证包、部署ZIP、manifest/images、SHA256SUMS和安装/升级/限制/Release说明。
+SHA与提交以实际附件为准，测试候选标签/哈希不能冒充正式发行。既有Linux结果不做无意义重复；原生库形态变化所影响的回归和最终构建必须真实执行。
+
+具体分发义务见 third_party/REDISTRIBUTION.md、SOURCE_BUILD.md；安装/升级/恢复分别见 install.md、upgrade.md、backup-restore.md。
+下面保留旧准备阶段的历史限制与验证结果，仅作背景，已被本轮明确发布授权更新的阻塞不再适用。
+
+<details>
+<summary>公开后首次维护的历史验收记录（不替代本次候选）</summary>
 
 尚未创建 Tag、Release 或发布任何镜像。本轮基于首次公开提交 cd3182450f6163d40f1e5221c9e4483850546884，通过 maintenance/post-publication-v5.1.9 分支和 PR 审核。
 
@@ -57,3 +93,5 @@
 
 二进制 C 类具体未完成项：当前 Dockerfile 没有显式把项目 LICENSE/COPYRIGHT、前端编译资源及单独复制的 Caddy 二进制的适用声明一起装入镜像；不能把源码目录中有法律文本当成镜像已包含。
 还须针对实际构建的 wheel/内附库与系统包重新固定版本和对应源码，完成 Psycopg/LGPL 替换或重组验证及适用 NOTICE/源码获取方式。当前验收镜像没有被发布，这些缺口继续阻止未来镜像分发，不撤销已有源码公开。
+
+</details>

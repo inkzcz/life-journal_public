@@ -1,8 +1,17 @@
 name: Public source checks
 on:
   push:
+    branches: ['**']
   pull_request:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      release_version:
+        type: string
+        default: ''
+    outputs:
+      artifact_name:
+        value: ${{ jobs.docker-installation.outputs.artifact_name }}
 permissions:
   contents: read
 concurrency:
@@ -12,6 +21,7 @@ env:
   PYTHONDONTWRITEBYTECODE: '1'
 jobs:
   source-and-tests:
+    if: inputs.release_version != 'v5.1.9'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     services:
@@ -50,7 +60,7 @@ jobs:
         run: python scripts/open_source_gate.py --require-license
       - name: All accessible history, redacted; no report upload
         run: '"$RUNNER_TEMP/gitleaks" git . --log-opts="--all --full-history" --redact=100 --no-banner --no-color --log-level=error'
-      - run: pip install -r backend/requirements-test.txt
+      - run: pip install -c backend/constraints-release.txt -r backend/requirements-test.txt
       - name: Complete exported PostgreSQL regression
         run: python -m pytest -q tests
         env:
@@ -59,7 +69,7 @@ jobs:
         run: python -m pytest -q tests
       - name: Frontend tests, TypeScript and production build
         working-directory: frontend
-        run: npm ci && npm test && npm run build
+        run: npm ci && node --test bundled-notices-check.mjs && npm test && npm run build
       - name: Four-container Compose contract with synthetic configuration only
         run: docker compose --env-file .env.example config --quiet
         env:
@@ -73,7 +83,9 @@ jobs:
           python -c "from pathlib import Path; assert not Path('docs/v5.1.5/examples/travel-with-photos.zip').exists(), 'Unexpected generated source artifact'"
   docker-installation:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 90
+    outputs:
+      artifact_name: ${{ steps.identity.outputs.artifact_name }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -83,15 +95,29 @@ jobs:
         with:
           python-version: '3.12'
       - name: Build once, export one TAR and verify repeated local import
+        id: identity
         shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
         run: |
           revision=$(git rev-parse HEAD)
           tag="v5.1.9-candidate.${revision:0:7}"
+          if [ -n "$RELEASE_VERSION" ]; then
+            test "$RELEASE_VERSION" = v5.1.9
+            test "$GITHUB_REF" = refs/tags/v5.1.9
+            tag="$RELEASE_VERSION"
+          fi
           echo "IMAGE_TAG=$tag" >> "$GITHUB_ENV"
+          echo "artifact_name=life-journal-delivery-$tag-$revision" >> "$GITHUB_OUTPUT"
           python scripts/release_local.py --version "$tag" --revision "$revision" --output-dir "$RUNNER_TEMP/delivery"
-          python scripts/image_private_keys.py --archive "$RUNNER_TEMP/delivery/$tag/life-journal-app-$tag-amd64.tar"
+          python scripts/image_private_keys.py --archive "$RUNNER_TEMP/delivery/$tag/life-journal-app-$tag-amd64.tar" > "$RUNNER_TEMP/layer-report.json"
+          python -c "import json,sys; from pathlib import Path; m=json.loads(Path(sys.argv[1]).read_text()); print(json.dumps({k:m[k] for k in ('version','platform','tar_sha256','images')},indent=2))" "$RUNNER_TEMP/delivery/$tag/manifest.json"
       - name: Debian, PG17 tools, Caddy and privilege checks
         run: python tests/debian_image_probe.py --image-tag "$IMAGE_TAG" --output "$RUNNER_TEMP/debian-probe.json"
+      - name: Current binary notices and integrity-verified npm and Go source evidence
+        run: |
+          python scripts/license_evidence.py --image-archive "$RUNNER_TEMP/delivery/$IMAGE_TAG/life-journal-app-$IMAGE_TAG-amd64.tar" --frontend-lock frontend/package-lock.json --fetch-npm-archives --fetch-go-archives --retain-source-archives --output-dir "$RUNNER_TEMP/binary-evidence"
+          python -c "import json,os; from pathlib import Path; d=json.loads((Path(os.environ['RUNNER_TEMP'])/'binary-evidence/inventory.json').read_text()); print(json.dumps({'binary_package_identities':[{k:p.get(k) for k in ('ecosystem','name','version','source_package')} for p in d['packages'] if p['ecosystem'] in ('deb','pypi')], 'caddy_go_version':d['go_version'],'go_modules':len(d['go_modules']),'bundled_native_libraries':d['bundled_native_libraries'],'corresponding_source_complete':d['corresponding_source_complete']},indent=2))"
       - name: Real BuildKit context excludes private files
         run: |
           python -m pip install 'pytest>=8,<10'
@@ -100,6 +126,36 @@ jobs:
         run: docker pull postgres:17-alpine
       - name: Isolated installation, restart, backup, restore and synthetic upgrade
         run: python tests/docker_installation.py --image-tag "$IMAGE_TAG" --output "$RUNNER_TEMP/installation-report.json"
+      - name: Exact corresponding source, patches and preferred browser source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/corresponding_sources.py --inventory "$RUNNER_TEMP/binary-evidence/inventory.json" --browser-notices "$RUNNER_TEMP/binary-evidence/image/srv/legal/browser-notices.json" --output "$RUNNER_TEMP/exact-sources"
+      - name: Real LGPL Pillow shim source modification and relink
+        run: python scripts/test_pillow_relink.py --image-tag "$IMAGE_TAG" --sources "$RUNNER_TEMP/exact-sources" --output "$RUNNER_TEMP/pillow-relink.json"
+      - name: Bind one business TAR to complete sources, notices and validation
+        run: |
+          python scripts/prepare_distribution.py --root . --bundle "$RUNNER_TEMP/delivery/$IMAGE_TAG" --evidence "$RUNNER_TEMP/binary-evidence" --sources "$RUNNER_TEMP/exact-sources" --installation "$RUNNER_TEMP/installation-report.json" --pillow "$RUNNER_TEMP/pillow-relink.json" --layers "$RUNNER_TEMP/layer-report.json" --debian "$RUNNER_TEMP/debian-probe.json" --output "$RUNNER_TEMP/release-assets"
+      - name: Preserve only complete, explicitly named candidate delivery assets
+        if: github.repository == 'inkzcz/life-journal_public' && github.event_name == 'push' && (github.ref == 'refs/heads/release/prepare-v5.1.9' || github.ref == 'refs/heads/main' || (github.ref == 'refs/tags/v5.1.9' && inputs.release_version == 'v5.1.9'))
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ${{ steps.identity.outputs.artifact_name }}
+          retention-days: 7
+          if-no-files-found: error
+          include-hidden-files: false
+          compression-level: 0
+          path: |
+            ${{ runner.temp }}/release-assets/life-journal-app-${{ env.IMAGE_TAG }}-amd64.tar
+            ${{ runner.temp }}/release-assets/life-journal-source-and-licenses-${{ env.IMAGE_TAG }}.tar.gz
+            ${{ runner.temp }}/release-assets/life-journal-deploy-${{ env.IMAGE_TAG }}.zip
+            ${{ runner.temp }}/release-assets/manifest.json
+            ${{ runner.temp }}/release-assets/images.json
+            ${{ runner.temp }}/release-assets/SHA256SUMS.txt
+            ${{ runner.temp }}/release-assets/INSTALL.md
+            ${{ runner.temp }}/release-assets/UPGRADE.md
+            ${{ runner.temp }}/release-assets/KNOWN_LIMITATIONS.md
+            ${{ runner.temp }}/release-assets/RELEASE_NOTES.md
       - name: Safe validation summary only; no data or binary artifact upload
         run: |
           python -c "import json,os; from pathlib import Path; p=Path(os.environ['RUNNER_TEMP'])/'installation-report.json'; print(json.dumps(json.loads(p.read_text()),indent=2))" >> "$GITHUB_STEP_SUMMARY"

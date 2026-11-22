@@ -171,6 +171,12 @@ def main():
         compose(project,env,'up','-d','--pull','never','--wait','--wait-timeout','240')
         request=client(project,env);login(request,password)
         assert request('/api/setup/status')['required'] is False
+        # Supply the existing probe as code; only the runner's synthetic service
+        # is used. No additional host directory is mounted for this check.
+        probe=(ROOT/'tests/lgpl_replacement_probe.py').read_text()
+        lgpl=json.loads(compose(project,env,'exec','--user','10001:10001','-T',
+            '-e','RUN_LJ_LGPL_REPLACEMENT_DRILL=1','maintenance',
+            'python','-c',probe).strip().splitlines()[-1])
         backup=json.loads(compose(project,env,'exec','--user','10001:10001','-T','maintenance','python','-m','app.backup','create').strip().splitlines()[-1])
         backup_id=backup['id']
         compose(project,env,'exec','--user','10001:10001','-T','maintenance','python','-m','app.backup','verify','--id',backup_id)
@@ -199,6 +205,7 @@ def main():
         report={'four_container_health':'passed','api_health_http_200':True,'web_static_and_proxy':'passed',
             'initial_setup_and_login':'passed','restart_and_database_persistence':'passed',
             'ordinary_backup_and_independent_restore':'passed','restored_login':'passed','synthetic_upgrade':upgrade,
+            'lgpl_replacement':lgpl,
             'production_or_nas_accessed':False,'image_tag':args.image_tag}
         validation_complete=True
     finally:
