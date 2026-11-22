@@ -1,10 +1,12 @@
-# 已选择的原创许可：GPL-3.0-or-later（A已批准，B未批准）
+> 当前状态：原创 GPL-3.0-or-later 已激活，首次源码公开已完成。下方候选研究与 A/B 审批讨论保留为历史背景；当前许可由根 LICENSE/COPYRIGHT.md 确定，后续维护见 SOURCE_DISTRIBUTION.md。未来二进制义务仍独立适用。
+
+# 已选择的原创许可：GPL-3.0-or-later（原创许可已激活，首次源码已公开）
 
 所有者已明确选择并允许在私有准备分支激活有权许可且受版权保护的原创源码/原创增量。
 当前法律通知为根LICENSE与COPYRIGHT.md；授权记录为licensing/PHASE_A_AUTHORIZATION.json。
 MIT、ISC、GPLv3-only及其他第三方内容保留原条件；or-later选择不向第三方扩张，未来整体兼容性不保证。
-技术来源审核已获所有者接受；owner_authorization仅为A，publication_approved继续false。
-B须另行绑定新候选的提交/目标仓库/清单与源码树哈希，在快照外记录；门禁不附加GPL之外的接收者限制。
+技术来源审核已获所有者接受，首次源码快照的 B 批准及公开已完成，身份见 initial-source-snapshot.json。
+原始 proposal 中 owner_authorization 仅为 A、publication_approved=false 属于历史阶段范围，保留原声明；外部 B 记录不写入已批准快照。门禁不附加 GPL 之外的接收者限制。
 
 <details>
 <summary>批准A之前的候选研究与方案（历史材料，不是当前授权状态）</summary>

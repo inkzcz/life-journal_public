@@ -23,6 +23,12 @@ def package_bytes(document):
     return result.getvalue()
 
 
+def example_bytes(root):
+    """Read the synthetic example and generate its package entirely in memory."""
+    path=Path(root)/'docs/v5.1.5/examples/travel.json'
+    return package_bytes(json.loads(path.read_text()))
+
+
 def prepare(root):
     root=Path(root)/'docs/v5.1.5/examples'
     data=package_bytes(json.loads((root/'travel.json').read_text()))

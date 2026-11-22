@@ -64,8 +64,9 @@ def test_reader_and_anonymous_cannot_export_or_inspect(client):
 def test_real_photo_package_preview_uses_existing_image_rules_without_assets(client):
     from pathlib import Path
     t=make_type(client)
-    path=Path(__file__).resolve().parents[1]/'docs/v5.1.5/examples/travel-with-photos.zip'
-    with zipfile.ZipFile(path) as z:files={name:z.read(name) for name in z.namelist()}
+    from scripts.demo_fixtures import example_bytes
+    data=example_bytes(Path(__file__).resolve().parents[1])
+    with zipfile.ZipFile(io.BytesIO(data)) as z:files={name:z.read(name) for name in z.namelist()}
     document=json.loads(files['travel.json']);document['records'][0]['type_slug']=t['slug'];files['travel.json']=json.dumps(document).encode()
     out=io.BytesIO()
     with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as z:

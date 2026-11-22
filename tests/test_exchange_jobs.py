@@ -12,8 +12,9 @@ from app.exchange import jobs
 
 
 def packet(t):
-    p=Path(__file__).resolve().parents[1]/'docs/v5.1.5/examples/travel-with-photos.zip'
-    with zipfile.ZipFile(p) as z:files={n:z.read(n) for n in z.namelist()}
+    from scripts.demo_fixtures import example_bytes
+    data=example_bytes(Path(__file__).resolve().parents[1])
+    with zipfile.ZipFile(io.BytesIO(data)) as z:files={n:z.read(n) for n in z.namelist()}
     value=json.loads(files['travel.json']);value['records'][0]['type_slug']=t['slug'];value['records'][0]['title']='导入验收-'+t['slug'];files['travel.json']=json.dumps(value).encode()
     b=io.BytesIO()
     with zipfile.ZipFile(b,'w',zipfile.ZIP_DEFLATED) as z:
