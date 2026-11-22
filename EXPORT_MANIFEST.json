@@ -36,7 +36,7 @@
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "5c79a10018c6d88f5d4ae7d9c4b2e9f0aeccf8f29a9fe7c0b29cdaf9cf9e6e41"
+      "sha256": "258ad6ddfffaf59abfe09865ddc021435696d566635b167958734ccff764d3e5"
     },
     {
       "path": ".gitignore",
@@ -1504,7 +1504,7 @@
     },
     {
       "path": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
-      "sha256": "2a2ce3a648842572e7ab2ed2dd435830681c034aca25f1748764f862bdfac5c1"
+      "sha256": "b954a785d57308e183def45d70b7731dabd2ae9b8633a7c97061afbe183e746c"
     },
     {
       "path": "licensing/GPL-3.0.txt",
@@ -1924,7 +1924,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "e0f16c3d5c19ffd6aa56d9a3562d755270101d3685546f8ce4f9b5fed327f281"
+      "sha256": "542039e08d6f209803f20ffca659b1a636f109ed49e23ed3d636b8ed2c54f766"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -3676,7 +3676,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "cf6cddc813b9d512d07ea8b36f4c23a4481b73197710a7f831f945e6443a720d"
+      "sha256": "dc4652ee91d68e3b5f45c6ad4cdce7a9a290d812dbe73c664174ecee6278db9c"
     },
     {
       "path": "third_party/source-scope.json",

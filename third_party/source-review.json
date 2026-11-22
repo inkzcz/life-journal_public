@@ -203,7 +203,7 @@
       "evidence": [
         "P004"
       ],
-      "sha256_canonical": "03d5d47328f6223b84b8a08de1ff57de800211b2721bc154003e3fb377eab34f"
+      "sha256_canonical": "8d12369f0ccdf8574c8be7988f6638f8cf9b15b161f909e8ebae4086da27f2b0"
     },
     {
       "path": ".gitignore",
@@ -3200,7 +3200,7 @@
       "evidence": [
         "P004"
       ],
-      "sha256_canonical": "0879cc9a36e23f66c1e8ef38d5b5943660ccb9ca3adc2aca2416720cf421eef8"
+      "sha256_canonical": "5a234874a19b305dd8088ab71b0dbd38fbb48113a983c05dffecee3b160b4dc4"
     },
     {
       "path": "licensing/GPL-3.0.txt",
@@ -4061,7 +4061,7 @@
         "J005",
         "P004"
       ],
-      "sha256_canonical": "e3aadd034db14ea0bb5d4ec8255b1ab8049f5a3a18ec346b71f442ded450fdb8"
+      "sha256_canonical": "4a98ef1f4558bc24b8a9652eb3ec178d417db9356dce22b35d7cfb4ea300f08c"
     },
     {
       "path": "tests/test_publication_gate.py",

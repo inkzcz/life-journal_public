@@ -5,6 +5,7 @@ on:
 permissions:
   contents: read
   actions: read
+  pull-requests: read
 concurrency:
   group: formal-v5.1.9
   cancel-in-progress: false

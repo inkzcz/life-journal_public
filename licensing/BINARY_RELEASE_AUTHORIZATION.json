@@ -25,7 +25,7 @@
     },
     ".github/workflows/release.yml": {
       "scope": "v5.1.9-release",
-      "sha256": "5c79a10018c6d88f5d4ae7d9c4b2e9f0aeccf8f29a9fe7c0b29cdaf9cf9e6e41",
+      "sha256": "258ad6ddfffaf59abfe09865ddc021435696d566635b167958734ccff764d3e5",
       "review": "Operator technical review within explicit owner instruction; not an owner signature or per-byte owner assertion."
     }
   }

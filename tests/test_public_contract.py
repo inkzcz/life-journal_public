@@ -74,7 +74,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
 
 def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
     document=yaml.safe_load((ROOT/'.github/workflows/release.yml').read_text())
-    assert document['permissions']=={'contents':'read','actions':'read'}
+    assert document['permissions']=={'contents':'read','actions':'read','pull-requests':'read'}
     jobs=document['jobs']
     assert jobs['build']['needs']=='preflight' and jobs['build']['permissions']=={'contents':'read'}
     assert jobs['build']['with']['release_version']=='v5.1.9'
