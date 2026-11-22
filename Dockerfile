@@ -51,6 +51,15 @@ COPY backend/alembic ./alembic
 COPY --from=frontend-build /src/dist /srv
 COPY --from=caddy-runtime /usr/bin/caddy /usr/bin/caddy
 COPY frontend/Caddyfile /etc/caddy/Caddyfile
+COPY LICENSE COPYRIGHT.md /usr/share/doc/life-journal/
+COPY third_party/BINARY_NOTICE.md third_party/LGPL_REPLACEMENT.md third_party/notice-index.json /usr/share/doc/life-journal/
+COPY third_party/licenses /usr/share/doc/life-journal/licenses
+COPY scripts/binary_notices.py scripts/license_evidence.py /tmp/legal-tools/
+# Browser recipients receive actual bundled-package notices plus original/icon
+# grants. This reference catalogue is not a substitute for corresponding source.
+RUN python /tmp/legal-tools/binary_notices.py \
+    && cp -R /usr/share/doc/life-journal/. /srv/legal/ \
+    && rm -r /tmp/legal-tools
 ARG BUILD_INFO={}
 ARG APP_VERSION=unversioned
 ENV LIFE_JOURNAL_VERSION=$APP_VERSION

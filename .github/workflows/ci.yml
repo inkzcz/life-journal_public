@@ -59,7 +59,7 @@ jobs:
         run: python -m pytest -q tests
       - name: Frontend tests, TypeScript and production build
         working-directory: frontend
-        run: npm ci && npm test && npm run build
+        run: npm ci && node --test bundled-notices-check.mjs && npm test && npm run build
       - name: Four-container Compose contract with synthetic configuration only
         run: docker compose --env-file .env.example config --quiet
         env:
@@ -90,8 +90,13 @@ jobs:
           echo "IMAGE_TAG=$tag" >> "$GITHUB_ENV"
           python scripts/release_local.py --version "$tag" --revision "$revision" --output-dir "$RUNNER_TEMP/delivery"
           python scripts/image_private_keys.py --archive "$RUNNER_TEMP/delivery/$tag/life-journal-app-$tag-amd64.tar"
+          python -c "import json,sys; from pathlib import Path; m=json.loads(Path(sys.argv[1]).read_text()); print(json.dumps({k:m[k] for k in ('version','platform','tar_sha256','images')},indent=2))" "$RUNNER_TEMP/delivery/$tag/manifest.json"
       - name: Debian, PG17 tools, Caddy and privilege checks
         run: python tests/debian_image_probe.py --image-tag "$IMAGE_TAG" --output "$RUNNER_TEMP/debian-probe.json"
+      - name: Current binary notices and integrity-verified npm and Go source evidence
+        run: |
+          python scripts/license_evidence.py --image-archive "$RUNNER_TEMP/delivery/$IMAGE_TAG/life-journal-app-$IMAGE_TAG-amd64.tar" --frontend-lock frontend/package-lock.json --fetch-npm-archives --fetch-go-archives --retain-source-archives --output-dir "$RUNNER_TEMP/binary-evidence"
+          python -c "import json,os; from pathlib import Path; d=json.loads((Path(os.environ['RUNNER_TEMP'])/'binary-evidence/inventory.json').read_text()); print(json.dumps({'binary_package_identities':[{k:p.get(k) for k in ('ecosystem','name','version','source_package')} for p in d['packages'] if p['ecosystem'] in ('deb','pypi')], 'caddy_go_version':d['go_version'],'go_modules':len(d['go_modules']),'bundled_native_libraries':d['bundled_native_libraries'],'corresponding_source_complete':d['corresponding_source_complete']},indent=2))"
       - name: Real BuildKit context excludes private files
         run: |
           python -m pip install 'pytest>=8,<10'

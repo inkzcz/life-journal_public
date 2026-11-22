@@ -1,5 +1,42 @@
 # v5.1.9 Release 准备（草稿）
 
+## 本轮正式候选准备（优先于下方历史验收记录）
+
+起点是公开 main `e00b80e866d9686458963efe3ade2d658b9c56b0`，维护 PR #1 已由所有者合并。
+本轮在 `release/prepare-v5.1.9` 修改，待独立 PR 审核，不修改 main、原私有仓库或生产部署。
+版本仍为 v5.1.9 候选；正式发布尚未批准。Linux CI 使用提交限定的候选标签，避免覆盖已有同名镜像。
+最终受审构建才使用 `life-journal:v5.1.9` / `life-journal-app-v5.1.9-amd64.tar`。
+
+| 当前范围 | 状态 |
+| --- | --- |
+| Linux 源码/后端/前端/敏感信息/许可证测试 | 本分支实际结果以 PR Checks 与报告为准；不能复用 main 或旧候选的绿色记录 |
+| Linux 单业务 TAR/全部镜像层/重复 load/四容器/备份/独立恢复 | 本分支 CI 实际生成和验证临时产物，不上传；本地可留存最终产物仍受存储限制 |
+| LGPL 替换 | 新增修改后 Psycopg 的真实 PG17 查询探针，须本分支 Docker CI 实际完成 |
+| Windows Docker Desktop | **待本地验收**；本正式候选没有实机结果，不沿用旧版测试 |
+| 极空间 Z4S | **待本地验收**；不连接 NAS，不操作现有数据库/媒体 |
+| UPGRADE-001 | 历史失败原因未确认；合成迁移证据不构成历史路径已修复 |
+| 二进制许可/对应源码 | 通知及部分验证/源码收集已补齐；精确对应源码、内附库/构建配方及与可留存最终 TAR 绑定仍为发布阻塞，见 REDISTRIBUTION.md |
+| 正式发布权限 | **待最终产物再次批准**；本轮不创建 Tag/Release、不上传 TAR、不推送 Registry |
+
+本地可复现命令（需充足磁盘、一个空交付父目录及本地 Linux Docker；不加默认 `--pull`）：
+
+```sh
+revision=$(git rev-parse HEAD)
+python scripts/release_local.py --version v5.1.9 --revision "$revision" --output-dir /PRIVATE/NEW/delivery
+python scripts/image_private_keys.py --archive /PRIVATE/NEW/delivery/v5.1.9/life-journal-app-v5.1.9-amd64.tar
+```
+
+交付工具只构建/校验/导出一个业务镜像，不查询或打包 PostgreSQL 镜像。
+隔离 Docker 验收另外要求已预备的官方 PG17 测试镜像；这不是交付内容，也不是生产部署步骤。
+空间不足、对应源码不全或产物未留存时，不能把 CI 的临时 TAR 哈希写成已具备下载条件的最终产物。
+
+正式批准前还须：合并已通过 CI 的发行 PR、确定最终源码提交、留存并绑定业务 TAR/完整源码法律包及其全部 SHA256，
+逐项解除许可证义务；完成平台验收或由所有者在最终审核中明确接受该缺口；明确 UPGRADE-001 支持范围/风险。
+最终批准必须针对实际产物，不能沿用源码首次公开的 A/B 授权。安装及恢复继续遵守原迁移/备份门禁。
+
+<details>
+<summary>公开后首次维护的历史验收记录（不替代本次候选）</summary>
+
 尚未创建 Tag、Release 或发布任何镜像。本轮基于首次公开提交 cd3182450f6163d40f1e5221c9e4483850546884，通过 maintenance/post-publication-v5.1.9 分支和 PR 审核。
 
 ## Release Notes 草稿
@@ -57,3 +94,5 @@
 
 二进制 C 类具体未完成项：当前 Dockerfile 没有显式把项目 LICENSE/COPYRIGHT、前端编译资源及单独复制的 Caddy 二进制的适用声明一起装入镜像；不能把源码目录中有法律文本当成镜像已包含。
 还须针对实际构建的 wheel/内附库与系统包重新固定版本和对应源码，完成 Psycopg/LGPL 替换或重组验证及适用 NOTICE/源码获取方式。当前验收镜像没有被发布，这些缺口继续阻止未来镜像分发，不撤销已有源码公开。
+
+</details>

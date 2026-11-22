@@ -16,6 +16,7 @@ import re
 import posixpath
 import subprocess
 import tarfile
+import threading
 import zipfile
 from urllib.parse import urlsplit
 import urllib.request
@@ -24,6 +25,7 @@ MAX_ARCHIVE = 32 * 1024 * 1024
 MAX_GO_ARCHIVE = 96 * 1024 * 1024
 MAX_NOTICE = 2 * 1024 * 1024
 NOTICE = re.compile(r'^(?:licen[cs]e|copying|copyright|notice|authors)(?:[._-].*)?$', re.I)
+SOURCE_WRITE_LOCK = threading.Lock()
 
 
 def safe_name(name):
@@ -198,7 +200,26 @@ def image_evidence(archive_path, output, notices):
             'packages': packages, 'go_version': go_version, 'go_modules': go_modules, 'bundled_native_libraries': sorted(binary_libraries)}
 
 
-def npm_archive(package):
+def retain_source(source_dir, ecosystem, data):
+    """Keep verified source bytes beside evidence, never extract or execute them."""
+    if source_dir is None:
+        return None
+    suffix = '.tgz' if ecosystem == 'npm' else '.zip'
+    path = Path(source_dir) / ecosystem / (digest(data) + suffix)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    # Duplicate nested npm dependencies may resolve to the same archive in
+    # different workers. Serialize exclusive creation without replacing bytes.
+    with SOURCE_WRITE_LOCK:
+        if path.exists():
+            if path.read_bytes() != data:
+                raise ValueError('Existing source evidence conflicts; nothing overwritten')
+        else:
+            with path.open('xb') as stream:
+                stream.write(data)
+    return str(path.relative_to(Path(source_dir).parent))
+
+
+def npm_archive(package, source_dir=None):
     url = package.get('resolved', '')
     parsed = urlsplit(url)
     if parsed.scheme != 'https' or parsed.hostname != 'registry.npmjs.org' or parsed.username or parsed.password:
@@ -223,10 +244,14 @@ def npm_archive(package):
                 if member.size > MAX_NOTICE or not safe_name(member.name):
                     raise ValueError('Unsupported npm notice')
                 result.append((member.name, archive.extractfile(member).read()))
+    retained = retain_source(source_dir, 'npm', data)
+    if retained:
+        package['retained_source_archive'] = retained
+        package['retained_source_sha256'] = digest(data)
     return result
 
 
-def go_archive(module):
+def go_archive(module, source_dir=None):
     """Verify module source against the binary's Go h1 directory checksum."""
     name, version = module['name'], module['version']
     if version == '(devel)':
@@ -257,12 +282,16 @@ def go_archive(module):
     computed = 'h1:' + base64.b64encode(sums.digest()).decode()
     if computed != module.get('go_sum'):
         raise ValueError('Go source h1 checksum mismatch')
+    retained = retain_source(source_dir, 'go', data)
+    if retained:
+        module['retained_source_archive'] = retained
+        module['retained_source_sha256'] = digest(data)
     return found
 
 
-def go_evidence(modules, output, notices):
+def go_evidence(modules, output, notices, source_dir=None):
     with ThreadPoolExecutor(max_workers=6) as pool:
-        for module, files in zip(modules, pool.map(go_archive, modules)):
+        for module, files in zip(modules, pool.map(lambda module: go_archive(module, source_dir), modules)):
             paths = []
             for name, data in files:
                 # Keep module version and original subdirectories distinct.
@@ -273,14 +302,14 @@ def go_evidence(modules, output, notices):
             module['status'] = 'verified-module-notices' if paths else 'source-review-required'
 
 
-def frontend_evidence(lock_path, output, notices, fetch):
+def frontend_evidence(lock_path, output, notices, fetch, source_dir=None):
     packages = json.loads(lock_path.read_text())['packages']
     entries = [(path, package) for path, package in sorted(packages.items()) if path]
     def collect(item):
         path, package = item
         if not safe_name(path):
             raise ValueError('Invalid npm package path')
-        found = npm_archive(package) if fetch else []
+        found = npm_archive(package, source_dir) if fetch else []
         return path, package, found
     result = []
     with ThreadPoolExecutor(max_workers=8) as pool:
@@ -294,7 +323,9 @@ def frontend_evidence(lock_path, output, notices, fetch):
                            'license_declared': package.get('license'), 'development_only': package.get('dev', False),
                            'optional': package.get('optional', False), 'notice_files': package_files,
                            'status': 'archive-notices-collected' if found else 'notice-review-required',
-                           'archive_integrity': package.get('integrity'), 'source': package.get('resolved')})
+                           'archive_integrity': package.get('integrity'), 'source': package.get('resolved'),
+                           'retained_source_archive':package.get('retained_source_archive'),
+                           'retained_source_sha256':package.get('retained_source_sha256')})
     return result
 
 
@@ -305,6 +336,8 @@ def main():
     parser.add_argument('--output-dir', required=True, type=Path)
     parser.add_argument('--fetch-npm-archives', action='store_true')
     parser.add_argument('--fetch-go-archives', action='store_true')
+    parser.add_argument('--retain-source-archives', action='store_true',
+                        help='Retain integrity-verified npm/Go source archives; does not complete all source obligations')
     args = parser.parse_args()
     output = args.output_dir
     if output.exists() or output.is_symlink() or any(p.is_symlink() for p in output.absolute().parents):
@@ -315,10 +348,11 @@ def main():
     try:
         report = image_evidence(args.image_archive, output, notices)
         phase = 'npm-archive-evidence'
-        report['packages'] += frontend_evidence(args.frontend_lock, output, notices, args.fetch_npm_archives)
+        source_dir = output / 'sources' if args.retain_source_archives else None
+        report['packages'] += frontend_evidence(args.frontend_lock, output, notices, args.fetch_npm_archives, source_dir)
         if args.fetch_go_archives:
             phase = 'go-module-evidence'
-            go_evidence(report['go_modules'], output, notices)
+            go_evidence(report['go_modules'], output, notices, source_dir)
         report.update(format='life-journal-license-evidence-v1', notices=notices,
                       publication_approved=False, corresponding_source_complete=False,
                       limitations='Evidence only. Missing notices, Go sources, bundled native libraries, license choices and each actual release require review.')

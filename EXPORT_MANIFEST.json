@@ -16,7 +16,7 @@
   "files": [
     {
       "path": ".dockerignore",
-      "sha256": "fc7f6202f106b5b8e46bb7419622b165cee753c768b1b713184949c1e122ba6a"
+      "sha256": "a6e1a9ef37f40e691663ca5544f8399c12ce16e0bc3b15a5be7c0a1cdc865027"
     },
     {
       "path": ".env.example",
@@ -32,7 +32,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "b2e47aeb2705c4c6f95995f142bf679cd6c4696953b074ae1f4e514123a78928"
+      "sha256": "f39a33e186b34cdd43e2d01670c056ed34ae3e9c40c4380296f5bf964a318906"
     },
     {
       "path": ".gitignore",
@@ -52,7 +52,7 @@
     },
     {
       "path": "Dockerfile",
-      "sha256": "62de41a2f3cf6519be16ec558cddb23640d67e9d895fdae8c1a9fa6ec2d8a0d1"
+      "sha256": "bf05a13aa39f3111bfd42481125d4f04b5e3c36431a65aad7d35be73f3a989a3"
     },
     {
       "path": "LICENSE",
@@ -680,7 +680,7 @@
     },
     {
       "path": "docs/known-limitations.md",
-      "sha256": "467828ac2898222dfb89eb1e82ca0ec14b4f706ff93af49a165aa42d279d6d47"
+      "sha256": "38b50138ecbbef0697ef76ec39b134dd70eb22a12b25885c5d53bbb5f7ce603b"
     },
     {
       "path": "docs/licensing.md",
@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/release-v5.1.9.md",
-      "sha256": "23fcc4b01068c0e5f744e6799db0ebf89c903f289af8732c23e5f3c7cd4d0461"
+      "sha256": "615cf1faa998229d4c0acbb0077a0d6df0cfd5b90dedfbf8608371ebecfef3f1"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -733,6 +733,14 @@
     {
       "path": "frontend/Dockerfile",
       "sha256": "df64c06373c74279b1dccd8ccb93e7047d67adac7062e7250f216b275a14f8ae"
+    },
+    {
+      "path": "frontend/bundled-notices-check.mjs",
+      "sha256": "9cdb2a1613212025b986489a727c68929657a27a0dd507e73eeccdcd571cee8f"
+    },
+    {
+      "path": "frontend/bundled-notices.mjs",
+      "sha256": "f0dcc35cb732d7bcc0d0b1a4834b77f11f6c942eae5ffc8c7a050681950a96cf"
     },
     {
       "path": "frontend/index.html",
@@ -1476,7 +1484,7 @@
     },
     {
       "path": "frontend/vite.config.ts",
-      "sha256": "caa3f2a1cd993118565e285fd983a4504f6605f798664296a4e1a3d50477a72d"
+      "sha256": "9189fd561fd01373087f19df5daf68ebac61684d5481c230832169ac42cfc632"
     },
     {
       "path": "licensing/ACTIVATION_PLAN.DRAFT.md",
@@ -1515,6 +1523,10 @@
       "sha256": "5523581a43a40e9702b7f0be0b675fd93602380bd6c38846a92824388d5fb266"
     },
     {
+      "path": "scripts/binary_notices.py",
+      "sha256": "4f47deca3c7f59a23dc6c9586ab312ff8fadbb30edcf1f06252d4d9eee846622"
+    },
+    {
       "path": "scripts/command_errors.py",
       "sha256": "13df9766d036afce8173cf7cc96ed858f2aa2a805fee7b889ff346be7b8f0b68"
     },
@@ -1532,7 +1544,7 @@
     },
     {
       "path": "scripts/license_evidence.py",
-      "sha256": "a8e5841d4cd4d9180612e52ff8e067d0dc2a9888564bd7913176f3e0b7f679c2"
+      "sha256": "e958e616edb5559a51d3850a68e892fd68c0db7a9276dee2cd0e29632481d5ef"
     },
     {
       "path": "scripts/local_images.py",
@@ -1604,11 +1616,11 @@
     },
     {
       "path": "tests/debian_image_probe.py",
-      "sha256": "4a263ecb7006d9ffd257d377cf57fbdd31e9ef1b0c727e1ed6695c78908120bb"
+      "sha256": "33f1f8ac38eae3fc88c82d0720e3446363c46fc39ecef3a2fbb6ab9de57c3a84"
     },
     {
       "path": "tests/docker_installation.py",
-      "sha256": "86c54d881b6f3dfb6175a3b7a29896c6eac5bd9cf009718ed8717c787564fb43"
+      "sha256": "b2d31655fe5b284814d3040151c78f1e72c3f6369db12805e06ebf9c5edd721e"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -1641,6 +1653,10 @@
     {
       "path": "tests/legacy_backend/service.py",
       "sha256": "95b576628745bb9b8440fb398c6cd230a7f118c885bf12e4a1bdfa560065df2c"
+    },
+    {
+      "path": "tests/lgpl_replacement_probe.py",
+      "sha256": "cc502110ee6c474c4c8d723fdfb9e8e0cbe264a063d068429fd8b821355395f1"
     },
     {
       "path": "tests/synthetic_upgrade_probe.py",
@@ -1677,6 +1693,10 @@
     {
       "path": "tests/test_backup_concurrency.py",
       "sha256": "8d2b56e3e08cc34dbea0813ca7290d778536b6523406ff19c1431de3f83ee358"
+    },
+    {
+      "path": "tests/test_binary_notices.py",
+      "sha256": "35258851b92fb54136f3e422c3f40f6bf991d34ebd7b9f7c2928c16eb49c2021"
     },
     {
       "path": "tests/test_blog.py",
@@ -1720,7 +1740,7 @@
     },
     {
       "path": "tests/test_docker_context.py",
-      "sha256": "5245785ca999c960759ac3c6d774e4c343e2253bc6d2d3e7144fa7d6c993e07c"
+      "sha256": "bc392f316fab830f121f6a01aa6b5a73485d7a49d90291103c8cc8d9a038cf5f"
     },
     {
       "path": "tests/test_editor_preview.py",
@@ -1800,7 +1820,7 @@
     },
     {
       "path": "tests/test_license_evidence.py",
-      "sha256": "768d5815fe085fcd85719b36adf38dbccfa39b527a3730e7c9671f382efe78be"
+      "sha256": "bbf5542d015129301c821150b3c1ea577dbe2e05015cefdf8c0669f00befa148"
     },
     {
       "path": "tests/test_life.py",
@@ -1923,12 +1943,20 @@
       "sha256": "35900a2cd8782e2ad40ef149100b7a0b67f87a0ebffb878e595c901361f30f15"
     },
     {
+      "path": "third_party/BINARY_NOTICE.md",
+      "sha256": "970b5cfa792555d1c1388d57f57603d45fc495eb39212789a6c63f60f25bad70"
+    },
+    {
+      "path": "third_party/LGPL_REPLACEMENT.md",
+      "sha256": "da28ec11a88b67f2f7cf5150ec7ed2edd719034a48a90405c8e5c3aa15745f3c"
+    },
+    {
       "path": "third_party/README.md",
       "sha256": "b0907bd112c4a95b0e80e446b42a30116763fb61bceced71b1cf5955c7863b9f"
     },
     {
       "path": "third_party/REDISTRIBUTION.md",
-      "sha256": "473755c577b27938dc3094c3f7d3bc3a9b0566eb0e33143ae7ed68133e93f95a"
+      "sha256": "e93f04991ea7034f2d7dad38ee33a3cb87c151854fed687faa8c89ff1f9c0f23"
     },
     {
       "path": "third_party/SOURCE_REVIEW.md",
@@ -3600,7 +3628,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "c5feea7576bf5cc7f62f6ab4d12ed4765555be22e7f6378bd45d4e22c8256d93"
+      "sha256": "fe677b094286e1328635932df890dc74a602a747a01ffe937433f7f01563497a"
     },
     {
       "path": "third_party/source-scope.json",
@@ -3615,9 +3643,10 @@
   ],
   "maintenance": {
     "based_on_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
-    "scope": "Original documentation, CI and synthetic-test maintenance; no business or schema changes",
+    "scope": "Public source maintenance and binary-release preparation tooling/legal notices/tests; no business, schema, original-license or initial-snapshot changes",
     "initial_snapshot_identity": "docs/initial-source-snapshot.json",
     "source_commit_semantics": "Original export origin only, not the current maintained Git commit",
-    "final_review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa"
+    "final_review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa",
+    "release_preparation_baseline": "e00b80e866d9686458963efe3ade2d658b9c56b0"
   }
 }

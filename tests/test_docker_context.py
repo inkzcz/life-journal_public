@@ -15,8 +15,16 @@ def test_context_excludes_private_directories_even_after_parent_exceptions(tmp_p
                'backend/media/sentinel','backend/backups/sentinel',
                'backend/app/__pycache__/sentinel.pyc','backend/app/secret.key',
                'backend/app/private.sqlite3','frontend/src/media/sentinel']
+    forbidden+=['third_party/private.env','third_party/keys/secret.key',
+                'third_party/licenses/private.key','third_party/licenses/private.png',
+                'third_party/licenses/evidence/private.zip','scripts/private.env',
+                'frontend/bundled-notices-check.mjs']
     required=['frontend/src/main.ts','frontend/package.json',
               'backend/app/main.py','backend/alembic/env.py','backend/requirements.txt']
+    required+=['LICENSE','COPYRIGHT.md','third_party/BINARY_NOTICE.md',
+               'third_party/LGPL_REPLACEMENT.md','third_party/licenses/synthetic.txt',
+               'third_party/notice-index.json','frontend/bundled-notices.mjs',
+               'scripts/binary_notices.py','scripts/license_evidence.py']
     for name in forbidden+required:
         target=tmp_path/name;target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text('synthetic-context-only')

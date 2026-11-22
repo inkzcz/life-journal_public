@@ -5,6 +5,38 @@
 首次 B 批准已绑定并公开指定快照，身份见 docs/initial-source-snapshot.json；它是准备操作授权，不增加 GPL 接收者限制。
 下面是此前范围与依赖说明的历史背景；其中“主许可未定”不代表当前状态。
 
+## v5.1.9 二进制候选：当前交付进度
+
+本轮从公开 main `e00b80e866d9686458963efe3ade2d658b9c56b0` 建立独立发行准备分支。
+没有创建正式 Tag/Release、上传业务 TAR 或推送 Registry。410 份已审核法律文本逐字保留。
+下方旧 TAR 的哈希/版本只是历史取证，不是新候选的完成证据。
+
+| 事项 | 本轮实现／证据要求 | 发布状态 |
+| --- | --- | --- |
+| 原创 GPL、版权及已审核第三方通知 | Dockerfile 将 LICENSE、COPYRIGHT、410 法律文本与适用范围说明放入 `/usr/share/doc/life-journal`，并由 Web `/legal/` 提供；实际镜像探针逐项核对哈希 | 须以本分支实际 Docker CI 结果确认 |
+| 编译浏览器代码 | Rollup emitted chunk 的实际模块反查包和版本，逐字保存包内 LICENSE/NOTICE 等；任何已打包包缺通知即构建失败；不把仅 lockfile 引用的开发工具冒充浏览器依赖 | 本地构建已执行，CI 独立 npm ci 验证 |
+| 当前镜像清单 | build-time `binary-inventory.json` 枚举实际 Debian/Python/Caddy/Go 和浏览器通知；明确 `corresponding_source_complete=false`，历史法律目录是参考超集 | 不是二进制发布批准 |
+| npm/Go 源码 | `license_evidence.py --retain-source-archives` 保留与锁文件 SHA512 / 二进制 Go h1 匹配的完整档案，再逐档案 SHA256 登记；不解包执行、不上传 | 覆盖部分源码，不等同完整对应源码 |
+| Psycopg 替换 | 在 UID10001 合成维护容器复制并兼容修改库，子解释器确认从新路径加载，选择 Python 实现/系统 libpq，实际只读查询 PG17；见 LGPL_REPLACEMENT.md | 以本分支实际 Docker CI 结果确认；不是源码交付完成 |
+| 精确对应源码及构建配方 | 当前 Debian/PGDG 的精确 source package、CPython、Python sdist 与 wheel/补丁/构建关联、Pillow/psycopg-binary 内附库、pip vendoring、Rust 和 Caddy 生成根/工具链须绑定最终同一个产物 | **仍阻塞正式二进制分发** |
+| 最终同处交付 | 审核完整源码包、NOTICE、适用许可及原始安装/重组说明，与最终业务 TAR 的 SHA256/镜像配置身份绑定；不得只给上游 URL 或签发无履约准备的 source offer | **尚未完成，仍阻塞** |
+
+Go/npm 来源收集可复现命令（私有全新目录；档案不是额外 Docker 镜像）：
+
+```sh
+python scripts/license_evidence.py --image-archive /PRIVATE/app.tar \
+  --frontend-lock frontend/package-lock.json --fetch-npm-archives \
+  --fetch-go-archives --retain-source-archives --output-dir /PRIVATE/NEW/evidence
+```
+
+此工具不把下载成功等同法律审核完成。缺失声明、未确定实际构建来源及完整源码材料仍须逐项解决。
+当前 CI 只在临时 runner 内生成证据和 TAR，打印安全的校验/身份摘要，**不上传档案**。
+runner 结束后的临时档案不能被称为已经留存、可下载或等待批准的最终发行产物。
+本地 Docker 存储不足时也不能拿旧镜像或旧 TAR 的校验值替代本次候选。
+
+Windows Docker Desktop、极空间 Z4S 均为**待本地验收**，所有者已要求继续其余验证，尚未接受本次平台缺口作为正式发布条件。
+UPGRADE-001 历史原因未确认；合成新安装／恢复／迁移通过不意味着旧生产库可直接升级。
+
 <details>
 <summary>已审核的依赖与分发义务背景</summary>
 
