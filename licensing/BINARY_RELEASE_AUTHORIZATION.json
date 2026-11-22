@@ -20,13 +20,20 @@
   "technically_reviewed_workflows": {
     ".github/workflows/ci.yml": {
       "scope": "candidate-artifacts",
-      "sha256": "133df2f17cac803661b7b4e7202dc941ebc6031a95ba995a11792795258365ef",
+      "sha256": "524d460b20a5b33b3532d3db419333cc857ec3128e33648abfe44dff4863f06c",
       "review": "Operator technical review within explicit owner instruction; not an owner signature or per-byte owner assertion."
     },
     ".github/workflows/release.yml": {
       "scope": "v5.1.9-release",
-      "sha256": "258ad6ddfffaf59abfe09865ddc021435696d566635b167958734ccff764d3e5",
+      "sha256": "fa24fb1457b8880d031e1a11a2bf4dd75a89addf6c40447668431120481b95be",
       "review": "Operator technical review within explicit owner instruction; not an owner signature or per-byte owner assertion."
     }
+  },
+  "retained_tag_identity": {
+    "tag_sha": "bb3be1cf163e8ce2a75d3cfe01c0b80da261b45c",
+    "source_commit": "2db730b1bad683e5056f3f096987074bdfe5e02a",
+    "record_type": "Operator-observed existing annotated tag from the owner-authorized release execution; not a new owner signature",
+    "first_run": 45014259648,
+    "repair_scope": "Resume publication using this unchanged application tag and separately reviewed orchestration; never overwrite or retarget the tag"
   }
 }
