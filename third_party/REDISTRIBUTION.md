@@ -5,37 +5,33 @@
 首次 B 批准已绑定并公开指定快照，身份见 docs/initial-source-snapshot.json；它是准备操作授权，不增加 GPL 接收者限制。
 下面是此前范围与依赖说明的历史背景；其中“主许可未定”不代表当前状态。
 
-## v5.1.9 二进制候选：当前交付进度
+## v5.1.9 实际二进制的分发门禁
 
-本轮从公开 main `e00b80e866d9686458963efe3ade2d658b9c56b0` 建立独立发行准备分支。
-没有创建正式 Tag/Release、上传业务 TAR 或推送 Registry。410 份已审核法律文本逐字保留。
-下方旧 TAR 的哈希/版本只是历史取证，不是新候选的完成证据。
+所有者已授权在必要法律条件和CI通过后正式发布；Windows/Z4S改为发布后待本地验收，UPGRADE-001保持历史已知问题，不再作为阻塞，也不绕过迁移保护。
+授权记录独立于旧A/B源码授权，见 licensing/BINARY_RELEASE_AUTHORIZATION.json；第三方原有grant/版本/署名不改。
 
-| 事项 | 本轮实现／证据要求 | 发布状态 |
-| --- | --- | --- |
-| 原创 GPL、版权及已审核第三方通知 | Dockerfile 将 LICENSE、COPYRIGHT、410 法律文本与适用范围说明放入 `/usr/share/doc/life-journal`，并由 Web `/legal/` 提供；实际镜像探针逐项核对哈希 | 须以本分支实际 Docker CI 结果确认 |
-| 编译浏览器代码 | Rollup emitted chunk 的实际模块反查包和版本，逐字保存包内 LICENSE/NOTICE 等；任何已打包包缺通知即构建失败；不把仅 lockfile 引用的开发工具冒充浏览器依赖 | 本地构建已执行，CI 独立 npm ci 验证 |
-| 当前镜像清单 | build-time `binary-inventory.json` 枚举实际 Debian/Python/Caddy/Go 和浏览器通知；明确 `corresponding_source_complete=false`，历史法律目录是参考超集 | 不是二进制发布批准 |
-| npm/Go 源码 | `license_evidence.py --retain-source-archives` 保留与锁文件 SHA512 / 二进制 Go h1 匹配的完整档案，再逐档案 SHA256 登记；不解包执行、不上传 | 覆盖部分源码，不等同完整对应源码 |
-| Psycopg 替换 | 在 UID10001 合成维护容器复制并兼容修改库，子解释器确认从新路径加载，选择 Python 实现/系统 libpq，实际只读查询 PG17；见 LGPL_REPLACEMENT.md | 以本分支实际 Docker CI 结果确认；不是源码交付完成 |
-| 精确对应源码及构建配方 | 当前 Debian/PGDG 的精确 source package、CPython、Python sdist 与 wheel/补丁/构建关联、Pillow/psycopg-binary 内附库、pip vendoring、Rust 和 Caddy 生成根/工具链须绑定最终同一个产物 | **仍阻塞正式二进制分发** |
-| 最终同处交付 | 审核完整源码包、NOTICE、适用许可及原始安装/重组说明，与最终业务 TAR 的 SHA256/镜像配置身份绑定；不得只给上游 URL 或签发无履约准备的 source offer | **尚未完成，仍阻塞** |
+| 实际组件/义务 | 本次实现及失败条件 |
+| --- | --- |
+| 原创GPL-3.0-or-later | 根LICENSE/COPYRIGHT、完整当前应用源码、构建/安装文件同处交付；不导入原私有Git历史。当前组合使用GPLv3，不为第三方GPL/LGPL-only追加未来版本。 |
+| Debian/PGDG的GPL/LGPL等组件 | 从实际dpkg Source/Version取得全部精确.dsc、orig/补丁文件；校验包名/版本、发布的SHA256和长度。snapshot的SHA1只是定位并额外校验，不冒称APT/上传者签名已验证；任何精确源文件缺失都失败。 |
+| Psycopg / psycopg-c 3.3.9，LGPL-3.0-only | 从发布sdist编译C扩展，动态链接系统libpq，保留加速接口；不再交付psycopg-binary及其14个内附库。源码、编译器/libpq配置、pip实际来源收据提供；实际动态替换并查询合成PG17通过后才可打包。 |
+| Pillow12.3.0内附库及LGPL FriBiDi shim | 保留原wheel功能、完整72KB级上游LICENSE/SBOM、对应Pillow sdist和首选源码/构建文件、FriBiDi来源/文本。实际修改shim源码、编译和重链接Pillow，再由UID10001加载、执行修改并验证接口；不把Psycopg的替换测试冒充Pillow重链接。未打包的可选libimagequant不得凭通用SBOM当作实际交付。 |
+| Python与Rust | 精确PyPI sdist SHA256、实际pip安装artifact来源、Cargo.lock全部registry archive校验；base pip的vendoring源码/通知在其完整sdist中。CPython源码SHA取自固定基础镜像。保留MPL(certifi)、BSD/MIT/Apache及Unicode等具体义务。 |
+| Caddy / Go | 读取实际二进制Go h1元数据，保留所有具名模块源码及原始LICENSE/NOTICE与Go运行时源码；生成根的等价构建配方在SOURCE_BUILD中。Apache/BSD组件不被误改授GPL，也不一概虚构GPL源码义务。 |
+| 实际编译浏览器模块 | 按emitted chunks逐包保留通知，保存integrity匹配npm档案及不可变上游首选TS/JS源码提交。只交付实际模块源码，不把两个未打包开发工具的来源缺口带入源码交付。 |
+| 替换/重组与用户权利 | 公开Library Corresponding Source、应用源码及实际可用的重建/安装方法；允许为调试库修改进行逆向工程，不增加合同禁止。源码身份校验不限制合法修改。 |
+| 最终绑定与同处交付 | prepare_distribution对源码/证据目录做严格文件白名单和哈希检查，拒绝额外配置/ZIP/数据文件；包内DISTRIBUTION_MANIFEST绑定唯一业务TAR、config、源码提交/版本及验证收据；所有附件SHA256登记。源码和二进制同处免费提供，不签发无履约准备的书面offer。 |
 
-Go/npm 来源收集可复现命令（私有全新目录；档案不是额外 Docker 镜像）：
+410份既有法律文本保持原字节并随镜像/Web `/legal/` 提供，构建还读取实际包和浏览器通知。
+历史参考目录不是整个当前二进制的完成证明；各组件合法性以本次实际源码、许可证和收据为依据。
+镜像内binary-inventory/收集阶段清单是构建时事实记录，只有最终绑定的对应源码包记录完整交付门禁是否完成。
+任何必需组件、通知、源码或替换验证缺失，流程在Artifact/Release上传之前失败；不能靠手填“complete=true”代替材料。
 
-```sh
-python scripts/license_evidence.py --image-archive /PRIVATE/app.tar \
-  --frontend-lock frontend/package-lock.json --fetch-npm-archives \
-  --fetch-go-archives --retain-source-archives --output-dir /PRIVATE/NEW/evidence
-```
+对应源码包可包含上游官方公开测试向量/版权身份；这些不代表项目私人数据。收集器只读取已验证业务TAR、公开上游和Git跟踪源码，不连接NAS或真实数据库。
+同一业务镜像用于API/Web/Maintenance；PostgreSQL数据库镜像始终由部署者独立管理，交付工具不查询/构建/导出它。
+完整重建与替换步骤见 SOURCE_BUILD.md，实际测试和哈希在逐构建附件收据中。
 
-此工具不把下载成功等同法律审核完成。缺失声明、未确定实际构建来源及完整源码材料仍须逐项解决。
-当前 CI 只在临时 runner 内生成证据和 TAR，打印安全的校验/身份摘要，**不上传档案**。
-runner 结束后的临时档案不能被称为已经留存、可下载或等待批准的最终发行产物。
-本地 Docker 存储不足时也不能拿旧镜像或旧 TAR 的校验值替代本次候选。
-
-Windows Docker Desktop、极空间 Z4S 均为**待本地验收**，所有者已要求继续其余验证，尚未接受本次平台缺口作为正式发布条件。
-UPGRADE-001 历史原因未确认；合成新安装／恢复／迁移通过不意味着旧生产库可直接升级。
+以下为旧准备阶段取证背景，旧TAR哈希与“未完成/主许可未选”等历史状态不能替代本轮实际结果。
 
 <details>
 <summary>已审核的依赖与分发义务背景</summary>

@@ -160,7 +160,7 @@ def valid_path(name):
             and all(p not in ('','.','..') for p in name.split('/')))
 
 
-def scan_bytes(name, data, *, reviewed_copyright=False):
+def scan_bytes(name, data, *, reviewed_copyright=False, binary_workflow_scope=None):
     """Only public rule IDs, path and line numbers leave this function."""
     findings=[]
     def add(kind, position=0):
@@ -194,14 +194,53 @@ def scan_bytes(name, data, *, reviewed_copyright=False):
             if separator and re.search(rb'(PASSWORD|SECRET|TOKEN|SETUP_KEY)',key,re.I) and value.strip():
                 findings.append({'type':'nonempty-secret-example','path':name,'line':offset})
     if name.startswith('.github/workflows/'):
-        for kind,pattern in {
+        patterns={
             'unsafe-pr-target':rb'pull_request_target',
             'excessive-token-permission':rb'permissions:\s*write-all|contents:\s*write|packages:\s*write',
             'environment-dump':rb'(?m)^\s*(?:run:.*)?(?:printenv|env\s*\||set\s+-x)',
             'publishing-or-sensitive-artifact':rb'upload-artifact@|docker\s+push|gh\s+release\s+(?:create|upload)|gh\s+repo\s+create',
-        }.items():
+        }
+        # A separately recorded owner release instruction now permits the two
+        # exact, technically reviewed workflows. Unknown paths/bytes retain the
+        # original denial. PR-target, environment dumps, packages:write and
+        # Registry/repository publishing are never exempted.
+        if binary_workflow_scope in ('candidate-artifacts','v5.1.9-release'):
+            patterns['publishing-or-sensitive-artifact']=rb'docker\s+push|gh\s+repo\s+create'
+            if binary_workflow_scope=='candidate-artifacts':
+                patterns['publishing-or-sensitive-artifact']+=rb'|gh\s+release\s+(?:create|upload)'
+            else:
+                patterns['excessive-token-permission']=rb'permissions:\s*write-all|packages:\s*write'
+        for kind,pattern in patterns.items():
             for match in re.finditer(pattern,data):add(kind,match.start())
     return findings
+
+
+def reviewed_binary_workflows(root):
+    path=root/'licensing/BINARY_RELEASE_AUTHORIZATION.json'
+    try:
+        if (not path.is_file() or path.is_symlink() or any(p.is_symlink() for p in path.parents)
+                or path.stat().st_size>MAX_BYTES):
+            return {}
+        authority=json.loads(path.read_bytes())
+        if (authority.get('format')!='life-journal-binary-release-authorization-v1'
+                or authority.get('binary_publication_approved') is not True
+                or authority.get('repository')!='inkzcz/life-journal_public'
+                or authority.get('version')!='v5.1.9'
+                or authority.get('registry_push_approved') is not False
+                or authority.get('nas_access_approved') is not False
+                or not authority.get('owner_confirmation_reference')):
+            return {}
+        result={}
+        for name,scope in {'.github/workflows/ci.yml':'candidate-artifacts',
+                           '.github/workflows/release.yml':'v5.1.9-release'}.items():
+            record=authority.get('technically_reviewed_workflows',{}).get(name,{})
+            source=root/name
+            if (record.get('scope')==scope and source.is_file() and not source.is_symlink()
+                    and record.get('sha256')==hashlib.sha256(source.read_bytes()).hexdigest()):
+                result[name]=scope
+        return result
+    except (OSError,ValueError,TypeError):
+        return {}
 
 
 def scan(root, *, snapshot=False, changed_since=None, require_license=False,
@@ -209,6 +248,7 @@ def scan(root, *, snapshot=False, changed_since=None, require_license=False,
     require_license=require_license or require_publication
     root=Path(root).absolute()
     findings=[]
+    binary_workflows=reviewed_binary_workflows(root)
     public_notices={}
     notice_index=root/'third_party/notice-index.json'
     if notice_index.exists():
@@ -255,7 +295,8 @@ def scan(root, *, snapshot=False, changed_since=None, require_license=False,
         # Preserve verified third-party public author credits verbatim. This
         # exact path+hash exception applies only to the personal-email heuristic;
         # Token, private-key, binary, workflow and secret checks still run.
-        findings.extend(scan_bytes(name,content,reviewed_copyright=reviewed))
+        findings.extend(scan_bytes(name,content,reviewed_copyright=reviewed,
+                                   binary_workflow_scope=binary_workflows.get(name)))
     if require_license and not (root/'LICENSE').is_file():
         findings.append({'type':'owner-license-decision-pending','path':'LICENSE','line':1})
     proposal_path=root/'licensing/proposal.json'

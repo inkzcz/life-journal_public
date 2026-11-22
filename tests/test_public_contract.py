@@ -37,7 +37,9 @@ def test_candidate_features_and_migrations_are_present():
                  'backend/alembic/versions/0021_anniversary_calendar.py'):
         assert (ROOT/name).exists(),name
     docker=(ROOT/'Dockerfile').read_text()
-    assert 'FROM python:3.12-slim-bookworm AS business' in docker
+    assert re.search(r'FROM python:3\.12-slim-bookworm@sha256:[0-9a-f]{64} AS runtime-base',docker)
+    assert 'FROM runtime-base AS business' in docker and 'FROM runtime-base AS python-build' in docker
+    assert '--no-binary=psycopg-c' in docker and 'COPY --from=python-build /opt/venv /opt/venv' in docker
     assert 'COPY --from=frontend-build /src/dist /srv' in docker
     assert 'postgresql-17 postgresql-client-17' in docker
     assert 'rm -f /etc/ssl/private/ssl-cert-snakeoil.key' in docker
@@ -53,5 +55,38 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
             assert '\\"' not in command
             assert not any(text in command for text in ('docker push','gh release','gh repo create'))
     text=path.read_text()
-    assert 'pull_request_target' not in text and 'upload-artifact@' not in text
+    assert 'pull_request_target' not in text
+    uploads=[step for job in data['jobs'].values() for step in job['steps']
+             if step.get('uses','').startswith('actions/upload-artifact@')]
+    assert len(uploads)==1
+    upload=uploads[0]
+    assert "github.repository == 'inkzcz/life-journal_public'" in upload['if']
+    assert "github.event_name == 'push'" in upload['if']
+    paths=upload['with']['path'].splitlines()
+    assert len(paths)==10 and all(p.startswith('${{ runner.temp }}/release-assets/') for p in paths)
+    assert not any('*' in p or '..' in p for p in paths)
+    assert sum(p.endswith('-amd64.tar') for p in paths)==1
+    assert upload['with']['include-hidden-files'] is False
+    steps=data['jobs']['docker-installation']['steps']
+    assert next(i for i,s in enumerate(steps) if 'prepare_distribution.py' in s.get('run',''))<steps.index(upload)
     assert '--require-license' in text and '--redact=100' in text
+
+
+def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
+    document=yaml.safe_load((ROOT/'.github/workflows/release.yml').read_text())
+    assert document['permissions']=={'contents':'read','actions':'read'}
+    jobs=document['jobs']
+    assert jobs['build']['needs']=='preflight' and jobs['build']['permissions']=={'contents':'read'}
+    assert jobs['build']['with']['release_version']=='v5.1.9'
+    publish=jobs['publish']
+    assert publish['needs']==['preflight','build'] and publish['permissions']=={'contents':'write','actions':'read'}
+    assert "github.ref == 'refs/tags/v5.1.9'" in publish['if']
+    assert not any(s.get('uses','').startswith('actions/checkout') for s in publish['steps'])
+    for job in jobs.values():
+        for step in job.get('steps',[]):
+            if 'uses' in step:assert re.fullmatch(r'[^@]+@[0-9a-f]{40}',step['uses'])
+    body='\n'.join(s.get('run','') for s in publish['steps'])
+    assert 'gh release create v5.1.9 --verify-tag' in body
+    assert '--prerelease=false' in body and '--draft=false' in body
+    assert 'gh release download v5.1.9' in body and 'sha256sum --check' in body
+    assert not any(s in body for s in ('docker push','--force','--clobber','gh release edit'))

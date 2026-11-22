@@ -25,7 +25,10 @@ based in part on the work of the Independent JPEG Group. The applicable original
 authors, years, license conditions and disclaimers must accompany the actual
 libraries; these credits do not replace their notices.
 
-Psycopg is LGPL-3.0-only. Recipients may modify or replace it with an
+Psycopg / psycopg-c are LGPL-3.0-only. The C accelerator is compiled from its
+published source and dynamically linked to Debian/PGDG libpq. The separately
+bundled psycopg-binary wheel and its native library bundle are not conveyed.
+Recipients may modify or replace the library with an
 interface-compatible version, recombine/rebuild this application, and reverse
 engineer the combined work for debugging those modifications. There is no added
 contractual prohibition on doing so. The Python package is dynamically imported;
@@ -34,9 +37,13 @@ its pure-Python implementation can use the installed dynamic libpq through
 rebuild method. Source identity checks describe the original delivered artifact;
 they do not restrict recipients' GPL/LGPL rights to modified builds.
 
-Before conveying a binary, deliver its complete applicable corresponding source,
+The release workflow requires the complete applicable corresponding source,
 patches and build/install instructions alongside the binary without an additional
 charge (planned GPLv3 section 6(d) method). Merely linking upstream or this notice
-is insufficient. No written source offer is being issued here. A candidate must
-not be released until the exact binary/source/legal pack and their hashes have
-been reviewed; see REDISTRIBUTION.md and docs/release-v5.1.9.md.
+is insufficient. No written source offer is being issued here. The exact
+binary/source/legal pack and hashes must pass the binding gate before artifact
+upload. The source package includes Pillow's LGPL FriBiDi shim, complete source
+and an actual modified-source relink receipt; see SOURCE_BUILD.md,
+REDISTRIBUTION.md and docs/release-v5.1.9.md. Runtime inventory flags describe the
+build-time inventory only; the companion DISTRIBUTION_MANIFEST is the completed
+source/notice delivery receipt for the TAR it explicitly hashes.

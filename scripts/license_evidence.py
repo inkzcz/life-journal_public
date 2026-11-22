@@ -139,6 +139,12 @@ def image_evidence(archive_path, output, notices):
                     if '.libs/' in name and entry.isfile():
                         binary_libraries.add(name)
                     wanted = (name == 'var/lib/dpkg/status' or name == 'usr/bin/caddy'
+                              or name in {'srv/legal/browser-notices.json', 'srv/legal/THIRD_PARTY_NOTICES.txt'}
+                              or name in {'usr/share/doc/life-journal/python-install-report.json',
+                                          'usr/share/doc/life-journal/compiler-version.txt',
+                                          'usr/share/doc/life-journal/libpq-configure.txt',
+                                          'usr/share/doc/life-journal/binary-inventory.json'}
+                              or '/site-packages/' in name and '.dist-info/sboms/' in name and name.endswith('.json')
                               or '/site-packages/' in name and (path.name == 'METADATA' and '.dist-info/' in name or NOTICE.fullmatch(path.name))
                               or name.startswith('usr/share/doc/') and (path.name == 'copyright' or NOTICE.fullmatch(path.name))
                               or name.startswith('usr/share/common-licenses/')
@@ -159,6 +165,9 @@ def image_evidence(archive_path, output, notices):
             packages.append({'ecosystem': 'pypi', 'name': row['Name'], 'version': row['Version'],
                              'license_declared': row.get('License-Expression') or row.get('License'),
                              'metadata_path': name})
+            write_notice(output, 'image/' + name, data, notices, 'Installed package metadata')
+        elif name.endswith('.json') or name.endswith('/compiler-version.txt') or name.endswith('/libpq-configure.txt'):
+            write_notice(output, 'image/' + name, data, notices, 'Actual image build/source receipt or upstream SBOM')
         elif NOTICE.fullmatch(PurePosixPath(name).name) or name.startswith('usr/share/common-licenses/'):
             # Make the original package path explicit without collecting private data.
             write_notice(output, 'image/' + name, data, notices, 'Docker-save final filesystem')
@@ -196,6 +205,8 @@ def image_evidence(archive_path, output, notices):
         go_version, go_modules = go_build_modules(caddy)
     return {'image': {'architecture': config['architecture'], 'os': config['os'],
                       'config_sha256': digest(config_data),
+                      'python_source': dict(value.split('=',1) for value in config.get('config',{}).get('Env',[])
+                                            if value.split('=',1)[0] in {'PYTHON_VERSION','PYTHON_SHA256'}),
                       'archive_sha256': hashlib.file_digest(archive_path.open('rb'), 'sha256').hexdigest()},
             'packages': packages, 'go_version': go_version, 'go_modules': go_modules, 'bundled_native_libraries': sorted(binary_libraries)}
 

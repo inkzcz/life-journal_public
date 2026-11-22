@@ -104,6 +104,27 @@ def test_unsafe_workflow_patterns_are_blocked(data):
     assert gate.scan_bytes('.github/workflows/check.yml',data)
 
 
+def test_binary_workflow_exception_is_owner_scoped_and_byte_exact(tmp_path):
+    path=tmp_path/'.github/workflows/ci.yml';path.parent.mkdir(parents=True)
+    raw=b'permissions:\n  contents: read\nuses: actions/upload-artifact@synthetic\n'
+    path.write_bytes(raw)
+    authority={'format':'life-journal-binary-release-authorization-v1','binary_publication_approved':True,
+        'repository':'inkzcz/life-journal_public','version':'v5.1.9',
+        'registry_push_approved':False,'nas_access_approved':False,'owner_confirmation_reference':'Synthetic owner fixture',
+        'technically_reviewed_workflows':{'.github/workflows/ci.yml':{'scope':'candidate-artifacts','sha256':hashlib.sha256(raw).hexdigest()}}}
+    (tmp_path/'licensing').mkdir();record=tmp_path/'licensing/BINARY_RELEASE_AUTHORIZATION.json'
+    record.write_text(json.dumps(authority))
+    allowed=gate.reviewed_binary_workflows(tmp_path)
+    assert allowed=={'.github/workflows/ci.yml':'candidate-artifacts'}
+    assert not gate.scan_bytes('.github/workflows/ci.yml',raw,binary_workflow_scope=allowed['.github/workflows/ci.yml'])
+    for forbidden in (b'contents: write',b'packages: write',b'docker push synthetic',b'gh release create synthetic',b'pull_request_target',b'run: printenv'):
+        assert gate.scan_bytes('.github/workflows/ci.yml',forbidden,binary_workflow_scope='candidate-artifacts')
+    path.write_bytes(raw+b'changed')
+    assert gate.reviewed_binary_workflows(tmp_path)=={}
+    path.write_bytes(raw);authority['binary_publication_approved']=False;record.write_text(json.dumps(authority))
+    assert gate.reviewed_binary_workflows(tmp_path)=={}
+
+
 def test_snapshot_rejects_history_symlinks_and_license_omission(tmp_path):
     (tmp_path/'README.md').write_text('synthetic public source')
     (tmp_path/'.git').mkdir()

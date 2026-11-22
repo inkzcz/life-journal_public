@@ -56,6 +56,7 @@ def inventory():
             'caddy_modules': modules,
             'caddy_version': subprocess.check_output(['caddy', 'version'], text=True).strip(),
             'browser_notices': record(Path('/srv/legal/browser-notices.json')),
+            'native_database_library': 'psycopg-c built from published source; dynamically linked Debian/PGDG libpq; no psycopg-binary bundle',
             'corresponding_source_complete': False,
             'binary_redistribution_approved': False,
             'limitations': ['Installed notices and version evidence only, not a source package.',

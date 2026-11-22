@@ -2,8 +2,10 @@
 
 Psycopg remains LGPL-3.0-only; this project adds no reverse-engineering restriction
 for debugging changes to that library. The application imports it dynamically.
-The default psycopg-binary accelerator and its bundled libraries still require
-their own exact-source/build/license review before binary publication.
+The default psycopg-c accelerator is built from its exact published source and
+linked to system libpq. Its sdist and Debian/PGDG library sources, patches and
+build/install files accompany the binary; the opaque psycopg-binary bundle is
+not part of the production image.
 
 An interface-compatible replacement can be installed when rebuilding the image,
 or imported before the installed copy through `PYTHONPATH`. Setting
@@ -40,4 +42,5 @@ future ABI changes. It does not alone complete LGPL section 4: the exact Library
 Corresponding Source, required GPL/LGPL texts, combined-work notices and a usable
 recombination/install path must accompany the reviewed release. See the binary
 obligation matrix in REDISTRIBUTION.md. No source offer or release is made by
-this test or documentation.
+this test or documentation. Pillow's separate LGPL shim is covered by actual
+modified-source recompilation/relink and source delivery; see SOURCE_BUILD.md.

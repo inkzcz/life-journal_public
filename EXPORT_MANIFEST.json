@@ -16,7 +16,7 @@
   "files": [
     {
       "path": ".dockerignore",
-      "sha256": "a6e1a9ef37f40e691663ca5544f8399c12ce16e0bc3b15a5be7c0a1cdc865027"
+      "sha256": "6a9193ffe88a316abb8e9c7b3755c382810e375d34aede5d1d285287a0af2bf1"
     },
     {
       "path": ".env.example",
@@ -32,7 +32,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "f39a33e186b34cdd43e2d01670c056ed34ae3e9c40c4380296f5bf964a318906"
+      "sha256": "133df2f17cac803661b7b4e7202dc941ebc6031a95ba995a11792795258365ef"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "5c79a10018c6d88f5d4ae7d9c4b2e9f0aeccf8f29a9fe7c0b29cdaf9cf9e6e41"
     },
     {
       "path": ".gitignore",
@@ -52,7 +56,7 @@
     },
     {
       "path": "Dockerfile",
-      "sha256": "bf05a13aa39f3111bfd42481125d4f04b5e3c36431a65aad7d35be73f3a989a3"
+      "sha256": "e51910e41ef062548a9f197930137a794c3cb94cdddbdf80d4113be04fddf0c9"
     },
     {
       "path": "LICENSE",
@@ -60,7 +64,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "81e17a9233c64b2ecac83dd30e5fda771b53a4a9dd854db939db8229d990a6ff"
+      "sha256": "600c389cf40743e8d61290822770a1ee3cfb8d2383f57a834a48d30c2b4fe78b"
     },
     {
       "path": "SECURITY.md",
@@ -639,6 +643,10 @@
       "sha256": "77c1ae53d1fde3c38ef7b76b3e1f1991b7d9c4d7db91462bb68acdeb6a15fcea"
     },
     {
+      "path": "backend/constraints-release.txt",
+      "sha256": "babd76a6969bcb5a58a1042731df423e3c624646657599d82d74cc638c96304c"
+    },
+    {
       "path": "backend/requirements-browser.txt",
       "sha256": "d5f0e000d791f72d7032ce2000f35b5914d5fad0428792bba02f3d960a58f2fe"
     },
@@ -648,7 +656,7 @@
     },
     {
       "path": "backend/requirements.txt",
-      "sha256": "66783fdc69f329557b3e8287ba4d5db24866246d611c0b6bf18f7d1494ac6560"
+      "sha256": "6ef88f9ca2f04420e6736e3771f9732816654990d4ca76780d417d1bdf108c0c"
     },
     {
       "path": "compose.nas.yaml",
@@ -680,7 +688,7 @@
     },
     {
       "path": "docs/known-limitations.md",
-      "sha256": "38b50138ecbbef0697ef76ec39b134dd70eb22a12b25885c5d53bbb5f7ce603b"
+      "sha256": "fb7d314e5bd8667b99788ed00f459019b05203d5d21cd333f35ca8aa0938c125"
     },
     {
       "path": "docs/licensing.md",
@@ -695,8 +703,12 @@
       "sha256": "6b332a1a66a032168376223b11c76a460cbe692efa505fc58946e8e289bb3cf3"
     },
     {
+      "path": "docs/release-notes-v5.1.9.md",
+      "sha256": "13ae15237978bfca1ebf30db04bc309eadf7c804713986de9d18746b86becee4"
+    },
+    {
       "path": "docs/release-v5.1.9.md",
-      "sha256": "615cf1faa998229d4c0acbb0077a0d6df0cfd5b90dedfbf8608371ebecfef3f1"
+      "sha256": "d2c30d4864c084420a1578dc818dda27343f2ebb743df0eb08e6535bfdc7789b"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -1491,6 +1503,10 @@
       "sha256": "9fbd9ab4c93699bb6a1a031e8e392237564d19ec1f43d793219e4ca43797da00"
     },
     {
+      "path": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
+      "sha256": "2a2ce3a648842572e7ab2ed2dd435830681c034aca25f1748764f862bdfac5c1"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
@@ -1524,7 +1540,7 @@
     },
     {
       "path": "scripts/binary_notices.py",
-      "sha256": "4f47deca3c7f59a23dc6c9586ab312ff8fadbb30edcf1f06252d4d9eee846622"
+      "sha256": "5abb3baefb2212c05da4a5e87e84a5742e8188e6386d55c83e251f751a2b47e8"
     },
     {
       "path": "scripts/command_errors.py",
@@ -1533,6 +1549,10 @@
     {
       "path": "scripts/command_output.py",
       "sha256": "cc0deb39e5d4fa5fc8fde4d2d073d352b2381627cfc39a7478df2f9c0064876b"
+    },
+    {
+      "path": "scripts/corresponding_sources.py",
+      "sha256": "47b140f81163dae7aa6356b01243609bd34a8d84cc61bb0d2a1a9eca31037ed5"
     },
     {
       "path": "scripts/demo_fixtures.py",
@@ -1544,7 +1564,7 @@
     },
     {
       "path": "scripts/license_evidence.py",
-      "sha256": "e958e616edb5559a51d3850a68e892fd68c0db7a9276dee2cd0e29632481d5ef"
+      "sha256": "ac8a6fed301d7ff17df831c7ec6cba84c7ceba9e508d3d7e35bc80f41e32ac35"
     },
     {
       "path": "scripts/local_images.py",
@@ -1552,7 +1572,11 @@
     },
     {
       "path": "scripts/open_source_gate.py",
-      "sha256": "bddc27c19f1683815d45b04125e943f1b25aabd5811cc869aa476db4cb99333d"
+      "sha256": "e8bb43f2f80b74b954b1e7d0c01b21eb5f453ea8c25405d89839962c3f246e6d"
+    },
+    {
+      "path": "scripts/prepare_distribution.py",
+      "sha256": "40a0f146e3a6db78c8191e0e6959c5c20a58b8267420cfeb0c05c95c8bbdc820"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1569,6 +1593,10 @@
     {
       "path": "scripts/release_local.py",
       "sha256": "cca994eb25f331ad8114d5e92f212e6a6849bd59aa9db287c8021c07eae15cf6"
+    },
+    {
+      "path": "scripts/release_preflight.py",
+      "sha256": "3e57312a46041b9e6633f0463acbf477a4f27553043d6d3ec5743dbf6872d87b"
     },
     {
       "path": "scripts/release_source.py",
@@ -1589,6 +1617,10 @@
     {
       "path": "scripts/sync_version.py",
       "sha256": "6e3b7502847d7ddcb273d2a3cc478752808ef79430744cf3917ddd589fd9183a"
+    },
+    {
+      "path": "scripts/test_pillow_relink.py",
+      "sha256": "b6b93c8280f8aa49fa62f3f54958047f0e667289286dccf099ad86a5d0052ed9"
     },
     {
       "path": "scripts/unified_images.py",
@@ -1616,7 +1648,7 @@
     },
     {
       "path": "tests/debian_image_probe.py",
-      "sha256": "33f1f8ac38eae3fc88c82d0720e3446363c46fc39ecef3a2fbb6ab9de57c3a84"
+      "sha256": "d32b8c382cc8323a7256fd41eb1b4e9ec737b2280154ca3e74793a501e048dc6"
     },
     {
       "path": "tests/docker_installation.py",
@@ -1657,6 +1689,10 @@
     {
       "path": "tests/lgpl_replacement_probe.py",
       "sha256": "cc502110ee6c474c4c8d723fdfb9e8e0cbe264a063d068429fd8b821355395f1"
+    },
+    {
+      "path": "tests/pillow_relink_probe.py",
+      "sha256": "1b1b5ba443392deb01cd8e3db11eb730a7a16039e8ca444d4bec0909f569c519"
     },
     {
       "path": "tests/synthetic_upgrade_probe.py",
@@ -1729,6 +1765,10 @@
     {
       "path": "tests/test_content.py",
       "sha256": "84df6cc1b519fa86734949791f1ef69b280e38189ddae3d3106b2732db4001ef"
+    },
+    {
+      "path": "tests/test_corresponding_sources.py",
+      "sha256": "af775664858f9c8be3764946b5aeeb50a3b711835b0243d93a22457f9b5aea0e"
     },
     {
       "path": "tests/test_demo_fixtures.py",
@@ -1856,7 +1896,7 @@
     },
     {
       "path": "tests/test_open_source_gate.py",
-      "sha256": "a98a26b210d3b3b3ec417098e9a27c293e98750d1ffe3f991527edf4ac851fbd"
+      "sha256": "29741357b02aae0b8ea99ddd4150ade35482eea2388a88c67587a57ed88957cf"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -1875,12 +1915,16 @@
       "sha256": "0401893f4f1a404329047d78efac72269f91de3be9859703438b14d7f1bfee10"
     },
     {
+      "path": "tests/test_prepare_distribution.py",
+      "sha256": "b69560efc93df63476e2d63d84b632ad7927a21a1038d78c6bc3eb3d059b865d"
+    },
+    {
       "path": "tests/test_product_version.py",
       "sha256": "dd4c8fdb6158b88759d7ad4a53671710ba149abb58229514852d9884c277ca89"
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "cac6275e3d3cd29f76dfbcc70f482327a5ce9d9cd57662195878563174e25ee7"
+      "sha256": "e0f16c3d5c19ffd6aa56d9a3562d755270101d3685546f8ce4f9b5fed327f281"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -1944,11 +1988,11 @@
     },
     {
       "path": "third_party/BINARY_NOTICE.md",
-      "sha256": "970b5cfa792555d1c1388d57f57603d45fc495eb39212789a6c63f60f25bad70"
+      "sha256": "06b10d736c4b0bae194767303214fdb0210fc6751bac979d8388e29f6313f1ef"
     },
     {
       "path": "third_party/LGPL_REPLACEMENT.md",
-      "sha256": "da28ec11a88b67f2f7cf5150ec7ed2edd719034a48a90405c8e5c3aa15745f3c"
+      "sha256": "84a500758e44347d682303c4bb2af7c6e63b52a44192edd5311b0dc9525e31e3"
     },
     {
       "path": "third_party/README.md",
@@ -1956,7 +2000,11 @@
     },
     {
       "path": "third_party/REDISTRIBUTION.md",
-      "sha256": "e93f04991ea7034f2d7dad38ee33a3cb87c151854fed687faa8c89ff1f9c0f23"
+      "sha256": "e7dcf540d8395e5e992abfeb98ee331a5e227a76295fb6b518586e2d25998d0f"
+    },
+    {
+      "path": "third_party/SOURCE_BUILD.md",
+      "sha256": "98bb4af97c40c03393fd8b1ec95e9c984740d47b64e9f398e4ac594dd621c09d"
     },
     {
       "path": "third_party/SOURCE_REVIEW.md",
@@ -3628,7 +3676,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "fe677b094286e1328635932df890dc74a602a747a01ffe937433f7f01563497a"
+      "sha256": "cf6cddc813b9d512d07ea8b36f4c23a4481b73197710a7f831f945e6443a720d"
     },
     {
       "path": "third_party/source-scope.json",
@@ -3643,10 +3691,11 @@
   ],
   "maintenance": {
     "based_on_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
-    "scope": "Public source maintenance and binary-release preparation tooling/legal notices/tests; no business, schema, original-license or initial-snapshot changes",
+    "scope": "Public source plus owner-authorized formal binary release tooling; no business/schema/private-history changes. Binary artifacts are separate from tracked source.",
     "initial_snapshot_identity": "docs/initial-source-snapshot.json",
     "source_commit_semantics": "Original export origin only, not the current maintained Git commit",
     "final_review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa",
-    "release_preparation_baseline": "e00b80e866d9686458963efe3ade2d658b9c56b0"
+    "release_preparation_baseline": "e00b80e866d9686458963efe3ade2d658b9c56b0",
+    "formal_release_authorization": "licensing/BINARY_RELEASE_AUTHORIZATION.json"
   }
 }

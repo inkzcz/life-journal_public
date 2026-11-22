@@ -1,38 +1,37 @@
-# v5.1.9 Release 准备（草稿）
+# v5.1.9 正式发行门禁
 
-## 本轮正式候选准备（优先于下方历史验收记录）
+所有者于本次对话明确授权：完成必要法律条件和最终CI后，将PR #2转为Ready、普通Merge commit合并，
+在合并后的main创建新Annotated Tag v5.1.9，并由Actions构建、保存、创建非预发行Release和上传附件。
+本记录不伪造签名或精确确认时间；授权范围见 licensing/BINARY_RELEASE_AUTHORIZATION.json。
+原私有仓库、NAS及生产数据库/媒体/备份不在操作范围；不推送Registry、不覆盖历史Tag/Release。
 
-起点是公开 main `e00b80e866d9686458963efe3ade2d658b9c56b0`，维护 PR #1 已由所有者合并。
-本轮在 `release/prepare-v5.1.9` 修改，待独立 PR 审核，不修改 main、原私有仓库或生产部署。
-版本仍为 v5.1.9 候选；正式发布尚未批准。Linux CI 使用提交限定的候选标签，避免覆盖已有同名镜像。
-最终受审构建才使用 `life-journal:v5.1.9` / `life-journal-app-v5.1.9-amd64.tar`。
+Windows Docker Desktop、极空间Z4S为**待本地验收**，由所有者发布后自行验证，不再是前置条件。
+UPGRADE-001保留为历史已知问题，不阻塞发行，也不宣称已修复。数据库版本/Alembic/备份恢复门禁仍强制。
 
-| 当前范围 | 状态 |
-| --- | --- |
-| Linux 源码/后端/前端/敏感信息/许可证测试 | 本分支实际结果以 PR Checks 与报告为准；不能复用 main 或旧候选的绿色记录 |
-| Linux 单业务 TAR/全部镜像层/重复 load/四容器/备份/独立恢复 | 本分支 CI 实际生成和验证临时产物，不上传；本地可留存最终产物仍受存储限制 |
-| LGPL 替换 | 新增修改后 Psycopg 的真实 PG17 查询探针，须本分支 Docker CI 实际完成 |
-| Windows Docker Desktop | **待本地验收**；本正式候选没有实机结果，不沿用旧版测试 |
-| 极空间 Z4S | **待本地验收**；不连接 NAS，不操作现有数据库/媒体 |
-| UPGRADE-001 | 历史失败原因未确认；合成迁移证据不构成历史路径已修复 |
-| 二进制许可/对应源码 | 通知及部分验证/源码收集已补齐；精确对应源码、内附库/构建配方及与可留存最终 TAR 绑定仍为发布阻塞，见 REDISTRIBUTION.md |
-| 正式发布权限 | **待最终产物再次批准**；本轮不创建 Tag/Release、不上传 TAR、不推送 Registry |
+## 每次实际构建必须通过
 
-本地可复现命令（需充足磁盘、一个空交付父目录及本地 Linux Docker；不加默认 `--pull`）：
+1. 公开源码/原许可证/逐文件来源与敏感信息检查；最终PR HEAD与合并main的真实CI成功。
+2. 固定Linux/amd64基础镜像digest与运行依赖版本，单业务镜像构建、单业务TAR、源码及配置身份、SHA256、重复load、全部镜像层扫描。
+3. Debian/Python/PG17工具/Caddy、四容器健康、登录/持久化、完整备份与独立恢复。PG数据库镜像只作为独立CI设施，不在业务交付。
+4. Psycopg C扩展从其sdist编译并动态链接系统libpq；实际修改库执行PG17查询。Pillow保留图片功能，LGPL shim必须实际修改源码、重编译/重链接后加载并验证接口。
+5. 每个实际安装Debian/PGDG包的精确.dsc及orig/补丁源码，Python sdist和原生构建收据，Rust锁定源码，实际Go模块/通知及浏览器首选源码；任何组件缺失就失败。
+6. sources.json与实际目录逐文件相符；拒绝额外ZIP、配置、数据库或未登记文件。输出仅白名单10附件，原始日志、合成DB、备份/媒体不进入Artifact。
+7. 对应源码包DISTRIBUTION_MANIFEST绑定本次TAR SHA256、镜像config、源码提交和依赖版本；SHA256SUMS记录实际所有附件。成对保存源码与二进制，不能用上游URL或旧410参考目录替代。
 
-```sh
-revision=$(git rev-parse HEAD)
-python scripts/release_local.py --version v5.1.9 --revision "$revision" --output-dir /PRIVATE/NEW/delivery
-python scripts/image_private_keys.py --archive /PRIVATE/NEW/delivery/v5.1.9/life-journal-app-v5.1.9-amd64.tar
-```
+## Actions与正式发行
 
-交付工具只构建/校验/导出一个业务镜像，不查询或打包 PostgreSQL 镜像。
-隔离 Docker 验收另外要求已预备的官方 PG17 测试镜像；这不是交付内容，也不是生产部署步骤。
-空间不足、对应源码不全或产物未留存时，不能把 CI 的临时 TAR 哈希写成已具备下载条件的最终产物。
+ci.yml对准备分支和main保存已完成上述门禁的成对候选附件；PR运行验证相同步骤但不上传。
+release.yml仅响应本仓库新v5.1.9标签：只读预检验证Annotated Tag正好指向PR #2的普通合并提交及已成功main CI；
+然后复用同一Docker验收/源码门禁，构建正式 life-journal:v5.1.9 和 life-journal-app-v5.1.9-amd64.tar。
+只有最后的publish作业持有contents:write，且不执行业务代码，核验所有附件后创建Release。
+随后重新下载附件、核对全部SHA256和实际TAR架构，完成后才可报告成功。
+CI源代码门禁对这两份工作流采用独立所有者授权与逐字节审核哈希，不对其他写权限/上传/发布放行。
 
-正式批准前还须：合并已通过 CI 的发行 PR、确定最终源码提交、留存并绑定业务 TAR/完整源码法律包及其全部 SHA256，
-逐项解除许可证义务；完成平台验收或由所有者在最终审核中明确接受该缺口；明确 UPGRADE-001 支持范围/风险。
-最终批准必须针对实际产物，不能沿用源码首次公开的 A/B 授权。安装及恢复继续遵守原迁移/备份门禁。
+发行附件：唯一业务TAR、完整源码与许可证包、部署ZIP、manifest/images、SHA256SUMS和安装/升级/限制/Release说明。
+SHA与提交以实际附件为准，测试候选标签/哈希不能冒充正式发行。既有Linux结果不做无意义重复；原生库形态变化所影响的回归和最终构建必须真实执行。
+
+具体分发义务见 third_party/REDISTRIBUTION.md、SOURCE_BUILD.md；安装/升级/恢复分别见 install.md、upgrade.md、backup-restore.md。
+下面保留旧准备阶段的历史限制与验证结果，仅作背景，已被本轮明确发布授权更新的阻塞不再适用。
 
 <details>
 <summary>公开后首次维护的历史验收记录（不替代本次候选）</summary>

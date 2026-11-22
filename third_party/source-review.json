@@ -2,7 +2,7 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "Public-main-based binary release preparation: original browser notice tooling, in-image legal inventory/copies, verified source retention, synthetic LGPL replacement and honest release limits; business/schema and 410 legal texts unchanged",
+  "current_delta": "Owner-authorized formal v5.1.9 execution: source-built dynamically linked psycopg-c, fixed base digests/runtime versions, exact upstream source collection, complete artifact binding, modified LGPL Pillow relink, scoped CI artifact/release workflows and updated acceptance policy",
   "reviewed_on": "2026-11-22",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
@@ -139,6 +139,14 @@
       "source": "Owner-authorized release preparation: original build-time inventory/notice scripts, synthetic replacement test and documentation; uses standard Node/Python APIs and existing independently authored Go metadata parser, no new copied implementation or dependency",
       "license": "GPL-3.0-or-later for owner-controlled original increments; upstream notices remain verbatim with original grants",
       "decision": "Reviewed exact staged delta for new code/assets/dependencies and attribution. No third-party legal text modified; no private source imported; binary source closure and final distribution approval remain pending."
+    },
+    {
+      "id": "P004",
+      "review_date": "2026-11-22",
+      "review_baseline": "0aec51523a33bd2022d912dd51142b989414be07",
+      "source": "Owner explicit formal Release instruction; original project source collectors, provenance/receipt validation, isolated library build tests and publication workflow authored for this task. Standard Debian control/Git/GitHub/PyPI/npm/Go/Cargo interfaces, no third-party implementation copied into tracked source.",
+      "license": "GPL-3.0-or-later for owner-controlled original increments; all original and third-party legal grants retained.",
+      "decision": "Reviewed new/changed tracked code, configuration, documentation and policy boundaries. Published dependency implementations are fetched only into separate integrity-checked distribution materials. No private source/data imported; original 410 legal texts unchanged. Binary upload requires full per-artifact source/notices and replacement gates, not this metadata alone."
     }
   ],
   "files": [
@@ -147,9 +155,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "a6e1a9ef37f40e691663ca5544f8399c12ce16e0bc3b15a5be7c0a1cdc865027"
+      "sha256_canonical": "6a9193ffe88a316abb8e9c7b3755c382810e375d34aede5d1d285287a0af2bf1"
     },
     {
       "path": ".env.example",
@@ -183,9 +192,18 @@
         "R001",
         "J001",
         "P001",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "f39a33e186b34cdd43e2d01670c056ed34ae3e9c40c4380296f5bf964a318906"
+      "sha256_canonical": "ba7ab167862eca5f205108399ba683e72a50747847c7f7dd0618e12cc6f665a1"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "03d5d47328f6223b84b8a08de1ff57de800211b2721bc154003e3fb377eab34f"
     },
     {
       "path": ".gitignore",
@@ -227,9 +245,10 @@
       "evidence": [
         "R001",
         "J001",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "bf05a13aa39f3111bfd42481125d4f04b5e3c36431a65aad7d35be73f3a989a3"
+      "sha256_canonical": "e51910e41ef062548a9f197930137a794c3cb94cdddbdf80d4113be04fddf0c9"
     },
     {
       "path": "LICENSE",
@@ -244,9 +263,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P004"
       ],
-      "sha256_canonical": "9583d765dcb90dff35313887f6b32a8bd40a548f41cbee5eac92633955cbd9ef"
+      "sha256_canonical": "4d77ce028e5c7d3eba6c716dbd715813a1d01590ccf286cf90707796233dfe22"
     },
     {
       "path": "SECURITY.md",
@@ -1428,6 +1448,14 @@
       "sha256_canonical": "77c1ae53d1fde3c38ef7b76b3e1f1991b7d9c4d7db91462bb68acdeb6a15fcea"
     },
     {
+      "path": "backend/constraints-release.txt",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "babd76a6969bcb5a58a1042731df423e3c624646657599d82d74cc638c96304c"
+    },
+    {
       "path": "backend/requirements-browser.txt",
       "classification": "project-config-with-external-references",
       "evidence": [
@@ -1450,9 +1478,10 @@
       "classification": "project-config-with-external-references",
       "evidence": [
         "R001",
-        "J001"
+        "J001",
+        "P004"
       ],
-      "sha256_canonical": "66783fdc69f329557b3e8287ba4d5db24866246d611c0b6bf18f7d1494ac6560"
+      "sha256_canonical": "6ef88f9ca2f04420e6736e3771f9732816654990d4ca76780d417d1bdf108c0c"
     },
     {
       "path": "compose.nas.yaml",
@@ -1523,9 +1552,10 @@
       "evidence": [
         "J001",
         "P001",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "38b50138ecbbef0697ef76ec39b134dd70eb22a12b25885c5d53bbb5f7ce603b"
+      "sha256_canonical": "fb7d314e5bd8667b99788ed00f459019b05203d5d21cd333f35ca8aa0938c125"
     },
     {
       "path": "docs/licensing.md",
@@ -1555,13 +1585,22 @@
       "sha256_canonical": "0598883293921377ea3348090c10958234bffb8f96678e0cc99b73f8e249a80f"
     },
     {
+      "path": "docs/release-notes-v5.1.9.md",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "13ae15237978bfca1ebf30db04bc309eadf7c804713986de9d18746b86becee4"
+    },
+    {
       "path": "docs/release-v5.1.9.md",
       "classification": "owner-declared-project-material",
       "evidence": [
         "P001",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "54075e811a7dc872f4a2dd1c287e016ba85c68ba10a4487e67e49b0616085e5b"
+      "sha256_canonical": "88d53b734c883d7ab6cfbe20cd72922dde79b50d40606e3953239d024d97c5b5"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -3156,6 +3195,14 @@
       "sha256_canonical": "28e65d9cd093b599995644a4fb1563c17b78f466a54bda8c924e325f4bdca30f"
     },
     {
+      "path": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "0879cc9a36e23f66c1e8ef38d5b5943660ccb9ca3adc2aca2416720cf421eef8"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "classification": "retained-license-text-or-historical-draft",
       "evidence": [
@@ -3224,9 +3271,10 @@
       "path": "scripts/binary_notices.py",
       "classification": "project-original-binary-release-preparation",
       "evidence": [
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "4f47deca3c7f59a23dc6c9586ab312ff8fadbb30edcf1f06252d4d9eee846622"
+      "sha256_canonical": "5abb3baefb2212c05da4a5e87e84a5742e8188e6386d55c83e251f751a2b47e8"
     },
     {
       "path": "scripts/command_errors.py",
@@ -3243,6 +3291,14 @@
         "J001"
       ],
       "sha256_canonical": "cc0deb39e5d4fa5fc8fde4d2d073d352b2381627cfc39a7478df2f9c0064876b"
+    },
+    {
+      "path": "scripts/corresponding_sources.py",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "47b140f81163dae7aa6356b01243609bd34a8d84cc61bb0d2a1a9eca31037ed5"
     },
     {
       "path": "scripts/demo_fixtures.py",
@@ -3268,9 +3324,10 @@
       "evidence": [
         "S002",
         "J001",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "e958e616edb5559a51d3850a68e892fd68c0db7a9276dee2cd0e29632481d5ef"
+      "sha256_canonical": "ac8a6fed301d7ff17df831c7ec6cba84c7ceba9e508d3d7e35bc80f41e32ac35"
     },
     {
       "path": "scripts/local_images.py",
@@ -3284,9 +3341,18 @@
       "path": "scripts/open_source_gate.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P004"
       ],
-      "sha256_canonical": "bddc27c19f1683815d45b04125e943f1b25aabd5811cc869aa476db4cb99333d"
+      "sha256_canonical": "7710caef510026caf27b38fa2df1ff8ff1adc60ea8cf82f6b2064dfdd3a92151"
+    },
+    {
+      "path": "scripts/prepare_distribution.py",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "9e24845c005150a62747486fd3e890e9c61894ef8c3335ac763c7f8dc532ad50"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -3319,6 +3385,14 @@
         "J001"
       ],
       "sha256_canonical": "cca994eb25f331ad8114d5e92f212e6a6849bd59aa9db287c8021c07eae15cf6"
+    },
+    {
+      "path": "scripts/release_preflight.py",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "2b6ee2ef5d1d71a591373f39a6492d0f5c7f0baf1115f6e7069f8fc80d673798"
     },
     {
       "path": "scripts/release_source.py",
@@ -3359,6 +3433,14 @@
         "J001"
       ],
       "sha256_canonical": "6e3b7502847d7ddcb273d2a3cc478752808ef79430744cf3917ddd589fd9183a"
+    },
+    {
+      "path": "scripts/test_pillow_relink.py",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "b6b93c8280f8aa49fa62f3f54958047f0e667289286dccf099ad86a5d0052ed9"
     },
     {
       "path": "scripts/unified_images.py",
@@ -3414,9 +3496,10 @@
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
         "J005",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "33f1f8ac38eae3fc88c82d0720e3446363c46fc39ecef3a2fbb6ab9de57c3a84"
+      "sha256_canonical": "d32b8c382cc8323a7256fd41eb1b4e9ec737b2280154ca3e74793a501e048dc6"
     },
     {
       "path": "tests/docker_installation.py",
@@ -3499,6 +3582,14 @@
         "P003"
       ],
       "sha256_canonical": "cc502110ee6c474c4c8d723fdfb9e8e0cbe264a063d068429fd8b821355395f1"
+    },
+    {
+      "path": "tests/pillow_relink_probe.py",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "1b1b5ba443392deb01cd8e3db11eb730a7a16039e8ca444d4bec0909f569c519"
     },
     {
       "path": "tests/synthetic_upgrade_probe.py",
@@ -3644,6 +3735,14 @@
         "J005"
       ],
       "sha256_canonical": "84df6cc1b519fa86734949791f1ef69b280e38189ddae3d3106b2732db4001ef"
+    },
+    {
+      "path": "tests/test_corresponding_sources.py",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "af775664858f9c8be3764946b5aeeb50a3b711835b0243d93a22457f9b5aea0e"
     },
     {
       "path": "tests/test_demo_fixtures.py",
@@ -3902,9 +4001,10 @@
       "path": "tests/test_open_source_gate.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P004"
       ],
-      "sha256_canonical": "a98a26b210d3b3b3ec417098e9a27c293e98750d1ffe3f991527edf4ac851fbd"
+      "sha256_canonical": "c29eeb475449eba6427f6ef6ab5426bce198ea173ee2a1ae932f4c3d6637cbac"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -3939,6 +4039,14 @@
       "sha256_canonical": "0401893f4f1a404329047d78efac72269f91de3be9859703438b14d7f1bfee10"
     },
     {
+      "path": "tests/test_prepare_distribution.py",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "b69560efc93df63476e2d63d84b632ad7927a21a1038d78c6bc3eb3d059b865d"
+    },
+    {
       "path": "tests/test_product_version.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
@@ -3950,9 +4058,10 @@
       "path": "tests/test_public_contract.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
-        "J005"
+        "J005",
+        "P004"
       ],
-      "sha256_canonical": "cac6275e3d3cd29f76dfbcc70f482327a5ce9d9cd57662195878563174e25ee7"
+      "sha256_canonical": "e3aadd034db14ea0bb5d4ec8255b1ab8049f5a3a18ec346b71f442ded450fdb8"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -4078,17 +4187,19 @@
       "path": "third_party/BINARY_NOTICE.md",
       "classification": "project-original-binary-release-preparation",
       "evidence": [
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "970b5cfa792555d1c1388d57f57603d45fc495eb39212789a6c63f60f25bad70"
+      "sha256_canonical": "06b10d736c4b0bae194767303214fdb0210fc6751bac979d8388e29f6313f1ef"
     },
     {
       "path": "third_party/LGPL_REPLACEMENT.md",
       "classification": "project-original-binary-release-preparation",
       "evidence": [
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "da28ec11a88b67f2f7cf5150ec7ed2edd719034a48a90405c8e5c3aa15745f3c"
+      "sha256_canonical": "84a500758e44347d682303c4bb2af7c6e63b52a44192edd5311b0dc9525e31e3"
     },
     {
       "path": "third_party/README.md",
@@ -4106,9 +4217,18 @@
         "R002",
         "J006",
         "P001",
-        "P003"
+        "P003",
+        "P004"
       ],
-      "sha256_canonical": "e93f04991ea7034f2d7dad38ee33a3cb87c151854fed687faa8c89ff1f9c0f23"
+      "sha256_canonical": "e7dcf540d8395e5e992abfeb98ee331a5e227a76295fb6b518586e2d25998d0f"
+    },
+    {
+      "path": "third_party/SOURCE_BUILD.md",
+      "classification": "project-original-formal-release-engineering",
+      "evidence": [
+        "P004"
+      ],
+      "sha256_canonical": "98bb4af97c40c03393fd8b1ec95e9c984740d47b64e9f398e4ac594dd621c09d"
     },
     {
       "path": "third_party/SOURCE_REVIEW.md",
@@ -7460,7 +7580,8 @@
         "J006",
         "P001",
         "P002",
-        "P003"
+        "P003",
+        "P004"
       ],
       "sha256_canonical": null
     },

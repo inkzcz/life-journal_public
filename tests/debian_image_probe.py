@@ -53,6 +53,15 @@ for name in ('initdb', 'pg_ctl', 'postgres', 'pg_dump', 'pg_restore'):
     tools[name] = {'path': path, 'version': version}
 assert not run('pg_lsclusters', '-h'), 'Unexpected baked database cluster'
 assert not shutil.which('node') and not shutil.which('npm')
+assert not shutil.which('gcc'), 'Build compiler must not enter the final runtime'
+import psycopg, psycopg_c.pq
+assert psycopg.pq.__impl__ == 'c'
+pq_linkage=run('ldd',psycopg_c.pq.__file__)
+assert 'libpq.so.5' in pq_linkage and 'not found' not in pq_linkage and '.libs/' not in pq_linkage
+from PIL import features
+pillow_features={name:features.version(name) for name in features.get_supported()}
+assert features.check('jpg') and features.check('webp') and features.check('avif')
+assert not features.check('libimagequant'), 'Unexpected optional GPL imagequant build requires separate source review'
 caddy = run('caddy', 'version')
 linked = subprocess.run(['ldd', '/usr/bin/caddy'], text=True, capture_output=True)
 linkage = linked.stdout + linked.stderr
@@ -79,7 +88,7 @@ with ThreadingHTTPServer(('127.0.0.1', 0), Healthy) as server:
         server.shutdown()
         thread.join(timeout=5)
 packages = run('dpkg-query', '-W', '-f=${Package}=${Version}\n', 'libc6', 'libpq5', 'postgresql-17', 'postgresql-client-17', 'ca-certificates')
-print(json.dumps({'python': sys.version, 'executable': sys.executable, 'libc': platform.libc_ver(), 'os': release, 'tools': tools, 'caddy': caddy, 'caddy_linkage': linkage.strip(), 'wget_compose_healthcheck': 'passed', 'packages': packages, 'uid': os.getuid(), 'gid': os.getgid(), 'preserved_legal_texts':len(notices), 'browser_packages':len(browser['packages']), 'binary_source_closure':'pending'}, ensure_ascii=False))
+print(json.dumps({'python': sys.version, 'executable': sys.executable, 'libc': platform.libc_ver(), 'os': release, 'tools': tools, 'caddy': caddy, 'caddy_linkage': linkage.strip(), 'wget_compose_healthcheck': 'passed', 'packages': packages, 'uid': os.getuid(), 'gid': os.getgid(), 'preserved_legal_texts':len(notices), 'browser_packages':len(browser['packages']), 'binary_source_closure':'verified-by-companion-package-only', 'psycopg_c_linkage':pq_linkage,'pillow_features':pillow_features}, ensure_ascii=False))
 '''
 
 if __name__ == '__main__':
@@ -100,6 +109,7 @@ if __name__ == '__main__':
         '--entrypoint', 'python', '-i', 'life-journal:' + args.image_tag, '-c', PROBE,
     ], text=True)
     report = json.loads(output)
+    report['image_tag'] = args.image_tag
     report['default_snakeoil_key_and_certificate_absent'] = True
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(report, ensure_ascii=False, indent=2))

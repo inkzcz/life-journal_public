@@ -15,6 +15,7 @@ frontend/**
 !backend/
 backend/**
 !backend/requirements.txt
+!backend/constraints-release.txt
 !backend/alembic.ini
 !backend/app/
 !backend/app/**
@@ -30,6 +31,7 @@ scripts/**
 third_party/**
 !third_party/BINARY_NOTICE.md
 !third_party/LGPL_REPLACEMENT.md
+!third_party/SOURCE_BUILD.md
 !third_party/notice-index.json
 !third_party/licenses/
 third_party/licenses/**
