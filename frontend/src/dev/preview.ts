@@ -2,7 +2,7 @@
 import {createApp,h} from 'vue'
 import {createRouter,createMemoryHistory,RouterView} from 'vue-router'
 import {blankSite} from '../blog/types'
-import {installAppearance} from '../ui/theme'
+import {installAppearance,activeAppearance} from '../ui/theme'
 import Preview from './WritingPreview.vue'
 import '../ui/tokens.css'
 import '../blog/themes.css'
@@ -29,7 +29,7 @@ window.fetch=async(input,options={})=>{
  // Fail closed: no real API, external URL or private content is ever fetched.
  if(url.origin!==location.origin||!path.startsWith('/api/'))throw Error('Synthetic preview refuses network access')
  if(path==='/api/auth/csrf')return json({csrf_token:'synthetic-preview-only'})
- if(path==='/api/blog/site')return json(blankSite())
+ if(path==='/api/blog/site')return json({...blankSite(),appearance:activeAppearance.value})
  if(path==='/api/admin/status')return json({is_admin:true})
  if(path==='/api/admin/content/types')return json([base])
  if(path==='/api/admin/templates')return json([])

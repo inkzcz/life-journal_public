@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import secrets
 import subprocess
 import sys
@@ -11,6 +12,22 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from scripts.command_errors import summarize
 from scripts import local_images
+
+
+def reviewed_relink_tag(tag):
+    candidate=re.fullmatch(r'v5\.1\.(?:9|10)-candidate\.([0-9a-f]{7,40})',tag)
+    if tag!='v5.1.9' and candidate is None:
+        raise ValueError('Only v5.1.9 or explicitly reviewed development candidates are accepted')
+    return candidate
+
+
+def validate_relink_image(tag,image):
+    candidate=reviewed_relink_tag(tag)
+    labels=(image or {}).get('Config',{}).get('Labels',{})
+    revision=labels.get('org.opencontainers.image.revision','')
+    if not re.fullmatch('[0-9a-f]{40}',revision) or candidate and not revision.startswith(candidate[1]):
+        raise ValueError('Relink candidate tag does not match source revision')
+    local_images.validate_image(image,revision,tag)
 
 
 def main():
@@ -21,10 +38,12 @@ def main():
     args=parser.parse_args()
     if args.output.exists() or args.output.is_symlink():
         parser.error('New report path required; nothing overwritten')
-    if not (args.image_tag=='v5.1.9' or args.image_tag.startswith('v5.1.9-candidate.')):
-        parser.error('Only the explicitly reviewed v5.1.9 image is accepted')
+    try:reviewed_relink_tag(args.image_tag)
+    except ValueError as error:parser.error(str(error))
     # Reuse the same remote-Docker rejection as the business delivery tools.
-    local_images.local_context(local_images.Docker())
+    commands=local_images.Docker()
+    local_images.local_context(commands)
+    validate_relink_image(args.image_tag,local_images.inspect(commands,'life-journal:'+args.image_tag))
     private=Path(os.environ['RUNNER_TEMP']).resolve()
     receipts=json.loads((args.sources/'sources.json').read_text())
     package=next(r for r in receipts['records'] if r.get('ecosystem')=='pypi' and r['name'].lower()=='pillow')

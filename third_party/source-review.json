@@ -1656,7 +1656,7 @@
       "evidence": [
         "P006"
       ],
-      "sha256_canonical": "f4d32459b5588c5b41456a4fcfd6e04c4790f8c56582dec814deec988d03dbeb"
+      "sha256_canonical": "d0865f8232e9827e76e18fcc0d4b21fff721c03b084aa180b3d1ddc98f1ab0fb"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -2251,7 +2251,7 @@
       "evidence": [
         "P006"
       ],
-      "sha256_canonical": "85c7b5eeb191e0cb5b7ac9c4d0a3222a0156c002cd8bcd1ef8e1edcfc689e806"
+      "sha256_canonical": "8e35da0e76d342a2990f79c76e96ca5ea8f67eaa1dcd70ae28d699c8c6d72cf9"
     },
     {
       "path": "frontend/src/dev/preview.ts",
@@ -2259,7 +2259,7 @@
       "evidence": [
         "P006"
       ],
-      "sha256_canonical": "38e46146dc8478d4dfc49740295edb9e4fa2925f2cd1270f36b1b1e964501049"
+      "sha256_canonical": "0fe5b407873211f65ecd6bd4b950e3e64d1e0318b1db1f65faa99ea6da363b0b"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
@@ -3536,9 +3536,10 @@
       "path": "scripts/test_pillow_relink.py",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
-        "P004"
+        "P004",
+        "P006"
       ],
-      "sha256_canonical": "b6b93c8280f8aa49fa62f3f54958047f0e667289286dccf099ad86a5d0052ed9"
+      "sha256_canonical": "a9f2e0625f78263f2fc21357e277d854971a7b40d733a886b69fb281febc4dde"
     },
     {
       "path": "scripts/unified_images.py",
@@ -3578,7 +3579,7 @@
       "evidence": [
         "P006"
       ],
-      "sha256_canonical": "15a449c0895aec77c1d3870b2927b147872bdb5b682b629475a62be6b9a9c723"
+      "sha256_canonical": "6528850429f0132f919818b1cafd462f357e85945c472165fa834a31ebb5cadc"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -4177,7 +4178,7 @@
         "P005",
         "P006"
       ],
-      "sha256_canonical": "87a7d05ecbc4f09ba59b4df8e05bab51b687d3e42672c5cf6fdead62c37f37ba"
+      "sha256_canonical": "d6b23e639df8b38e2d838d89e3f02558d827333621f9201101b1d5c627e78d4c"
     },
     {
       "path": "tests/test_product_version.py",

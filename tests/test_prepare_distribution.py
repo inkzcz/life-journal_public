@@ -5,6 +5,34 @@ import zipfile
 import pytest
 
 from scripts import prepare_distribution as delivery
+from scripts.test_pillow_relink import validate_relink_image
+
+
+def test_lgpl_drill_accepts_only_reviewed_source_bound_candidates():
+    revision='a'*40;tag='v5.1.10-candidate.'+revision[:7]
+    image={'Architecture':'amd64','Os':'linux','Config':{'Labels':{
+        'org.opencontainers.image.revision':revision,'org.opencontainers.image.version':tag,
+        'org.opencontainers.image.source':'https://github.com/inkzcz/life-journal_public'}}}
+    validate_relink_image(tag,image)
+    for bad in ('v5.1.10','v5.1.11-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7,
+                'v5.1.10-candidate.latest','v5.1.9-candidate.invalid'):
+        with pytest.raises(ValueError):validate_relink_image(bad,image)
+    import copy
+    for key,value in (('Architecture','arm64'),('Os','windows')):
+        modified=copy.deepcopy(image);modified[key]=value
+        with pytest.raises(ValueError):validate_relink_image(tag,modified)
+    modified=copy.deepcopy(image);modified['Config']['Labels']['org.opencontainers.image.source']='https://example.invalid'
+    with pytest.raises(ValueError):validate_relink_image(tag,modified)
+
+
+def test_formal_new_version_is_rejected_before_docker_or_source_access(tmp_path,monkeypatch):
+    from scripts import test_pillow_relink as relink
+    import sys
+    monkeypatch.setattr(sys,'argv',['relink','--image-tag','v5.1.10',
+        '--sources',str(tmp_path/'not-read'),'--output',str(tmp_path/'not-written')])
+    monkeypatch.setattr(relink.local_images,'Docker',lambda:pytest.fail('Unapproved tag must not contact Docker'))
+    with pytest.raises(SystemExit) as caught:relink.main()
+    assert caught.value.code==2 and not (tmp_path/'not-written').exists()
 
 
 def test_development_validation_does_not_extend_the_old_release_authorization():
