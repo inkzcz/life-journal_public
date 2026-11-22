@@ -1656,7 +1656,7 @@
       "evidence": [
         "P006"
       ],
-      "sha256_canonical": "bf574fa1b4e4437908d3ad89ba8703a48cc82ca0a348a0572639f25059ecb6a3"
+      "sha256_canonical": "f4d32459b5588c5b41456a4fcfd6e04c4790f8c56582dec814deec988d03dbeb"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -3623,7 +3623,7 @@
       "evidence": [
         "P006"
       ],
-      "sha256_canonical": "bcb1913bbf429f8a19bbb9a77e4802c24b56d9f5a2922fe433fd2c1bea75c05d"
+      "sha256_canonical": "f96b215260063ae13df8b33a02c2811e9571e07cb5b830545e635d43b93f9947"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -4252,7 +4252,7 @@
       "evidence": [
         "P006"
       ],
-      "sha256_canonical": "f9aac28870e2ca3106fd74bb20ba0825ea7369779410ca04c0679163be7105f1"
+      "sha256_canonical": "65f3b09ad6048f744ecde047a53af59e08573ae986c5eb1f8089440ee2ee805e"
     },
     {
       "path": "tests/test_source_gpl_contract.py",

@@ -22,6 +22,7 @@ import zlib
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from docker_installation import ROOT, compose, require_unused_project, run, stop_projects
+from scripts import release as image_verifier
 
 OLD_TAG='v5.1.9'
 OLD_SOURCE='2db730b1bad683e5056f3f096987074bdfe5e02a'
@@ -44,6 +45,25 @@ def verify_previous_tar(path):
                 or labels.get('org.opencontainers.image.version')!=OLD_TAG):
             raise ValueError('Previous image identity mismatch')
     return 'sha256:'+hashlib.sha256(raw).hexdigest()
+
+
+def load_previous_image(path,commands=None):
+    """Use the existing strict config/OCI graph verifier, including conflict checks.
+
+    Docker image stores can identify an import by the validated OCI parent/index,
+    rather than its config digest. These identities are not interchangeable
+    strings: the shared verifier hashes every descriptor and proves that all of
+    them exclusively reference this exact config, labels and filesystem layers.
+    """
+    path=path.resolve(strict=True)
+    expected=verify_previous_tar(path)
+    checksum=path.with_name(path.name+'.sha256')
+    with checksum.open('x') as stream:stream.write(OLD_TAR_SHA256+'  '+path.name+'\n')
+    result=image_verifier.verify_bundle(path.parent,OLD_SOURCE,OLD_TAG,
+        commands or image_verifier.Commands(),specifications={'app':{
+            'name':path.name,'checksum':checksum.name,'reference':'life-journal:'+OLD_TAG}})
+    if result!={'app':expected}:raise ValueError('Previous verified config differs from pinned archive')
+    return expected
 
 
 def synthetic_png():
@@ -79,11 +99,8 @@ def main():
     if host and not host.startswith(('unix://','npipe://')):raise ValueError('Local Docker only')
     endpoint=json.loads(run('docker','context','inspect','--format','{{json .Endpoints.docker.Host}}'))
     if not endpoint.startswith(('unix://','npipe://')):raise ValueError('Local Docker context required')
-    expected=verify_previous_tar(args.previous_tar)
-    ids=run('docker','image','ls','--filter','reference=life-journal:'+OLD_TAG,'--no-trunc','--format','{{.ID}}').split()
-    if ids and ids!=[expected]:raise ValueError('Conflicting previous image; nothing overwritten or removed')
-    run('docker','load','--input',str(args.previous_tar))
-    if json.loads(run('docker','image','inspect','life-journal:'+OLD_TAG))[0]['Id']!=expected:raise ValueError('Loaded previous image mismatch')
+    expected=load_previous_image(args.previous_tar)
+    old_image_id=json.loads(run('docker','image','inspect','life-journal:'+OLD_TAG))[0]['Id']
     run('docker','image','inspect','life-journal:'+args.image_tag)
     run('docker','image','inspect','postgres:17-alpine')
     private=Path(tempfile.mkdtemp(prefix='lj-version-upgrade-',dir=os.getenv('RUNNER_TEMP',tempfile.gettempdir())))
@@ -150,6 +167,7 @@ def main():
         stop_projects(started)
     report={'synthetic_same_schema_upgrade':'passed','from_version':'5.1.9','to_version':'5.1.10',
         'old_business_tar_sha256':OLD_TAR_SHA256,'schema_before':before,'schema_after':after,
+        'old_image_config_digest':expected,'old_image_store_id':old_image_id,
         'old_backup_created_and_verified':True,'existing_article_fields_cards_media_itinerary':'preserved',
         'new_default_type_and_travel_toggles':'passed','candidate_restart_persistence':'passed',
         'production_or_nas_accessed':False,'UPGRADE-001':'Not reproduced or claimed fixed'}
