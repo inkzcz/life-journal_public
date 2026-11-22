@@ -1552,9 +1552,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P005"
       ],
-      "sha256_canonical": "aa2621ff8c1b63c3757ce8fbdfcc3ab78e0f88c8f768eea275782ca352856487"
+      "sha256_canonical": "560fd803667336b01e2841cb0f96b9c928e73ed66289a426bc3f94c5517a205a"
     },
     {
       "path": "docs/known-limitations.md",
@@ -1611,7 +1612,7 @@
         "P004",
         "P005"
       ],
-      "sha256_canonical": "039f5901c32c19a6f37f8fc77d5cc30d2da767ee26ece2f7a0acac4bba2ade95"
+      "sha256_canonical": "c1adb9acb94589ba6b2b61611d74401c042bbd5d3aacc29b765d68b44d0e16a2"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -1626,9 +1627,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P005"
       ],
-      "sha256_canonical": "ff1510f17f45462cec472a0a675e8f2648561d40607d4fbd7b2176a33db869a0"
+      "sha256_canonical": "3643d074cbee836d680371e225a522bb3696a5ba1501694e7cdd3dbf1d8588b8"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -3365,7 +3367,7 @@
         "P004",
         "P005"
       ],
-      "sha256_canonical": "4d7f249c7887d3eaa0675e3a7e87974468267b4756f2b96271f84ced1368434a"
+      "sha256_canonical": "4748f2eea24fc025df73df87f5fe7da210d064193b07ce95da3c101690d8f509"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -4056,9 +4058,10 @@
       "path": "tests/test_prepare_distribution.py",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
-        "P004"
+        "P004",
+        "P005"
       ],
-      "sha256_canonical": "b69560efc93df63476e2d63d84b632ad7927a21a1038d78c6bc3eb3d059b865d"
+      "sha256_canonical": "b37150de2a8b5db7a86d8bfc6b298d03535d49b6d835f2c596ab64e233500141"
     },
     {
       "path": "tests/test_product_version.py",

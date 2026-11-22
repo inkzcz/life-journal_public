@@ -21,7 +21,7 @@ UPGRADE-001保留为历史已知问题，不阻塞发行，也不宣称已修复
 ## Actions与正式发行
 
 ci.yml对准备分支和main保存已完成上述门禁的成对候选附件；PR运行验证相同步骤但不上传。
-release.yml仅响应本仓库新v5.1.9标签：只读预检验证Annotated Tag正好指向PR #2的普通合并提交及已成功main CI；
+release.yml响应本仓库v5.1.9标签，或从已通过CI的main手动恢复同一标签发行：只读预检验证远端Annotated Tag正好指向PR #2的普通合并提交及已成功main CI；
 然后复用同一Docker验收/源码门禁，构建正式 life-journal:v5.1.9 和 life-journal-app-v5.1.9-amd64.tar。
 只有最后的publish作业持有contents:write，且不执行业务代码，核验所有附件后创建Release。
 随后重新下载附件、核对全部SHA256和实际TAR架构，完成后才可报告成功。
@@ -33,6 +33,7 @@ CI源代码门禁对这两份工作流采用独立所有者授权与逐字节审
 恢复流程通过修复PR交付，核验远端Git ref和tag对象而不是本地便捷引用；只从main的已通过CI的
 工作流调度原有tag提交的独立工作区。不会更新、删除或强推标签，也不会用新main业务源码冒充tag。
 应用源码提交和工作流修复提交分别登记并提供源码，所有原发布门禁继续执行。
+发行安装/升级说明来自已审核的工作流修复提交，不沿用早期源码候选措辞；部署ZIP中的Compose、空白配置、LICENSE与COPYRIGHT仍逐字节来自原正式应用Tag，并附带UPGRADE-001说明。
 
 发行附件：唯一业务TAR、完整源码与许可证包、部署ZIP、manifest/images、SHA256SUMS和安装/升级/限制/Release说明。
 SHA与提交以实际附件为准，测试候选标签/哈希不能冒充正式发行。既有Linux结果不做无意义重复；原生库形态变化所影响的回归和最终构建必须真实执行。

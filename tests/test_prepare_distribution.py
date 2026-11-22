@@ -1,9 +1,27 @@
 import hashlib
 import json
+import zipfile
 
 import pytest
 
 from scripts import prepare_distribution as delivery
+
+
+def test_deploy_zip_keeps_tagged_inputs_and_legal_texts_with_current_release_guides(tmp_path):
+    application=tmp_path/'application';publisher=tmp_path/'publisher'
+    tagged=('compose.yaml','.env.example','LICENSE','COPYRIGHT.md')
+    guides=tuple('docs/'+n+'.md' for n in ('install','upgrade','backup-restore','known-limitations','upgrade-001'))
+    for root in (application,publisher):
+        for name in (*tagged,*guides):
+            p=root/name;p.parent.mkdir(parents=True,exist_ok=True)
+            p.write_text(root.name+': '+name+'\n')
+        (root/'.env').write_text('Synthetic configuration must never be included')
+    target=tmp_path/'deploy.zip'
+    delivery.write_deployment_zip(application,publisher,target)
+    with zipfile.ZipFile(target) as archive:
+        assert set(archive.namelist())==set(tagged+guides)
+        for name in tagged:assert archive.read(name)==(application/name).read_bytes()
+        for name in guides:assert archive.read(name)==(publisher/name).read_bytes()
 
 
 def test_source_tree_must_match_receipts_exactly_and_rejects_injected_files(tmp_path):

@@ -146,6 +146,16 @@ def copy_tree(source,target):
             except OSError:shutil.copyfile(path,dest)
 
 
+def write_deployment_zip(root,orchestration,target):
+    """Keep tagged deployment inputs/legal bytes and reviewed publisher guides."""
+    with zipfile.ZipFile(target,'x',compression=zipfile.ZIP_DEFLATED) as archive:
+        for name in ('compose.yaml','.env.example','LICENSE','COPYRIGHT.md'):
+            archive.write(root/name,name)
+        for name in ('install','upgrade','backup-restore','known-limitations','upgrade-001'):
+            path='docs/'+name+'.md'
+            archive.write(orchestration/path,path)
+
+
 def package(args):
     root=args.root.resolve();bundle=args.bundle.resolve()
     revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
@@ -246,7 +256,7 @@ def package(args):
                       ('layer-scan.json',args.layers),('runtime-probe.json',args.debian)]:
         target=work/'validation'/name;target.parent.mkdir(exist_ok=True);shutil.copyfile(path,target)
     shutil.copyfile(root/'third_party/BINARY_NOTICE.md',work/'NOTICE.md')
-    shutil.copyfile(root/'third_party/SOURCE_BUILD.md',work/'BUILD_AND_REPLACE.md')
+    shutil.copyfile(orchestration/'third_party/SOURCE_BUILD.md',work/'BUILD_AND_REPLACE.md')
     receipt={'format':'life-journal-binary-corresponding-source-v1','version':version,
         'source_commit':revision,'platform':'linux/amd64','business_tar':expected_name,
         'build_orchestration_commit':orchestration_revision,
@@ -272,10 +282,8 @@ def package(args):
     shutil.copyfile(bundle/'images.json',args.output/'images.json')
     for name,path in {'INSTALL.md':'docs/install.md','UPGRADE.md':'docs/upgrade.md',
                        'KNOWN_LIMITATIONS.md':'docs/known-limitations.md','RELEASE_NOTES.md':'docs/release-notes-v5.1.9.md'}.items():
-        shutil.copyfile(root/path,args.output/name)
-    with zipfile.ZipFile(args.output/('life-journal-deploy-'+version+'.zip'),'x',compression=zipfile.ZIP_DEFLATED) as archive:
-        for name in ('compose.yaml','.env.example','docs/install.md','docs/upgrade.md','docs/backup-restore.md','docs/known-limitations.md'):
-            archive.write(root/name,name)
+        shutil.copyfile(orchestration/path,args.output/name)
+    write_deployment_zip(root,orchestration,args.output/('life-journal-deploy-'+version+'.zip'))
     sums=''.join(digest(p)+'  '+p.name+'\n' for p in sorted(args.output.iterdir()) if p.is_file())
     if any(p.stat().st_size>=2*1024**3 for p in args.output.iterdir()):
         raise ValueError('Release asset exceeds GitHub 2GiB limit; no publication allowed')

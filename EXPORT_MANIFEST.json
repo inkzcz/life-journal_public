@@ -684,7 +684,7 @@
     },
     {
       "path": "docs/install.md",
-      "sha256": "2cc78e04924f3126464a7d5701daf9e0495c161c5a1fe02fa482a41d5c46f96b"
+      "sha256": "9fe1312b9405a83e246f57c068212eeadb68a67bac1e6ad7f73e85331feb9ae1"
     },
     {
       "path": "docs/known-limitations.md",
@@ -708,7 +708,7 @@
     },
     {
       "path": "docs/release-v5.1.9.md",
-      "sha256": "683ec7874af074b9215640210dc6992a09b213f33a24191f68af12ee0ac4aff1"
+      "sha256": "bc4c9f6ca9dec1c148f8d7439b5cf7a12765b27080b0824353049941a981017f"
     },
     {
       "path": "docs/upgrade-001.md",
@@ -716,7 +716,7 @@
     },
     {
       "path": "docs/upgrade.md",
-      "sha256": "ff1510f17f45462cec472a0a675e8f2648561d40607d4fbd7b2176a33db869a0"
+      "sha256": "3643d074cbee836d680371e225a522bb3696a5ba1501694e7cdd3dbf1d8588b8"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -1576,7 +1576,7 @@
     },
     {
       "path": "scripts/prepare_distribution.py",
-      "sha256": "89c7138993a329e3508b9b9b618f188054fd0eec64efec3a94aace47dc63a46b"
+      "sha256": "9fe76de9956f9eb866a3f0a596fbfd5c7a1d0b0443af3a279ba4461fc98d6f44"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1916,7 +1916,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "b69560efc93df63476e2d63d84b632ad7927a21a1038d78c6bc3eb3d059b865d"
+      "sha256": "b37150de2a8b5db7a86d8bfc6b298d03535d49b6d835f2c596ab64e233500141"
     },
     {
       "path": "tests/test_product_version.py",
@@ -3680,7 +3680,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "e7d9ca2ea15f948c644660baa0520b3662b4622f96ba74245170e6d85afe8f77"
+      "sha256": "9e681c37d59cc8ec64ec0920e051a2f12142bd99120d4ac470f912afe2fd311c"
     },
     {
       "path": "third_party/source-scope.json",
