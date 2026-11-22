@@ -25,3 +25,43 @@ it('renders six complete weeks and changes month through the real API query',asy
 it('keeps notification configuration and mutation controls out of the reader UI',async()=>{setup(false);await mount();expect(root.textContent).not.toContain('GET 通知设置');expect(root.querySelector('input[type=password]')).toBeNull();expect(api.request.mock.calls.some(([p])=>p.startsWith('/admin/calendar'))).toBe(false)})
 it('sends independent day-of and advance nodes from the actual calendar form',async()=>{setup();await mount();button('新增纪念日').click();await flush();const form=root.querySelector<HTMLFormElement>('.calendar-form')!;const name=form.querySelector<HTMLInputElement>('input[maxlength="200"]')!;name.value='合成生日';name.dispatchEvent(new Event('input',{bubbles:true}));form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));await flush();const call=api.request.mock.calls.find(([p,o])=>p==='/admin/calendar/events'&&o?.method==='POST')!;const d=JSON.parse(call[1].body);expect(d.name).toBe('合成生日');expect(d.reminders).toMatchObject({on_day:true,offsets:[7,3,1],enabled:true});expect(root.querySelector('.calendar-form')).toBeNull()})
 it('retains entered event data on a conflict instead of clearing the form',async()=>{setup();await mount();button('新增纪念日').click();await flush();const form=root.querySelector<HTMLFormElement>('.calendar-form')!;const name=form.querySelector<HTMLInputElement>('input[maxlength="200"]')!;name.value='冲突时保留';name.dispatchEvent(new Event('input',{bubbles:true}));const fallback=api.request.getMockImplementation()!;api.request.mockImplementation((p,o)=>p==='/admin/calendar/events'&&o?.method==='POST'?Promise.reject(Error('conflict')):fallback(p,o));form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));await flush();expect(root.querySelector<HTMLInputElement>('.calendar-form input[maxlength="200"]')?.value).toBe('冲突时保留');expect(root.textContent).toContain('当前输入保留')})
+
+it('shows the complete editable URL only in admin settings and preserves path templates verbatim on save',async()=>{
+ setup();await mount()
+ const input=root.querySelector<HTMLInputElement>('input[aria-label="通知 URL 模板"]')!
+ expect(input.type).toBe('text')
+ expect(root.querySelectorAll('input[aria-label="通知 URL 模板"]')).toHaveLength(1)
+ expect(root.querySelector('input[type=password]')).toBeNull()
+ const value='https://wxpusher.zjiecode.com/api/send/message/SPT_SYNTHETIC_ONLY/{content}?title={title}'
+ input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));await nextTick()
+ expect(input.value).toBe(value)
+ button('保存通知设置').click();await flush()
+ const call=api.request.mock.calls.find(([p,o])=>p==='/admin/calendar/notification'&&o?.method==='PUT')!
+ expect(JSON.parse(call[1].body)).toMatchObject({url_template:value,expected_revision:0})
+})
+
+it('does not repeat notification URLs or synthetic provider credentials in failures',async()=>{
+ setup();await mount()
+ const value='https://notify.example.invalid/send/SYNTHETIC_PRIVATE_VALUE/{content}'
+ const input=root.querySelector<HTMLInputElement>('input[aria-label="通知 URL 模板"]')!;input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));await nextTick()
+ api.request.mockRejectedValueOnce(Error('Synthetic backend failure containing '+value))
+ button('保存通知设置').click();await flush()
+ expect(input.value).toBe(value);expect(root.textContent).toContain('当前输入保留')
+ expect(root.textContent).not.toContain(value);expect(root.textContent).not.toContain('SYNTHETIC_PRIVATE_VALUE')
+})
+
+it('shows the complete editable URL only to an administrator and keeps failure details out of the page',async()=>{
+ setup();await mount()
+ const url='https://notify.example.invalid/SPT_SYNTHETIC_ONLY/{content}?title={title}'
+ const input=root.querySelector<HTMLInputElement>('input[aria-label="通知 URL 模板"]')!
+ expect(input.type).toBe('text')
+ expect(root.querySelectorAll('input[aria-label="通知 URL 模板"]')).toHaveLength(1)
+ expect(root.querySelector('input[type=password]')).toBeNull();input.value=url;input.dispatchEvent(new Event('input',{bubbles:true}));await nextTick()
+ const fallback=api.request.getMockImplementation()!
+ api.request.mockImplementation((p,o)=>p==='/admin/calendar/notification'&&o?.method==='PUT'?Promise.reject(Error(url)):fallback(p,o))
+ button('保存通知设置').click();await flush()
+ expect(input.value).toBe(url);expect(root.textContent).not.toContain(url)
+ expect(root.textContent).toContain('当前输入保留')
+ const call=api.request.mock.calls.find(([p,o])=>p==='/admin/calendar/notification'&&o?.method==='PUT')!
+ expect(JSON.parse(call[1].body).url_template).toBe(url)
+})

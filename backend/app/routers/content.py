@@ -43,6 +43,18 @@ def create_type(data:TypeCreate,db:Session=Depends(db_dep),user:User=Depends(req
     return type_data(db,t)
 
 
+@router.post('/types/default-article')
+def resolve_default_article(db:Session=Depends(db_dep),user:User=Depends(require_dynamic_blog)):
+    from ..services.content import default_article_type
+    try:
+        result=default_article_type(db,user.id)
+        commit(db)
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(409,'基础文章类型正在初始化，请重新尝试') from None
+    return type_data(db,result)
+
+
 @router.get('/types/{id}')
 def read_type(id:UUID,db:Session=Depends(db_dep)):
     return type_data(db,get_type(db,id))

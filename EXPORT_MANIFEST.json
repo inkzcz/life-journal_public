@@ -1,6 +1,6 @@
 {
   "format": "life-journal-public-source-v1",
-  "candidate_version": "5.1.9",
+  "candidate_version": "5.1.10",
   "source_commit": "c9ca4c3556f1167603ac9f78825632d51c0e25bc",
   "feature_baseline": "3f27932d3a6fc236a9fac74c34dc57a2586da3f9",
   "target_repository": "inkzcz/life-journal_public",
@@ -32,7 +32,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "524d460b20a5b33b3532d3db419333cc857ec3128e33648abfe44dff4863f06c"
+      "sha256": "dbac6b71df325f43f766c7f8c2a466d46361063d2c1093224c028060cb2717dc"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -44,7 +44,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "51abfbc3daf33e03350d05a48f7f40b032a17db9def1076f0552e3a02a31b40c"
+      "sha256": "55df20bb922bbfd460582cfe8003bd7102fad75e4af467452b06357ce6d95102"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -64,7 +64,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "600c389cf40743e8d61290822770a1ee3cfb8d2383f57a834a48d30c2b4fe78b"
+      "sha256": "4314a300eae6d726a5608efd41c0eb7ee1d7bd7b339ba46e759f20052214186e"
     },
     {
       "path": "SECURITY.md",
@@ -80,7 +80,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "79c7e1d06ba810543d5b8eabcdb918a6b31f0b8f376cd04141f8c9de3cdd60f5"
+      "sha256": "779e6d24cb291ff605d93a3ec585cfa5589c1d4584ab7d9ee04a231d41ff5df3"
     },
     {
       "path": "backend/.dockerignore",
@@ -248,7 +248,7 @@
     },
     {
       "path": "backend/app/calendar/router.py",
-      "sha256": "68dbc38679e7e9397cee7ffaa3a51a82fe6ac18c676a3189aea7e75635bff042"
+      "sha256": "1aa209fcda3f970348aaf090aa1feb88ad9ce0705f82c0eea9acc1e91b6371be"
     },
     {
       "path": "backend/app/calendar/scheduler.py",
@@ -264,7 +264,7 @@
     },
     {
       "path": "backend/app/calendar/transport.py",
-      "sha256": "716c0ad73d53092d86510160eb1beaca44bbd346dabb8a9b23017ea26cb6b93f"
+      "sha256": "91fc38683899880233453d40f425553a838528912bcda86a73977f354aead224"
     },
     {
       "path": "backend/app/container_entrypoint.py",
@@ -412,7 +412,7 @@
     },
     {
       "path": "backend/app/release_notes.json",
-      "sha256": "8f3dec22c6993ce21d59d4f837c69e3457b42132fc5d7644be6738541a15b43d"
+      "sha256": "ffdda1cbea8f322e527ce79a3958f4a987ef935fdb4b2f4255b8016d51b7cb7f"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -436,7 +436,7 @@
     },
     {
       "path": "backend/app/routers/content.py",
-      "sha256": "7d36fd3a539735db80799788d8ebefcf8b32f12c178cddf3efbb51e2e4234b6f"
+      "sha256": "3b1199702c53adc17a0dafc6d6fa8af500c4e760004ffac3201c3aa1f14931e5"
     },
     {
       "path": "backend/app/routers/discovery.py",
@@ -520,7 +520,7 @@
     },
     {
       "path": "backend/app/services/content.py",
-      "sha256": "346cccd5502a4d53656b619cb64ce98df8cea36001bf3d6fb112a24d6d909b7b"
+      "sha256": "83ec7b183c1ae6795cb26ef4d30e628882d2f909b6f2f3a6be19cb2bf9156304"
     },
     {
       "path": "backend/app/services/experiences.py",
@@ -640,7 +640,7 @@
     },
     {
       "path": "backend/app/version.py",
-      "sha256": "77c1ae53d1fde3c38ef7b76b3e1f1991b7d9c4d7db91462bb68acdeb6a15fcea"
+      "sha256": "be294b9e2b3b0aefc6c285951fc9ec7a75faff8c0f0bf437ac2d1232a254ee13"
     },
     {
       "path": "backend/constraints-release.txt",
@@ -719,6 +719,10 @@
       "sha256": "3643d074cbee836d680371e225a522bb3696a5ba1501694e7cdd3dbf1d8588b8"
     },
     {
+      "path": "docs/v5.1.10-validation.md",
+      "sha256": "bf574fa1b4e4437908d3ad89ba8703a48cc82ca0a348a0572639f25059ecb6a3"
+    },
+    {
       "path": "docs/v5.1.5/content-exchange.schema.json",
       "sha256": "5487ef288b96b67062bb2c4ae5aa5c540bdb0e2d876ef71bf57dcd1fb4e6e7bb"
     },
@@ -760,11 +764,15 @@
     },
     {
       "path": "frontend/package-lock.json",
-      "sha256": "21e55bf5f81630656b3e7fb38f0014a4f6d580f78b99e6c00e9d688240cced7c"
+      "sha256": "824dd08bc2f06c55967be2225fdb96bcc663d523aa584e5841eb954c4a7944cb"
     },
     {
       "path": "frontend/package.json",
-      "sha256": "59cc53a69c2a88aabd8920f2bc5e130943f5d87d9059f84eb4fc72d0bba122f8"
+      "sha256": "dc87e9c1a010dbfd526729c51c425a5f41672f3f6d6d76315ed86ee51ecd199b"
+    },
+    {
+      "path": "frontend/preview-writing.html",
+      "sha256": "d341a0998e5413666aea79a214bcfdd057205236b4d24d5ae3dd1b78fc745f61"
     },
     {
       "path": "frontend/src/App.test.ts",
@@ -772,11 +780,11 @@
     },
     {
       "path": "frontend/src/admin/AdminContent.test.ts",
-      "sha256": "52345fbd1c22255629fe50c5b2802560e174cccc684993ec2226aef032e4c47b"
+      "sha256": "7e1372b6dd84b7902c12b2e98fd6c240718b37228392149778ef976bcf31af87"
     },
     {
       "path": "frontend/src/admin/AdminContent.vue",
-      "sha256": "f049f5e54b1ea04a7b0f55ba971423cd194bbb9a969fb8d0ffde9e4ca1e13def"
+      "sha256": "bb40340599d727311df3bd505637497af76da6ea0f725cd63e19437445f453e9"
     },
     {
       "path": "frontend/src/admin/Archive.test.ts",
@@ -800,7 +808,7 @@
     },
     {
       "path": "frontend/src/admin/EditorExperience.test.ts",
-      "sha256": "372d986ad39ab0ab9662cff483dc89cebeadfa801d6932f91d0b1c320e1b68d3"
+      "sha256": "bbab591e630ef05deea5dfab73c56c461b0f001a151bbc101cfb9b382e42acf5"
     },
     {
       "path": "frontend/src/admin/FieldEditor.vue",
@@ -996,11 +1004,19 @@
     },
     {
       "path": "frontend/src/calendar/Calendar.test.ts",
-      "sha256": "6c985b19080198bff4bb97b52870d51f8142df0cdf645e00b07024834af92de7"
+      "sha256": "69dd314f7bc3fa3fdf3cee333327aa8e30ff79c3d8bcfc49987c79ad0a6302de"
     },
     {
       "path": "frontend/src/calendar/CalendarPage.vue",
-      "sha256": "ccbc81780e9710f46859c6a9b1f7636a332408c3befd4bb32ce9f456fad9af25"
+      "sha256": "d58a4fda72beeb3ef0a2e99cb162cf2d7ecc6cf6262e81cef74a2e00c1dd9d37"
+    },
+    {
+      "path": "frontend/src/dev/WritingPreview.vue",
+      "sha256": "85c7b5eeb191e0cb5b7ac9c4d0a3222a0156c002cd8bcd1ef8e1edcfc689e806"
+    },
+    {
+      "path": "frontend/src/dev/preview.ts",
+      "sha256": "38e46146dc8478d4dfc49740295edb9e4fa2925f2cd1270f36b1b1e964501049"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
@@ -1100,7 +1116,7 @@
     },
     {
       "path": "frontend/src/life/ExperiencePage.vue",
-      "sha256": "8a484295583ce6e6f80289753e34a00d1d995b15fc94e634c307f47d232cd028"
+      "sha256": "3f79bf92670c28dd08c1c7ffa61cfd897f72b05fcc857f8b1c9ef71dba5f1db4"
     },
     {
       "path": "frontend/src/life/FoodPage.vue",
@@ -1192,7 +1208,7 @@
     },
     {
       "path": "frontend/src/reading/BodyNodes.vue",
-      "sha256": "35b053e9cbd3d1eac98b0b9b038d85e6499f73e866964b8c28468a1ceb691200"
+      "sha256": "456969ae650bdd707149233e41c9bdfdb7a45c1cc8c79769fe9c637d73571e7a"
     },
     {
       "path": "frontend/src/reading/InlineMedia.vue",
@@ -1224,7 +1240,7 @@
     },
     {
       "path": "frontend/src/recovery/AdminNav.vue",
-      "sha256": "ba37268bb3398fe0d6c64a4a1118af88d07dce22c425738cd9ce8ecda48bf41a"
+      "sha256": "e57354dcfc0aa283d0e283b6add7e92b2c0e81db883f5b9f3c5ac4f398aa1106"
     },
     {
       "path": "frontend/src/recovery/HistoryView.vue",
@@ -1360,7 +1376,7 @@
     },
     {
       "path": "frontend/src/version.ts",
-      "sha256": "e79a5a79c8181a89b926de798ee121e6d9a8e7f375ec67625cdfaa914f1ae148"
+      "sha256": "295eacafcbb6a6e37ef6eb34e6744df9e4c85b9b52c67f1e8bb1264cd491592d"
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
@@ -1387,12 +1403,20 @@
       "sha256": "f9e0c8a5a988e9c8a11677a10c3b4c23dba0aef94c013054be7a907bec33ec6e"
     },
     {
+      "path": "frontend/src/writing/EntryCard.test.ts",
+      "sha256": "9bcdc06a87b772be695b0ec9028700904fe3e7d8734465a83b16956b888ec234"
+    },
+    {
+      "path": "frontend/src/writing/EntryCard.vue",
+      "sha256": "7afbb5b63bac4ac039d8d05230d3678585cb09f43b3eaac54de4244b5fd24ccd"
+    },
+    {
       "path": "frontend/src/writing/EntryForm.vue",
-      "sha256": "e9ecd94afa30d7e56c4889fdc2a351c20e70adf163ef679cbed880e53d09d3cf"
+      "sha256": "4fb9384ed50fed7ca364260a8e57a7ab7cb4ed492a942c5f8d7d0b6cc6891ba3"
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
-      "sha256": "e8593bc70cc31c60090845f27680b9fddb3420fb781ab16984b613fe977f74b9"
+      "sha256": "ebf0d342f71acbcfc2771e7b3e439de09d31158659b6ea1b185a1afc1f59d865"
     },
     {
       "path": "frontend/src/writing/FoodMediaEditor.test.ts",
@@ -1504,7 +1528,7 @@
     },
     {
       "path": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
-      "sha256": "7829c31a3baf96c397bb1bd308456f4b9c6c34ea14f0c729aaa6c105cb2aa94d"
+      "sha256": "97af955df84044e503ce0060215e367f317286503831d9b3d4863c49f210edb7"
     },
     {
       "path": "licensing/GPL-3.0.txt",
@@ -1576,7 +1600,7 @@
     },
     {
       "path": "scripts/prepare_distribution.py",
-      "sha256": "9fe76de9956f9eb866a3f0a596fbfd5c7a1d0b0443af3a279ba4461fc98d6f44"
+      "sha256": "65215d2ccae9fa9e7e2c4e4278c7772dfa3c269e0ce51f6a76e1a9943e39259b"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1592,7 +1616,7 @@
     },
     {
       "path": "scripts/release_local.py",
-      "sha256": "cca994eb25f331ad8114d5e92f212e6a6849bd59aa9db287c8021c07eae15cf6"
+      "sha256": "c20c9a008c75d9d0704f9d3515d34ba432be3ad2c332969b2e397e52119e542a"
     },
     {
       "path": "scripts/release_preflight.py",
@@ -1639,6 +1663,10 @@
       "sha256": "d48325fba63d9a1fcbd437c34f84e2104b9234444342d29b923ab8dfb675b56c"
     },
     {
+      "path": "tests/browser_writing_preview.py",
+      "sha256": "15a449c0895aec77c1d3870b2927b147872bdb5b682b629475a62be6b9a9c723"
+    },
+    {
       "path": "tests/build_identity_support.py",
       "sha256": "1f58d21c4070c84495c55e9e774e1721687f75fd6536948e54420a5300248715"
     },
@@ -1653,6 +1681,10 @@
     {
       "path": "tests/docker_installation.py",
       "sha256": "b2d31655fe5b284814d3040151c78f1e72c3f6369db12805e06ebf9c5edd721e"
+    },
+    {
+      "path": "tests/docker_same_schema_upgrade.py",
+      "sha256": "bcb1913bbf429f8a19bbb9a77e4802c24b56d9f5a2922fe433fd2c1bea75c05d"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -1704,7 +1736,7 @@
     },
     {
       "path": "tests/test_anniversary_calendar.py",
-      "sha256": "6172d37753bbe6be33fdc726afedd48ac967e12cb6447b298e96936913e4d744"
+      "sha256": "fde3da93fcbc563766c372e90764fbdaab91907d05bd6562f08c703490be2028"
     },
     {
       "path": "tests/test_api.py",
@@ -1769,6 +1801,10 @@
     {
       "path": "tests/test_corresponding_sources.py",
       "sha256": "af775664858f9c8be3764946b5aeeb50a3b711835b0243d93a22457f9b5aea0e"
+    },
+    {
+      "path": "tests/test_default_article.py",
+      "sha256": "57a1433df19ac547ffcbb904226b547d2a782499f2062017ad8b29eabe42e914"
     },
     {
       "path": "tests/test_demo_fixtures.py",
@@ -1895,6 +1931,10 @@
       "sha256": "682245f30822a83a89c659c820b34d6d74d0ac6ed45c26b0465b57d6a2d6fb70"
     },
     {
+      "path": "tests/test_notification_paths.py",
+      "sha256": "dea322560831e043d45e14b504de149c986096faee37bd3bdb791dd9d0e322b7"
+    },
+    {
       "path": "tests/test_open_source_gate.py",
       "sha256": "29741357b02aae0b8ea99ddd4150ade35482eea2388a88c67587a57ed88957cf"
     },
@@ -1916,7 +1956,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "b37150de2a8b5db7a86d8bfc6b298d03535d49b6d835f2c596ab64e233500141"
+      "sha256": "c40534af6a0fc08d7bcca8a2b57eba72a19fde1fb629f429dc8506aa700e654e"
     },
     {
       "path": "tests/test_product_version.py",
@@ -1924,7 +1964,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "2eb33c497c7324b1f7ee015207e739d785f8af39c09a0d0b7cbd32b7731d670f"
+      "sha256": "f433e46f808464e749dbf932ea113503354fc0fe0c291db5838aaac691052fd8"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -1949,6 +1989,10 @@
     {
       "path": "tests/test_resource_audit_cli.py",
       "sha256": "81ce25e43f586a577601a77a6df6a1aa7fc58fef1f2765942f7a3faa16042633"
+    },
+    {
+      "path": "tests/test_same_schema_upgrade_harness.py",
+      "sha256": "f9aac28870e2ca3106fd74bb20ba0825ea7369779410ca04c0679163be7105f1"
     },
     {
       "path": "tests/test_source_gpl_contract.py",
@@ -3680,7 +3724,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "9e681c37d59cc8ec64ec0920e051a2f12142bd99120d4ac470f912afe2fd311c"
+      "sha256": "08ddb3d67283a986ea7eeb1fef4e34bdec3882654ae6344d0ff20fd1e0799a17"
     },
     {
       "path": "third_party/source-scope.json",
@@ -3695,11 +3739,17 @@
   ],
   "maintenance": {
     "based_on_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
-    "scope": "Public source plus owner-authorized formal binary release tooling; no business/schema/private-history changes. Binary artifacts are separate from tracked source.",
+    "scope": "Maintained public source and original v5.1.10 feature/test changes; no schema, private history or binary artifacts in tracked source.",
     "initial_snapshot_identity": "docs/initial-source-snapshot.json",
     "source_commit_semantics": "Original export origin only, not the current maintained Git commit",
     "final_review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa",
     "release_preparation_baseline": "e00b80e866d9686458963efe3ade2d658b9c56b0",
-    "formal_release_authorization": "licensing/BINARY_RELEASE_AUTHORIZATION.json"
+    "formal_release_authorization": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
+    "development": {
+      "version": "5.1.10",
+      "branch": "feature/v5.1.10-writing-and-cards",
+      "baseline": "e1c1d9dc1864929e72172113b39b3796b3acb907",
+      "status": "Draft development; no formal release publication approved"
+    }
   }
 }

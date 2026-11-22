@@ -45,7 +45,7 @@ def test_query_values_are_encoded_once_without_parameter_injection():
     url=render('https://notify.example.invalid/send?token=synthetic%2Bvalue&title={title}&content={content}',{'title':'中文 & = ? + %','content':'测试\n第二行'})
     parsed=parse_qs(urlsplit(url).query)
     assert parsed=={'token':['synthetic+value'],'title':['中文 & = ? + %'],'content':['测试\n第二行']}
-    for value in ('file:///etc/passwd','http://user:synthetic@notify.invalid','https://{name}.invalid/send','https://notify.invalid/{title}','https://notify.invalid/send?title={unknown}','https://notify.invalid/?{name}=x'):
+    for value in ('file:///etc/passwd','http://user:synthetic@notify.invalid','https://{name}.invalid/send','https://notify.invalid/send?title={unknown}','https://notify.invalid/?{name}=x'):
         with pytest.raises(ValueError):template(value)
 
 @pytest.mark.parametrize('ip',['127.0.0.1','169.254.169.254','10.0.0.1','::1','::ffff:127.0.0.1','100.100.100.200','224.0.0.1'])

@@ -28,7 +28,7 @@ def test_four_roles_reuse_one_business_image_and_never_pull_implicitly():
 
 
 def test_candidate_features_and_migrations_are_present():
-    assert (ROOT/'VERSION').read_text().strip()=='5.1.9'
+    assert (ROOT/'VERSION').read_text().strip()=='5.1.10'
     for name in ('backend/app/calendar','backend/app/exchange','backend/app/routers/experiences.py',
                  'backend/app/services/experiences.py','backend/app/routers/photo_albums.py',
                  'backend/app/services/photo_stream.py',
@@ -60,6 +60,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
              if step.get('uses','').startswith('actions/upload-artifact@')]
     assert len(uploads)==1
     upload=uploads[0]
+    assert "steps.package.outputs.delivery_ready == 'true'" in upload['if']
     assert "github.repository == 'inkzcz/life-journal_public'" in upload['if']
     assert "github.event_name == 'push'" in upload['if']
     paths=upload['with']['path'].splitlines()
@@ -70,6 +71,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
     steps=data['jobs']['docker-installation']['steps']
     assert next(i for i,s in enumerate(steps) if 'prepare_distribution.py' in s.get('run',''))<steps.index(upload)
     assert '--require-license' in text and '--redact=100' in text
+    assert '--validate-only' in text and 'Released v5.1.9 to development v5.1.10' in text
 
 
 def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():

@@ -7,6 +7,19 @@ import pytest
 from scripts import prepare_distribution as delivery
 
 
+def test_development_validation_does_not_extend_the_old_release_authorization():
+    revision='a'*40
+    delivery.require_candidate_identity('v5.1.10-candidate.'+revision[:7],'5.1.10',revision)
+    for version in ('v5.1.10','v5.1.9-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7):
+        with pytest.raises(ValueError,match='source-bound'):
+            delivery.require_candidate_identity(version,'5.1.10',revision)
+    authority={'binary_publication_approved':True,'repository':'inkzcz/life-journal_public',
+        'version':'v5.1.9','registry_push_approved':False,'owner_confirmation_reference':'synthetic approval fixture'}
+    delivery.require_release_authorization(authority,'v5.1.9')
+    with pytest.raises(ValueError,match='Only the owner-authorized'):
+        delivery.require_release_authorization(authority,'v5.1.10-candidate.'+revision[:7])
+
+
 def test_deploy_zip_keeps_tagged_inputs_and_legal_texts_with_current_release_guides(tmp_path):
     application=tmp_path/'application';publisher=tmp_path/'publisher'
     tagged=('compose.yaml','.env.example','LICENSE','COPYRIGHT.md')

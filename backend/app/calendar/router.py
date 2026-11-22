@@ -70,7 +70,7 @@ def notification(db=Depends(db_dep)):
 def configure(d:NotifyConfig,db=Depends(db_dep)):
     if d.url_template:
         try:template(d.url_template)
-        except ValueError:raise HTTPException(422,'通知URL模板无效，变量仅支持查询参数值') from None
+        except ValueError:raise HTTPException(422,'通知URL模板无效，变量仅支持路径或查询参数值') from None
     if d.enabled:
         try:resolve(urlsplit(d.url_template))
         except DeliveryError as e:raise HTTPException(422,'通知目标校验失败：'+e.code) from None

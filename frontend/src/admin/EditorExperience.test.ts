@@ -132,7 +132,7 @@ it('saves the explicit travel toggle both ways without changing body, identity o
  const old=structuredClone(record)
  await edit()
  for(const enabled of [false,true]){
-  const check=root.querySelector<HTMLInputElement>('.article-mode input[type=checkbox]')!;check.checked=enabled;check.dispatchEvent(new Event('change',{bubbles:true}));await flush();button('保存记录').click();await flush();await flush()
+  const radio=root.querySelector<HTMLInputElement>('.article-mode input[value="'+(enabled?'travel':'daily')+'"]')!;radio.checked=true;radio.dispatchEvent(new Event('change',{bubbles:true}));await flush();button('保存记录').click();await flush();await flush()
   expect(record.article.travel_enabled).toBe(enabled);expect(record.id).toBe(old.id);expect(record.body).toBe(old.body);expect(record.life.activities).toEqual(old.life.activities)
   if(!enabled){button('编辑记录').click();await flush()}
  }

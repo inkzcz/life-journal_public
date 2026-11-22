@@ -1,6 +1,6 @@
-"""Pinned GET, query-value templates, no redirects, bounded body, safe outcomes."""
+"""Pinned GET, separately encoded path/query data, no redirects, safe outcomes."""
 import ipaddress,json,os,socket,time
-from urllib.parse import urlsplit,urlunsplit,parse_qsl,urlencode
+from urllib.parse import urlsplit,urlunsplit,parse_qsl,urlencode,quote
 from string import Formatter
 import httpcore
 from ..exchange.transport import _pool
@@ -10,26 +10,45 @@ class DeliveryError(Exception):
     def __init__(self,code,*,uncertain=False,retryable=False,status=None):
         super().__init__(code);self.code=code;self.uncertain=uncertain;self.retryable=retryable;self.status=status
 
+def _tokens(value,*,path=False):
+    parts=list(Formatter().parse(value))
+    for literal,field,spec,conv in parts:
+        if field is not None and (field not in VARIABLES or spec or conv):raise ValueError()
+        # Escaped braces were historically supported in query values. Paths did
+        # not support braces: require explicit known variables, not new literals.
+        if path and ('{' in literal or '}' in literal):raise ValueError()
+    return parts
+
 def template(value):
     try:
         p=urlsplit(value)
         if not value or len(value)>4000 or any(ord(c)<33 for c in value):raise ValueError()
         if p.scheme not in ('https','http') or not p.hostname or p.username is not None or p.password is not None or p.fragment:raise ValueError()
         if p.port is not None and not 1<=p.port<=65535:raise ValueError()
-        if '{' in p.netloc+p.path or '}' in p.netloc+p.path:raise ValueError()
+        if '{' in p.netloc or '}' in p.netloc:raise ValueError()
+        _tokens(p.path,path=True)
         host=p.hostname.encode('idna').decode('ascii')
         if host.endswith('.') or '%' in host:raise ValueError()
         for key,val in parse_qsl(p.query,keep_blank_values=True):
             if '{' in key or '}' in key:raise ValueError()
-            for literal,field,spec,conv in Formatter().parse(val):
-                if field is not None and (field not in VARIABLES or spec or conv):raise ValueError()
+            _tokens(val)
         return value
-    except (ValueError,UnicodeError):raise ValueError('通知模板只允许HTTP(S)，变量只能位于查询参数值中，不允许凭据或片段') from None
+    except (ValueError,UnicodeError):raise ValueError('通知模板只允许HTTP(S)，变量只能位于路径或查询参数值中，不允许凭据或片段') from None
 
 def render(value,variables):
     template(value);p=urlsplit(value)
-    query=urlencode([(k,v.format_map({key:str(variables.get(key,'')) for key in VARIABLES})) for k,v in parse_qsl(p.query,keep_blank_values=True)])
-    result=urlunsplit((p.scheme,p.netloc,p.path,query,''))
+    values={key:str(variables.get(key,'')) for key in VARIABLES}
+    try:
+        # quote() always leaves unreserved dots alone. Encode variable dots too,
+        # so a value of '.'/'..' cannot become a client-normalized path segment.
+        path=''.join(literal+(quote(values[field],safe='',encoding='utf-8').replace('.','%2E') if field is not None else '')
+                     for literal,field,_,_ in _tokens(p.path,path=True))
+        if any(segment in ('.','..') for segment in path.split('/')) and path!=p.path:
+            raise DeliveryError('invalid_path_data')
+        query=urlencode([(k,v.format_map(values)) for k,v in parse_qsl(p.query,keep_blank_values=True)])
+        result=urlunsplit((p.scheme,p.netloc,path,query,''))
+    except UnicodeError:raise DeliveryError('invalid_url_data') from None
+    if urlsplit(result)[:2]!=(p.scheme,p.netloc):raise DeliveryError('invalid_url_data')
     if len(result)>16000:raise DeliveryError('url_too_large')
     return result
 

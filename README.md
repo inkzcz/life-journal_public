@@ -1,5 +1,9 @@
 # Life Journal · 私人生活档案
 
+当前分支为 **v5.1.10 开发候选**，验收前保持 Draft，不合并、不创建正式 Tag/Release 或发布镜像。
+正式稳定版仍为下文链接的 v5.1.9。v5.1.10 新增无模板日常/旅行写作、统一生活卡片展示和安全的通知路径变量，
+保留所有旧文章、模板 API、媒体 UUID、行程与迁移保护。验收与升级边界见 [v5.1.10 开发验收](docs/v5.1.10-validation.md)。
+
 Life Journal 是可自行部署的私人 Blog，包含文章与草稿、TipTap/Markdown 编辑、旅行/地点/行程、照片流与相册、公历/农历纪念日、主题及后台管理。
 前端 Vue 3，后端 FastAPI，数据库 PostgreSQL 17。一个 Debian Linux/amd64 业务镜像通过 `api`、`web`、`maintenance` 三个命令运行三个独立容器，数据库为独立第四容器。
 
@@ -18,14 +22,17 @@ git clone https://github.com/inkzcz/life-journal_public.git life-journal-source
 cd life-journal-source
 git checkout --detach YOUR_REVIEWED_FULL_PUBLIC_SHA
 candidate_revision=$(git rev-parse HEAD)
-python scripts/release_local.py --version "v5.1.9-candidate.${candidate_revision:0:7}" --revision "$candidate_revision"
+candidate_product=$(cat VERSION)
+candidate_version=$(cat VERSION)
+python scripts/release_local.py --version "v${candidate_version}-candidate.${candidate_revision:0:7}" --revision "$candidate_revision"
 ```
 
 Windows PowerShell（需 Git、Python 3.10+、Docker Desktop Linux Containers/Buildx）：
 
 ```powershell
 $Revision = (git rev-parse HEAD).Trim()
-$Version = "v5.1.9-candidate.$($Revision.Substring(0,7))"
+$ProductVersion = (Get-Content VERSION -Raw).Trim()
+$Version = "v$ProductVersion-candidate.$($Revision.Substring(0,7))"
 .\scripts\release-local.cmd -Version $Version -Revision $Revision
 ```
 

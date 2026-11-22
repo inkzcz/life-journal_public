@@ -156,6 +156,25 @@ def write_deployment_zip(root,orchestration,target):
             archive.write(orchestration/path,path)
 
 
+def require_release_authorization(authority,version):
+    if (authority.get('binary_publication_approved') is not True
+            or authority.get('repository')!='inkzcz/life-journal_public'
+            or authority.get('version')!='v5.1.9'
+            or authority.get('registry_push_approved') is not False
+            or not authority.get('owner_confirmation_reference')):
+        raise ValueError('Separate owner binary-release authorization required')
+    if not (version=='v5.1.9' or re.fullmatch(r'v5\.1\.9-candidate\.[0-9a-f]{7,40}',version)):
+        raise ValueError('Only the owner-authorized v5.1.9 release is accepted')
+
+
+def require_candidate_identity(version,product_version,revision):
+    if (not re.fullmatch(r'\d+\.\d+\.\d+',product_version)
+            or not re.fullmatch(r'[0-9a-f]{40}',revision)
+            or not re.fullmatch('v'+re.escape(product_version)+r'-candidate\.[0-9a-f]{7,40}',version)
+            or not revision.startswith(version.rsplit('.',1)[1])):
+        raise ValueError('Validation-only requires an exact source-bound development candidate')
+
+
 def package(args):
     root=args.root.resolve();bundle=args.bundle.resolve()
     revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
@@ -166,15 +185,11 @@ def package(args):
     if subprocess.check_output(['git','-C',str(root),'status','--porcelain','--untracked-files=no']):
         raise ValueError('Tracked source changed during verification')
     delivery=read(bundle/'manifest.json');version=delivery['version']
-    authority=read(root/'licensing/BINARY_RELEASE_AUTHORIZATION.json')
-    if (authority.get('binary_publication_approved') is not True
-            or authority.get('repository')!='inkzcz/life-journal_public'
-            or authority.get('version')!='v5.1.9'
-            or authority.get('registry_push_approved') is not False
-            or not authority.get('owner_confirmation_reference')):
-        raise ValueError('Separate owner binary-release authorization required')
-    if not (version=='v5.1.9' or re.fullmatch(r'v5\.1\.9-candidate\.[0-9a-f]{7,40}',version)):
-        raise ValueError('Only the owner-authorized v5.1.9 release is accepted')
+    validation_only=getattr(args,'validate_only',False)
+    if validation_only:
+        require_candidate_identity(version,(root/'VERSION').read_text().strip(),revision)
+    else:
+        require_release_authorization(read(root/'licensing/BINARY_RELEASE_AUTHORIZATION.json'),version)
     if delivery['source']['revision']!=revision or delivery['source']['revision_verified'] is not True:
         raise ValueError('Business image/source commit mismatch')
     expected_name='life-journal-app-'+version+'-amd64.tar'
@@ -199,6 +214,18 @@ def package(args):
     verify_source_files(args.sources,source_report)
     verify_evidence_files(args.evidence,inventory)
     verify_python_receipt(args.evidence,source_report)
+    paths={p['path'] for p in browser['packages']}
+    selected=[p for p in inventory['packages'] if p['ecosystem']!='npm' or p['package_path'] in paths]
+    actual_browser={p['package_path'] for p in selected if p['ecosystem']=='npm'}
+    if actual_browser!=paths or any(not p.get('retained_source_archive') or not p.get('notice_files')
+            for p in selected if p['ecosystem']=='npm'):
+        raise ValueError('Actual bundled browser source/notices incomplete')
+    if validation_only:
+        print(json.dumps({'validation_only':True,'source_commit':revision,'version':version,
+            'business_tar_sha256':delivery['tar_sha256'][expected_name],
+            'runtime_source_notice_and_replacement_checks':'passed',
+            'distribution_package_created':False,'publication_authorized':False},indent=2))
+        return
     if args.output.exists() or args.output.is_symlink():
         raise ValueError('New output directory required; nothing overwritten')
     args.output.mkdir(mode=0o700)
@@ -206,12 +233,6 @@ def package(args):
     copy_tree(args.sources,work)
     # Keep runtime browser packages only. General-purpose compiler/tool packages
     # are not in the emitted chunks; do not redistribute unreviewed dev archives.
-    paths={p['path'] for p in browser['packages']}
-    selected=[p for p in inventory['packages'] if p['ecosystem']!='npm' or p['package_path'] in paths]
-    actual_browser={p['package_path'] for p in selected if p['ecosystem']=='npm'}
-    if actual_browser!=paths or any(not p.get('retained_source_archive') or not p.get('notice_files')
-            for p in selected if p['ecosystem']=='npm'):
-        raise ValueError('Actual bundled browser source/notices incomplete')
     allowed_archives={p['retained_source_archive'] for p in selected
                       if p.get('retained_source_archive')}
     allowed_archives.update(m['retained_source_archive'] for m in inventory['go_modules']
@@ -299,6 +320,7 @@ def main():
     for name in ('root','bundle','evidence','sources','installation','pillow','layers','debian','output'):
         parser.add_argument('--'+name,type=Path,required=True)
     parser.add_argument('--orchestration-root',type=Path)
+    parser.add_argument('--validate-only',action='store_true',help='Verify development candidate receipts; create no distributable assets or authorization')
     args=parser.parse_args()
     package(args)
 

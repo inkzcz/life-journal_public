@@ -80,7 +80,7 @@ jobs:
         run: docker compose --env-file .env.example config --quiet
         env:
           POSTGRES_PASSWORD: synthetic-ci-test-only
-          IMAGE_TAG: v5.1.9-candidate.ci
+          IMAGE_TAG: v5.1.10-candidate.ci
           POSTGRES_IMAGE: postgres:17-alpine
       - name: Tests must leave tracked source and example directories unchanged
         run: |
@@ -110,7 +110,8 @@ jobs:
         run: |
           app_root="$GITHUB_WORKSPACE"
           revision=$(git rev-parse HEAD)
-          tag="v5.1.9-candidate.${revision:0:7}"
+          product_version=$(cat VERSION)
+          tag="v${product_version}-candidate.${revision:0:7}"
           if [ -n "$RELEASE_VERSION" ]; then
             test "$RELEASE_VERSION" = v5.1.9
             test "$(git cat-file -t "$ANNOTATED_TAG_SHA")" = tag
@@ -140,6 +141,12 @@ jobs:
         run: docker pull postgres:17-alpine
       - name: Isolated installation, restart, backup, restore and synthetic upgrade
         run: python tests/docker_installation.py --image-tag "$IMAGE_TAG" --output "$RUNNER_TEMP/installation-report.json"
+      - name: Released v5.1.9 to development v5.1.10, synthetic same-schema upgrade only
+        if: startsWith(env.IMAGE_TAG, 'v5.1.10-candidate.')
+        run: |
+          mkdir "$RUNNER_TEMP/previous-release"
+          curl --fail --location --silent --show-error --retry 3 --connect-timeout 20 --max-time 180 --proto '=https' --proto-redir '=https' https://github.com/inkzcz/life-journal_public/releases/download/v5.1.9/life-journal-app-v5.1.9-amd64.tar -o "$RUNNER_TEMP/previous-release/life-journal-app-v5.1.9-amd64.tar"
+          python tests/docker_same_schema_upgrade.py --image-tag "$IMAGE_TAG" --previous-tar "$RUNNER_TEMP/previous-release/life-journal-app-v5.1.9-amd64.tar" --output "$RUNNER_TEMP/same-schema-upgrade.json"
       - name: Exact corresponding source, patches and preferred browser source
         env:
           GH_TOKEN: ${{ github.token }}
@@ -148,10 +155,18 @@ jobs:
       - name: Real LGPL Pillow shim source modification and relink
         run: python scripts/test_pillow_relink.py --image-tag "$IMAGE_TAG" --sources "$RUNNER_TEMP/exact-sources" --output "$RUNNER_TEMP/pillow-relink.json"
       - name: Bind one business TAR to complete sources, notices and validation
+        id: package
         run: |
-          python scripts/prepare_distribution.py --root "$APP_ROOT" --orchestration-root . --bundle "$RUNNER_TEMP/delivery/$IMAGE_TAG" --evidence "$RUNNER_TEMP/binary-evidence" --sources "$RUNNER_TEMP/exact-sources" --installation "$RUNNER_TEMP/installation-report.json" --pillow "$RUNNER_TEMP/pillow-relink.json" --layers "$RUNNER_TEMP/layer-report.json" --debian "$RUNNER_TEMP/debian-probe.json" --output "$RUNNER_TEMP/release-assets"
+          mode=()
+          delivery_ready=true
+          if [[ "$IMAGE_TAG" != v5.1.9 && "$IMAGE_TAG" != v5.1.9-candidate.* ]]; then
+            mode=(--validate-only)
+            delivery_ready=false
+          fi
+          python scripts/prepare_distribution.py --root "$APP_ROOT" --orchestration-root . --bundle "$RUNNER_TEMP/delivery/$IMAGE_TAG" --evidence "$RUNNER_TEMP/binary-evidence" --sources "$RUNNER_TEMP/exact-sources" --installation "$RUNNER_TEMP/installation-report.json" --pillow "$RUNNER_TEMP/pillow-relink.json" --layers "$RUNNER_TEMP/layer-report.json" --debian "$RUNNER_TEMP/debian-probe.json" --output "$RUNNER_TEMP/release-assets" "${mode[@]}"
+          echo "delivery_ready=$delivery_ready" >> "$GITHUB_OUTPUT"
       - name: Preserve only complete, explicitly named candidate delivery assets
-        if: github.repository == 'inkzcz/life-journal_public' && ((github.event_name == 'push' && (github.ref == 'refs/heads/release/prepare-v5.1.9' || github.ref == 'refs/heads/main')) || (github.workflow == 'Formal v5.1.9 delivery' && inputs.release_version == 'v5.1.9' && inputs.source_revision != '' && inputs.annotated_tag_sha != ''))
+        if: steps.package.outputs.delivery_ready == 'true' && github.repository == 'inkzcz/life-journal_public' && ((github.event_name == 'push' && (github.ref == 'refs/heads/release/prepare-v5.1.9' || github.ref == 'refs/heads/main')) || (github.workflow == 'Formal v5.1.9 delivery' && inputs.release_version == 'v5.1.9' && inputs.source_revision != '' && inputs.annotated_tag_sha != ''))
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: ${{ steps.identity.outputs.artifact_name }}
