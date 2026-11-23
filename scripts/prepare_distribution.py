@@ -21,6 +21,7 @@ import zipfile
 if __package__ in (None,''):
     sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from scripts import corresponding_sources as sources
+from scripts.release_authorization import read_authorization, release_version, validate_authorization
 
 
 def digest(path):
@@ -157,14 +158,21 @@ def write_deployment_zip(root,orchestration,target):
 
 
 def require_release_authorization(authority,version):
-    if (authority.get('binary_publication_approved') is not True
-            or authority.get('repository')!='inkzcz/life-journal_public'
-            or authority.get('version')!='v5.1.9'
-            or authority.get('registry_push_approved') is not False
-            or not authority.get('owner_confirmation_reference')):
-        raise ValueError('Separate owner binary-release authorization required')
-    if not (version=='v5.1.9' or re.fullmatch(r'v5\.1\.9-candidate\.[0-9a-f]{7,40}',version)):
-        raise ValueError('Only the owner-authorized v5.1.9 release is accepted')
+    return validate_authorization(authority,version)
+
+
+def require_upgrade_receipt(report,version,revision):
+    if (report.get('synthetic_same_schema_upgrade')!='passed'
+            or report.get('from_version')!='5.1.9' or report.get('to_version')!='5.1.10'
+            or report.get('image_tag')!=version or report.get('source_commit')!=revision
+            or report.get('schema_before')!='0021_anniversary_calendar'
+            or report.get('schema_after')!='0021_anniversary_calendar'
+            or report.get('old_backup_created_and_verified') is not True
+            or report.get('existing_article_fields_cards_media_itinerary')!='preserved'
+            or report.get('new_default_type_and_travel_toggles')!='passed'
+            or report.get('candidate_restart_persistence')!='passed'
+            or report.get('production_or_nas_accessed') is not False):
+        raise ValueError('Exact same-schema upgrade receipt missing or failed')
 
 
 def require_candidate_identity(version,product_version,revision):
@@ -189,7 +197,7 @@ def package(args):
     if validation_only:
         require_candidate_identity(version,(root/'VERSION').read_text().strip(),revision)
     else:
-        require_release_authorization(read(root/'licensing/BINARY_RELEASE_AUTHORIZATION.json'),version)
+        require_release_authorization(read_authorization(root,version),version)
     if delivery['source']['revision']!=revision or delivery['source']['revision_verified'] is not True:
         raise ValueError('Business image/source commit mismatch')
     expected_name='life-journal-app-'+version+'-amd64.tar'
@@ -208,6 +216,10 @@ def package(args):
     browser=read(args.evidence/'image/srv/legal/browser-notices.json')
     installation,pillow,layers,debian=map(read,[args.installation,args.pillow,args.layers,args.debian])
     require_receipts(installation,pillow,layers,debian)
+    upgrade=getattr(args,'upgrade',None)
+    if version=='v5.1.10' or version.startswith('v5.1.10-candidate.'):
+        if not upgrade:raise ValueError('Same-schema upgrade receipt required')
+        require_upgrade_receipt(read(upgrade),version,revision)
     if installation.get('image_tag')!=version or debian.get('image_tag')!=version:
         raise ValueError('Runtime validation belongs to another image tag')
     require_sources(inventory,source_report,browser)
@@ -276,6 +288,7 @@ def package(args):
     for name,path in [('installation.json',args.installation),('pillow-relink.json',args.pillow),
                       ('layer-scan.json',args.layers),('runtime-probe.json',args.debian)]:
         target=work/'validation'/name;target.parent.mkdir(exist_ok=True);shutil.copyfile(path,target)
+    if upgrade:shutil.copyfile(upgrade,work/'validation/same-schema-upgrade.json')
     shutil.copyfile(root/'third_party/BINARY_NOTICE.md',work/'NOTICE.md')
     shutil.copyfile(orchestration/'third_party/SOURCE_BUILD.md',work/'BUILD_AND_REPLACE.md')
     receipt={'format':'life-journal-binary-corresponding-source-v1','version':version,
@@ -302,7 +315,7 @@ def package(args):
     (args.output/'manifest.json').write_text(json.dumps(delivery,ensure_ascii=False,indent=2)+'\n')
     shutil.copyfile(bundle/'images.json',args.output/'images.json')
     for name,path in {'INSTALL.md':'docs/install.md','UPGRADE.md':'docs/upgrade.md',
-                       'KNOWN_LIMITATIONS.md':'docs/known-limitations.md','RELEASE_NOTES.md':'docs/release-notes-v5.1.9.md'}.items():
+                       'KNOWN_LIMITATIONS.md':'docs/known-limitations.md','RELEASE_NOTES.md':'docs/release-notes-'+release_version(version)+'.md'}.items():
         shutil.copyfile(orchestration/path,args.output/name)
     write_deployment_zip(root,orchestration,args.output/('life-journal-deploy-'+version+'.zip'))
     sums=''.join(digest(p)+'  '+p.name+'\n' for p in sorted(args.output.iterdir()) if p.is_file())
@@ -320,6 +333,7 @@ def main():
     for name in ('root','bundle','evidence','sources','installation','pillow','layers','debian','output'):
         parser.add_argument('--'+name,type=Path,required=True)
     parser.add_argument('--orchestration-root',type=Path)
+    parser.add_argument('--upgrade',type=Path)
     parser.add_argument('--validate-only',action='store_true',help='Verify development candidate receipts; create no distributable assets or authorization')
     args=parser.parse_args()
     package(args)

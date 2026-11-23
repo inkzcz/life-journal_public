@@ -94,14 +94,17 @@ def main():
     parser.add_argument('--output',required=True,type=Path)
     args=parser.parse_args()
     if args.output.exists() or args.output.is_symlink():raise ValueError('Fresh report path required')
-    if not re.fullmatch(r'v5\.1\.10-candidate\.[0-9a-f]{7,40}',args.image_tag):raise ValueError('Only the v5.1.10 development candidate is accepted')
+    if args.image_tag!='v5.1.10' and not re.fullmatch(r'v5\.1\.10-candidate\.[0-9a-f]{7,40}',args.image_tag):raise ValueError('Only the reviewed v5.1.10 release or source-bound candidate is accepted')
     host=os.getenv('DOCKER_HOST','')
     if host and not host.startswith(('unix://','npipe://')):raise ValueError('Local Docker only')
     endpoint=json.loads(run('docker','context','inspect','--format','{{json .Endpoints.docker.Host}}'))
     if not endpoint.startswith(('unix://','npipe://')):raise ValueError('Local Docker context required')
     expected=load_previous_image(args.previous_tar)
     old_image_id=json.loads(run('docker','image','inspect','life-journal:'+OLD_TAG))[0]['Id']
-    run('docker','image','inspect','life-journal:'+args.image_tag)
+    candidate_image=json.loads(run('docker','image','inspect','life-journal:'+args.image_tag))[0]
+    from scripts.test_pillow_relink import validate_relink_image
+    validate_relink_image(args.image_tag,candidate_image)
+    source_commit=candidate_image['Config']['Labels']['org.opencontainers.image.revision']
     run('docker','image','inspect','postgres:17-alpine')
     private=Path(tempfile.mkdtemp(prefix='lj-version-upgrade-',dir=os.getenv('RUNNER_TEMP',tempfile.gettempdir())))
     base=private/'install';base.mkdir()
@@ -165,7 +168,7 @@ def main():
         assert after==before
     finally:
         stop_projects(started)
-    report={'synthetic_same_schema_upgrade':'passed','from_version':'5.1.9','to_version':'5.1.10',
+    report={'image_tag':args.image_tag,'source_commit':source_commit,'synthetic_same_schema_upgrade':'passed','from_version':'5.1.9','to_version':'5.1.10',
         'old_business_tar_sha256':OLD_TAR_SHA256,'schema_before':before,'schema_after':after,
         'old_image_config_digest':expected,'old_image_store_id':old_image_id,
         'old_backup_created_and_verified':True,'existing_article_fields_cards_media_itinerary':'preserved',

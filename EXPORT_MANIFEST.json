@@ -32,23 +32,27 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "dbac6b71df325f43f766c7f8c2a466d46361063d2c1093224c028060cb2717dc"
+      "sha256": "7021b6a79f2f6767067449990487feaff0eda5e561a14cec7b547574ea8c7356"
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "fa24fb1457b8880d031e1a11a2bf4dd75a89addf6c40447668431120481b95be"
+      "sha256": "daa0fe061bc624ab80540f4a067d747f9c95d260a71ea31803768b002d95697d"
     },
     {
       "path": ".gitignore",
       "sha256": "a4a850093eaec317bea75c7a352e09be3fa3c2de306697c16e5036e7b75c3354"
     },
     {
+      "path": "AGENTS.md",
+      "sha256": "ec3a25b81b91ef00f9215b920281c42c637f52f47c4bb276b3d9ac66712a3235"
+    },
+    {
       "path": "CHANGELOG.md",
-      "sha256": "55df20bb922bbfd460582cfe8003bd7102fad75e4af467452b06357ce6d95102"
+      "sha256": "1e24a7f9ebd94ef605fb4cc7bbe86ebd5fd86db153e75f732ac7f5982f7fb4d0"
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "35a121deb2c8ee01e4cec8f99735e6e2b6879a7dca38b0a6e0d88f2b843e0442"
+      "sha256": "4cd1e664ba4a8cff039099f478b132f8af11e7325d3ce4dd8c68fca6b06a653b"
     },
     {
       "path": "COPYRIGHT.md",
@@ -64,7 +68,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "4314a300eae6d726a5608efd41c0eb7ee1d7bd7b339ba46e759f20052214186e"
+      "sha256": "932f23925da557ece8dbba980c1d55018725c371dd4c7952b2b6efaf8acfde62"
     },
     {
       "path": "SECURITY.md",
@@ -412,7 +416,7 @@
     },
     {
       "path": "backend/app/release_notes.json",
-      "sha256": "ffdda1cbea8f322e527ce79a3958f4a987ef935fdb4b2f4255b8016d51b7cb7f"
+      "sha256": "c11d6c6af85c0496b8e07e3f4911824c30f4aa01faf40932990f1e2faa7cbb1c"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -684,11 +688,11 @@
     },
     {
       "path": "docs/install.md",
-      "sha256": "9fe1312b9405a83e246f57c068212eeadb68a67bac1e6ad7f73e85331feb9ae1"
+      "sha256": "061cad8aa54b2b4869345afe918cce717d4f0fe35913cb36d80cd74b3c755995"
     },
     {
       "path": "docs/known-limitations.md",
-      "sha256": "fb7d314e5bd8667b99788ed00f459019b05203d5d21cd333f35ca8aa0938c125"
+      "sha256": "ee7cfd94e5b2fa8835f6e054c61ea09c542ff52001edcfc48a5564568c261687"
     },
     {
       "path": "docs/licensing.md",
@@ -703,8 +707,20 @@
       "sha256": "6b332a1a66a032168376223b11c76a460cbe692efa505fc58946e8e289bb3cf3"
     },
     {
+      "path": "docs/release-notes-v5.1.10.md",
+      "sha256": "30a65c1d2d2711ceb3802e8d5dfc3f960269a09359457caed5c1d53dcb2c6889"
+    },
+    {
       "path": "docs/release-notes-v5.1.9.md",
       "sha256": "13ae15237978bfca1ebf30db04bc309eadf7c804713986de9d18746b86becee4"
+    },
+    {
+      "path": "docs/release-policy.md",
+      "sha256": "f9972a5724d82b187f3c8d093241134413ceb0e51dbde9e465607655063831d0"
+    },
+    {
+      "path": "docs/release-v5.1.10.md",
+      "sha256": "7b6a9cd2de99a0e581e1097d2c71d522bcf329b878bd5552fc0eb63e7ce633aa"
     },
     {
       "path": "docs/release-v5.1.9.md",
@@ -716,11 +732,11 @@
     },
     {
       "path": "docs/upgrade.md",
-      "sha256": "3643d074cbee836d680371e225a522bb3696a5ba1501694e7cdd3dbf1d8588b8"
+      "sha256": "d49ec278d770921c72ba900c0dfc29e0d0644d0947846dcadb19925db8705fc8"
     },
     {
       "path": "docs/v5.1.10-validation.md",
-      "sha256": "d0865f8232e9827e76e18fcc0d4b21fff721c03b084aa180b3d1ddc98f1ab0fb"
+      "sha256": "d78224ba05b004a52e0815117b9a8bc45488fa04e2520a42f1ef810a50589468"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -1531,6 +1547,10 @@
       "sha256": "97af955df84044e503ce0060215e367f317286503831d9b3d4863c49f210edb7"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json",
+      "sha256": "0c3d5454ee79c4aff5724bc55e2e28016275dc689d3333e387617936e648b91a"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
@@ -1596,11 +1616,11 @@
     },
     {
       "path": "scripts/open_source_gate.py",
-      "sha256": "e8bb43f2f80b74b954b1e7d0c01b21eb5f453ea8c25405d89839962c3f246e6d"
+      "sha256": "c7750ce1aafce5415712a5e36737d5571b02cb6c5fcf3300290edab690705c43"
     },
     {
       "path": "scripts/prepare_distribution.py",
-      "sha256": "65215d2ccae9fa9e7e2c4e4278c7772dfa3c269e0ce51f6a76e1a9943e39259b"
+      "sha256": "2982100feac550722b014adfdba864f77efb8884e1743cb70f472f1c1aa64acf"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1615,12 +1635,16 @@
       "sha256": "96c1db66e2bf23e29f44ac22ac0a677ecf3274dd24d8df321c99d1921de8a429"
     },
     {
+      "path": "scripts/release_authorization.py",
+      "sha256": "a22e72bf5d9153a6d4b4d7cf6e97abbfd200c1c74c0374b7ae3cf8d9bf8e1e8e"
+    },
+    {
       "path": "scripts/release_local.py",
       "sha256": "c20c9a008c75d9d0704f9d3515d34ba432be3ad2c332969b2e397e52119e542a"
     },
     {
       "path": "scripts/release_preflight.py",
-      "sha256": "257a0bd711041332f2ddbb7bd3112878ae2e231614e6f47be4c46a946006d65d"
+      "sha256": "d356f15db42406f1502e5bcf33656da9b6c4c951a0965e36d1798a0164e740c3"
     },
     {
       "path": "scripts/release_source.py",
@@ -1644,7 +1668,7 @@
     },
     {
       "path": "scripts/test_pillow_relink.py",
-      "sha256": "a9f2e0625f78263f2fc21357e277d854971a7b40d733a886b69fb281febc4dde"
+      "sha256": "0d24644912a08ea7263ffb372e286d068e7c4ff84849b1c4a53f66b43336ece7"
     },
     {
       "path": "scripts/unified_images.py",
@@ -1684,7 +1708,7 @@
     },
     {
       "path": "tests/docker_same_schema_upgrade.py",
-      "sha256": "f96b215260063ae13df8b33a02c2811e9571e07cb5b830545e635d43b93f9947"
+      "sha256": "5be5789dceffa9d0d5bd0a3ea4cad88d116e901ecebe0161f16bb645d1f9bc6e"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -1956,7 +1980,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "cab65914f2d831cf4b950ce3d20d3eb6785dcf3b8f53058dd58a73f12ebb58a5"
+      "sha256": "19de479de558241c108e9e9c10f14704fd63d64b39bc418103ae9edb8b3d0694"
     },
     {
       "path": "tests/test_product_version.py",
@@ -1964,7 +1988,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "f433e46f808464e749dbf932ea113503354fc0fe0c291db5838aaac691052fd8"
+      "sha256": "6b7677008047a5d6a95604eedbfb86afb196a266803685b9b31b0b37aa8de4da"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -1980,7 +2004,7 @@
     },
     {
       "path": "tests/test_release_preflight.py",
-      "sha256": "590c3467af0d96d7d98362726f04760d7736a7b583b6f95275258ed72bbbd4cd"
+      "sha256": "e129581f34a07566f698daae807bf67469f03cf92d7c4e43a4d36a01405e2022"
     },
     {
       "path": "tests/test_release_source.py",
@@ -2031,6 +2055,10 @@
       "sha256": "bedd5e46368eee2a67aeb27f2a40e3c4bad92964ef8b7c064287d9025ffcf8a8"
     },
     {
+      "path": "tests/test_windows_launchers.py",
+      "sha256": "9932a4a1913f4c78f7fccae44641e8c338c9c7634d7d19abbebf57f5d728934d"
+    },
+    {
       "path": "tests/test_writing.py",
       "sha256": "35900a2cd8782e2ad40ef149100b7a0b67f87a0ebffb878e595c901361f30f15"
     },
@@ -2048,7 +2076,7 @@
     },
     {
       "path": "third_party/REDISTRIBUTION.md",
-      "sha256": "e7dcf540d8395e5e992abfeb98ee331a5e227a76295fb6b518586e2d25998d0f"
+      "sha256": "d9aabfaeecad4df3dce34fa8a9c735f0b9eaf6a4d2d2de1a400b3481696d14c8"
     },
     {
       "path": "third_party/SOURCE_BUILD.md",
@@ -3724,7 +3752,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "51bceb566c249dff52875a7458bcef948d4a8b7833b65f61d0b7155cae76ac76"
+      "sha256": "99340789fcf306aabb98a21433dade5c65d1d95d1ef7809e537f291a7eb1ae02"
     },
     {
       "path": "third_party/source-scope.json",
@@ -3739,17 +3767,17 @@
   ],
   "maintenance": {
     "based_on_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
-    "scope": "Maintained public source and original v5.1.10 feature/test changes; no schema, private history or binary artifacts in tracked source.",
+    "scope": "Maintained public v5.1.10 source and authorized formal-delivery tooling; no binary/private artifacts or Git history in tracked source.",
     "initial_snapshot_identity": "docs/initial-source-snapshot.json",
     "source_commit_semantics": "Original export origin only, not the current maintained Git commit",
     "final_review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa",
     "release_preparation_baseline": "e00b80e866d9686458963efe3ade2d658b9c56b0",
-    "formal_release_authorization": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
+    "formal_release_authorization": "licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json",
     "development": {
       "version": "5.1.10",
       "branch": "feature/v5.1.10-writing-and-cards",
       "baseline": "e1c1d9dc1864929e72172113b39b3796b3acb907",
-      "status": "Draft development; no formal release publication approved"
+      "status": "Owner-authorized formal delivery; actual publication depends on exact final HEAD/main/tag CI and binary/source/license gates"
     }
   }
 }

@@ -2,8 +2,8 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "v5.1.10 writing simplification, original shared card presentation, safe path-template data and synthetic-only development validation; no schema/dependency/third-party grant changes.",
-  "reviewed_on": "2026-11-22",
+  "current_delta": "v5.1.10 authorized formal-delivery preparation, independently scoped grant, exact release/upgrade gates, synthetic browser CI and user upgrade/rollback documentation; no runtime dependency, schema, volume or third-party grant changes.",
+  "reviewed_on": "2026-11-23",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
   "method": "Per-file source/asset/import/marker and scope review, targeted public upstream and local history checks, accepted owner project-development declaration. No global code plagiarism or legal title certification.",
@@ -163,6 +163,14 @@
       "source": "Owner v5.1.10 feature task and explicit public-repository confirmation; original application changes, fixtures, SVG geometry, preview and development validation written for this task. No private repository, user data, third-party implementation or artwork imported.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments; all upstream grants preserved.",
       "decision": "Reviewed changed/new tracked code, configuration, documentation and synthetic fixtures. Package lock dependency identities unchanged; 410 legal texts preserved. Existing v5.1.9 binary authorization remains version-scoped; v5.1.10 CI validates temporary candidates without publishing delivery assets."
+    },
+    {
+      "id": "P007",
+      "review_date": "2026-11-23",
+      "review_baseline": "b07da2fd6430cc1d16680013e89941bf3f7785f2",
+      "source": "Owner explicit v5.1.10 formal merge/release and ongoing delivery instruction; original release orchestration, version-specific authorization selection, negative tests and deployment guides written within this public repository. No private source, production logs, media or external implementation copied.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments; all third-party grants and credits unchanged.",
+      "decision": "Reviewed exact release delta and each new source file. Original v5.1.9 authorization, initial snapshot receipt and all 410 legal texts remain byte-identical. CI-only pinned Playwright is not copied into business image or source delivery archives. Actual binary source/notices/relink receipts required for every formal build; pending real platforms/UPGRADE-001 stated accurately."
     }
   ],
   "files": [
@@ -211,18 +219,20 @@
         "P003",
         "P004",
         "P005",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "dcb6155cdf3617acb723be4c090aab38d99f32283c4cb17767878759622840af"
+      "sha256_canonical": "a6fa2555120e7ab7d9eee0f04f10be4f16f26e8d098fff528f475ff75a8257c0"
     },
     {
       "path": ".github/workflows/release.yml",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
         "P004",
-        "P005"
+        "P005",
+        "P007"
       ],
-      "sha256_canonical": "907dc1febe4f911cf07cc5e8ce4941f86d36b3e886f985450e6a1e3e8263efb6"
+      "sha256_canonical": "d83b2a9554fe982b9a12cfccccc6084e540a59a32f7e849a1659f89ea9440de2"
     },
     {
       "path": ".gitignore",
@@ -233,23 +243,33 @@
       "sha256_canonical": "a4a850093eaec317bea75c7a352e09be3fa3c2de306697c16e5036e7b75c3354"
     },
     {
+      "path": "AGENTS.md",
+      "classification": "project-review-and-factual-metadata",
+      "evidence": [
+        "P007"
+      ],
+      "sha256_canonical": "0798dd50185e4ae7d5619f30554a035fc12aac9721177b89f4699e2afdb424bf"
+    },
+    {
       "path": "CHANGELOG.md",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
         "P001",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "bc7a3219076b1acfdb03cf67d2fc40d7e6d190f12b0be7b14c7211d4aa231c3a"
+      "sha256_canonical": "eef4b91cdc437c6aeb00e4258572cac886d43cf92ef989a02e8ac8ed4b193c95"
     },
     {
       "path": "CONTRIBUTING.md",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P007"
       ],
-      "sha256_canonical": "35a121deb2c8ee01e4cec8f99735e6e2b6879a7dca38b0a6e0d88f2b843e0442"
+      "sha256_canonical": "4cd1e664ba4a8cff039099f478b132f8af11e7325d3ce4dd8c68fca6b06a653b"
     },
     {
       "path": "COPYRIGHT.md",
@@ -285,9 +305,10 @@
         "J001",
         "P001",
         "P004",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "9c7dcc4c4f8c49f1ca0a24c0846b698d4a1bed6e1995c2e045961cf1c4ad6ded"
+      "sha256_canonical": "7a356142f6f3309faba1885662d8b260c6787684990bbd9c2030efd545aca320"
     },
     {
       "path": "SECURITY.md",
@@ -1012,9 +1033,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "e1a1e7b587a665aba0726f615cb2d8cb5d1d925aa48abdd435436eb6079d7ff5"
+      "sha256_canonical": "263c9af6bb78f5230d515f51e20407324f471a6096bd90c7ba146f6cd458310c"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -1571,9 +1593,10 @@
       "evidence": [
         "J001",
         "P001",
-        "P005"
+        "P005",
+        "P007"
       ],
-      "sha256_canonical": "560fd803667336b01e2841cb0f96b9c928e73ed66289a426bc3f94c5517a205a"
+      "sha256_canonical": "0351c495c7b572e41810a3d7e0d19246d5cdc1305cee077d4e67ab359cdbb4ea"
     },
     {
       "path": "docs/known-limitations.md",
@@ -1582,9 +1605,10 @@
         "J001",
         "P001",
         "P003",
-        "P004"
+        "P004",
+        "P007"
       ],
-      "sha256_canonical": "fb7d314e5bd8667b99788ed00f459019b05203d5d21cd333f35ca8aa0938c125"
+      "sha256_canonical": "ee7cfd94e5b2fa8835f6e054c61ea09c542ff52001edcfc48a5564568c261687"
     },
     {
       "path": "docs/licensing.md",
@@ -1614,12 +1638,36 @@
       "sha256_canonical": "0598883293921377ea3348090c10958234bffb8f96678e0cc99b73f8e249a80f"
     },
     {
+      "path": "docs/release-notes-v5.1.10.md",
+      "classification": "project-review-and-factual-metadata",
+      "evidence": [
+        "P007"
+      ],
+      "sha256_canonical": "30a65c1d2d2711ceb3802e8d5dfc3f960269a09359457caed5c1d53dcb2c6889"
+    },
+    {
       "path": "docs/release-notes-v5.1.9.md",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
         "P004"
       ],
       "sha256_canonical": "13ae15237978bfca1ebf30db04bc309eadf7c804713986de9d18746b86becee4"
+    },
+    {
+      "path": "docs/release-policy.md",
+      "classification": "project-review-and-factual-metadata",
+      "evidence": [
+        "P007"
+      ],
+      "sha256_canonical": "49b24c24620ccac038e4cd74f891070e97af4e2953ff4b5b389274a27755d847"
+    },
+    {
+      "path": "docs/release-v5.1.10.md",
+      "classification": "project-review-and-factual-metadata",
+      "evidence": [
+        "P007"
+      ],
+      "sha256_canonical": "7b6a9cd2de99a0e581e1097d2c71d522bcf329b878bd5552fc0eb63e7ce633aa"
     },
     {
       "path": "docs/release-v5.1.9.md",
@@ -1646,17 +1694,19 @@
       "evidence": [
         "J001",
         "P001",
-        "P005"
+        "P005",
+        "P007"
       ],
-      "sha256_canonical": "3643d074cbee836d680371e225a522bb3696a5ba1501694e7cdd3dbf1d8588b8"
+      "sha256_canonical": "d49ec278d770921c72ba900c0dfc29e0d0644d0947846dcadb19925db8705fc8"
     },
     {
       "path": "docs/v5.1.10-validation.md",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "d0865f8232e9827e76e18fcc0d4b21fff721c03b084aa180b3d1ddc98f1ab0fb"
+      "sha256_canonical": "d78224ba05b004a52e0815117b9a8bc45488fa04e2520a42f1ef810a50589468"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -3297,6 +3347,14 @@
       "sha256_canonical": "f277c2ec6ac6d60cefdc1c863a768985917174e01f9b76f436590f5ff4329544"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json",
+      "classification": "project-review-and-factual-metadata",
+      "evidence": [
+        "P007"
+      ],
+      "sha256_canonical": "634602e9e6ef0185d0ed9c088e6a1f455a2c276470bdc73b536c878818ad0d96"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "classification": "retained-license-text-or-historical-draft",
       "evidence": [
@@ -3436,9 +3494,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P004"
+        "P004",
+        "P007"
       ],
-      "sha256_canonical": "7710caef510026caf27b38fa2df1ff8ff1adc60ea8cf82f6b2064dfdd3a92151"
+      "sha256_canonical": "3a506855f404fce2c78a73f5e5f214d9c855dea08a1ed70a4eaa840d33c261c0"
     },
     {
       "path": "scripts/prepare_distribution.py",
@@ -3446,9 +3505,10 @@
       "evidence": [
         "P004",
         "P005",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "5b7eac79ee4eef7c88053c27f07eddf08a9a261f31805603815494d2e89c9053"
+      "sha256_canonical": "2982100feac550722b014adfdba864f77efb8884e1743cb70f472f1c1aa64acf"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -3475,6 +3535,14 @@
       "sha256_canonical": "f5a223a103eede8118798327ab335281e3e9bbdefdf8ba0832cb14edf0063d69"
     },
     {
+      "path": "scripts/release_authorization.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P007"
+      ],
+      "sha256_canonical": "853fb6616571f512fe7d55828fd5b215d98bb80491e86d28028544a92c2d0f8d"
+    },
+    {
       "path": "scripts/release_local.py",
       "classification": "owner-declared-project-material",
       "evidence": [
@@ -3488,9 +3556,10 @@
       "classification": "project-original-formal-release-engineering",
       "evidence": [
         "P004",
-        "P005"
+        "P005",
+        "P007"
       ],
-      "sha256_canonical": "f98fcc50c6ce711db94025f9626658b2f2b384acd20cea5cc7c9fa40542ed46c"
+      "sha256_canonical": "d356f15db42406f1502e5bcf33656da9b6c4c951a0965e36d1798a0164e740c3"
     },
     {
       "path": "scripts/release_source.py",
@@ -3537,9 +3606,10 @@
       "classification": "project-original-formal-release-engineering",
       "evidence": [
         "P004",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "a9f2e0625f78263f2fc21357e277d854971a7b40d733a886b69fb281febc4dde"
+      "sha256_canonical": "0d24644912a08ea7263ffb372e286d068e7c4ff84849b1c4a53f66b43336ece7"
     },
     {
       "path": "scripts/unified_images.py",
@@ -3622,9 +3692,10 @@
       "path": "tests/docker_same_schema_upgrade.py",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "f96b215260063ae13df8b33a02c2811e9571e07cb5b830545e635d43b93f9947"
+      "sha256_canonical": "5be5789dceffa9d0d5bd0a3ea4cad88d116e901ecebe0161f16bb645d1f9bc6e"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -4176,9 +4247,10 @@
       "evidence": [
         "P004",
         "P005",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "d6b23e639df8b38e2d838d89e3f02558d827333621f9201101b1d5c627e78d4c"
+      "sha256_canonical": "175ac1c1951cd64519ecd3d5acd4aadbf10b550bdbe6354114761600239d5b45"
     },
     {
       "path": "tests/test_product_version.py",
@@ -4195,9 +4267,10 @@
         "J005",
         "P004",
         "P005",
-        "P006"
+        "P006",
+        "P007"
       ],
-      "sha256_canonical": "73ee29f3407b79643f8cf3ecc82234f6d11cd9c720a4685223e4b4cf61983bc8"
+      "sha256_canonical": "dd0ab2eb400147ab970c866e98ca337c24c25cf647ce79e9c28f6a980b55ccee"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -4227,9 +4300,10 @@
       "path": "tests/test_release_preflight.py",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
-        "P005"
+        "P005",
+        "P007"
       ],
-      "sha256_canonical": "590c3467af0d96d7d98362726f04760d7736a7b583b6f95275258ed72bbbd4cd"
+      "sha256_canonical": "e129581f34a07566f698daae807bf67469f03cf92d7c4e43a4d36a01405e2022"
     },
     {
       "path": "tests/test_release_source.py",
@@ -4328,6 +4402,14 @@
       "sha256_canonical": "bedd5e46368eee2a67aeb27f2a40e3c4bad92964ef8b7c064287d9025ffcf8a8"
     },
     {
+      "path": "tests/test_windows_launchers.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P007"
+      ],
+      "sha256_canonical": "9932a4a1913f4c78f7fccae44641e8c338c9c7634d7d19abbebf57f5d728934d"
+    },
+    {
       "path": "tests/test_writing.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
@@ -4370,9 +4452,10 @@
         "J006",
         "P001",
         "P003",
-        "P004"
+        "P004",
+        "P007"
       ],
-      "sha256_canonical": "e7dcf540d8395e5e992abfeb98ee331a5e227a76295fb6b518586e2d25998d0f"
+      "sha256_canonical": "d9aabfaeecad4df3dce34fa8a9c735f0b9eaf6a4d2d2de1a400b3481696d14c8"
     },
     {
       "path": "third_party/SOURCE_BUILD.md",
@@ -7736,7 +7819,8 @@
         "P003",
         "P004",
         "P005",
-        "P006"
+        "P006",
+        "P007"
       ],
       "sha256_canonical": null
     },

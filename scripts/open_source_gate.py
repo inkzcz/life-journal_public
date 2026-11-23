@@ -204,7 +204,7 @@ def scan_bytes(name, data, *, reviewed_copyright=False, binary_workflow_scope=No
         # exact, technically reviewed workflows. Unknown paths/bytes retain the
         # original denial. PR-target, environment dumps, packages:write and
         # Registry/repository publishing are never exempted.
-        if binary_workflow_scope in ('candidate-artifacts','v5.1.9-release'):
+        if binary_workflow_scope in ('candidate-artifacts','v5.1.9-release','v5.1.10-release'):
             patterns['publishing-or-sensitive-artifact']=rb'docker\s+push|gh\s+repo\s+create'
             if binary_workflow_scope=='candidate-artifacts':
                 patterns['publishing-or-sensitive-artifact']+=rb'|gh\s+release\s+(?:create|upload)'
@@ -216,7 +216,12 @@ def scan_bytes(name, data, *, reviewed_copyright=False, binary_workflow_scope=No
 
 
 def reviewed_binary_workflows(root):
-    path=root/'licensing/BINARY_RELEASE_AUTHORIZATION.json'
+    product=(root/'VERSION').read_text().strip() if (root/'VERSION').is_file() else '5.1.9'
+    if product not in ('5.1.9','5.1.10'):return {}
+    version='v'+product
+    name=('licensing/BINARY_RELEASE_AUTHORIZATION.json' if version=='v5.1.9'
+          else 'licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json')
+    path=root/name
     try:
         if (not path.is_file() or path.is_symlink() or any(p.is_symlink() for p in path.parents)
                 or path.stat().st_size>MAX_BYTES):
@@ -225,14 +230,14 @@ def reviewed_binary_workflows(root):
         if (authority.get('format')!='life-journal-binary-release-authorization-v1'
                 or authority.get('binary_publication_approved') is not True
                 or authority.get('repository')!='inkzcz/life-journal_public'
-                or authority.get('version')!='v5.1.9'
+                or authority.get('version')!=version
                 or authority.get('registry_push_approved') is not False
                 or authority.get('nas_access_approved') is not False
                 or not authority.get('owner_confirmation_reference')):
             return {}
         result={}
         for name,scope in {'.github/workflows/ci.yml':'candidate-artifacts',
-                           '.github/workflows/release.yml':'v5.1.9-release'}.items():
+                           '.github/workflows/release.yml':version+'-release'}.items():
             record=authority.get('technically_reviewed_workflows',{}).get(name,{})
             source=root/name
             if (record.get('scope')==scope and source.is_file() and not source.is_symlink()

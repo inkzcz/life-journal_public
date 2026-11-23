@@ -5,10 +5,10 @@
 首次 B 批准已绑定并公开指定快照，身份见 docs/initial-source-snapshot.json；它是准备操作授权，不增加 GPL 接收者限制。
 下面是此前范围与依赖说明的历史背景；其中“主许可未定”不代表当前状态。
 
-## v5.1.9 实际二进制的分发门禁
+## v5.1.9 / v5.1.10 实际二进制的分发门禁
 
 所有者已授权在必要法律条件和CI通过后正式发布；Windows/Z4S改为发布后待本地验收，UPGRADE-001保持历史已知问题，不再作为阻塞，也不绕过迁移保护。
-授权记录独立于旧A/B源码授权，见 licensing/BINARY_RELEASE_AUTHORIZATION.json；第三方原有grant/版本/署名不改。
+授权记录独立于旧A/B源码授权；v5.1.9 见 licensing/BINARY_RELEASE_AUTHORIZATION.json，v5.1.10 见 licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json（旧授权不改）；第三方原有grant/版本/署名不改。
 
 | 实际组件/义务 | 本次实现及失败条件 |
 | --- | --- |
