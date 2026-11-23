@@ -39,6 +39,39 @@ def type_data(db,t,version=None):
             'is_food':db.get(FoodContentType,t.id) is not None,'revision':t.revision,'version':version or t.revision,'fields':fields_for(db,t.id,version or t.revision)}
 
 
+def default_article_type(db, actor_id):
+    """Resolve a field-free base type without reconfiguring existing types.
+
+    The existing transaction lock serializes lazy initialization on PG and SQLite.
+    UUIDs are generated identities, never assumed database IDs. A conflicting or
+    later-customized type remains intact; a fresh compatible base is used instead.
+    The caller owns commit/rollback, as for every other content operation.
+    """
+    from .archive import write_lock
+    from ..content_schemas import TypeCreate
+    from ..template_models import ContentTemplate
+    from ..v5_models import FoodContentType
+    write_lock(db)
+    prefix='life-journal-article'
+    candidates=list(db.scalars(select(ContentType).where(
+        (ContentType.slug==prefix) | ContentType.slug.startswith(prefix+'-')
+    ).order_by(ContentType.created_at,ContentType.id)))
+    for candidate in candidates:
+        if (candidate.active and not fields_for(db,candidate.id,candidate.revision)
+                and db.scalar(select(ContentTemplate.id).where(ContentTemplate.type_id==candidate.id)) is None
+                and db.get(FoodContentType,candidate.id) is None):
+            return candidate
+    occupied={t.slug for t in candidates}
+    slug=prefix
+    while slug in occupied:
+        slug=prefix+'-'+uuid.uuid4().hex
+    data=TypeCreate(slug=slug,name='文章',description='日常记录与旅行记录共用的基础文章类型。')
+    result=ContentType(id=str(uuid.uuid4()),slug=slug,name=data.name,
+                       description=data.description,active=True,revision=1)
+    db.add(result);db.flush();save_version(db,result,data,actor_id)
+    return result
+
+
 def clean_value(field,value,required=False):
     name=field['name'];kind=field['kind'];rules=field['rules']
     if value is None:

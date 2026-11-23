@@ -28,7 +28,7 @@ def test_four_roles_reuse_one_business_image_and_never_pull_implicitly():
 
 
 def test_candidate_features_and_migrations_are_present():
-    assert (ROOT/'VERSION').read_text().strip()=='5.1.9'
+    assert (ROOT/'VERSION').read_text().strip()=='5.1.10'
     for name in ('backend/app/calendar','backend/app/exchange','backend/app/routers/experiences.py',
                  'backend/app/services/experiences.py','backend/app/routers/photo_albums.py',
                  'backend/app/services/photo_stream.py',
@@ -60,6 +60,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
              if step.get('uses','').startswith('actions/upload-artifact@')]
     assert len(uploads)==1
     upload=uploads[0]
+    assert "steps.package.outputs.delivery_ready == 'true'" in upload['if']
     assert "github.repository == 'inkzcz/life-journal_public'" in upload['if']
     assert "github.event_name == 'push'" in upload['if']
     paths=upload['with']['path'].splitlines()
@@ -70,6 +71,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
     steps=data['jobs']['docker-installation']['steps']
     assert next(i for i,s in enumerate(steps) if 'prepare_distribution.py' in s.get('run',''))<steps.index(upload)
     assert '--require-license' in text and '--redact=100' in text
+    assert '--validate-only' in text and 'Released v5.1.9 to v5.1.10' in text
 
 
 def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
@@ -77,22 +79,24 @@ def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
     assert document['permissions']=={'contents':'read','actions':'read','pull-requests':'read'}
     jobs=document['jobs']
     assert jobs['build']['needs']=='preflight' and jobs['build']['permissions']=={'contents':'read'}
-    assert jobs['build']['with']['release_version']=='v5.1.9'
+    assert jobs['build']['with']['release_version']=='${{ needs.preflight.outputs.version }}'
     assert jobs['build']['with']['source_revision']=='${{ needs.preflight.outputs.revision }}'
     assert jobs['build']['with']['annotated_tag_sha']=='${{ needs.preflight.outputs.tag_sha }}'
     publish=jobs['publish']
     assert publish['needs']==['preflight','build'] and publish['permissions']=={'contents':'write','actions':'read'}
-    assert "github.ref == 'refs/tags/v5.1.9'" in publish['if']
+    assert "github.ref == 'refs/tags/v5.1.10'" in publish['if']
     assert "github.ref == 'refs/heads/main'" in publish['if'] and "github.event_name == 'workflow_dispatch'" in publish['if']
     assert not any(s.get('uses','').startswith('actions/checkout') for s in publish['steps'])
     for job in jobs.values():
         for step in job.get('steps',[]):
             if 'uses' in step:assert re.fullmatch(r'[^@]+@[0-9a-f]{40}',step['uses'])
     body='\n'.join(s.get('run','') for s in publish['steps'])
-    assert 'gh release create v5.1.9 --verify-tag' in body
-    assert '--prerelease=false' in body and '--draft=false' in body
-    assert 'gh release download v5.1.9' in body and 'sha256sum --check' in body
-    assert not any(s in body for s in ('docker push','--force','--clobber','gh release edit'))
+    assert 'gh release create "$RELEASE_VERSION" --verify-tag' in body
+    assert '--prerelease=false' in body and '--draft=true' in body and '--draft=false' in body
+    assert 'gh release download "$RELEASE_VERSION"' in body and 'sha256sum --check' in body
+    assert body.index('gh release create')<body.index('gh release download')<body.index('gh release edit')
+    assert 'cmp SHA256SUMS.txt' in body and 'same-schema-upgrade.json' in body
+    assert not any(s in body for s in ('docker push','--force','--clobber'))
 
 
 def test_formal_source_uses_verified_tag_worktree_not_orchestration_head():
@@ -105,3 +109,26 @@ def test_formal_source_uses_verified_tag_worktree_not_orchestration_head():
     assert 'git tag' not in identity and 'git push' not in identity
     package=next(s['run'] for s in steps if 'prepare_distribution.py' in s.get('run',''))
     assert '--root "$APP_ROOT" --orchestration-root .' in package
+
+
+def test_formal_reusable_workflow_runs_full_source_and_browser_regression():
+    data=yaml.safe_load((ROOT/'.github/workflows/ci.yml').read_text())
+    source=data['jobs']['source-and-tests'];assert 'if' not in source
+    text='\n'.join(s.get('run','') for s in source['steps'])
+    assert 'Complete exported' not in text or 'pytest' in text
+    assert sum('pytest -q tests' in s.get('run','') for s in source['steps'])==2
+    assert 'browser_writing_preview.py' in text and 'playwright==1.64.0' in text
+    steps=data['jobs']['docker-installation']['steps']
+    upgrade=next(s for s in steps if 'docker_same_schema_upgrade.py' in s.get('run',''))
+    assert "env.IMAGE_TAG == 'v5.1.10'" in upgrade['if']
+    package=next(s for s in steps if s.get('id')=='package')
+    assert '--upgrade' in package['run'] and '--validate-only' in package['run']
+
+
+def test_native_windows_automation_is_part_of_every_formal_ci():
+    data=yaml.safe_load((ROOT/'.github/workflows/ci.yml').read_text())
+    job=data['jobs']['windows-toolchain'];assert job['runs-on']=='windows-latest' and 'if' not in job
+    text='\n'.join(s.get('run','') for s in job['steps'])
+    for name in ('test_windows_launchers.py','test_command_output.py','test_release_source.py','test_unified_images.py'):
+        assert name in text
+    assert 'docker build' not in text and 'docker push' not in text

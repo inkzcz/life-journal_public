@@ -20,7 +20,7 @@
   "technically_reviewed_workflows": {
     ".github/workflows/ci.yml": {
       "scope": "candidate-artifacts",
-      "sha256": "524d460b20a5b33b3532d3db419333cc857ec3128e33648abfe44dff4863f06c",
+      "sha256": "dbac6b71df325f43f766c7f8c2a466d46361063d2c1093224c028060cb2717dc",
       "review": "Operator technical review within explicit owner instruction; not an owner signature or per-byte owner assertion."
     },
     ".github/workflows/release.yml": {
@@ -35,5 +35,12 @@
     "record_type": "Operator-observed existing annotated tag from the owner-authorized release execution; not a new owner signature",
     "first_run": 45014259648,
     "repair_scope": "Resume publication using this unchanged application tag and separately reviewed orchestration; never overwrite or retarget the tag"
+  },
+  "development_ci_validation": {
+    "version": "5.1.10",
+    "temporary_test_images_only": true,
+    "publication_approved": false,
+    "distribution_assets_uploaded": false,
+    "owner_instruction_reference": "v5.1.10 development task: reuse CI, verify Docker, create Draft PR only; do not tag or release. This does not modify the original v5.1.9 authorization."
   }
 }

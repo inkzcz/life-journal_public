@@ -1,0 +1,42 @@
+{
+  "format": "life-journal-binary-release-authorization-v1",
+  "repository": "inkzcz/life-journal_public",
+  "version": "v5.1.10",
+  "source_pull_request": 4,
+  "binary_publication_approved": true,
+  "owner_confirmation_reference": "Owner's explicit Life Journal v5.1.10 formal merge/publication and ongoing delivery instruction in this conversation; permits release-gate fixes on PR #4, normal merge after exact HEAD/main CI, new annotated tag, draft-first verified formal GitHub Release and one business TAR with precise corresponding source/licenses.",
+  "reviewed_feature_head": "b07da2fd6430cc1d16680013e89941bf3f7785f2",
+  "reviewed_main_baseline": "e1c1d9dc1864929e72172113b39b3796b3acb907",
+  "source_binding": "The remote annotated tag must directly identify the ordinary PR #4 merge, whose second parent is the exact successful PR head. Build receipts bind actual merged source SHA, tag object, image config, dependency versions and TAR SHA256; no invented owner signature or timestamp.",
+  "original_license_authorization_unchanged": true,
+  "third_party_relicensed": false,
+  "previous_authorization": "licensing/BINARY_RELEASE_AUTHORIZATION.json",
+  "required_conditions": [
+    "Exact final PR HEAD and merged-main checks successful; no branch protection bypass",
+    "Single Linux/amd64 Debian business image and TAR; no PostgreSQL delivery",
+    "Precise sources, GPL/LGPL, notices and actual replacement/relink receipts for this binary",
+    "Full required automation, image/layer/import/integrity, installation/backup/restore and same-schema upgrade gates",
+    "Draft Release first; every attachment downloaded and checked before formal publication",
+    "No existing tag, Release or attachment overwritten"
+  ],
+  "windows_and_z4s_acceptance": "Pending owner local post-release acceptance; not claimed passed or prerequisite",
+  "production_database_and_wxpusher_acceptance": "Pending owner local post-release acceptance; no real data or credentials used",
+  "UPGRADE-001": "Historical v5.1.8 to v5.1.9 issue unresolved; owner accepts as nonblocking, migration safeguards remain mandatory",
+  "registry_push_approved": false,
+  "nas_access_approved": false,
+  "private_repository_changes_approved": false,
+  "ongoing_normal_delivery_rule": "docs/release-policy.md; every later version still requires specific source/version authorization registration and intact safety/legal/CI gates",
+  "record_type": "Operator record of explicit owner instruction; not an electronic signature or per-byte owner attestation",
+  "technically_reviewed_workflows": {
+    ".github/workflows/ci.yml": {
+      "scope": "candidate-artifacts",
+      "sha256": "7021b6a79f2f6767067449990487feaff0eda5e561a14cec7b547574ea8c7356",
+      "review": "Operator technical review and release-contract/negative tests under explicit owner instruction; not an owner signature or per-byte owner assertion."
+    },
+    ".github/workflows/release.yml": {
+      "scope": "v5.1.10-release",
+      "sha256": "daa0fe061bc624ab80540f4a067d747f9c95d260a71ea31803768b002d95697d",
+      "review": "Operator technical review and release-contract/negative tests under explicit owner instruction; not an owner signature or per-byte owner assertion."
+    }
+  }
+}

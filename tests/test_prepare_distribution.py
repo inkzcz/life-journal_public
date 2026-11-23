@@ -5,6 +5,48 @@ import zipfile
 import pytest
 
 from scripts import prepare_distribution as delivery
+from scripts.test_pillow_relink import validate_relink_image
+
+
+def test_lgpl_drill_accepts_only_reviewed_source_bound_candidates():
+    revision='a'*40;tag='v5.1.10-candidate.'+revision[:7]
+    image={'Architecture':'amd64','Os':'linux','Config':{'Labels':{
+        'org.opencontainers.image.revision':revision,'org.opencontainers.image.version':tag,
+        'org.opencontainers.image.source':'https://github.com/inkzcz/life-journal_public'}}}
+    validate_relink_image(tag,image)
+    for bad in ('v5.1.11','v5.1.11-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7,
+                'v5.1.10-candidate.latest','v5.1.9-candidate.invalid'):
+        with pytest.raises(ValueError):validate_relink_image(bad,image)
+    import copy
+    for key,value in (('Architecture','arm64'),('Os','windows')):
+        modified=copy.deepcopy(image);modified[key]=value
+        with pytest.raises(ValueError):validate_relink_image(tag,modified)
+    modified=copy.deepcopy(image);modified['Config']['Labels']['org.opencontainers.image.source']='https://example.invalid'
+    with pytest.raises(ValueError):validate_relink_image(tag,modified)
+
+
+def test_formal_new_version_is_rejected_before_docker_or_source_access(tmp_path,monkeypatch):
+    from scripts import test_pillow_relink as relink
+    import sys
+    monkeypatch.setattr(sys,'argv',['relink','--image-tag','v5.1.11',
+        '--sources',str(tmp_path/'not-read'),'--output',str(tmp_path/'not-written')])
+    monkeypatch.setattr(relink.local_images,'Docker',lambda:pytest.fail('Unapproved tag must not contact Docker'))
+    with pytest.raises(SystemExit) as caught:relink.main()
+    assert caught.value.code==2 and not (tmp_path/'not-written').exists()
+
+
+def test_development_validation_does_not_extend_the_old_release_authorization():
+    revision='a'*40
+    delivery.require_candidate_identity('v5.1.10-candidate.'+revision[:7],'5.1.10',revision)
+    for version in ('v5.1.10','v5.1.9-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7):
+        with pytest.raises(ValueError,match='source-bound'):
+            delivery.require_candidate_identity(version,'5.1.10',revision)
+    authority={'binary_publication_approved':True,'repository':'inkzcz/life-journal_public',
+        'format':'life-journal-binary-release-authorization-v1','version':'v5.1.9',
+        'registry_push_approved':False,'nas_access_approved':False,'private_repository_changes_approved':False,'owner_confirmation_reference':'synthetic approval fixture'}
+    delivery.require_release_authorization(authority,'v5.1.9')
+    with pytest.raises(ValueError,match='authorization required'):
+        delivery.require_release_authorization(authority,'v5.1.10-candidate.'+revision[:7])
 
 
 def test_deploy_zip_keeps_tagged_inputs_and_legal_texts_with_current_release_guides(tmp_path):
@@ -61,3 +103,33 @@ def test_unverified_or_production_related_receipts_cannot_be_packaged():
         old=obj[key];obj[key]=value
         with pytest.raises(ValueError,match='receipt failed'):delivery.require_receipts(installation,pillow,layers,debian)
         obj[key]=old
+
+
+def test_formal_510_has_separate_authority_and_does_not_modify_519_grant():
+    from scripts.release_authorization import read_authorization
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]
+    old=read_authorization(root,'v5.1.9');current=read_authorization(root,'v5.1.10')
+    assert old['version']=='v5.1.9' and current['version']=='v5.1.10' and current['source_pull_request']==4
+    delivery.require_release_authorization(current,'v5.1.10')
+    with pytest.raises(ValueError):delivery.require_release_authorization(old,'v5.1.10')
+    with pytest.raises(ValueError):delivery.require_release_authorization(current,'v5.1.11')
+    for key in ('binary_publication_approved','owner_confirmation_reference','registry_push_approved',
+                'nas_access_approved','private_repository_changes_approved','source_pull_request'):
+        bad=dict(current);bad.pop(key)
+        with pytest.raises(ValueError):delivery.require_release_authorization(bad,'v5.1.10')
+
+
+def test_same_schema_upgrade_receipt_is_required_and_source_bound():
+    version='v5.1.10';revision='a'*40
+    report={'synthetic_same_schema_upgrade':'passed','from_version':'5.1.9','to_version':'5.1.10',
+        'image_tag':version,'source_commit':revision,'schema_before':'0021_anniversary_calendar',
+        'schema_after':'0021_anniversary_calendar','old_backup_created_and_verified':True,
+        'existing_article_fields_cards_media_itinerary':'preserved','new_default_type_and_travel_toggles':'passed',
+        'candidate_restart_persistence':'passed','production_or_nas_accessed':False}
+    delivery.require_upgrade_receipt(report,version,revision)
+    for key in report:
+        bad=dict(report);bad.pop(key)
+        with pytest.raises(ValueError):delivery.require_upgrade_receipt(bad,version,revision)
+    for tag,sha in (('v5.1.10-candidate.'+revision[:7],revision),(version,'b'*40)):
+        with pytest.raises(ValueError):delivery.require_upgrade_receipt(report,tag,sha)

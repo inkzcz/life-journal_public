@@ -13,19 +13,61 @@ function labelled(text:string){const label=Array.from(root.querySelectorAll('lab
 async function input(text:string,value:string){const e=labelled(text);e.value=value;e.dispatchEvent(new Event('input',{bubbles:true}));await nextTick()}
 async function submit(){root.querySelector('form')!.dispatchEvent(new Event('submit',{cancelable:true,bubbles:true}));await flush()}
 beforeEach(async()=>{api.request.mockReset().mockImplementation(async(path:string,options?:RequestInit)=>{
+ if(path==='/admin/content/types/default-article')return {...structuredClone(type),id:'base-article-type',slug:'life-journal-article',name:'文章',fields:[]}
  if(path==='/admin/templates')return []
  if(path==='/admin/content/types'&&!options)return [type]
  if(path==='/admin/content/types/type-1'&&!options)return structuredClone(type)
  if(path.startsWith('/admin/content/records?'))return {items:[],total:0}
+ if(path==='/admin/content/records'&&options?.method==='POST'){
+  const data=JSON.parse(String(options.body))
+  return {...data,id:'created-synthetic-record',type_active:true,current_type_version:1,
+   fields:data.type_id==='base-article-type'?[]:structuredClone(type.fields),revision:1,
+   connections:{...data.connections,incoming:[]}}
+ }
+ if(path==='/admin/content/records'&&options?.method==='POST'){
+  const payload=JSON.parse(String(options.body))
+  return {...payload,id:'synthetic-created-record',revision:1,type_active:true,type_name:'文章',current_type_version:1,fields:payload.type_id==='base-article-type'?[]:structuredClone(type.fields),connections:{...payload.connections,incoming:[]}}
+ }
  if(options)return {...type,...JSON.parse(String(options.body))}
  throw Error(path)
 });vi.spyOn(window,'confirm').mockReturnValue(true);root=document.createElement('div');document.body.append(root);app=createApp(AdminContent);app.mount(root);await flush()})
 afterEach(()=>{app.unmount();root.remove();vi.restoreAllMocks()})
 it('creates a freely named content type with normal form fields',async()=>{button('创建类型').click();await flush();await input('类型名称','自由记录');await input('稳定标识','free-notes');button('添加字段').click();await nextTick();await input('字段名称','自选属性');await submit();const call=api.request.mock.calls.find(([,o])=>o?.method==='POST')!;expect(JSON.parse(call[1].body)).toMatchObject({name:'自由记录',slug:'free-notes',fields:[{name:'自选属性',position:0,kind:'short_text'}]})})
 it('preserves saved field identity and sends expected revision',async()=>{button('任意类型启用中 · custom').click();await flush();await input('字段名称','字段改名');await submit();const call=api.request.mock.calls.find(([,o])=>o?.method==='PUT')!;expect(JSON.parse(call[1].body)).toMatchObject({expected_revision:1,fields:[{id:'field-1',name:'字段改名'}]});expect(root.textContent).not.toContain('移除未保存字段')})
-it('generates record inputs, applies defaults and retains edits on conflict',async()=>{button('内容记录').click();await flush();button('新建记录').click();await flush();expect(labelled('自定义名字 *').value).toBe('默认内容');await input('记录标题','草稿保留');await input('自定义名字 *','新值');api.request.mockRejectedValueOnce(Error('记录已被其他页面修改'));await submit();expect(root.querySelector('[role=alert]')?.textContent).toContain('其他页面');expect(labelled('记录标题').value).toBe('草稿保留');expect(labelled('自定义名字 *').value).toBe('新值')})
+it('generates record inputs, applies defaults and retains edits on conflict',async()=>{button('内容记录').click();await flush();button('使用高级类型新建').click();await flush();expect(labelled('自定义名字 *').value).toBe('默认内容');await input('记录标题','草稿保留');await input('自定义名字 *','新值');api.request.mockRejectedValueOnce(Error('记录已被其他页面修改'));await submit();expect(root.querySelector('[role=alert]')?.textContent).toContain('其他页面');expect(labelled('记录标题').value).toBe('草稿保留');expect(labelled('自定义名字 *').value).toBe('新值')})
 it('uses safe Markdown in the generated editor',async()=>{button('内容记录').click();await flush();button('新建记录').click();await flush();await vi.dynamicImportSettled();await nextTick();expect(root.querySelector('.body-editor')).not.toBeNull();button('Markdown 源码').click();await nextTick();await input('记录正文（Markdown）','# 正文<script>bad()</script><img src="https://example.com/private">');button('预览正文 Markdown').click();await nextTick();expect(root.querySelector('.article-body h1')?.textContent).toContain('正文');expect(root.querySelector('.article-body script')).toBeNull();expect(root.querySelector('.article-body img')).toBeNull()})
 it('does not replace existing historical values with new defaults',()=>{expect(initialValues([field],{'field-1':'历史值'})).toEqual({'field-1':'历史值'});const f=newField();f.rules={min_length:'' as unknown as number};f.default_value='stale';expect(fieldPayload([f])[0]).toMatchObject({rules:{},default_value:null})})
+
+it('starts a daily record without choosing a template or dynamic type',async()=>{
+ button('内容记录').click();await flush()
+ expect(root.querySelector<HTMLInputElement>('input[name=new-record-mode][value=daily]')?.checked).toBe(true)
+ expect(root.textContent).not.toContain('从模板新建');expect(root.textContent).not.toContain('新记录的内容类型')
+ expect(root.querySelector('a[href="/admin/templates"]')).toBeNull()
+ button('新建记录').click();await flush()
+ expect(api.request).toHaveBeenCalledWith('/admin/content/types/default-article',{method:'POST'})
+ expect(root.querySelector<HTMLInputElement>('.article-mode input[value=daily]')?.checked).toBe(true)
+ expect(root.textContent).not.toContain('自定义名字 *')
+})
+
+it('opens a travel record from the explicit mode control and uses the server-selected type identity',async()=>{
+ button('内容记录').click();await flush()
+ const radio=root.querySelector<HTMLInputElement>('input[name=new-record-mode][value=travel]')!;radio.checked=true;radio.dispatchEvent(new Event('change',{bubbles:true}));await nextTick()
+ button('新建记录').click();await flush();await input('记录标题','合成旅行草稿')
+ button('保存记录').click();await flush()
+ const call=api.request.mock.calls.find(([p,o])=>p==='/admin/content/records'&&o?.method==='POST')!
+ expect(JSON.parse(String(call[1]?.body))).toMatchObject({type_id:'base-article-type',article:{travel_enabled:true},values:{},title:'合成旅行草稿'})
+})
+
+it('allows ordinary creation when no content types have been configured',async()=>{
+ app.unmount();root.innerHTML=''
+ const fallback=api.request.getMockImplementation()!
+ api.request.mockImplementation((path,options)=>path==='/admin/content/types'&&!options?Promise.resolve([]):fallback(path,options))
+ app=createApp(AdminContent,{immersive:true});app.mount(root);await flush()
+ expect(button('新建记录').disabled).toBe(false)
+ button('新建记录').click();await flush()
+ expect(root.querySelector('.record-compose')).not.toBeNull()
+ expect(root.querySelector('.article-mode')).not.toBeNull()
+})
 
 it('keeps inactive food values visible in advanced settings and never recreates a disabled role',async()=>{
  app.unmount();root.innerHTML=''
