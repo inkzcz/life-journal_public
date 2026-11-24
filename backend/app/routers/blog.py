@@ -1,4 +1,5 @@
 import uuid
+from typing import Literal
 from uuid import UUID
 from fastapi import APIRouter,Depends,HTTPException,Query
 from sqlalchemy import select,delete
@@ -170,15 +171,15 @@ def record(id:UUID,db=Depends(db_dep)):
     return detail(db,r)
 
 @router.get('/timeline')
-def life_timeline(year:int|None=Query(None,ge=1,le=9999),type_id:UUID|None=None,page:int=Query(1,ge=1,le=1000000),db=Depends(db_dep)):
+def life_timeline(record_mode:Literal['daily','travel']|None=None,year:int|None=Query(None,ge=1,le=9999),type_id:UUID|None=None,page:int=Query(1,ge=1,le=1000000),db=Depends(db_dep)):
     from ..services.life_feed import feed
-    return feed(db,year,type_id,page)
+    return feed(db,year,type_id,page,record_mode)
 
 @router.get('/year-review/{year}')
-def annual_review(year:int,type_id:UUID|None=None,page:int=Query(1,ge=1,le=1000000),db=Depends(db_dep)):
+def annual_review(year:int,record_mode:Literal['daily','travel']|None=None,type_id:UUID|None=None,page:int=Query(1,ge=1,le=1000000),db=Depends(db_dep)):
     if not 1<=year<=9999:raise HTTPException(422,'年份超出范围')
     from ..services.life_feed import review
-    return review(db,year,type_id,page)
+    return review(db,year,type_id,page,record_mode)
 
 
 @router.get('/records/{id}/neighbors')

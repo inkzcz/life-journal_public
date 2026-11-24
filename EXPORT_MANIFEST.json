@@ -232,7 +232,7 @@
     },
     {
       "path": "backend/app/blog_schemas.py",
-      "sha256": "0528924830dd2e76d06682cdce4394c0bc80b9803a92c8f06fab848281e504e8"
+      "sha256": "6d1b290d8e6cdeb306ca907c9eee33b607665cd6cf5ff83773d6e32ca36be0b2"
     },
     {
       "path": "backend/app/build_info.py",
@@ -436,7 +436,7 @@
     },
     {
       "path": "backend/app/routers/blog.py",
-      "sha256": "d2fbeb05f5920e2fd7146964f4a6359f2832f2b9f61ee4ee758508f98007ff12"
+      "sha256": "f8cce3807e69b30b73a01b6350856b3db28b7cda862d4cbd21b3d5ded9afe4c6"
     },
     {
       "path": "backend/app/routers/content.py",
@@ -516,7 +516,7 @@
     },
     {
       "path": "backend/app/services/blog.py",
-      "sha256": "47d869f5ad3bde411ee0a50611a4eaa0bf2ed18af153180ce9751a8460a1886e"
+      "sha256": "a62bb4584867cee939b4856df7f2632baa8df3f837a1ab5e203987eb1f1915ee"
     },
     {
       "path": "backend/app/services/body_media.py",
@@ -556,7 +556,7 @@
     },
     {
       "path": "backend/app/services/life_feed.py",
-      "sha256": "4c263380ee21eaa6ee56c7267e0e79b9b742ffdd53923d31ffea6df3d6a89d1c"
+      "sha256": "caa67ef8d31683f2a517f6d3c2144b2348341eda0100154268bb4be68d0da067"
     },
     {
       "path": "backend/app/services/maintenance.py",
@@ -688,7 +688,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "47f92065635929a6b2594b80cc80fe8a8254aa2c2edd9fb12677d74a84dab05d"
+      "sha256": "d37491cefa787b3b965128ccaea15c85a599e87f027a6875be16b81ad370252a"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -936,7 +936,7 @@
     },
     {
       "path": "frontend/src/blog/BlogView.vue",
-      "sha256": "ee6624a91078344cc7c5da9b4de9c543da052fc1f8d05d3141ae714747f4101c"
+      "sha256": "dcdced89280030b058d2870b39e9092abb1930041d869c301ea253acac802861"
     },
     {
       "path": "frontend/src/blog/BotanicalIllustration.test.ts",
@@ -968,7 +968,7 @@
     },
     {
       "path": "frontend/src/blog/SiteAdmin.vue",
-      "sha256": "69e72a6ea0a8495ae799cfe463d7b9137f0c9181e5f30cff42dea26321b5b29a"
+      "sha256": "1909a27bc86e5570ba19cf1d29893c731b6c1cf7d55fd0b10c53fb4f846c7499"
     },
     {
       "path": "frontend/src/blog/TemplateRenderer.vue",
@@ -1020,7 +1020,7 @@
     },
     {
       "path": "frontend/src/blog/types.ts",
-      "sha256": "fcb55feb185955b7746d6d05e32ae8812b92fe5a7523256c40194c922728d221"
+      "sha256": "0f2beaf300eed0e1e3c89ca5cb31609cee3e49b5e8d42635aa8a9d8d6d7ca0a1"
     },
     {
       "path": "frontend/src/buildInfo.ts",
@@ -1044,7 +1044,7 @@
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
-      "sha256": "59e72470c79a06398171cc6f15f2bdb51d7b2c1a8ef754460d64fbfeecc47d13"
+      "sha256": "e3757d77acd2e6929e6b1b4385c09ce5b59b70fb2f1043cbd51d4593aaa83a41"
     },
     {
       "path": "frontend/src/discovery/Discovery.test.ts",
@@ -1164,7 +1164,7 @@
     },
     {
       "path": "frontend/src/life/LifeFeed.vue",
-      "sha256": "1f26a84d63261e740539afeb72efd94fac44cf73514474bac9c173c0c0fd5151"
+      "sha256": "46763748a8fa60ac335b861047b389a1db59c6f69d2693cb354b7d29e6c0d286"
     },
     {
       "path": "frontend/src/life/PhotoGallery.vue",
@@ -3764,7 +3764,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "db1f0418572274f103f31a7304480253aed8bd95eac660cfbf6a567636bb8809"
+      "sha256": "71501c8d21157c1989c8acdf1871993f5a00ee1b501e835d6067f0d5d9b3dbf6"
     },
     {
       "path": "third_party/source-scope.json",

@@ -54,6 +54,7 @@ class Module(StrictModel):
     show_years:bool=True
     section_id:UUID|None=None
     type_id:UUID|None=None
+    record_mode:Literal['daily','travel']|None=None
     record_ids:list[UUID]=Field(default_factory=list,max_length=24)
     @model_validator(mode='after')
     def valid(self):

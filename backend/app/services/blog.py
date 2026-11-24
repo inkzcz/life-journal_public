@@ -116,6 +116,9 @@ def home(db):
             modules.append({**{k:v for k,v in m.items() if k not in {'record_ids','type_id','section_id'}},'items':[],'events':list_events(db,start,start+timedelta(days=m.get('horizon',30)),m['count'])})
             continue
         query=readable()
+        if m.get('record_mode'):
+            from .record_mode import travel_expression
+            query=query.where(travel_expression(db).is_(m['record_mode']=='travel'))
         if m.get('type_id'):query=query.where(ContentRecord.type_id==m['type_id'])
         if m.get('section_id'):
             s=db.get(Section,m['section_id'])
