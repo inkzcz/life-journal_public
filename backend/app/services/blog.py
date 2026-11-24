@@ -50,12 +50,14 @@ def summaries(db,query):
     # removed before truncation, even when several long blocks lead the story.
     excerpt=case((or_(source.contains(':::lj-media-v'),source.contains(':::lj-entry-v')),source),else_=func.substr(source,1,4096))
     rows=db.execute(query.with_only_columns(ContentRecord.id,ContentRecord.title,ContentRecord.display_date,
-        ContentType.name.label('type_name'),ContentRecord.body_format,excerpt.label('excerpt'))).all()
+        ContentType.name.label('type_name'),ContentRecord.type_id,ContentRecord.schema_version,ContentRecord.body_format,excerpt.label('excerpt'))).all()
+    from .experiences import record_modes
+    modes=record_modes(db,rows)
     ids=[r.id for r in rows]
     covers=select(RecordMedia.record_id,MediaAsset.id.label('media_id'),MediaAsset.alt,MediaAsset.preview_width,MediaAsset.preview_height,RecordMedia.caption,
         func.row_number().over(partition_by=RecordMedia.record_id,order_by=(RecordMedia.cover.desc(),RecordMedia.position,MediaAsset.id)).label('rank')).join(MediaAsset,RecordMedia.media_id==MediaAsset.id).where(RecordMedia.record_id.in_(ids),MediaAsset.deleted_at.is_(None)).subquery()
     images={r.record_id:{'id':r.media_id,'alt':r.alt,'caption':r.caption,'width':r.preview_width,'height':r.preview_height} for r in db.execute(select(covers).where(covers.c.rank==1))} if ids else {}
-    return [{'id':r.id,'title':r.title,'display_date':r.display_date.isoformat(),'type_name':r.type_name,'excerpt':safe_excerpt(r.excerpt,r.body_format),'cover':images.get(r.id)} for r in rows]
+    return [{'id':r.id,'title':r.title,'display_date':r.display_date.isoformat(),'type_name':r.type_name,'travel_enabled':modes[r.id],'record_mode_name':'旅行记录' if modes[r.id] else '日常记录','excerpt':safe_excerpt(r.excerpt,r.body_format),'cover':images.get(r.id)} for r in rows]
 
 def summary(db,r):
     # Current Admin preview may be a draft; callers control its authorization.

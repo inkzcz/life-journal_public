@@ -21,11 +21,9 @@ def listing(kind:Literal['l','f','m','s','g','t'], page:int=Query(1,ge=1,le=1000
 
 @router.get('/trips')
 def trips(page:int=Query(1,ge=1,le=100000),db=Depends(db_dep)):
-    from ..experience_models import ArticleOptions
-    from ..life_models import TripPlan
+    from ..services.record_mode import travel_expression
     from ..services.blog import page_records
-    from sqlalchemy import or_,and_
-    q=readable().outerjoin(ArticleOptions,ArticleOptions.record_id==ContentRecord.id).outerjoin(TripPlan,TripPlan.record_id==ContentRecord.id).where(or_(ArticleOptions.travel_enabled.is_(True),and_(ArticleOptions.record_id.is_(None),TripPlan.start_date.is_not(None))))
+    q=readable().where(travel_expression(db))
     return page_records(db,q,page,24)
 
 @router.get('/places')

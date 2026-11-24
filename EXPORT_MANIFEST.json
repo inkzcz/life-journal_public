@@ -444,7 +444,7 @@
     },
     {
       "path": "backend/app/routers/discovery.py",
-      "sha256": "231f9daa7f8b99b03151d1893ae0cd3b9c1afe1b688cfc33f7eba4f4c389b45b"
+      "sha256": "7d2274487206e76154342b6983798366cbb5599b36a6bb3a227cc2e550d09086"
     },
     {
       "path": "backend/app/routers/exchange.py",
@@ -452,7 +452,7 @@
     },
     {
       "path": "backend/app/routers/experiences.py",
-      "sha256": "e3fa54f15149b6d15210768ce6c49bb908a1f3ee7676269bd32f0e17454110ae"
+      "sha256": "ad36c3696abe3c67b8b728c17a2fa782cd6e60ce98f85071225f15793363c5e5"
     },
     {
       "path": "backend/app/routers/folders.py",
@@ -516,7 +516,7 @@
     },
     {
       "path": "backend/app/services/blog.py",
-      "sha256": "3c003b3258b72a32b3b3218dc0dca00d3c21180904ca9525213752c77297fac9"
+      "sha256": "47d869f5ad3bde411ee0a50611a4eaa0bf2ed18af153180ce9751a8460a1886e"
     },
     {
       "path": "backend/app/services/body_media.py",
@@ -528,7 +528,7 @@
     },
     {
       "path": "backend/app/services/experiences.py",
-      "sha256": "9bb237935a1cce6b9d44492155e9dca423bbbf025540f7b4ce1575a2bd29376d"
+      "sha256": "318b3d37f7d462798534752ca1921bb12af12deb7a85be38fc21beea809cfedc"
     },
     {
       "path": "backend/app/services/folders.py",
@@ -556,7 +556,7 @@
     },
     {
       "path": "backend/app/services/life_feed.py",
-      "sha256": "679e31cb2637dac075d2b93fa0830cbff52a53ac744e0c587a1ec6785d27b818"
+      "sha256": "4c263380ee21eaa6ee56c7267e0e79b9b742ffdd53923d31ffea6df3d6a89d1c"
     },
     {
       "path": "backend/app/services/maintenance.py",
@@ -585,6 +585,10 @@
     {
       "path": "backend/app/services/places.py",
       "sha256": "2710047f56bdd2285c4e1745e5dda6b867dcbb37ec3f387eb4f4a86113346e6c"
+    },
+    {
+      "path": "backend/app/services/record_mode.py",
+      "sha256": "7a66f32089e0cb3bedefa1955ea8a311ef13bb548d223ccdb77b6abf5932f95c"
     },
     {
       "path": "backend/app/services/recovery.py",
@@ -681,6 +685,10 @@
     {
       "path": "docs/backup-restore.md",
       "sha256": "c63858f5f7d4f4353f7c333453b7ef410a663bd60fab51ed7f0785e37329506d"
+    },
+    {
+      "path": "docs/development/v5.1.11-progress.md",
+      "sha256": "47f92065635929a6b2594b80cc80fe8a8254aa2c2edd9fb12677d74a84dab05d"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -928,7 +936,7 @@
     },
     {
       "path": "frontend/src/blog/BlogView.vue",
-      "sha256": "692c56e3f881ffee01d367ab76b41ee4de5923573bf46b99ab40d312aca60ef5"
+      "sha256": "ee6624a91078344cc7c5da9b4de9c543da052fc1f8d05d3141ae714747f4101c"
     },
     {
       "path": "frontend/src/blog/BotanicalIllustration.test.ts",
@@ -964,7 +972,7 @@
     },
     {
       "path": "frontend/src/blog/TemplateRenderer.vue",
-      "sha256": "bacb27b30dd97f023f57d9fc120bf4405f5fa48765e612b7cdfb59bbd86df9f8"
+      "sha256": "92cb25cd2cac38a6a5ee43374e130d0bd13c47572d0d385861d9853821141bf9"
     },
     {
       "path": "frontend/src/blog/TextEditor.vue",
@@ -1012,7 +1020,7 @@
     },
     {
       "path": "frontend/src/blog/types.ts",
-      "sha256": "abef1fba8875b7dc257da14f7ed4889ff84b0040926ee292798be82d9a8f2f51"
+      "sha256": "fcb55feb185955b7746d6d05e32ae8812b92fe5a7523256c40194c922728d221"
     },
     {
       "path": "frontend/src/buildInfo.ts",
@@ -1156,7 +1164,7 @@
     },
     {
       "path": "frontend/src/life/LifeFeed.vue",
-      "sha256": "43e172aaa202caa4bb39dcd8201b5538981f2b0de46cd84068dca2973721287d"
+      "sha256": "1f26a84d63261e740539afeb72efd94fac44cf73514474bac9c173c0c0fd5151"
     },
     {
       "path": "frontend/src/life/PhotoGallery.vue",
@@ -1997,6 +2005,10 @@
     {
       "path": "tests/test_reading.py",
       "sha256": "b3f83c82ac133eb92b9827c437adcd46dd0a301ccfc48d06b6e42c489618b28a"
+    },
+    {
+      "path": "tests/test_record_mode_projection.py",
+      "sha256": "a9aa280aab9a39325fcd627ff98f87ae958fd39aa6064b805452267312c5a2fd"
     },
     {
       "path": "tests/test_recovery.py",
@@ -3752,7 +3764,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "99340789fcf306aabb98a21433dade5c65d1d95d1ef7809e537f291a7eb1ae02"
+      "sha256": "db1f0418572274f103f31a7304480253aed8bd95eac660cfbf6a567636bb8809"
     },
     {
       "path": "third_party/source-scope.json",

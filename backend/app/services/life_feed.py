@@ -15,7 +15,12 @@ def filters(db):
     sub=readable().with_only_columns(ContentRecord.id,ContentRecord.type_id,ContentRecord.display_date).subquery()
     years=[int(x) for x in db.scalars(select(extract('year',sub.c.display_date)).distinct().order_by(extract('year',sub.c.display_date).desc()))]
     types=[{'id':id,'name':name} for id,name in db.execute(select(ContentType.id,ContentType.name).where(ContentType.id.in_(select(sub.c.type_id))).order_by(ContentType.name,ContentType.id))]
-    return {'years':years,'types':types}
+    from .record_mode import travel_expression
+    modes=readable().with_only_columns(travel_expression(db).label('travel_enabled')).subquery()
+    mode_counts={'travel':0,'daily':0}
+    for enabled,count in db.execute(select(modes.c.travel_enabled,func.count()).group_by(modes.c.travel_enabled)):
+        mode_counts['travel' if enabled else 'daily']=count
+    return {'years':years,'types':types,'record_mode_counts':mode_counts}
 
 def feed(db,year=None,type_id=None,page=1):
     return {**page_records(db,year_query(year,type_id),page,20),**filters(db)}

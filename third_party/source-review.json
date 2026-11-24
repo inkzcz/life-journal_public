@@ -171,6 +171,14 @@
       "source": "Owner explicit v5.1.10 formal merge/release and ongoing delivery instruction; original release orchestration, version-specific authorization selection, negative tests and deployment guides written within this public repository. No private source, production logs, media or external implementation copied.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments; all third-party grants and credits unchanged.",
       "decision": "Reviewed exact release delta and each new source file. Original v5.1.9 authorization, initial snapshot receipt and all 410 legal texts remain byte-identical. CI-only pinned Playwright is not copied into business image or source delivery archives. Actual binary source/notices/relink receipts required for every formal build; pending real platforms/UPGRADE-001 stated accurately."
+    },
+    {
+      "id": "P008",
+      "review_date": "2026-11-25",
+      "review_baseline": "fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2",
+      "source": "Owner v5.1.11 task; original mode projection/query changes, synthetic regressions and development progress. No external implementation or artwork copied.",
+      "license": "Existing GPL-3.0-or-later for original increments; all third-party grants preserved.",
+      "decision": "Reviewed current staged phase-one delta only; no claim of remaining features, PG validation, visual acceptance or release completion."
     }
   ],
   "files": [
@@ -1091,9 +1099,10 @@
       "path": "backend/app/routers/discovery.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "231f9daa7f8b99b03151d1893ae0cd3b9c1afe1b688cfc33f7eba4f4c389b45b"
+      "sha256_canonical": "7d2274487206e76154342b6983798366cbb5599b36a6bb3a227cc2e550d09086"
     },
     {
       "path": "backend/app/routers/exchange.py",
@@ -1107,9 +1116,10 @@
       "path": "backend/app/routers/experiences.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "e3fa54f15149b6d15210768ce6c49bb908a1f3ee7676269bd32f0e17454110ae"
+      "sha256_canonical": "ad36c3696abe3c67b8b728c17a2fa782cd6e60ce98f85071225f15793363c5e5"
     },
     {
       "path": "backend/app/routers/folders.py",
@@ -1235,9 +1245,10 @@
       "path": "backend/app/services/blog.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "3c003b3258b72a32b3b3218dc0dca00d3c21180904ca9525213752c77297fac9"
+      "sha256_canonical": "47d869f5ad3bde411ee0a50611a4eaa0bf2ed18af153180ce9751a8460a1886e"
     },
     {
       "path": "backend/app/services/body_media.py",
@@ -1260,9 +1271,10 @@
       "path": "backend/app/services/experiences.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "9bb237935a1cce6b9d44492155e9dca423bbbf025540f7b4ce1575a2bd29376d"
+      "sha256_canonical": "318b3d37f7d462798534752ca1921bb12af12deb7a85be38fc21beea809cfedc"
     },
     {
       "path": "backend/app/services/folders.py",
@@ -1316,9 +1328,10 @@
       "path": "backend/app/services/life_feed.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "679e31cb2637dac075d2b93fa0830cbff52a53ac744e0c587a1ec6785d27b818"
+      "sha256_canonical": "4c263380ee21eaa6ee56c7267e0e79b9b742ffdd53923d31ffea6df3d6a89d1c"
     },
     {
       "path": "backend/app/services/maintenance.py",
@@ -1375,6 +1388,14 @@
         "J001"
       ],
       "sha256_canonical": "2710047f56bdd2285c4e1745e5dda6b867dcbb37ec3f387eb4f4a86113346e6c"
+    },
+    {
+      "path": "backend/app/services/record_mode.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "7a66f32089e0cb3bedefa1955ea8a311ef13bb548d223ccdb77b6abf5932f95c"
     },
     {
       "path": "backend/app/services/recovery.py",
@@ -1578,6 +1599,14 @@
         "P002"
       ],
       "sha256_canonical": "c63858f5f7d4f4353f7c333453b7ef410a663bd60fab51ed7f0785e37329506d"
+    },
+    {
+      "path": "docs/development/v5.1.11-progress.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "47f92065635929a6b2594b80cc80fe8a8254aa2c2edd9fb12677d74a84dab05d"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -2097,9 +2126,10 @@
       "path": "frontend/src/blog/BlogView.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "692c56e3f881ffee01d367ab76b41ee4de5923573bf46b99ab40d312aca60ef5"
+      "sha256_canonical": "ee6624a91078344cc7c5da9b4de9c543da052fc1f8d05d3141ae714747f4101c"
     },
     {
       "path": "frontend/src/blog/BotanicalIllustration.test.ts",
@@ -2169,9 +2199,10 @@
       "path": "frontend/src/blog/TemplateRenderer.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "bacb27b30dd97f023f57d9fc120bf4405f5fa48765e612b7cdfb59bbd86df9f8"
+      "sha256_canonical": "92cb25cd2cac38a6a5ee43374e130d0bd13c47572d0d385861d9853821141bf9"
     },
     {
       "path": "frontend/src/blog/TextEditor.vue",
@@ -2265,9 +2296,10 @@
       "path": "frontend/src/blog/types.ts",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "abef1fba8875b7dc257da14f7ed4889ff84b0040926ee292798be82d9a8f2f51"
+      "sha256_canonical": "fcb55feb185955b7746d6d05e32ae8812b92fe5a7523256c40194c922728d221"
     },
     {
       "path": "frontend/src/buildInfo.ts",
@@ -2556,9 +2588,10 @@
       "path": "frontend/src/life/LifeFeed.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "43e172aaa202caa4bb39dcd8201b5538981f2b0de46cd84068dca2973721287d"
+      "sha256_canonical": "1f26a84d63261e740539afeb72efd94fac44cf73514474bac9c173c0c0fd5151"
     },
     {
       "path": "frontend/src/life/PhotoGallery.vue",
@@ -4287,6 +4320,14 @@
         "J005"
       ],
       "sha256_canonical": "b3f83c82ac133eb92b9827c437adcd46dd0a301ccfc48d06b6e42c489618b28a"
+    },
+    {
+      "path": "tests/test_record_mode_projection.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "a9aa280aab9a39325fcd627ff98f87ae958fd39aa6064b805452267312c5a2fd"
     },
     {
       "path": "tests/test_recovery.py",

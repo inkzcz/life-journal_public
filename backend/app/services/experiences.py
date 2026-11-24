@@ -165,17 +165,8 @@ def syntax_version(db,record):
 def options(db, record):
     row=db.get(ArticleOptions, record.id)
     if row:return {'end_date':row.end_date.isoformat() if row.end_date else None,'travel_enabled':row.travel_enabled}
-    from ..life_models import TripPlan, TripActivity
-    plan=db.get(TripPlan,record.id)
-    legacy=bool(plan and (plan.start_date or plan.end_date) or db.scalar(select(TripActivity.id).where(TripActivity.record_id==record.id).limit(1)))
-    if not legacy:
-        from .templates import binding_data
-        binding=binding_data(db,record)
-        legacy=bool(binding and any(m['kind']=='itinerary' for m in binding['config']['modules']))
-    if not legacy:
-        from .content import fields_for
-        legacy=any(f['active'] and f['kind']=='date' and not f.get('purpose') and f['name'] in ('出发日期','旅行开始日期') for f in fields_for(db,record.type_id,record.schema_version))
-    return {'end_date':None,'travel_enabled':legacy}
+    from .record_mode import record_modes
+    return {'end_date':None,'travel_enabled':record_modes(db,[record])[record.id]}
 
 
 def save_options(db, record, data):
@@ -188,3 +179,6 @@ def save_options(db, record, data):
     row=db.get(ArticleOptions,record.id)
     if row is None:row=ArticleOptions(record_id=record.id);db.add(row)
     row.end_date=end;row.travel_enabled=data.travel_enabled
+
+
+from .record_mode import record_modes
