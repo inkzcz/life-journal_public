@@ -18,6 +18,8 @@ on:
     outputs:
       artifact_name:
         value: ${{ jobs.docker-installation.outputs.artifact_name }}
+      artifact_id:
+        value: ${{ jobs.docker-installation.outputs.artifact_id }}
 permissions:
   contents: read
 concurrency:
@@ -93,11 +95,26 @@ jobs:
           else:raise RuntimeError('Isolated preview server did not start')
           PYTHON
           python tests/browser_writing_preview.py --chromium /usr/bin/google-chrome --output "$RUNNER_TEMP/browser-preview"
+      - name: Small synthetic visual review evidence, PR only
+        if: github.event_name == 'pull_request' && github.repository == 'inkzcz/life-journal_public'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: life-journal-visual-${{ github.event.pull_request.head.sha }}
+          retention-days: 3
+          if-no-files-found: error
+          include-hidden-files: false
+          compression-level: 9
+          path: |
+            ${{ runner.temp }}/browser-preview/cards-1440-light.png
+            ${{ runner.temp }}/browser-preview/cards-375-dark.png
+            ${{ runner.temp }}/browser-preview/cards-custom-theme.png
+            ${{ runner.temp }}/browser-preview/geometry.json
+            ${{ runner.temp }}/browser-preview/browser-results.json
       - name: Four-container Compose contract with synthetic configuration only
         run: docker compose --env-file .env.example config --quiet
         env:
           POSTGRES_PASSWORD: synthetic-ci-test-only
-          IMAGE_TAG: v5.1.10-candidate.ci
+          IMAGE_TAG: v5.1.11-candidate.ci
           POSTGRES_IMAGE: postgres:17-alpine
       - name: Tests must leave tracked source and example directories unchanged
         run: |
@@ -129,6 +146,7 @@ jobs:
     timeout-minutes: 90
     outputs:
       artifact_name: ${{ steps.identity.outputs.artifact_name }}
+      artifact_id: ${{ steps.delivery-upload.outputs.artifact-id }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -151,7 +169,7 @@ jobs:
           tag="v${product_version}-candidate.${revision:0:7}"
           if [ -n "$RELEASE_VERSION" ]; then
             test "$RELEASE_VERSION" = "v$product_version"
-            test "$RELEASE_VERSION" = v5.1.10
+            test "$RELEASE_VERSION" = v5.1.11
             test "$(git cat-file -t "$ANNOTATED_TAG_SHA")" = tag
             test "$(git rev-parse "$ANNOTATED_TAG_SHA^{commit}")" = "$SOURCE_REVISION"
             app_root="$RUNNER_TEMP/approved-tag-source"
@@ -179,12 +197,12 @@ jobs:
         run: docker pull postgres:17-alpine
       - name: Isolated installation, restart, backup, restore and synthetic upgrade
         run: python tests/docker_installation.py --image-tag "$IMAGE_TAG" --output "$RUNNER_TEMP/installation-report.json"
-      - name: Released v5.1.9 to v5.1.10, synthetic same-schema upgrade only
-        if: env.IMAGE_TAG == 'v5.1.10' || startsWith(env.IMAGE_TAG, 'v5.1.10-candidate.')
+      - name: Released v5.1.10 to v5.1.11, synthetic same-schema upgrade only
+        if: env.IMAGE_TAG == 'v5.1.11' || startsWith(env.IMAGE_TAG, 'v5.1.11-candidate.')
         run: |
           mkdir "$RUNNER_TEMP/previous-release"
-          curl --fail --location --silent --show-error --retry 3 --connect-timeout 20 --max-time 180 --proto '=https' --proto-redir '=https' https://github.com/inkzcz/life-journal_public/releases/download/v5.1.9/life-journal-app-v5.1.9-amd64.tar -o "$RUNNER_TEMP/previous-release/life-journal-app-v5.1.9-amd64.tar"
-          python tests/docker_same_schema_upgrade.py --image-tag "$IMAGE_TAG" --previous-tar "$RUNNER_TEMP/previous-release/life-journal-app-v5.1.9-amd64.tar" --output "$RUNNER_TEMP/same-schema-upgrade.json"
+          curl --fail --location --silent --show-error --retry 3 --connect-timeout 20 --max-time 180 --proto '=https' --proto-redir '=https' https://github.com/inkzcz/life-journal_public/releases/download/v5.1.10/life-journal-app-v5.1.10-amd64.tar -o "$RUNNER_TEMP/previous-release/life-journal-app-v5.1.10-amd64.tar"
+          python tests/docker_same_schema_upgrade.py --image-tag "$IMAGE_TAG" --previous-tar "$RUNNER_TEMP/previous-release/life-journal-app-v5.1.10-amd64.tar" --output "$RUNNER_TEMP/same-schema-upgrade.json"
       - name: Exact corresponding source, patches and preferred browser source
         env:
           GH_TOKEN: ${{ github.token }}
@@ -197,22 +215,25 @@ jobs:
         run: |
           mode=()
           upgrade=()
-          if [[ "$IMAGE_TAG" == v5.1.10 || "$IMAGE_TAG" == v5.1.10-candidate.* ]]; then
+          if [[ "$IMAGE_TAG" == v5.1.11 || "$IMAGE_TAG" == v5.1.11-candidate.* ]]; then
             upgrade=(--upgrade "$RUNNER_TEMP/same-schema-upgrade.json")
           fi
-          delivery_ready=true
-          if [[ "$IMAGE_TAG" != v5.1.9 && "$IMAGE_TAG" != v5.1.9-candidate.* && "$IMAGE_TAG" != v5.1.10 ]]; then
+          delivery_ready=false
+          if [[ -z "$RELEASE_VERSION" ]]; then
             mode=(--validate-only)
-            delivery_ready=false
+          else
+            test "$IMAGE_TAG" = v5.1.11
+            delivery_ready=true
           fi
           python scripts/prepare_distribution.py --root "$APP_ROOT" --orchestration-root . --bundle "$RUNNER_TEMP/delivery/$IMAGE_TAG" --evidence "$RUNNER_TEMP/binary-evidence" --sources "$RUNNER_TEMP/exact-sources" --installation "$RUNNER_TEMP/installation-report.json" --pillow "$RUNNER_TEMP/pillow-relink.json" --layers "$RUNNER_TEMP/layer-report.json" --debian "$RUNNER_TEMP/debian-probe.json" --output "$RUNNER_TEMP/release-assets" "${mode[@]}" "${upgrade[@]}"
           echo "delivery_ready=$delivery_ready" >> "$GITHUB_OUTPUT"
       - name: Preserve only complete, explicitly named candidate delivery assets
-        if: steps.package.outputs.delivery_ready == 'true' && github.repository == 'inkzcz/life-journal_public' && ((github.event_name == 'push' && (github.ref == 'refs/heads/release/prepare-v5.1.9' || github.ref == 'refs/heads/main')) || (github.workflow == 'Formal versioned delivery' && inputs.release_version == 'v5.1.10' && inputs.source_revision != '' && inputs.annotated_tag_sha != ''))
+        id: delivery-upload
+        if: steps.package.outputs.delivery_ready == 'true' && github.repository == 'inkzcz/life-journal_public' && github.workflow == 'Formal versioned delivery' && inputs.release_version == 'v5.1.11' && inputs.source_revision != '' && inputs.annotated_tag_sha != ''
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: ${{ steps.identity.outputs.artifact_name }}
-          retention-days: 7
+          retention-days: 2
           if-no-files-found: error
           include-hidden-files: false
           compression-level: 0

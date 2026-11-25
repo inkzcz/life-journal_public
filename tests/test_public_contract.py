@@ -28,7 +28,7 @@ def test_four_roles_reuse_one_business_image_and_never_pull_implicitly():
 
 
 def test_candidate_features_and_migrations_are_present():
-    assert (ROOT/'VERSION').read_text().strip()=='5.1.10'
+    assert (ROOT/'VERSION').read_text().strip()=='5.1.11'
     for name in ('backend/app/calendar','backend/app/exchange','backend/app/routers/experiences.py',
                  'backend/app/services/experiences.py','backend/app/routers/photo_albums.py',
                  'backend/app/services/photo_stream.py',
@@ -58,11 +58,19 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
     assert 'pull_request_target' not in text
     uploads=[step for job in data['jobs'].values() for step in job['steps']
              if step.get('uses','').startswith('actions/upload-artifact@')]
-    assert len(uploads)==1
-    upload=uploads[0]
+    assert len(uploads)==2
+    upload=next(s for s in uploads if s.get('id')=='delivery-upload')
+    visual=next(s for s in uploads if s is not upload)
+    assert "github.event_name == 'pull_request'" in visual['if']
+    assert visual['with']['retention-days']==3 and visual['with']['compression-level']==9
+    visual_paths=visual['with']['path'].splitlines()
+    assert len(visual_paths)==5 and all(p.startswith('${{ runner.temp }}/browser-preview/') and '*' not in p and '..' not in p for p in visual_paths)
+    assert all(p.endswith(('.png','.json')) for p in visual_paths)
     assert "steps.package.outputs.delivery_ready == 'true'" in upload['if']
     assert "github.repository == 'inkzcz/life-journal_public'" in upload['if']
-    assert "github.event_name == 'push'" in upload['if']
+    assert "github.workflow == 'Formal versioned delivery'" in upload['if']
+    assert "inputs.release_version == 'v5.1.11'" in upload['if']
+    assert upload['with']['retention-days']==2
     paths=upload['with']['path'].splitlines()
     assert len(paths)==10 and all(p.startswith('${{ runner.temp }}/release-assets/') for p in paths)
     assert not any('*' in p or '..' in p for p in paths)
@@ -71,7 +79,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
     steps=data['jobs']['docker-installation']['steps']
     assert next(i for i,s in enumerate(steps) if 'prepare_distribution.py' in s.get('run',''))<steps.index(upload)
     assert '--require-license' in text and '--redact=100' in text
-    assert '--validate-only' in text and 'Released v5.1.9 to v5.1.10' in text
+    assert '--validate-only' in text and 'Released v5.1.10 to v5.1.11' in text
 
 
 def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
@@ -84,7 +92,7 @@ def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
     assert jobs['build']['with']['annotated_tag_sha']=='${{ needs.preflight.outputs.tag_sha }}'
     publish=jobs['publish']
     assert publish['needs']==['preflight','build'] and publish['permissions']=={'contents':'write','actions':'read'}
-    assert "github.ref == 'refs/tags/v5.1.10'" in publish['if']
+    assert "github.ref == 'refs/tags/v5.1.11'" in publish['if']
     assert "github.ref == 'refs/heads/main'" in publish['if'] and "github.event_name == 'workflow_dispatch'" in publish['if']
     assert not any(s.get('uses','').startswith('actions/checkout') for s in publish['steps'])
     for job in jobs.values():
@@ -120,7 +128,7 @@ def test_formal_reusable_workflow_runs_full_source_and_browser_regression():
     assert 'browser_writing_preview.py' in text and 'playwright==1.64.0' in text
     steps=data['jobs']['docker-installation']['steps']
     upgrade=next(s for s in steps if 'docker_same_schema_upgrade.py' in s.get('run',''))
-    assert "env.IMAGE_TAG == 'v5.1.10'" in upgrade['if']
+    assert "env.IMAGE_TAG == 'v5.1.11'" in upgrade['if']
     package=next(s for s in steps if s.get('id')=='package')
     assert '--upgrade' in package['run'] and '--validate-only' in package['run']
 
@@ -132,3 +140,17 @@ def test_native_windows_automation_is_part_of_every_formal_ci():
     for name in ('test_windows_launchers.py','test_command_output.py','test_release_source.py','test_unified_images.py'):
         assert name in text
     assert 'docker build' not in text and 'docker push' not in text
+
+def test_intermediary_cleanup_only_follows_public_download_checks():
+    jobs=yaml.safe_load((ROOT/'.github/workflows/release.yml').read_text())['jobs']
+    public=next(s for s in jobs['publish']['steps'] if s.get('id')=='public-check')
+    assert 'hashlib.file_digest(response' in public['run'] and 'actual==sha' in public['run']
+    assert 'GH_TOKEN' not in public['run'] and "assert len(expected)==10" in public['run']
+    cleanup=jobs['cleanup-current-artifact']
+    assert cleanup['needs']==['preflight','build','publish']
+    assert cleanup['if']=="needs.publish.outputs.publication_verified == 'true'"
+    assert cleanup['permissions']=={'contents':'read','actions':'write'}
+    command=cleanup['steps'][-1]['run']
+    assert '--artifact-id "$DELIVERY_ARTIFACT_ID"' in command and '--run-id "$GITHUB_RUN_ID"' in command
+    assert '--publication-verified "$PUBLICATION_VERIFIED"' in command
+    assert 'release delete' not in command

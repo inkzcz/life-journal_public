@@ -1,8 +1,8 @@
 # 已知限制与验证边界
 
-- 正式发行以 v5.1.10 Release 实际附件及校验收据为准。发行工作流未完成时不存在正式二进制；测试候选不能冒充正式产物。
+- 正式发行以 v5.1.11 Release 实际附件及校验收据为准。发行工作流未完成时不存在正式二进制；测试候选不能冒充正式产物。
 - UPGRADE-001 历史 Maintenance 失败原因未确认；仅在合成隔离环境验证；未复现历史故障。不要据新安装或合成回归直接生产升级，见 upgrade-001.md。
-- 首次公开提交的 Actions 已成功；维护分支 CI、本地 Docker、Windows Docker Desktop 和 NAS 的结果分别记录在对应 PR/CI 与 release-v5.1.10.md，未执行项不记通过。
+- 首次公开提交的 Actions 已成功；维护分支 CI、本地 Docker、Windows Docker Desktop 和 NAS 的结果分别记录在对应 PR/CI 与 release-v5.1.11.md，未执行项不记通过。
 - 新公开仓库有新的构建身份。普通备份要求匹配构建、Schema 与 PG 主版本，不能把旧私有镜像和新构建仅凭版本号视为可互换。
 - PostgreSQL17 镜像独立提前准备，不随业务 TAR 交付，不隐式拉取；不得用空卷替换旧数据来冒充升级。
 - 二进制的精确对应源码、补丁、构建文件和版权/NOTICE与TAR同处提供，必须通过逐构建门禁，见 third_party/REDISTRIBUTION.md。仅有参考法律文本目录不能证明履约完成。

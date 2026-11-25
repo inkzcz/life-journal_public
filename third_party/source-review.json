@@ -2,8 +2,8 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "v5.1.10 authorized formal-delivery preparation, independently scoped grant, exact release/upgrade gates, synthetic browser CI and user upgrade/rollback documentation; no runtime dependency, schema, volume or third-party grant changes.",
-  "reviewed_on": "2026-11-23",
+  "current_delta": "v5.1.11 original mode projections, atomic card transfers, structured notifications, IANA time inputs, six card layouts/actions and authorized PR #5 release preparation; no new runtime dependency/schema/volume or third-party grant change.",
+  "reviewed_on": "2026-11-25",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
   "method": "Per-file source/asset/import/marker and scope review, targeted public upstream and local history checks, accepted owner project-development declaration. No global code plagiarism or legal title certification.",
@@ -195,6 +195,14 @@
       "source": "Original v5.1.11 phase-four IANA conversion and selectors, phase-five six-kind layouts, original elementary vehicle SVG geometry, parser/document menu operations and synthetic browser/unit tests under owner task. No external implementation, font, photograph or runtime dependency added.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments; third-party grants and 410 historical legal texts preserved.",
       "decision": "Reviewed enumerated original source increments. Screenshots use existing original geometric fixture artwork and synthetic text only, saved outside the tracked source. No claim of completed PG/Docker/release or real device acceptance."
+    },
+    {
+      "id": "P011",
+      "review_date": "2026-11-25",
+      "review_baseline": "8c24099c4fef220d74f1f6a850491c8f80870e2c",
+      "source": "Original v5.1.11 versioned release orchestration, strict current-run artifact cleanup and negative tests, synthetic six-card/template/GET-notification upgrade fixture, documentation and operator record of explicit owner release task. Existing project release code adapted; no external implementation or runtime dependency copied.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments. Third-party legal texts and upstream source/license duties unchanged.",
+      "decision": "Current enumerated release-preparation increments only. Workflow exact hashes separately bound in version-specific owner-instruction record; no forged signature or claim of completed cloud/real-device validation."
     }
   ],
   "files": [
@@ -244,9 +252,10 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "a6fa2555120e7ab7d9eee0f04f10be4f16f26e8d098fff528f475ff75a8257c0"
+      "sha256_canonical": "10603e262a3a09496847548361ef569d5613cd0cc35dfb720c640341db98d0cc"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -254,9 +263,10 @@
       "evidence": [
         "P004",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d83b2a9554fe982b9a12cfccccc6084e540a59a32f7e849a1659f89ea9440de2"
+      "sha256_canonical": "346d892196d7dcad8ca51e8fda1cec81d28ba766040fe0752c63f360b7737d22"
     },
     {
       "path": ".gitignore",
@@ -281,9 +291,10 @@
         "J001",
         "P001",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "eef4b91cdc437c6aeb00e4258572cac886d43cf92ef989a02e8ac8ed4b193c95"
+      "sha256_canonical": "f524c21da566f3fcfa5214d16ef338448361ab4294524b1609138e68375e84ea"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -330,9 +341,10 @@
         "P001",
         "P004",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "7a356142f6f3309faba1885662d8b260c6787684990bbd9c2030efd545aca320"
+      "sha256_canonical": "ef23c54cccee01f38dd13e34890aaf1d04b2853e271f980c386235c35380ae2d"
     },
     {
       "path": "SECURITY.md",
@@ -348,9 +360,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P011"
       ],
-      "sha256_canonical": "1f69628eecae9a9e12df09ccf3d934412e4a3facb5b77f03a990954503e7cd6f"
+      "sha256_canonical": "c43b2209093b8c469d508f854d3d6225aaa486963d307f54717db19fa52b2f87"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -365,9 +378,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "779e6d24cb291ff605d93a3ec585cfa5589c1d4584ab7d9ee04a231d41ff5df3"
+      "sha256_canonical": "91dee1f2e164332c98f55f96624fd7e93d0d754b90e67f440c1b044164c2dae7"
     },
     {
       "path": "backend/.dockerignore",
@@ -1078,9 +1092,10 @@
       "evidence": [
         "J001",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "263c9af6bb78f5230d515f51e20407324f471a6096bd90c7ba146f6cd458310c"
+      "sha256_canonical": "87706d5197ab6c38d1eb3700b8b79fa97134e86716bdf1f06244118d24b5060b"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -1287,9 +1302,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P008"
+        "P008",
+        "P011"
       ],
-      "sha256_canonical": "a62bb4584867cee939b4856df7f2632baa8df3f837a1ab5e203987eb1f1915ee"
+      "sha256_canonical": "4caf98cee390e34cd8065af721ce1bfeee6981f0677263316bf68be8dca3a0b4"
     },
     {
       "path": "backend/app/services/body_media.py",
@@ -1565,9 +1581,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "be294b9e2b3b0aefc6c285951fc9ec7a75faff8c0f0bf437ac2d1232a254ee13"
+      "sha256_canonical": "dab4a986cba665cc8a54a2eb2a743ec023ec01afc34c4e9808afa107e2ce3487"
     },
     {
       "path": "backend/constraints-release.txt",
@@ -1657,9 +1674,10 @@
       "evidence": [
         "P008",
         "P009",
-        "P010"
+        "P010",
+        "P011"
       ],
-      "sha256_canonical": "9a6f8c6c373e8c3d14e947d2c5d1c411c5c4bfbf3214d7cf02428bc35764969b"
+      "sha256_canonical": "eab697759821fd0ac12a1ead6c1baff2b7d0d80246a04ed1bc51ed0c87a89ccb"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1676,9 +1694,10 @@
         "J001",
         "P001",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "0351c495c7b572e41810a3d7e0d19246d5cdc1305cee077d4e67ab359cdbb4ea"
+      "sha256_canonical": "a7518bc2907420084d079115e98e04d1d00d89631efa3f8e973c2557cf1f432b"
     },
     {
       "path": "docs/known-limitations.md",
@@ -1688,9 +1707,10 @@
         "P001",
         "P003",
         "P004",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "ee7cfd94e5b2fa8835f6e054c61ea09c542ff52001edcfc48a5564568c261687"
+      "sha256_canonical": "befd11b9522a1419ed9bad82f4295d050c87be7a4275176bc82cc3785f493fdc"
     },
     {
       "path": "docs/licensing.md",
@@ -1728,6 +1748,14 @@
       "sha256_canonical": "30a65c1d2d2711ceb3802e8d5dfc3f960269a09359457caed5c1d53dcb2c6889"
     },
     {
+      "path": "docs/release-notes-v5.1.11.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "9a378ac3e6ec58d0e9aec0cc0c38d07b20cee253e8494ef19a607cd4bcb448c1"
+    },
+    {
       "path": "docs/release-notes-v5.1.9.md",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
@@ -1750,6 +1778,14 @@
         "P007"
       ],
       "sha256_canonical": "7b6a9cd2de99a0e581e1097d2c71d522bcf329b878bd5552fc0eb63e7ce633aa"
+    },
+    {
+      "path": "docs/release-v5.1.11.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "549dab9263d904122cb9b784646e2a074ec30a1619d58e37d17f24405bb14883"
     },
     {
       "path": "docs/release-v5.1.9.md",
@@ -1777,9 +1813,10 @@
         "J001",
         "P001",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d49ec278d770921c72ba900c0dfc29e0d0644d0947846dcadb19925db8705fc8"
+      "sha256_canonical": "77882a2dcc869713315224f2cefe73cc76a214c1f86c4ba348ec597b41049c72"
     },
     {
       "path": "docs/v5.1.10-validation.md",
@@ -1789,6 +1826,14 @@
         "P007"
       ],
       "sha256_canonical": "d78224ba05b004a52e0815117b9a8bc45488fa04e2520a42f1ef810a50589468"
+    },
+    {
+      "path": "docs/v5.1.11-validation.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "8258baf9fdced0b8ab96c5dca559f4bfa2210b60f716b6cc04b60c69aad3ea58"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -1878,9 +1923,10 @@
       "evidence": [
         "R001",
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "824dd08bc2f06c55967be2225fdb96bcc663d523aa584e5841eb954c4a7944cb"
+      "sha256_canonical": "f56e57b8c7015cd1723e665a0031685fe676fe91d109b46ad91a3da9d04d0703"
     },
     {
       "path": "frontend/package.json",
@@ -1888,9 +1934,10 @@
       "evidence": [
         "R001",
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "dc87e9c1a010dbfd526729c51c425a5f41672f3f6d6d76315ed86ee51ecd199b"
+      "sha256_canonical": "64affbebd2d373b81bc4475a844309af90818005e54f1e6ca12dd57a2978174c"
     },
     {
       "path": "frontend/preview-writing.html",
@@ -3146,9 +3193,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "295eacafcbb6a6e37ef6eb34e6744df9e4c85b9b52c67f1e8bb1264cd491592d"
+      "sha256_canonical": "6111e2047e04dc0032d29c25f245f0320c883dac91140e4325ec696f58791739"
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
@@ -3672,6 +3720,14 @@
       "sha256_canonical": "634602e9e6ef0185d0ed9c088e6a1f455a2c276470bdc73b536c878818ad0d96"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "5ffeea544aea85015d7da4add9cc1e4617effe3d17b81bea0ffa10a5ab93c602"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "classification": "retained-license-text-or-historical-draft",
       "evidence": [
@@ -3716,9 +3772,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P011"
       ],
-      "sha256_canonical": "ef806a25f9baa991b2f2a78e12f546cfa6303b980631fe9bf73b09d051c5db2b"
+      "sha256_canonical": "a78c5f0251dc9b759f9a79ea44043914e4da32314011b1e72d506bce0bda48a1"
     },
     {
       "path": "licensing/proposal.json",
@@ -3812,9 +3869,10 @@
       "evidence": [
         "J001",
         "P004",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "3a506855f404fce2c78a73f5e5f214d9c855dea08a1ed70a4eaa840d33c261c0"
+      "sha256_canonical": "54cc671876097b1eb07192e4a1bab5b473ae3349ba23bc84a384a2be74bcd24f"
     },
     {
       "path": "scripts/prepare_distribution.py",
@@ -3823,9 +3881,10 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "2982100feac550722b014adfdba864f77efb8884e1743cb70f472f1c1aa64acf"
+      "sha256_canonical": "386a127a87fb47582e25a55383f027b096deb387e71a95b06c69bbe30664841e"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -3852,21 +3911,31 @@
       "sha256_canonical": "f5a223a103eede8118798327ab335281e3e9bbdefdf8ba0832cb14edf0063d69"
     },
     {
+      "path": "scripts/release_artifact_cleanup.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "412ab2b0f27fbed2b534bdd0aae3d47574bfdef58e9dbb9a4894e39cf75c5950"
+    },
+    {
       "path": "scripts/release_authorization.py",
       "classification": "project-original-source",
       "evidence": [
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "853fb6616571f512fe7d55828fd5b215d98bb80491e86d28028544a92c2d0f8d"
+      "sha256_canonical": "6922f120242687a5cccd9650520b73c9952972ae746e212baf7415d5137cec2b"
     },
     {
       "path": "scripts/release_local.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "c20c9a008c75d9d0704f9d3515d34ba432be3ad2c332969b2e397e52119e542a"
+      "sha256_canonical": "0545bbd2a1c69ca832f59135997dde2bcf17ea70d9160c2cc361ec02c7a1551d"
     },
     {
       "path": "scripts/release_preflight.py",
@@ -3874,9 +3943,10 @@
       "evidence": [
         "P004",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d356f15db42406f1502e5bcf33656da9b6c4c951a0965e36d1798a0164e740c3"
+      "sha256_canonical": "0ec637dc702b67c3b5e247474ccc0ebbc044bf5cbf2e8d903182ddc939549f02"
     },
     {
       "path": "scripts/release_source.py",
@@ -3924,9 +3994,10 @@
       "evidence": [
         "P004",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "0d24644912a08ea7263ffb372e286d068e7c4ff84849b1c4a53f66b43336ece7"
+      "sha256_canonical": "2335f01f57ffe01b1afa7e178b082b79a4c39f84c0c0527e5be0dabb05b9c5a2"
     },
     {
       "path": "scripts/unified_images.py",
@@ -4011,9 +4082,10 @@
       "classification": "project-original-v5110-development",
       "evidence": [
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "5be5789dceffa9d0d5bd0a3ea4cad88d116e901ecebe0161f16bb645d1f9bc6e"
+      "sha256_canonical": "30e5ad07ed5c5bf732aed63e50b1117c062ac2b793a20d5327820d3131d89f06"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -4593,9 +4665,10 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "175ac1c1951cd64519ecd3d5acd4aadbf10b550bdbe6354114761600239d5b45"
+      "sha256_canonical": "977fa6293b7b8d9d0dcac5ec39794e21fb8003b19c0da0b0d06069193e18f063"
     },
     {
       "path": "tests/test_product_version.py",
@@ -4613,9 +4686,10 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "dd0ab2eb400147ab970c866e98ca337c24c25cf647ce79e9c28f6a980b55ccee"
+      "sha256_canonical": "8c8529ccb3ac89f01b2750e6521f3a7442d6b6dec42f42cd5e2f8ebff7f7030e"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -4637,9 +4711,10 @@
       "path": "tests/test_record_mode_projection.py",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P011"
       ],
-      "sha256_canonical": "a9aa280aab9a39325fcd627ff98f87ae958fd39aa6064b805452267312c5a2fd"
+      "sha256_canonical": "40ee5b477936fa1a8110b51406cc5994dd8dec61639a90ba70d0c69fe59105fa"
     },
     {
       "path": "tests/test_recovery.py",
@@ -4650,13 +4725,22 @@
       "sha256_canonical": "6ebdf661931b6dd772ddd87e55c63042e7a321999b89f533821e56dbcb54780d"
     },
     {
+      "path": "tests/test_release_artifact_cleanup.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+    },
+    {
       "path": "tests/test_release_preflight.py",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "e129581f34a07566f698daae807bf67469f03cf92d7c4e43a4d36a01405e2022"
+      "sha256_canonical": "f2275df72ca38de57e6ff15be3b21721db2c49990b253ae5b79106c917a9c1f3"
     },
     {
       "path": "tests/test_release_source.py",
@@ -4806,9 +4890,10 @@
         "P001",
         "P003",
         "P004",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d9aabfaeecad4df3dce34fa8a9c735f0b9eaf6a4d2d2de1a400b3481696d14c8"
+      "sha256_canonical": "e6c43370bbaf9458539db40e5d04b69a5aea08fe33e4744adaa0248c767bd81d"
     },
     {
       "path": "third_party/SOURCE_BUILD.md",
@@ -8176,7 +8261,8 @@
         "P007",
         "P008",
         "P009",
-        "P010"
+        "P010",
+        "P011"
       ],
       "sha256_canonical": null
     },
@@ -8191,5 +8277,5 @@
     }
   ],
   "maintenance_baseline": "cd3182450f6163d40f1e5221c9e4483850546884",
-  "development_baseline": "e1c1d9dc1864929e72172113b39b3796b3acb907"
+  "development_baseline": "fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2"
 }

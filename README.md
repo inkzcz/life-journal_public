@@ -1,13 +1,13 @@
 # Life Journal · 私人生活档案
 
-当前版本为 **v5.1.10**：无模板日常/旅行写作、统一六类生活卡片、安全通知路径变量，保留旧文章、模板 API、媒体 UUID、行程与迁移保护。
-正式可部署附件以 [v5.1.10 Release](https://github.com/inkzcz/life-journal_public/releases/tag/v5.1.10) 实际内容为准；页面或业务 TAR 尚不存在时不代表已发布。
-验收边界见 [v5.1.10 验收](docs/v5.1.10-validation.md)，正式流程见 [发布规范](docs/release-policy.md)。
+当前版本为 **v5.1.11**：统一日常/旅行模式、六类专属生活卡片、文章内及跨文章卡片复制移动、IANA行程时间和高级HTTP通知，保留旧文章、模板 API、媒体 UUID、行程与迁移保护。
+正式可部署附件以 [v5.1.11 Release](https://github.com/inkzcz/life-journal_public/releases/tag/v5.1.11) 实际内容为准；页面或业务 TAR 尚不存在时不代表已发布。
+验收边界见 [v5.1.11 验收](docs/v5.1.11-validation.md)，正式流程见 [发布规范](docs/release-policy.md)。
 
 Life Journal 是可自行部署的私人 Blog，包含文章与草稿、TipTap/Markdown 编辑、旅行/地点/行程、照片流与相册、公历/农历纪念日、主题及后台管理。
 前端 Vue 3，后端 FastAPI，数据库 PostgreSQL 17。一个 Debian Linux/amd64 业务镜像通过 `api`、`web`、`maintenance` 三个命令运行三个独立容器，数据库为独立第四容器。
 
-v5.1.10 采用一个 Debian 业务镜像。正式附件以 [v5.1.10 Release](https://github.com/inkzcz/life-journal_public/releases/tag/v5.1.10) 为准；若页面或附件尚不存在，表示发行工作流还未完成，测试候选不能当作正式镜像。
+v5.1.11 采用一个 Debian 业务镜像。正式附件以 [v5.1.11 Release](https://github.com/inkzcz/life-journal_public/releases/tag/v5.1.11) 为准；若页面或附件尚不存在，表示发行工作流还未完成，测试候选不能当作正式镜像。
 公开仓库：https://github.com/inkzcz/life-journal_public 。首次公开提交为 `cd3182450f6163d40f1e5221c9e4483850546884`，以全新历史发布；维护变更通过分支和 PR 审核。
 
 ## 安装
@@ -56,7 +56,7 @@ Copyright (C) 2026 inkzcz。所有者有权许可的原创源码及改编文件�
 ## 验证状态和文档
 
 首次公开提交的 [GitHub Actions](https://github.com/inkzcz/life-journal_public/actions/runs/44915676538) 已成功完成 PostgreSQL/SQLite 回归、前端测试/类型检查/构建及 Compose 配置检查。这不代表 Docker 运行、Windows 或 NAS 验收通过。
-当前正式发布门禁见 [v5.1.10 交付](docs/release-v5.1.10.md)；历史 v5.1.9 发行记录保留。
+当前正式发布门禁见 [v5.1.11 交付](docs/release-v5.1.11.md)；历史 v5.1.9 发行记录保留。
 
 **UPGRADE-001：历史 v5.1.8 → v5.1.9 Maintenance 失败原因尚未确认，不能直接据新安装成功宣称生产升级已通过。**
 请先阅读[升级/回滚](docs/upgrade.md)、[隔离分析](docs/upgrade-001.md)、[备份恢复](docs/backup-restore.md)和[已知限制](docs/known-limitations.md)。

@@ -1,6 +1,6 @@
 {
   "format": "life-journal-public-source-v1",
-  "candidate_version": "5.1.10",
+  "candidate_version": "5.1.11",
   "source_commit": "c9ca4c3556f1167603ac9f78825632d51c0e25bc",
   "feature_baseline": "3f27932d3a6fc236a9fac74c34dc57a2586da3f9",
   "target_repository": "inkzcz/life-journal_public",
@@ -32,11 +32,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "7021b6a79f2f6767067449990487feaff0eda5e561a14cec7b547574ea8c7356"
+      "sha256": "7e747c90eb4d165d609946cede620c1fbd39d5a4cb4f73a426d3b1768418c1e8"
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "daa0fe061bc624ab80540f4a067d747f9c95d260a71ea31803768b002d95697d"
+      "sha256": "e4244a15941c099b16aaa5a26beee39fea57ce93c0193251a4537c14123304da"
     },
     {
       "path": ".gitignore",
@@ -48,7 +48,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "1e24a7f9ebd94ef605fb4cc7bbe86ebd5fd86db153e75f732ac7f5982f7fb4d0"
+      "sha256": "2570eb55e5b9b69f59869bd3aa623a6300b4ba4b781513e4d77fca05344f2824"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -68,7 +68,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "932f23925da557ece8dbba980c1d55018725c371dd4c7952b2b6efaf8acfde62"
+      "sha256": "b3fcde55a806c39ee71588a949a04cea32de5a89b2999f6595788b64ee7fd612"
     },
     {
       "path": "SECURITY.md",
@@ -76,7 +76,7 @@
     },
     {
       "path": "SOURCE_DISTRIBUTION.md",
-      "sha256": "1f69628eecae9a9e12df09ccf3d934412e4a3facb5b77f03a990954503e7cd6f"
+      "sha256": "c43b2209093b8c469d508f854d3d6225aaa486963d307f54717db19fa52b2f87"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -84,7 +84,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "779e6d24cb291ff605d93a3ec585cfa5589c1d4584ab7d9ee04a231d41ff5df3"
+      "sha256": "91dee1f2e164332c98f55f96624fd7e93d0d754b90e67f440c1b044164c2dae7"
     },
     {
       "path": "backend/.dockerignore",
@@ -420,7 +420,7 @@
     },
     {
       "path": "backend/app/release_notes.json",
-      "sha256": "c11d6c6af85c0496b8e07e3f4911824c30f4aa01faf40932990f1e2faa7cbb1c"
+      "sha256": "60c90deb4cf1183ac45d63009aac7c863907769b4d8a61936436c5c629afce06"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -520,7 +520,7 @@
     },
     {
       "path": "backend/app/services/blog.py",
-      "sha256": "a62bb4584867cee939b4856df7f2632baa8df3f837a1ab5e203987eb1f1915ee"
+      "sha256": "4caf98cee390e34cd8065af721ce1bfeee6981f0677263316bf68be8dca3a0b4"
     },
     {
       "path": "backend/app/services/body_media.py",
@@ -656,7 +656,7 @@
     },
     {
       "path": "backend/app/version.py",
-      "sha256": "be294b9e2b3b0aefc6c285951fc9ec7a75faff8c0f0bf437ac2d1232a254ee13"
+      "sha256": "dab4a986cba665cc8a54a2eb2a743ec023ec01afc34c4e9808afa107e2ce3487"
     },
     {
       "path": "backend/constraints-release.txt",
@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "9a6f8c6c373e8c3d14e947d2c5d1c411c5c4bfbf3214d7cf02428bc35764969b"
+      "sha256": "eab697759821fd0ac12a1ead6c1baff2b7d0d80246a04ed1bc51ed0c87a89ccb"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -704,11 +704,11 @@
     },
     {
       "path": "docs/install.md",
-      "sha256": "061cad8aa54b2b4869345afe918cce717d4f0fe35913cb36d80cd74b3c755995"
+      "sha256": "a7d6604d5d781d0d87dddf870467be9d9162dba15d9ce2377773af3529ec945b"
     },
     {
       "path": "docs/known-limitations.md",
-      "sha256": "ee7cfd94e5b2fa8835f6e054c61ea09c542ff52001edcfc48a5564568c261687"
+      "sha256": "befd11b9522a1419ed9bad82f4295d050c87be7a4275176bc82cc3785f493fdc"
     },
     {
       "path": "docs/licensing.md",
@@ -727,6 +727,10 @@
       "sha256": "30a65c1d2d2711ceb3802e8d5dfc3f960269a09359457caed5c1d53dcb2c6889"
     },
     {
+      "path": "docs/release-notes-v5.1.11.md",
+      "sha256": "9a378ac3e6ec58d0e9aec0cc0c38d07b20cee253e8494ef19a607cd4bcb448c1"
+    },
+    {
       "path": "docs/release-notes-v5.1.9.md",
       "sha256": "13ae15237978bfca1ebf30db04bc309eadf7c804713986de9d18746b86becee4"
     },
@@ -739,6 +743,10 @@
       "sha256": "7b6a9cd2de99a0e581e1097d2c71d522bcf329b878bd5552fc0eb63e7ce633aa"
     },
     {
+      "path": "docs/release-v5.1.11.md",
+      "sha256": "549dab9263d904122cb9b784646e2a074ec30a1619d58e37d17f24405bb14883"
+    },
+    {
       "path": "docs/release-v5.1.9.md",
       "sha256": "bc4c9f6ca9dec1c148f8d7439b5cf7a12765b27080b0824353049941a981017f"
     },
@@ -748,11 +756,15 @@
     },
     {
       "path": "docs/upgrade.md",
-      "sha256": "d49ec278d770921c72ba900c0dfc29e0d0644d0947846dcadb19925db8705fc8"
+      "sha256": "77882a2dcc869713315224f2cefe73cc76a214c1f86c4ba348ec597b41049c72"
     },
     {
       "path": "docs/v5.1.10-validation.md",
       "sha256": "d78224ba05b004a52e0815117b9a8bc45488fa04e2520a42f1ef810a50589468"
+    },
+    {
+      "path": "docs/v5.1.11-validation.md",
+      "sha256": "8258baf9fdced0b8ab96c5dca559f4bfa2210b60f716b6cc04b60c69aad3ea58"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -796,11 +808,11 @@
     },
     {
       "path": "frontend/package-lock.json",
-      "sha256": "824dd08bc2f06c55967be2225fdb96bcc663d523aa584e5841eb954c4a7944cb"
+      "sha256": "f56e57b8c7015cd1723e665a0031685fe676fe91d109b46ad91a3da9d04d0703"
     },
     {
       "path": "frontend/package.json",
-      "sha256": "dc87e9c1a010dbfd526729c51c425a5f41672f3f6d6d76315ed86ee51ecd199b"
+      "sha256": "64affbebd2d373b81bc4475a844309af90818005e54f1e6ca12dd57a2978174c"
     },
     {
       "path": "frontend/preview-writing.html",
@@ -1416,7 +1428,7 @@
     },
     {
       "path": "frontend/src/version.ts",
-      "sha256": "295eacafcbb6a6e37ef6eb34e6744df9e4c85b9b52c67f1e8bb1264cd491592d"
+      "sha256": "6111e2047e04dc0032d29c25f245f0320c883dac91140e4325ec696f58791739"
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
@@ -1667,6 +1679,10 @@
       "sha256": "0c3d5454ee79c4aff5724bc55e2e28016275dc689d3333e387617936e648b91a"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json",
+      "sha256": "7ef34d0e89e7001b5a3ab641286f05291737b3721593e1d85aa98ab8967f1f74"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
@@ -1688,7 +1704,7 @@
     },
     {
       "path": "licensing/README.md",
-      "sha256": "ef806a25f9baa991b2f2a78e12f546cfa6303b980631fe9bf73b09d051c5db2b"
+      "sha256": "a78c5f0251dc9b759f9a79ea44043914e4da32314011b1e72d506bce0bda48a1"
     },
     {
       "path": "licensing/proposal.json",
@@ -1732,11 +1748,11 @@
     },
     {
       "path": "scripts/open_source_gate.py",
-      "sha256": "c7750ce1aafce5415712a5e36737d5571b02cb6c5fcf3300290edab690705c43"
+      "sha256": "7f7b8d3e199e4161a536555dc276d75688950100e6bc3d1a98d7b74209eadbd7"
     },
     {
       "path": "scripts/prepare_distribution.py",
-      "sha256": "2982100feac550722b014adfdba864f77efb8884e1743cb70f472f1c1aa64acf"
+      "sha256": "386a127a87fb47582e25a55383f027b096deb387e71a95b06c69bbe30664841e"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1751,16 +1767,20 @@
       "sha256": "96c1db66e2bf23e29f44ac22ac0a677ecf3274dd24d8df321c99d1921de8a429"
     },
     {
+      "path": "scripts/release_artifact_cleanup.py",
+      "sha256": "d432c9f29b5dbfc0e8501dbaa5d9881e4d59b0cd1e9ece2034eea0d3c5d1570b"
+    },
+    {
       "path": "scripts/release_authorization.py",
-      "sha256": "a22e72bf5d9153a6d4b4d7cf6e97abbfd200c1c74c0374b7ae3cf8d9bf8e1e8e"
+      "sha256": "ceec6d85651a6a8b8df850cf7e574c8ff4d62471a0e2137c8d7fd65373f45c46"
     },
     {
       "path": "scripts/release_local.py",
-      "sha256": "c20c9a008c75d9d0704f9d3515d34ba432be3ad2c332969b2e397e52119e542a"
+      "sha256": "0545bbd2a1c69ca832f59135997dde2bcf17ea70d9160c2cc361ec02c7a1551d"
     },
     {
       "path": "scripts/release_preflight.py",
-      "sha256": "d356f15db42406f1502e5bcf33656da9b6c4c951a0965e36d1798a0164e740c3"
+      "sha256": "0ec637dc702b67c3b5e247474ccc0ebbc044bf5cbf2e8d903182ddc939549f02"
     },
     {
       "path": "scripts/release_source.py",
@@ -1784,7 +1804,7 @@
     },
     {
       "path": "scripts/test_pillow_relink.py",
-      "sha256": "0d24644912a08ea7263ffb372e286d068e7c4ff84849b1c4a53f66b43336ece7"
+      "sha256": "2335f01f57ffe01b1afa7e178b082b79a4c39f84c0c0527e5be0dabb05b9c5a2"
     },
     {
       "path": "scripts/unified_images.py",
@@ -1824,7 +1844,7 @@
     },
     {
       "path": "tests/docker_same_schema_upgrade.py",
-      "sha256": "5be5789dceffa9d0d5bd0a3ea4cad88d116e901ecebe0161f16bb645d1f9bc6e"
+      "sha256": "30e5ad07ed5c5bf732aed63e50b1117c062ac2b793a20d5327820d3131d89f06"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -2108,7 +2128,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "19de479de558241c108e9e9c10f14704fd63d64b39bc418103ae9edb8b3d0694"
+      "sha256": "eea29f6425e157d0ba5307f01b21598a882bc609e10a09ccc18fb844c3a0ea7f"
     },
     {
       "path": "tests/test_product_version.py",
@@ -2116,7 +2136,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "6b7677008047a5d6a95604eedbfb86afb196a266803685b9b31b0b37aa8de4da"
+      "sha256": "412e37e69c3effbd884c90c88d3d7a09deb0593182f0ae4f78df71ed8d3f4a3e"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -2128,15 +2148,19 @@
     },
     {
       "path": "tests/test_record_mode_projection.py",
-      "sha256": "a9aa280aab9a39325fcd627ff98f87ae958fd39aa6064b805452267312c5a2fd"
+      "sha256": "40ee5b477936fa1a8110b51406cc5994dd8dec61639a90ba70d0c69fe59105fa"
     },
     {
       "path": "tests/test_recovery.py",
       "sha256": "6ebdf661931b6dd772ddd87e55c63042e7a321999b89f533821e56dbcb54780d"
     },
     {
+      "path": "tests/test_release_artifact_cleanup.py",
+      "sha256": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+    },
+    {
       "path": "tests/test_release_preflight.py",
-      "sha256": "e129581f34a07566f698daae807bf67469f03cf92d7c4e43a4d36a01405e2022"
+      "sha256": "f2275df72ca38de57e6ff15be3b21721db2c49990b253ae5b79106c917a9c1f3"
     },
     {
       "path": "tests/test_release_source.py",
@@ -2208,7 +2232,7 @@
     },
     {
       "path": "third_party/REDISTRIBUTION.md",
-      "sha256": "d9aabfaeecad4df3dce34fa8a9c735f0b9eaf6a4d2d2de1a400b3481696d14c8"
+      "sha256": "e6c43370bbaf9458539db40e5d04b69a5aea08fe33e4744adaa0248c767bd81d"
     },
     {
       "path": "third_party/SOURCE_BUILD.md",
@@ -3884,7 +3908,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "abe9dc94a493f2c511de01513bfba3727d3d8f2bb83e266a8ea015265f681668"
+      "sha256": "0cbcbaefbf169c4cc82d3a8c461bd5b7f62a4ab31939b20821243952a50d1b4d"
     },
     {
       "path": "third_party/source-scope.json",
@@ -3899,17 +3923,17 @@
   ],
   "maintenance": {
     "based_on_public_commit": "cd3182450f6163d40f1e5221c9e4483850546884",
-    "scope": "Maintained public v5.1.10 source and authorized formal-delivery tooling; no binary/private artifacts or Git history in tracked source.",
+    "scope": "Maintained public v5.1.11 source, six original feature increments and specifically authorized formal-delivery tooling; no binary/private artifacts or original Git history in tracked source.",
     "initial_snapshot_identity": "docs/initial-source-snapshot.json",
     "source_commit_semantics": "Original export origin only, not the current maintained Git commit",
     "final_review_baseline": "9715ac95e796b98c52ac049b5620cf784446aeaa",
     "release_preparation_baseline": "e00b80e866d9686458963efe3ade2d658b9c56b0",
-    "formal_release_authorization": "licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json",
+    "formal_release_authorization": "licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json",
     "development": {
-      "version": "5.1.10",
-      "branch": "feature/v5.1.10-writing-and-cards",
-      "baseline": "e1c1d9dc1864929e72172113b39b3796b3acb907",
-      "status": "Owner-authorized formal delivery; actual publication depends on exact final HEAD/main/tag CI and binary/source/license gates"
+      "version": "5.1.11",
+      "branch": "feature/v5.1.11-life-card-experience",
+      "baseline": "fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2",
+      "status": "Owner-authorized complete staged development and formal delivery; actual publication requires exact final PR #5 HEAD/main/tag CI and binary/source/license gates"
     }
   }
 }

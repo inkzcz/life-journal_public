@@ -26,7 +26,13 @@ def test_reader_summary_uses_explicit_mode_without_changing_identity(client,type
         result=client.get('/api/blog/archive',params={'type':t['id'],'record_mode':mode}).json()
         assert result['total']==int(enabled==(mode=='travel'))
     archive=client.get('/api/experiences/trips').json()
-    assert (saved['id'] in {r['id'] for r in archive['items']}) is enabled
+    items=list(archive['items'])
+    for page in range(2,(archive['total']+archive['page_size']-1)//archive['page_size']+1):
+        response=client.get('/api/experiences/trips',params={'page':page});assert response.status_code==200
+        items.extend(response.json()['items'])
+    assert len({r['id'] for r in items})==archive['total']
+    assert all(r['travel_enabled'] for r in items)
+    assert (saved['id'] in {r['id'] for r in items}) is enabled
     detail=client.get('/api/blog/records/'+saved['id']).json()
     assert detail['article']['travel_enabled'] is enabled
 
@@ -50,3 +56,19 @@ def test_legacy_fallback_is_used_only_until_explicit_false_is_saved(client):
     detail=client.get('/api/blog/records/'+saved['id']).json()
     assert detail['travel_enabled'] is False and detail['article']['travel_enabled'] is False
     with SessionLocal() as db:assert db.get(TripPlan,saved['id']).start_date==date(2026,10,18)
+
+def test_paged_mode_is_a_scalar_in_existing_query_not_an_extra_roundtrip(client):
+    from sqlalchemy import event
+    from test_api import engine
+    from app.services.blog import readable,page_records
+    t=write(client,'/types',{'slug':'synthetic-'+uuid.uuid4().hex[:12],'name':'查询预算','fields':[]}).json()
+    saved=write(client,'/records',record_payload(t,article={'travel_enabled':True})).json()
+    statements=[]
+    def capture(conn,cursor,statement,params,context,many):statements.append(statement)
+    with SessionLocal() as db:
+        event.listen(engine,'before_cursor_execute',capture)
+        try:result=page_records(db,readable().where(ContentRecord.type_id==t['id']))
+        finally:event.remove(engine,'before_cursor_execute',capture)
+    assert len(statements)==3
+    assert result['items'][0]['id']==saved['id'] and result['items'][0]['travel_enabled'] is True
+    assert all('content_records.values' not in sql for sql in statements)

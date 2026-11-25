@@ -1,0 +1,42 @@
+{
+  "format": "life-journal-binary-release-authorization-v1",
+  "repository": "inkzcz/life-journal_public",
+  "version": "v5.1.11",
+  "source_pull_request": 5,
+  "binary_publication_approved": true,
+  "owner_confirmation_reference": "Owner explicit complete v5.1.11 development, staged commits/tests and final formal release instruction in this conversation, together with the ongoing delivery authorization. Permits necessary safety/quality/license release preparation on PR #5, ordinary merge after exact HEAD/main CI, new annotated tag and draft-first verified single-business-image formal Release. No new signature or per-byte owner attestation.",
+  "reviewed_feature_head": "8c24099c4fef220d74f1f6a850491c8f80870e2c",
+  "reviewed_main_baseline": "fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2",
+  "source_binding": "Remote annotated v5.1.11 tag must directly identify the ordinary PR #5 main merge, with exact successful PR head as second parent. Actual merged source SHA, tag object, image config, dependency versions, all legal/source receipts and single TAR SHA256 bind the final distribution. No invented owner signature or timestamp.",
+  "original_license_authorization_unchanged": true,
+  "third_party_relicensed": false,
+  "previous_authorization": "licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json",
+  "required_conditions": [
+    "Exact final PR HEAD and merged-main checks successful; no branch protection bypass",
+    "Single Linux/amd64 Debian business image and TAR; no PostgreSQL delivery",
+    "Precise sources, GPL/LGPL, notices and actual replacement/relink receipts for this binary",
+    "Full required automation, image/layer/import/integrity, installation/backup/restore and same-schema upgrade gates",
+    "Draft Release first; every attachment downloaded and checked before formal publication",
+    "No existing tag, Release or attachment overwritten"
+  ],
+  "windows_and_z4s_acceptance": "Pending owner local post-release acceptance; not claimed passed or prerequisite",
+  "production_database_and_wxpusher_acceptance": "Pending owner local post-release acceptance; no real data or credentials used",
+  "UPGRADE-001": "Historical v5.1.8 to v5.1.9 issue unresolved; owner accepts as nonblocking, migration safeguards remain mandatory",
+  "registry_push_approved": false,
+  "nas_access_approved": false,
+  "private_repository_changes_approved": false,
+  "ongoing_normal_delivery_rule": "docs/release-policy.md; every later version still requires specific source/version authorization registration and intact safety/legal/CI gates",
+  "record_type": "Operator record of explicit owner instruction; not an electronic signature or per-byte owner attestation",
+  "technically_reviewed_workflows": {
+    ".github/workflows/ci.yml": {
+      "scope": "candidate-artifacts",
+      "sha256": "7e747c90eb4d165d609946cede620c1fbd39d5a4cb4f73a426d3b1768418c1e8",
+      "review": "Operator technical review of exact workflow bytes under explicit v5.1.11 owner task. Formal ten-asset draft/download/public checks retained; minimal scoped current-artifact cleanup only after verified publication; PR-only bounded synthetic screenshots. Not an owner signature."
+    },
+    ".github/workflows/release.yml": {
+      "scope": "v5.1.11-release",
+      "sha256": "e4244a15941c099b16aaa5a26beee39fea57ce93c0193251a4537c14123304da",
+      "review": "Operator technical review of exact workflow bytes under explicit v5.1.11 owner task. Formal ten-asset draft/download/public checks retained; minimal scoped current-artifact cleanup only after verified publication; PR-only bounded synthetic screenshots. Not an owner signature."
+    }
+  }
+}

@@ -56,7 +56,7 @@ def main():
     if len(parents) != 3 or parents[2] != pr.get('head', {}).get('sha'):
         raise RuntimeError('Ordinary merge commit with the exact reviewed PR head required')
     run('git', 'merge-base', '--is-ancestor', revision, 'origin/main')
-    if version=='v5.1.10':
+    if version in ('v5.1.10','v5.1.11'):
         feature=authorization.get('reviewed_feature_head','')
         if not re.fullmatch('[0-9a-f]{40}',feature):raise RuntimeError('Reviewed feature baseline missing')
         run('git','merge-base','--is-ancestor',feature,pr['head']['sha'])

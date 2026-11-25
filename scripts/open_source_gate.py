@@ -204,7 +204,7 @@ def scan_bytes(name, data, *, reviewed_copyright=False, binary_workflow_scope=No
         # exact, technically reviewed workflows. Unknown paths/bytes retain the
         # original denial. PR-target, environment dumps, packages:write and
         # Registry/repository publishing are never exempted.
-        if binary_workflow_scope in ('candidate-artifacts','v5.1.9-release','v5.1.10-release'):
+        if binary_workflow_scope in ('candidate-artifacts','v5.1.9-release','v5.1.10-release','v5.1.11-release'):
             patterns['publishing-or-sensitive-artifact']=rb'docker\s+push|gh\s+repo\s+create'
             if binary_workflow_scope=='candidate-artifacts':
                 patterns['publishing-or-sensitive-artifact']+=rb'|gh\s+release\s+(?:create|upload)'
@@ -217,10 +217,10 @@ def scan_bytes(name, data, *, reviewed_copyright=False, binary_workflow_scope=No
 
 def reviewed_binary_workflows(root):
     product=(root/'VERSION').read_text().strip() if (root/'VERSION').is_file() else '5.1.9'
-    if product not in ('5.1.9','5.1.10'):return {}
+    if product not in ('5.1.9','5.1.10','5.1.11'):return {}
     version='v'+product
     name=('licensing/BINARY_RELEASE_AUTHORIZATION.json' if version=='v5.1.9'
-          else 'licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json')
+          else 'licensing/BINARY_RELEASE_'+version+'_AUTHORIZATION.json')
     path=root/name
     try:
         if (not path.is_file() or path.is_symlink() or any(p.is_symlink() for p in path.parents)
