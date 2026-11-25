@@ -2,7 +2,7 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "v5.1.11 original mode projections, atomic card transfers, structured notifications, IANA time inputs, six card layouts/actions and authorized PR #5 release preparation; no new runtime dependency/schema/volume or third-party grant change.",
+  "current_delta": "v5.1.11 original mode projections, atomic card transfers, structured notifications, IANA time inputs, six card layouts/actions and authorized PR #5 release preparation; no new runtime dependency/schema/volume or third-party grant change. Original per-editor local card draft lifecycle protection and synthetic regressions; immutable v5.1.11 tag release blocked by confirmed P1, no tag rewritten.",
   "reviewed_on": "2026-11-25",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
@@ -219,6 +219,14 @@
       "source": "Original publisher-only packaging input scope fix, real Bash routing regression and exact technical-review supplement under the existing complete v5.1.11 delivery instruction. No business code, schema, dependency, owner grant or third-party text changed.",
       "license": "Existing GPL-3.0-or-later for original release tooling/test/documentation increments. All original upstream grants retained.",
       "decision": "Formal run 45618008729 failed before uploading any Release asset because package lacked a step-scoped RELEASE_VERSION input. Bind the existing workflow_call input explicitly, retain strict candidate validation and all other gates. Immutable application commit/tag and original version owner record preserved; additional orchestration source will accompany the same binary."
+    },
+    {
+      "id": "P014",
+      "review_date": "2026-11-25",
+      "review_baseline": "4a4b47cc1c2760da056b7105d23010a10cbdb9d8",
+      "source": "Original global local-card-draft lifetime registry, transfer/mode/AI/save/navigation protection, real Vue component tests and synthetic browser reproduction written within the public repository. No third-party implementation, media or private source imported.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments; all prior third-party notices and 410 historical legal texts preserved.",
+      "decision": "Confirmed draft loss in actual production components with synthetic records only. A local NodeView form is outside the saved document and must block whole-document reload paths; preserve UUIDs and release the guard after save/cancel/unmount. New business bytes cannot be represented by immutable existing v5.1.11 tag. No schema/dependency/Compose/permission or historical authorization change."
     }
   ],
   "files": [
@@ -1695,9 +1703,10 @@
         "P010",
         "P011",
         "P012",
-        "P013"
+        "P013",
+        "P014"
       ],
-      "sha256_canonical": "5b941aa5e2c984c2d38100edd443bad913595f1357dc96f52a4e7e21f195469a"
+      "sha256_canonical": "16c11426d0b45e481c3577e7a60e6bb186f45049e1cdc38529ecf62dc0afc729"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1993,9 +2002,10 @@
         "J001",
         "P006",
         "P008",
-        "P009"
+        "P009",
+        "P014"
       ],
-      "sha256_canonical": "8e6dfdcaf173356ed7964a341dfebd35a01a82d8f5c5e42e7e63238c284add7f"
+      "sha256_canonical": "f639e342d8da723f59bf6e2b1bf1326ee6cdce12d99efffd1c6f4b462e45dd16"
     },
     {
       "path": "frontend/src/admin/Archive.test.ts",
@@ -3226,9 +3236,10 @@
       "evidence": [
         "J001",
         "P008",
-        "P010"
+        "P010",
+        "P014"
       ],
-      "sha256_canonical": "0b50192dbd34aae2ebe4b899f4ca4ce8bdea19098f791ae30f0d8c377898c992"
+      "sha256_canonical": "06f6c73341d392b53cec8c9718fff9aab15aca5b2485e29b724e8ff21db6ede8"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -3289,6 +3300,14 @@
       "sha256_canonical": "bf1aeebb9607fc3da7150f29e2e4558d4c30bbd349dcecd080e20d3232cde8ec"
     },
     {
+      "path": "frontend/src/writing/EntryDraftGuard.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P014"
+      ],
+      "sha256_canonical": "e1bceb4cc75c3879d460fdeb1d48195b6593f4e50c8b7791a0eefcbd776075e8"
+    },
+    {
       "path": "frontend/src/writing/EntryForm.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
@@ -3308,9 +3327,10 @@
         "P006",
         "P008",
         "P009",
-        "P010"
+        "P010",
+        "P014"
       ],
-      "sha256_canonical": "349dc1ff5acb8e3acfac6ed521f46289105ee97d10ef167da49f72eeed7733c1"
+      "sha256_canonical": "c256531455a368fd6bf3a32d5558becd968f21ee0c0936b40f500be2e71ec21b"
     },
     {
       "path": "frontend/src/writing/EntryTargetPicker.test.ts",
@@ -3599,9 +3619,10 @@
       "classification": "project-original-source",
       "evidence": [
         "P008",
-        "P009"
+        "P009",
+        "P014"
       ],
-      "sha256_canonical": "f5f016371a6d28498214f928561da40bee750d5d8cd0fa45020249865113d41a"
+      "sha256_canonical": "38784bfa3f13806c6163ffcae9c28f4123b9673869a275e515ce4747c60b0254"
     },
     {
       "path": "frontend/src/writing/extensions.ts",
@@ -4073,9 +4094,10 @@
       "evidence": [
         "P006",
         "P010",
-        "P012"
+        "P012",
+        "P014"
       ],
-      "sha256_canonical": "c8868692b93f76ef6d381b7afd4079b56b28e255155c615e571b0441a0677e3a"
+      "sha256_canonical": "849ce4d34228831947fbe9c7a3aec42f66132a0b5bca1de170b72dc3982c8311"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -8311,7 +8333,8 @@
         "P010",
         "P011",
         "P012",
-        "P013"
+        "P013",
+        "P014"
       ],
       "sha256_canonical": null
     },

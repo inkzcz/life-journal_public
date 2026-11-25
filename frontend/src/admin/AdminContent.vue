@@ -63,7 +63,7 @@ function recordSnapshot(){return record.value?JSON.stringify(recordPayload(recor
 function toDraft(result:ContentRecord):RecordDraft{return {...clone(result),life:clone((result as ContentRecord & {life?:Life}).life||emptyLife()),connections:clone((result as ContentRecord & {connections?:Connections}).connections||emptyConnections())}}
 const editor=createSaveSession<ContentRecord>({
  snapshot:recordSnapshot,enabled:()=>!props.previewOnly&&section.value==='records'&&recordMode.value==='edit'&&!!record.value,identity:()=>record.value?.id,
- blocked:()=>schemaUpgradePending.value?'餐厅字段已加载，请手动保存以升级当前记录。':dateConflicts.value.length?'旅行日期来源存在冲突，请明确选择后保存。':placePending.value?'请先保存或取消同页地点编辑。':uploadsPending.value?'请先确认输入法文字并完成或取消图片上传，再保存文章。':!record.value?.id?'新记录请先手动创建草稿。':serverStatus.value==='published'?'已发布记录不自动保存；手动保存将更新读者可见内容。':record.value.status!=='draft'?'发布必须手动保存确认，不会自动发布。':'',
+ blocked:()=>schemaUpgradePending.value?'餐厅字段已加载，请手动保存以升级当前记录。':dateConflicts.value.length?'旅行日期来源存在冲突，请明确选择后保存。':placePending.value?'请先保存或取消同页地点编辑。':uploadsPending.value?'请先保存或取消卡片编辑、确认输入法文字，并完成或取消图片上传，再保存文章。':!record.value?.id?'新记录请先手动创建草稿。':serverStatus.value==='published'?'已发布记录不自动保存；手动保存将更新读者可见内容。':record.value.status!=='draft'?'发布必须手动保存确认，不会自动发布。':'',
  persist:async(snapshot,revision,signal)=>{const d=record.value!;return await request('/admin/content/records'+(d.id?'/'+d.id:''),{method:d.id?'PUT':'POST',signal,body:JSON.stringify({...JSON.parse(snapshot),...(d.id?{expected_revision:revision}:{type_id:d.type_id})})}) as ContentRecord},
  accept:(result,sent)=>{schemaUpgradePending.value=false;const confirmed=toDraft(result),unchanged=recordSnapshot()===sent;serverStatus.value=confirmed.status;if(unchanged)record.value=confirmed;else if(record.value){record.value.id=confirmed.id;record.value.media_folder_id=confirmed.media_folder_id;const sentMedia=JSON.parse(sent).new_media_ids||[];record.value.new_media_ids=(record.value.new_media_ids||[]).filter(id=>!sentMedia.includes(id));record.value.revision=confirmed.revision;record.value.current_type_version=confirmed.current_type_version}return {snapshot:JSON.stringify(recordPayload(confirmed)),revision:confirmed.revision}}
 })
@@ -81,7 +81,7 @@ const dirty=computed(()=>section.value==='types'?!!typeDraft.value&&snapshot()!=
 const entryTransfer=ref<{entry:Entry;operation:'copy'|'move';requestId:string;sourceId:string}|null>(null),transferError=ref('')
 provide(entryTransferKey,async(entry,operation)=>{
  if(props.previewOnly||!record.value||busy.value||saveState.saving)return
- if(uploadsPending.value||placePending.value||itineraryPending.value){error.value='请先完成当前媒体、地点或行程编辑';return}
+ if(uploadsPending.value||placePending.value||itineraryPending.value){error.value='请先保存或取消尚未完成的卡片、媒体、地点或行程编辑';return}
  if(!record.value.id||editor.dirty()){
   if(!await confirmAction('跨文章操作前需要先保存当前文章，保存成功后继续。'))return
   await saveRecord()
@@ -92,6 +92,7 @@ provide(entryTransferKey,async(entry,operation)=>{
 async function transferEntry(target:{id:string;revision:number;title:string}){
  const action=entryTransfer.value,d=record.value
  if(!action||!d?.id||busy.value||saveState.saving)return
+ if(uploadsPending.value||placePending.value||itineraryPending.value){transferError.value='请先取消操作并保存或取消尚未完成的卡片、媒体、地点或行程编辑';return}
  if(editor.dirty()){transferError.value='当前文章发生未保存修改，请取消并先保存';return}
  busy.value=true;transferError.value=''
  try{
@@ -101,7 +102,7 @@ async function transferEntry(target:{id:string;revision:number;title:string}){
  }catch(e){if(alive)transferError.value='操作未确认完成，请保留当前选择重试；冲突时取消并重新读取文章。'+String(e)}finally{if(alive)busy.value=false}
 }
 
-async function canLeave(){return (!resourceManager.value||await resourceManager.value.canLeave())&&!busy.value&&(!placePending.value||await confirmAction('有尚未保存的地点编辑，确定放弃吗？'))&&(!uploadsPending.value||await confirmAction('有尚未完成或失败的上传，离开后需重新选择文件。确定离开吗？'))&&(!dirty.value||await confirmAction('有尚未确认保存的修改，确定放弃本页输入吗？在途请求可能已经写入，请返回后核对服务器版本。'))}
+async function canLeave(){return (!resourceManager.value||await resourceManager.value.canLeave())&&!busy.value&&(!placePending.value||await confirmAction('有尚未保存的地点编辑，确定放弃吗？'))&&(!uploadsPending.value||await confirmAction('有尚未保存的卡片或未完成的输入、上传，离开后本地草稿会丢失，文件需重新选择。确定离开吗？'))&&(!dirty.value||await confirmAction('有尚未确认保存的修改，确定放弃本页输入吗？在途请求可能已经写入，请返回后核对服务器版本。'))}
 const routeRouter=inject(routerKey,undefined)
 if(routeRouter&&!props.previewOnly)onBeforeRouteLeave(async to=>props.immersive&&record.value?.id&&to.path==='/write/'+record.value.id||await canLeave())
 function retainExpired(event:Event){if(dirty.value||saveState.saving||uploadsPending.value||placePending.value||itineraryPending.value)event.preventDefault()}
