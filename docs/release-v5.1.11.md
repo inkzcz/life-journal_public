@@ -9,3 +9,6 @@
 Artifacts仅保留必要发行中转及少量PR合成截图，禁止数据库、媒体、原始日志及重复候选业务TAR上传；已公开并复核的本次发行中转可按精确run/id/name清理，其他运行和历史资产不受影响。
 
 真实Windows Docker Desktop、Z4S、用户库及通知终端为发布后待本地验收；UPGRADE-001历史未解决。未访问NAS、真实数据或原私有仓库。
+
+
+发行调度修复：首次正式运行45618008729因步骤环境作用域使正式Tag误走候选校验，未上传附件。修复通过独立PR，不移动v5.1.11 Tag，不改业务/许可证/Schema或历史授权。`licensing/v5.1.11-release-orchestration-review.json`仅为既有授权下的精确CI字节技术补充；运行时仍比较Tagged应用关键文件并验证原Tag/main及调度main CI。法律包的application源自固定Tag，build-orchestration源自实际调度提交，均有逐文件校验与TAR绑定。

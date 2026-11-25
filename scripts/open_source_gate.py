@@ -215,6 +215,32 @@ def scan_bytes(name, data, *, reviewed_copyright=False, binary_workflow_scope=No
     return findings
 
 
+def orchestration_workflow_reviews(root,version,authorization_name,authorization_bytes):
+    # This is an operator technical supplement, never a replacement owner grant.
+    # Accept only this immutable v5.1.11 application's CI bytes, not new publishing
+    # permissions/targets. Runtime preflight still compares tagged business files.
+    if version!='v5.1.11':return {}
+    path=root/'licensing/v5.1.11-release-orchestration-review.json'
+    if not path.exists():return {}
+    if (path.is_symlink() or not path.is_file() or path.stat().st_size>MAX_BYTES
+            or any(p.is_symlink() for p in path.parents)):return {}
+    record=json.loads(path.read_bytes())
+    if (record.get('format')!='life-journal-release-orchestration-review-v1'
+            or record.get('repository')!='inkzcz/life-journal_public'
+            or record.get('version')!=version
+            or record.get('original_authorization')!=authorization_name
+            or record.get('original_authorization_sha256')!=hashlib.sha256(authorization_bytes).hexdigest()
+            or record.get('application_source_commit')!='3c3a465e5ba1dd353a3886b6394907311e972865'
+            or record.get('annotated_tag_sha')!='953a945b48dd8c11639f90ac62c2361b421469ab'
+            or record.get('application_pull_request')!=5
+            or record.get('technical_review_only') is not True
+            or record.get('application_source_unchanged') is not True
+            or record.get('original_owner_authorizations_unchanged') is not True
+            or not record.get('owner_confirmation_reference')
+            or set(record.get('workflows',{}))!={'.github/workflows/ci.yml'}):return {}
+    return record['workflows']
+
+
 def reviewed_binary_workflows(root):
     product=(root/'VERSION').read_text().strip() if (root/'VERSION').is_file() else '5.1.9'
     if product not in ('5.1.9','5.1.10','5.1.11'):return {}
@@ -235,10 +261,12 @@ def reviewed_binary_workflows(root):
                 or authority.get('nas_access_approved') is not False
                 or not authority.get('owner_confirmation_reference')):
             return {}
+        reviews=dict(authority.get('technically_reviewed_workflows',{}))
+        reviews.update(orchestration_workflow_reviews(root,version,name,path.read_bytes()))
         result={}
         for name,scope in {'.github/workflows/ci.yml':'candidate-artifacts',
                            '.github/workflows/release.yml':version+'-release'}.items():
-            record=authority.get('technically_reviewed_workflows',{}).get(name,{})
+            record=reviews.get(name,{})
             source=root/name
             if (record.get('scope')==scope and source.is_file() and not source.is_symlink()
                     and record.get('sha256')==hashlib.sha256(source.read_bytes()).hexdigest()):
