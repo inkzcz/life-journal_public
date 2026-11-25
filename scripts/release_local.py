@@ -15,7 +15,7 @@ from scripts import local_images as images,release
 from scripts.source_identity import identify
 from scripts.release_source import verify_source
 ROOT=images.ROOT
-TOOL_VERSION='5.1.10'
+TOOL_VERSION='5.1.11'
 
 def package_layout(version):
     from scripts import unified_images,unified_release

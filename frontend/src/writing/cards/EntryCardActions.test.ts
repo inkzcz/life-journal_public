@@ -1,0 +1,9 @@
+// @vitest-environment jsdom
+import {createApp,h,nextTick,type App} from 'vue'
+import {afterEach,expect,it} from 'vitest'
+import EntryCardActions from './EntryCardActions.vue'
+let root:HTMLElement,app:App
+async function mount(){root=document.createElement('div');document.body.append(root);const chosen:string[]=[];app=createApp({render:()=>h(EntryCardActions,{transfer:true,canUp:false,canDown:true,onAction:(key:string)=>chosen.push(key)})});app.mount(root);const trigger=root.querySelector('button')!;trigger.click();await nextTick();return {trigger,chosen}}
+afterEach(()=>{app?.unmount();root?.remove()})
+it('teleports a single complete menu, disables unavailable movement and restores focus on escape',async()=>{const {trigger}=await mount();const menu=document.querySelector('[role=menu]')!;expect(root.contains(menu)).toBe(false);expect(menu.querySelectorAll('button')).toHaveLength(7);expect(Array.from(menu.querySelectorAll('button')).find(b=>b.textContent==='向上移动')!.disabled).toBe(true);expect(document.activeElement?.textContent).toBe('编辑卡片');menu.dispatchEvent(new KeyboardEvent('keydown',{key:'End',bubbles:true}));expect(document.activeElement?.textContent).toBe('删除卡片');menu.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));await nextTick();expect(document.querySelector('[role=menu]')).toBeNull();expect(document.activeElement).toBe(trigger)})
+it('emits exactly one chosen action and closes on outside pointer',async()=>{const {trigger,chosen}=await mount();const buttons=Array.from(document.querySelectorAll<HTMLButtonElement>('[role=menuitem]'));buttons.find(b=>b.textContent==='复制卡片')!.click();await nextTick();expect(chosen).toEqual(['duplicate']);expect(document.querySelector('[role=menu]')).toBeNull();trigger.click();await nextTick();document.body.dispatchEvent(new Event('pointerdown',{bubbles:true}));await nextTick();expect(document.querySelector('[role=menu]')).toBeNull();expect(chosen).toHaveLength(1)})

@@ -49,13 +49,14 @@ def summaries(db,query):
     # Plain lists remain a bounded projection. Opaque image blocks must be
     # removed before truncation, even when several long blocks lead the story.
     excerpt=case((or_(source.contains(':::lj-media-v'),source.contains(':::lj-entry-v')),source),else_=func.substr(source,1,4096))
+    from .record_mode import travel_expression
     rows=db.execute(query.with_only_columns(ContentRecord.id,ContentRecord.title,ContentRecord.display_date,
-        ContentType.name.label('type_name'),ContentRecord.body_format,excerpt.label('excerpt'))).all()
+        ContentType.name.label('type_name'),ContentRecord.type_id,ContentRecord.schema_version,ContentRecord.body_format,excerpt.label('excerpt'),travel_expression(db).label('travel_enabled'))).all()
     ids=[r.id for r in rows]
     covers=select(RecordMedia.record_id,MediaAsset.id.label('media_id'),MediaAsset.alt,MediaAsset.preview_width,MediaAsset.preview_height,RecordMedia.caption,
         func.row_number().over(partition_by=RecordMedia.record_id,order_by=(RecordMedia.cover.desc(),RecordMedia.position,MediaAsset.id)).label('rank')).join(MediaAsset,RecordMedia.media_id==MediaAsset.id).where(RecordMedia.record_id.in_(ids),MediaAsset.deleted_at.is_(None)).subquery()
     images={r.record_id:{'id':r.media_id,'alt':r.alt,'caption':r.caption,'width':r.preview_width,'height':r.preview_height} for r in db.execute(select(covers).where(covers.c.rank==1))} if ids else {}
-    return [{'id':r.id,'title':r.title,'display_date':r.display_date.isoformat(),'type_name':r.type_name,'excerpt':safe_excerpt(r.excerpt,r.body_format),'cover':images.get(r.id)} for r in rows]
+    return [{'id':r.id,'title':r.title,'display_date':r.display_date.isoformat(),'type_name':r.type_name,'travel_enabled':r.travel_enabled,'record_mode_name':'旅行记录' if r.travel_enabled else '日常记录','excerpt':safe_excerpt(r.excerpt,r.body_format),'cover':images.get(r.id)} for r in rows]
 
 def summary(db,r):
     # Current Admin preview may be a draft; callers control its authorization.
@@ -114,6 +115,9 @@ def home(db):
             modules.append({**{k:v for k,v in m.items() if k not in {'record_ids','type_id','section_id'}},'items':[],'events':list_events(db,start,start+timedelta(days=m.get('horizon',30)),m['count'])})
             continue
         query=readable()
+        if m.get('record_mode'):
+            from .record_mode import travel_expression
+            query=query.where(travel_expression(db).is_(m['record_mode']=='travel'))
         if m.get('type_id'):query=query.where(ContentRecord.type_id==m['type_id'])
         if m.get('section_id'):
             s=db.get(Section,m['section_id'])

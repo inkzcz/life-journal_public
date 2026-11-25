@@ -15,9 +15,9 @@ from scripts import local_images
 
 
 def reviewed_relink_tag(tag):
-    candidate=re.fullmatch(r'v5\.1\.(?:9|10)-candidate\.([0-9a-f]{7,40})',tag)
-    if tag not in ('v5.1.9','v5.1.10') and candidate is None:
-        raise ValueError('Only reviewed v5.1.9/v5.1.10 releases or source-bound candidates are accepted')
+    candidate=re.fullmatch(r'v5\.1\.(?:9|10|11)-candidate\.([0-9a-f]{7,40})',tag)
+    if tag not in ('v5.1.9','v5.1.10','v5.1.11') and candidate is None:
+        raise ValueError('Only reviewed v5.1.9/v5.1.10/v5.1.11 releases or source-bound candidates are accepted')
     return candidate
 
 

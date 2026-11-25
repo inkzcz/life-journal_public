@@ -1,0 +1,11 @@
+# v5.1.11 正式交付契约
+
+所有者授权继续完整六项开发并通过PR #5正常合并、当前HEAD/main CI、Annotated Tag和单业务镜像正式发行。具体版本授权见licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json。发布完成前不得声称已有正式附件。
+
+必要门禁：PG17、SQLite、前端/类型/构建、原生Windows工具自动化、生产组件Chromium合成视觉、源码/秘密/许可、Debian镜像全部层/私钥/重复load、四容器/初始化/重启/持久化/备份独立恢复、精确正式v5.1.10至v5.1.11同Schema升级、原0018至0021演练、Psycopg替换/Pillow重链接及精确对应源码。不得绕过或放宽失败门禁。
+
+源码和当前依赖法律包、镜像配置/TAR哈希、源码提交、标签对象与构建收据绑定；一个业务镜像和一个TAR，PG17独立。十附件白名单，先草稿、回下载全部校验、正式公开后匿名校验。无Registry推送，保留旧Tag/Release/镜像。
+
+Artifacts仅保留必要发行中转及少量PR合成截图，禁止数据库、媒体、原始日志及重复候选业务TAR上传；已公开并复核的本次发行中转可按精确run/id/name清理，其他运行和历史资产不受影响。
+
+真实Windows Docker Desktop、Z4S、用户库及通知终端为发布后待本地验收；UPGRADE-001历史未解决。未访问NAS、真实数据或原私有仓库。

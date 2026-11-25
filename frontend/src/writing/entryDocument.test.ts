@@ -1,0 +1,10 @@
+// @vitest-environment jsdom
+import {Editor} from '@tiptap/core'
+import {expect,it,vi} from 'vitest'
+import {writingExtensions} from './extensions'
+import {blankEntry,serializeEntry,entryLocations} from './entries'
+import {duplicateCard,moveCard,deleteCard,cardBounds} from './entryDocument'
+vi.mock('../api',()=>({request:vi.fn()}))
+it('duplicates immediately after the chosen atom and moves across actual paragraph nodes with undo',()=>{const a=blankEntry('l'),b=blankEntry('m');a.name='地点';b.name='电影';const editor=new Editor({extensions:writingExtensions(),content:'前言\n\n'+serializeEntry(a)+'\n\n间隔正文\n\n'+serializeEntry(b),contentType:'markdown'});try{expect(duplicateCard(editor,a.id)).toBe(true);const cards=entryLocations(editor.getMarkdown());expect(cards.map(c=>c.entry.name)).toEqual(['地点','地点','电影']);const copied=cards[1]!.entry.id;expect(copied).not.toBe(a.id);expect(cardBounds(editor,copied)).toEqual({up:true,down:true});expect(moveCard(editor,copied,'down')).toBe(true);const text=editor.getMarkdown();expect(text.indexOf('间隔正文')).toBeLessThan(text.indexOf(copied));expect(moveCard(editor,copied,'up')).toBe(true);expect(editor.getMarkdown().indexOf(copied)).toBeLessThan(editor.getMarkdown().indexOf('间隔正文'));expect(deleteCard(editor,copied)).toBe(true);expect(entryLocations(editor.getMarkdown()).map(c=>c.entry.id)).toEqual([a.id,b.id]);editor.commands.undo();expect(entryLocations(editor.getMarkdown()).length).toBeGreaterThanOrEqual(2)}finally{editor.destroy()}})
+
+it('refuses to move an atom ahead of a required list-item paragraph',()=>{const a=blankEntry('f');a.name='美食';const editor=new Editor({extensions:writingExtensions(),content:{type:'doc',content:[{type:'bulletList',content:[{type:'listItem',content:[{type:'paragraph',content:[{type:'text',text:'保留的列表前言'}]},{type:'lifeEntry',attrs:{value:a}}]}]}]}});try{const before=editor.getJSON();expect(cardBounds(editor,a.id).up).toBe(false);expect(moveCard(editor,a.id,'up')).toBe(false);expect(editor.getJSON()).toEqual(before)}finally{editor.destroy()}})

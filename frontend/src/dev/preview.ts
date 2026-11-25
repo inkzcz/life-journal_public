@@ -20,7 +20,7 @@ import '../ui/system.css'
 if(!import.meta.env.DEV)throw Error('Synthetic preview is development-only')
 const base={id:'11111111-1111-4111-8111-111111111111',slug:'life-journal-article',name:'文章',description:'合成基础类型',active:true,revision:1,version:1,fields:[]}
 const records=new Map<string,any>()
-let configuration={enabled:false,url_template:'https://wxpusher.zjiecode.com/api/send/message/SPT_SYNTHETIC_ONLY/{content}?title={title}',timezone:'Asia/Shanghai',time:'09:00',expected_revision:0}
+let configuration:any={method:'GET',headers:[],body_format:'json',body_template:'',enabled:false,url_template:'https://wxpusher.zjiecode.com/api/send/message/SPT_SYNTHETIC_ONLY/{content}?title={title}',timezone:'Asia/Shanghai',time:'09:00',expected_revision:0}
 const picture='<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640"><rect width="960" height="640" fill="#e6ede7"/><circle cx="720" cy="155" r="60" fill="#d8bc85"/><path d="M0 560 300 180 600 640H0" fill="#9eafa0"/><path d="m350 640 320-330 290 250v80" fill="#668472"/><text x="40" y="600" font-family="sans-serif" font-size="24" fill="#fff">合成验收素材 · 无私人照片</text></svg>'
 function json(value:unknown){return new Response(JSON.stringify(value),{headers:{'Content-Type':'application/json','Cache-Control':'no-store'}})}
 window.fetch=async(input,options={})=>{
@@ -35,6 +35,7 @@ window.fetch=async(input,options={})=>{
  if(path==='/api/admin/templates')return json([])
  if(path==='/api/admin/content/types/default-article'||path==='/api/admin/content/types/'+base.id)return json(base)
  if(path==='/api/admin/content/records'&&method==='GET')return json({items:[...records.values()].map(r=>({...r,type_name:'文章'})),total:records.size})
+ if(path==='/api/admin/content/entry-targets')return json({items:[{id:'44444444-4444-4444-8444-444444444444',title:'合成目标文章',date:'2026-11-22',revision:1,status:'draft',travel_enabled:false}],total:1})
  if(path.startsWith('/api/admin/content/records')){
   const id=path.split('/')[5]||'33333333-3333-4333-8333-333333333333'
   if(method==='GET')return json(records.get(id)||{})
@@ -47,7 +48,9 @@ window.fetch=async(input,options={})=>{
   if(method==='PUT')configuration={...JSON.parse(String(options.body)),expected_revision:configuration.expected_revision+1}
   return json(configuration)
  }
+ if(path==='/api/admin/calendar/notification/preview')return json({method:'POST',url:'https://example.invalid/[redacted]',body:'[redacted]',headers:[],external_request_sent:false,network_policy_checked:false})
  if(path==='/api/admin/calendar/notification/test')return json({state:'synthetic-only',note:'合成预览不会发送通知'})
+ if(path.includes('99999999-9999-4999-8999-999999999999'))return new Response('',{status:404})
  if(path.startsWith('/api/library-media/'))return new Response(picture,{headers:{'Content-Type':'image/svg+xml','Cache-Control':'no-store'}})
  return new Response(JSON.stringify({detail:'合成预览未实现此操作，不会访问真实服务'}),{status:404,headers:{'Content-Type':'application/json'}})
 }

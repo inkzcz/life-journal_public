@@ -13,7 +13,7 @@ from .models import Anniversary,Reminder
 from .schemas import EventIn,NotifyConfig
 from .dates import DateRule,occurrences
 from .service import today,list_events,memories,config,KEY
-from .transport import template,resolve,render,get,DeliveryError
+from .transport import template,resolve,render,get,deliver,DeliveryError
 from urllib.parse import urlsplit
 router=APIRouter(prefix='/api/calendar',dependencies=[Depends(current_user)])
 admin=APIRouter(prefix='/api/admin/calendar',dependencies=[Depends(require_dynamic_blog)])
@@ -82,9 +82,10 @@ def configure(d:NotifyConfig,db=Depends(db_dep)):
 def test_notification(db=Depends(db_dep)):
     _,c=config(db)
     try:
-        template(c['url_template']);status=get(render(c['url_template'],{'title':'测试通知','content':'Life Journal 测试，不代表终端设备已收到','name':'测试','date':today(db).isoformat(),'days_left':0,'years':0,'calendar_type':'solar'}))
-        return {'http_status':status,'state':'sent','note':'HTTP 200只表示接口成功，不代表终端收到推送'}
-    except (ValueError,DeliveryError):return {'state':'failed','note':'通知未确认成功，请检查配置；未返回URL或凭据'}
+        template(c['url_template']);status=deliver(c,{'title':'测试通知','content':'Life Journal 测试，不代表终端设备已收到','name':'测试','date':today(db).isoformat(),'days_left':0,'years':0,'calendar_type':'solar'},legacy_get=get)
+        return {'http_status':status,'state':'sent','note':'HTTP 2xx只表示接口成功，不代表平台业务成功或终端收到推送'}
+    except DeliveryError as exc:return {'state':'uncertain' if exc.uncertain else 'failed','note':'通知未确认成功，请先核对外部结果再决定重试；未返回URL或凭据'}
+    except ValueError:return {'state':'failed','note':'通知配置无效；未返回URL或凭据'}
 
 @admin.get('/logs')
 def logs(page:int=Query(1,ge=1,le=100000),db=Depends(db_dep)):
@@ -111,3 +112,10 @@ def schedule(id:UUID,db=Depends(db_dep)):
             planned=datetime.combine(day-timedelta(days=offset),time.fromisoformat(d.get('time') or c['time']),zone)
             if planned>=now:out.append({'occurrence':value,'offset':offset,'planned_at':planned.isoformat()})
     return {'items':sorted(out,key=lambda x:x['planned_at'])[:48],'timezone':c['timezone'],'channel_enabled':c['enabled']}
+
+
+@admin.post('/notification/preview')
+def preview_notification(d:NotifyConfig):
+    from .request_templates import preview
+    try:return preview(d.model_dump(exclude={'expected_revision'}),{'title':'合成纪念日','content':'合成通知内容','name':'合成名称','date':'2030-01-01','days_left':3,'years':1,'calendar_type':'solar'})
+    except (ValueError,TypeError,RecursionError,UnicodeError):raise HTTPException(422,'通知请求模板无法安全解析') from None

@@ -1,17 +1,17 @@
-# 新安装指南（v5.1.10）
+# 新安装指南（v5.1.11）
 
-正式附件以 [v5.1.10 Release](https://github.com/inkzcz/life-journal_public/releases/tag/v5.1.10) 实际内容为准；工作流完成前不要把测试候选当作正式产物。原创许可证与第三方权利边界见随附 LICENSE、COPYRIGHT.md 和对应源码包。
+正式附件以 [v5.1.11 Release](https://github.com/inkzcz/life-journal_public/releases/tag/v5.1.11) 实际内容为准；工作流完成前不要把测试候选当作正式产物。原创许可证与第三方权利边界见随附 LICENSE、COPYRIGHT.md 和对应源码包。
 [已知限制](known-limitations.md)尤其UPGRADE-001仍适用，不将本指南用于覆盖已有生产目录。
 
 ## 下载正式附件，无需在 Windows 构建
 
-下载 `life-journal-app-v5.1.10-amd64.tar`、`SHA256SUMS.txt`、`manifest.json`、
-`life-journal-deploy-v5.1.10.zip`，并保存同处提供的对应源码与许可证包。
-在 PowerShell 中用 `Get-FileHash .\life-journal-app-v5.1.10-amd64.tar -Algorithm SHA256`
+下载 `life-journal-app-v5.1.11-amd64.tar`、`SHA256SUMS.txt`、`manifest.json`、
+`life-journal-deploy-v5.1.11.zip`，并保存同处提供的对应源码与许可证包。
+在 PowerShell 中用 `Get-FileHash .\life-journal-app-v5.1.11-amd64.tar -Algorithm SHA256`
 核对 SHA256SUMS 中该文件的实际值，部署 ZIP 也须核对。
 极空间 Docker 界面导入唯一业务 TAR，或在部署者自己的本地 Docker 执行
-`docker load -i life-journal-app-v5.1.10-amd64.tar`。确认镜像为 `life-journal:v5.1.10`、Linux/amd64。
-解压部署 ZIP 到新的目录；按下文配置 `IMAGE_TAG=v5.1.10` 及已经准备好的 PG17 镜像。
+`docker load -i life-journal-app-v5.1.11-amd64.tar`。确认镜像为 `life-journal:v5.1.11`、Linux/amd64。
+解压部署 ZIP 到新的目录；按下文配置 `IMAGE_TAG=v5.1.11` 及已经准备好的 PG17 镜像。
 此路径不需要 Windows 安装 Git、Python 或 Docker Desktop 来构建镜像。
 
 Windows Docker Desktop 与极空间 Z4S 均为**待所有者本地验收**，不是已通过的实机结果。
@@ -23,14 +23,14 @@ Windows Docker Desktop 与极空间 Z4S 均为**待所有者本地验收**，不
 ```sh
 git clone https://github.com/inkzcz/life-journal_public.git life-journal-source
 cd life-journal-source
-git checkout --detach v5.1.10
+git checkout --detach v5.1.11
 ```
 
 使用公开仓库的正式 Annotated Tag，并核对 Release 的来源提交。只使用该新仓库自身的历史；不添加原私有remote或导入旧refs。
 清单里的准备来源SHA不是新仓库的初始提交身份。源码 ZIP 身份校验以既有工具为准，不接受手填SHA绕过。
 
-按README的PowerShell或Bash命令用干净Git checkout构建。目标固定linux/amd64，业务标签为v5.1.10-candidate.加新仓库短SHA。
-Windows需Git/Python/Docker Desktop；Linux需本地Engine/Buildx。构建需要依赖网络；构建和运行验证状态以 release-v5.1.10.md 为准。
+按README的PowerShell或Bash命令用干净Git checkout构建。目标固定linux/amd64，业务标签为v5.1.11-candidate.加新仓库短SHA。
+Windows需Git/Python/Docker Desktop；Linux需本地Engine/Buildx。构建需要依赖网络；构建和运行验证状态以 release-v5.1.11.md 为准。
 工具保留本地连接限制、实时脱敏日志、默认不加--pull、原生退出码和冲突保护，不覆盖/删除旧镜像或交付目录。
 
 本地工具只生成一个life-journal-app-候选标签-amd64.tar及SHA256SUMS、.sha256、images.json、manifest.json。

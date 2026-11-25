@@ -9,7 +9,7 @@ from ..services.archive import write_lock
 from .models import Anniversary,Reminder
 from .dates import DateRule,occurrences,years_at
 from .service import config
-from .transport import render,get,DeliveryError
+from .transport import render,get,deliver,DeliveryError
 UTC=timezone.utc
 
 def aware(d):return d if d.tzinfo else d.replace(tzinfo=UTC)
@@ -17,7 +17,7 @@ def aware(d):return d if d.tzinfo else d.replace(tzinfo=UTC)
 def plan(db,at):
     write_lock(db);rev,c=config(db)
     if not c['enabled']:return
-    zone=ZoneInfo(c['timezone']);local=at.astimezone(zone);day=local.date();channel='get:'+str(rev)
+    zone=ZoneInfo(c['timezone']);local=at.astimezone(zone);day=local.date();channel=c.get('method','GET').lower()+':'+str(rev)
     for e in db.scalars(select(Anniversary).where(Anniversary.active.is_(True))):
         d=e.reminders
         if not d.get('enabled',True):continue
@@ -39,7 +39,7 @@ def plan(db,at):
     db.execute(update(Reminder).where(Reminder.state=='sending',Reminder.lease_until<at).values(state='uncertain',error='worker_interrupted'))
     db.commit()
 
-def tick(session_factory,at=None,send=get):
+def tick(session_factory,at=None,send=get,request_sender=None):
     at=aware(at or now())
     with session_factory() as db:plan(db,at)
     # Short claim transactions, then network OUTSIDE the write lock.
@@ -51,7 +51,7 @@ def tick(session_factory,at=None,send=get):
             if not row:return
             event=db.get(Anniversary,row.anniversary_id)
             rule=DateRule.model_validate(event.rule)
-            if not occurrences(rule,row.occurrence,row.occurrence) or not event.active or row.channel!='get:'+str(rev) or not event.reminders.get('enabled',True) or row.offset==0 and not event.reminders.get('on_day',True) or row.offset>0 and row.offset not in event.reminders.get('offsets',[]):
+            if not occurrences(rule,row.occurrence,row.occurrence) or not event.active or row.channel!=c.get('method','GET').lower()+':'+str(rev) or not event.reminders.get('enabled',True) or row.offset==0 and not event.reminders.get('on_day',True) or row.offset>0 and row.offset not in event.reminders.get('offsets',[]):
                 row.state='cancelled';row.error='configuration_changed';db.commit();continue
             planned=datetime.combine(row.occurrence-timedelta(days=row.offset),time.fromisoformat(event.reminders.get('time') or c['time']),ZoneInfo(c['timezone'])).astimezone(UTC)
             if at<planned:
@@ -61,7 +61,7 @@ def tick(session_factory,at=None,send=get):
             rid=row.id;offset=row.offset;occ=row.occurrence;name=event.name;rule=DateRule.model_validate(event.rule);attempts=row.attempts;db.commit()
         variables={'title':name+' · '+('今天' if offset==0 else str(offset)+'天后'),'content':name+' '+occ.isoformat(),'name':name,'date':occ.isoformat(),'days_left':offset,'years':years_at(rule,occ),'calendar_type':rule.calendar}
         state='sent';error='';status=None;retry=None
-        try:status=send(render(c['url_template'],variables))
+        try:status=deliver(c,variables,legacy_get=send,request_sender=request_sender)
         except DeliveryError as exc:
             error=exc.code;status=exc.status
             state='uncertain' if exc.uncertain else 'retry' if exc.retryable and attempts<3 else 'failed'

@@ -1,4 +1,4 @@
-"""Synthetic released-v5.1.9 -> candidate upgrade; no production access or downgrade.
+"""Synthetic released-v5.1.10 -> candidate upgrade; no production access or downgrade.
 
 Uses the existing strict Compose environment/mount/project/cleanup guards. Only
 the exact published old TAR is accepted; the database and media live in a new
@@ -24,9 +24,9 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from docker_installation import ROOT, compose, require_unused_project, run, stop_projects
 from scripts import release as image_verifier
 
-OLD_TAG='v5.1.9'
-OLD_SOURCE='2db730b1bad683e5056f3f096987074bdfe5e02a'
-OLD_TAR_SHA256='e7b429fcb5103cc32e6f246ec3b57550f15ed893f9863cf10ac5ecad6ba120eb'
+OLD_TAG='v5.1.10'
+OLD_SOURCE='fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2'
+OLD_TAR_SHA256='ac766b4619db3bb5883de1bf18289993c07d3c452cbfea2ea175af16fbabef7a'
 
 
 def verify_previous_tar(path):
@@ -94,7 +94,7 @@ def main():
     parser.add_argument('--output',required=True,type=Path)
     args=parser.parse_args()
     if args.output.exists() or args.output.is_symlink():raise ValueError('Fresh report path required')
-    if args.image_tag!='v5.1.10' and not re.fullmatch(r'v5\.1\.10-candidate\.[0-9a-f]{7,40}',args.image_tag):raise ValueError('Only the reviewed v5.1.10 release or source-bound candidate is accepted')
+    if args.image_tag!='v5.1.11' and not re.fullmatch(r'v5\.1\.11-candidate\.[0-9a-f]{7,40}',args.image_tag):raise ValueError('Only the reviewed v5.1.11 release or source-bound candidate is accepted')
     host=os.getenv('DOCKER_HOST','')
     if host and not host.startswith(('unix://','npipe://')):raise ValueError('Local Docker only')
     endpoint=json.loads(run('docker','context','inspect','--format','{{json .Endpoints.docker.Host}}'))
@@ -135,8 +135,23 @@ def main():
         data=('--'+boundary+'\r\nContent-Disposition: form-data; name="file"; filename="synthetic.png"\r\nContent-Type: image/png\r\n\r\n').encode()+synthetic_png()+('\r\n--'+boundary+'--\r\n').encode()
         media=request('/api/admin/archive/media',data,content_type='multipart/form-data; boundary='+boundary)
         card={'id':str(uuid.uuid4()),'kind':'m','name':'合成旧电影','fields':{'review':'原评价'},'media_ids':[media['id']]}
-        payload={'type_id':t['id'],'schema_version':t['revision'],'title':'合成 v5.1.9 文章','body_format':2,'marker_version':2,
-            'body':'原正文\n\n:::lj-entry-v1\n'+json.dumps(card,ensure_ascii=False)+'\n:::\n','display_date':'2026-11-22',
+        cards=[card]
+        for kind in ('l','f','s','g','t'):
+            fields={'description':'旧值原样保留'} if kind in ('l','g') else {'review':'旧评价'} if kind in ('f','s') else {'transport_type':'高铁','departure':'重庆','destination':'成都','departure_station':'沙坪坝','departure_at':'2026-11-13T15:43+08:00','arrival_at':'2026-11-13T17:36+08:00','departure_zone':'Asia/Shanghai','arrival_zone':'Asia/Shanghai'}
+            cards.append({'id':str(uuid.uuid4()),'kind':kind,'name':'合成历史卡片-'+kind,'fields':fields,'media_ids':[media['id']]})
+        legacy_notification={'enabled':False,'url_template':'https://notify.example.invalid/?content={content}','timezone':'Asia/Shanghai','time':'09:00','expected_revision':0}
+        request('/api/admin/calendar/notification',legacy_notification,method='PUT')
+        saved_notification=request('/api/admin/calendar/notification')
+        event=request('/api/admin/calendar/events',{'name':'合成历史通知记录','rule':{'calendar':'solar','year':2026,'month':11,'day':13},'reminders':{'enabled':False}})
+        log_id=str(uuid.uuid4())
+        sql="INSERT INTO anniversary_reminders (id,anniversary_id,occurrence,\"offset\",channel,state,planned_at,attempted_at,sent_at,attempts,http_status,error) VALUES ('"+log_id+"','"+str(uuid.UUID(event['id']))+"','2026-11-13',0,'get:1','sent','2026-11-13 01:00:00+00','2026-11-13 01:00:01+00','2026-11-13 01:00:02+00',1,200,'')"
+        compose(project,env,'exec','-T','db','psql','-v','ON_ERROR_STOP=1','-U','lj_validation','-d','lj_validation','-c',sql)
+        old_logs=request('/api/admin/calendar/logs');assert len(old_logs)==1 and old_logs[0]['id']==log_id
+        old_template=request('/api/admin/templates',{'slug':'synthetic-old-template-'+secrets.token_hex(5),'name':'合成历史旅行模板','fields':[],'modules':[{'id':str(uuid.uuid4()),'kind':'body'},{'id':str(uuid.uuid4()),'kind':'itinerary'}]})
+        bound=request('/api/admin/content/records',{'type_id':old_template['type_id'],'schema_version':old_template['schema_version'],'title':'显式日常覆盖旧旅行模板','body':'保留旧模板及绑定','body_format':2,'display_date':'2026-11-22','status':'draft','values':{},'template':{'id':old_template['id'],'version':old_template['version']},'article':{'travel_enabled':False}})
+
+        payload={'type_id':t['id'],'schema_version':t['revision'],'title':'合成 v5.1.10 文章','body_format':2,'marker_version':2,
+            'body':'原正文\n\n'+'\n\n'.join(':::lj-entry-v1\n'+json.dumps(item,ensure_ascii=False)+'\n:::' for item in cards)+'\n','display_date':'2026-11-22',
             'status':'draft','values':{t['fields'][0]['id']:'原动态字段值'},'article':{'travel_enabled':True},
             'connections':{'media':[{'id':media['id'],'cover':True,'caption':'合成照片'}],'places':[],'links':[]},
             'life':{'start_date':'2026-11-22','end_date':'2026-11-22','activities':[{'id':str(uuid.uuid4()),'day':'2026-11-22','title':'原行程','media_ids':[media['id']]}]}}
@@ -150,6 +165,14 @@ def main():
         compose(project,env,'up','-d','--pull','never','--wait','--wait-timeout','240')
         request=api(project,env);request('/api/auth/login',{'username':'synthetic-install','password':password})
         upgraded=request('/api/admin/content/records/'+original['id'])
+        upgraded_notification=request('/api/admin/calendar/notification')
+        for key in ('enabled','url_template','timezone','time','expected_revision'):assert upgraded_notification[key]==saved_notification[key],key
+        assert upgraded_notification['method']=='GET' and upgraded_notification['headers']==[]
+        assert request('/api/admin/calendar/logs')==old_logs
+        assert request('/api/admin/templates/'+old_template['id'])==old_template
+        bound_after=request('/api/admin/content/records/'+bound['id'])
+        for key in ('id','type_id','template','body','article'):assert bound_after[key]==bound[key],key
+
         for key in ('id','type_id','schema_version','body','values','life','article','connections'):
             assert upgraded[key]==original[key],key
         assert request('/api/library-media/'+media['id']+'/original')==synthetic_png()
@@ -168,11 +191,11 @@ def main():
         assert after==before
     finally:
         stop_projects(started)
-    report={'image_tag':args.image_tag,'source_commit':source_commit,'synthetic_same_schema_upgrade':'passed','from_version':'5.1.9','to_version':'5.1.10',
+    report={'image_tag':args.image_tag,'source_commit':source_commit,'synthetic_same_schema_upgrade':'passed','from_version':'5.1.10','to_version':'5.1.11',
         'old_business_tar_sha256':OLD_TAR_SHA256,'schema_before':before,'schema_after':after,
         'old_image_config_digest':expected,'old_image_store_id':old_image_id,
         'old_backup_created_and_verified':True,'existing_article_fields_cards_media_itinerary':'preserved',
-        'new_default_type_and_travel_toggles':'passed','candidate_restart_persistence':'passed',
+        'new_default_type_and_travel_toggles':'passed','candidate_restart_persistence':'passed','legacy_get_notification_configuration_and_logs':'preserved','six_historical_card_kinds':'preserved','old_template_binding_and_explicit_daily_mode':'preserved',
         'production_or_nas_accessed':False,'UPGRADE-001':'Not reproduced or claimed fixed'}
     args.output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 

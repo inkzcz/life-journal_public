@@ -14,7 +14,7 @@ def test_lgpl_drill_accepts_only_reviewed_source_bound_candidates():
         'org.opencontainers.image.revision':revision,'org.opencontainers.image.version':tag,
         'org.opencontainers.image.source':'https://github.com/inkzcz/life-journal_public'}}}
     validate_relink_image(tag,image)
-    for bad in ('v5.1.11','v5.1.11-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7,
+    for bad in ('v5.1.12','v5.1.12-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7,
                 'v5.1.10-candidate.latest','v5.1.9-candidate.invalid'):
         with pytest.raises(ValueError):validate_relink_image(bad,image)
     import copy
@@ -28,7 +28,7 @@ def test_lgpl_drill_accepts_only_reviewed_source_bound_candidates():
 def test_formal_new_version_is_rejected_before_docker_or_source_access(tmp_path,monkeypatch):
     from scripts import test_pillow_relink as relink
     import sys
-    monkeypatch.setattr(sys,'argv',['relink','--image-tag','v5.1.11',
+    monkeypatch.setattr(sys,'argv',['relink','--image-tag','v5.1.12',
         '--sources',str(tmp_path/'not-read'),'--output',str(tmp_path/'not-written')])
     monkeypatch.setattr(relink.local_images,'Docker',lambda:pytest.fail('Unapproved tag must not contact Docker'))
     with pytest.raises(SystemExit) as caught:relink.main()
@@ -133,3 +133,28 @@ def test_same_schema_upgrade_receipt_is_required_and_source_bound():
         with pytest.raises(ValueError):delivery.require_upgrade_receipt(bad,version,revision)
     for tag,sha in (('v5.1.10-candidate.'+revision[:7],revision),(version,'b'*40)):
         with pytest.raises(ValueError):delivery.require_upgrade_receipt(report,tag,sha)
+
+def test_formal_511_requires_its_own_pr_and_source_authority():
+    from scripts.release_authorization import read_authorization
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]
+    current=read_authorization(root,'v5.1.11');assert current['source_pull_request']==5
+    delivery.require_release_authorization(current,'v5.1.11')
+    with pytest.raises(ValueError):delivery.require_release_authorization(read_authorization(root,'v5.1.10'),'v5.1.11')
+    for key in ('source_pull_request','binary_publication_approved','owner_confirmation_reference'):
+        wrong=dict(current);wrong.pop(key)
+        with pytest.raises(ValueError):delivery.require_release_authorization(wrong,'v5.1.11')
+
+def test_511_upgrade_must_preserve_exact_old_cards_templates_and_notification():
+    version='v5.1.11';revision='a'*40
+    report={'synthetic_same_schema_upgrade':'passed','from_version':'5.1.10','to_version':'5.1.11',
+        'image_tag':version,'source_commit':revision,'schema_before':'0021_anniversary_calendar',
+        'schema_after':'0021_anniversary_calendar','old_backup_created_and_verified':True,
+        'existing_article_fields_cards_media_itinerary':'preserved','new_default_type_and_travel_toggles':'passed',
+        'candidate_restart_persistence':'passed','production_or_nas_accessed':False,
+        'old_business_tar_sha256':'ac766b4619db3bb5883de1bf18289993c07d3c452cbfea2ea175af16fbabef7a',
+        'legacy_get_notification_configuration_and_logs':'preserved','six_historical_card_kinds':'preserved','old_template_binding_and_explicit_daily_mode':'preserved'}
+    delivery.require_upgrade_receipt(report,version,revision)
+    for key in report:
+        wrong=dict(report);wrong.pop(key)
+        with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)

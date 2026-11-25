@@ -162,8 +162,10 @@ def require_release_authorization(authority,version):
 
 
 def require_upgrade_receipt(report,version,revision):
+    current=release_version(version);previous={'v5.1.10':'5.1.9','v5.1.11':'5.1.10'}.get(current)
+    if previous is None:raise ValueError('Unknown same-schema upgrade route')
     if (report.get('synthetic_same_schema_upgrade')!='passed'
-            or report.get('from_version')!='5.1.9' or report.get('to_version')!='5.1.10'
+            or report.get('from_version')!=previous or report.get('to_version')!=current[1:]
             or report.get('image_tag')!=version or report.get('source_commit')!=revision
             or report.get('schema_before')!='0021_anniversary_calendar'
             or report.get('schema_after')!='0021_anniversary_calendar'
@@ -173,6 +175,8 @@ def require_upgrade_receipt(report,version,revision):
             or report.get('candidate_restart_persistence')!='passed'
             or report.get('production_or_nas_accessed') is not False):
         raise ValueError('Exact same-schema upgrade receipt missing or failed')
+    if current=='v5.1.11' and (report.get('old_business_tar_sha256')!='ac766b4619db3bb5883de1bf18289993c07d3c452cbfea2ea175af16fbabef7a' or report.get('legacy_get_notification_configuration_and_logs')!='preserved' or report.get('six_historical_card_kinds')!='preserved' or report.get('old_template_binding_and_explicit_daily_mode')!='preserved'):
+        raise ValueError('Historical v5.1.10 cards/notification receipt missing')
 
 
 def require_candidate_identity(version,product_version,revision):
@@ -217,7 +221,7 @@ def package(args):
     installation,pillow,layers,debian=map(read,[args.installation,args.pillow,args.layers,args.debian])
     require_receipts(installation,pillow,layers,debian)
     upgrade=getattr(args,'upgrade',None)
-    if version=='v5.1.10' or version.startswith('v5.1.10-candidate.'):
+    if version in ('v5.1.10','v5.1.11') or version.startswith(('v5.1.10-candidate.','v5.1.11-candidate.')):
         if not upgrade:raise ValueError('Same-schema upgrade receipt required')
         require_upgrade_receipt(read(upgrade),version,revision)
     if installation.get('image_tag')!=version or debian.get('image_tag')!=version:

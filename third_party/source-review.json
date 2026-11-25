@@ -2,8 +2,8 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "v5.1.10 authorized formal-delivery preparation, independently scoped grant, exact release/upgrade gates, synthetic browser CI and user upgrade/rollback documentation; no runtime dependency, schema, volume or third-party grant changes.",
-  "reviewed_on": "2026-11-23",
+  "current_delta": "v5.1.11 original mode projections, atomic card transfers, structured notifications, IANA time inputs, six card layouts/actions and authorized PR #5 release preparation; no new runtime dependency/schema/volume or third-party grant change.",
+  "reviewed_on": "2026-11-25",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
   "method": "Per-file source/asset/import/marker and scope review, targeted public upstream and local history checks, accepted owner project-development declaration. No global code plagiarism or legal title certification.",
@@ -171,6 +171,46 @@
       "source": "Owner explicit v5.1.10 formal merge/release and ongoing delivery instruction; original release orchestration, version-specific authorization selection, negative tests and deployment guides written within this public repository. No private source, production logs, media or external implementation copied.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments; all third-party grants and credits unchanged.",
       "decision": "Reviewed exact release delta and each new source file. Original v5.1.9 authorization, initial snapshot receipt and all 410 legal texts remain byte-identical. CI-only pinned Playwright is not copied into business image or source delivery archives. Actual binary source/notices/relink receipts required for every formal build; pending real platforms/UPGRADE-001 stated accurately."
+    },
+    {
+      "id": "P008",
+      "review_date": "2026-11-25",
+      "review_baseline": "fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2",
+      "source": "Owner v5.1.11 task; original mode projection/query changes, synthetic regressions and development progress. No external implementation or artwork copied.",
+      "license": "Existing GPL-3.0-or-later for original increments; all third-party grants preserved.",
+      "decision": "Reviewed current staged phase-one delta only; no claim of remaining features, PG validation, visual acceptance or release completion."
+    },
+    {
+      "id": "P009",
+      "review_date": "2026-11-25",
+      "review_baseline": "124f725",
+      "source": "Original v5.1.11 structured request template, pinned HTTP transport extensions, configuration UI and synthetic test work under owner task. No external implementation, icon, font, media or new runtime dependency copied. Also records original phase-two transfer/picker increments.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments; third-party grants remain unchanged.",
+      "decision": "Reviewed enumerated changed/new source bytes and synthetic tests only. 410 historical legal texts preserved. Functional local checks are not a completed PG/browser/Docker/release acceptance or a real terminal notification."
+    },
+    {
+      "id": "P010",
+      "review_date": "2026-11-25",
+      "review_baseline": "1880e83",
+      "source": "Original v5.1.11 phase-four IANA conversion and selectors, phase-five six-kind layouts, original elementary vehicle SVG geometry, parser/document menu operations and synthetic browser/unit tests under owner task. No external implementation, font, photograph or runtime dependency added.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments; third-party grants and 410 historical legal texts preserved.",
+      "decision": "Reviewed enumerated original source increments. Screenshots use existing original geometric fixture artwork and synthetic text only, saved outside the tracked source. No claim of completed PG/Docker/release or real device acceptance."
+    },
+    {
+      "id": "P011",
+      "review_date": "2026-11-25",
+      "review_baseline": "8c24099c4fef220d74f1f6a850491c8f80870e2c",
+      "source": "Original v5.1.11 versioned release orchestration, strict current-run artifact cleanup and negative tests, synthetic six-card/template/GET-notification upgrade fixture, documentation and operator record of explicit owner release task. Existing project release code adapted; no external implementation or runtime dependency copied.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments. Third-party legal texts and upstream source/license duties unchanged.",
+      "decision": "Current enumerated release-preparation increments only. Workflow exact hashes separately bound in version-specific owner-instruction record; no forged signature or claim of completed cloud/real-device validation."
+    },
+    {
+      "id": "P012",
+      "review_date": "2026-11-25",
+      "review_baseline": "d064bece8945f4b7cee068776662198af8276317",
+      "source": "Original post-visual-review mobile editor gutter/container/time-input fixes and synthetic browser clock/menu/form/lightbox assertions. Two explicitly synthetic PNGs added only to the bounded PR visual artifact, not tracked source or Release assets. No external code/media copied.",
+      "license": "Existing GPL-3.0-or-later for original increments; original third-party grants and 410 legal texts unchanged.",
+      "decision": "Manual actual screenshot review found nested padding squeezing transport clocks; fixed parent layout without dropping checks or shrinking feature scope. Current source bytes and exact workflow hashes reviewed; subsequent cloud runs remain required."
     }
   ],
   "files": [
@@ -220,9 +260,11 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011",
+        "P012"
       ],
-      "sha256_canonical": "a6fa2555120e7ab7d9eee0f04f10be4f16f26e8d098fff528f475ff75a8257c0"
+      "sha256_canonical": "5761aa41a689fb7a984dcf9f93f213918c8ac341ffae4f431c9276320bec428c"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -230,9 +272,10 @@
       "evidence": [
         "P004",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d83b2a9554fe982b9a12cfccccc6084e540a59a32f7e849a1659f89ea9440de2"
+      "sha256_canonical": "346d892196d7dcad8ca51e8fda1cec81d28ba766040fe0752c63f360b7737d22"
     },
     {
       "path": ".gitignore",
@@ -257,9 +300,10 @@
         "J001",
         "P001",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "eef4b91cdc437c6aeb00e4258572cac886d43cf92ef989a02e8ac8ed4b193c95"
+      "sha256_canonical": "f524c21da566f3fcfa5214d16ef338448361ab4294524b1609138e68375e84ea"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -306,9 +350,10 @@
         "P001",
         "P004",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "7a356142f6f3309faba1885662d8b260c6787684990bbd9c2030efd545aca320"
+      "sha256_canonical": "ef23c54cccee01f38dd13e34890aaf1d04b2853e271f980c386235c35380ae2d"
     },
     {
       "path": "SECURITY.md",
@@ -324,9 +369,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P011"
       ],
-      "sha256_canonical": "1f69628eecae9a9e12df09ccf3d934412e4a3facb5b77f03a990954503e7cd6f"
+      "sha256_canonical": "c43b2209093b8c469d508f854d3d6225aaa486963d307f54717db19fa52b2f87"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -341,9 +387,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "779e6d24cb291ff605d93a3ec585cfa5589c1d4584ab7d9ee04a231d41ff5df3"
+      "sha256_canonical": "91dee1f2e164332c98f55f96624fd7e93d0d754b90e67f440c1b044164c2dae7"
     },
     {
       "path": "backend/.dockerignore",
@@ -662,9 +709,10 @@
       "path": "backend/app/blog_schemas.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "0528924830dd2e76d06682cdce4394c0bc80b9803a92c8f06fab848281e504e8"
+      "sha256_canonical": "6d1b290d8e6cdeb306ca907c9eee33b607665cd6cf5ff83773d6e32ca36be0b2"
     },
     {
       "path": "backend/app/build_info.py",
@@ -699,46 +747,65 @@
       "sha256_canonical": "fc70c53aacef1b25de188461e2ec6a5d102989f7ed0a831f675b2480e230788d"
     },
     {
+      "path": "backend/app/calendar/request_templates.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "c81fe5eb20cdbd2f16a42ef5b3201527a51a7abf29248582fb381e7d3d3d1e02"
+    },
+    {
       "path": "backend/app/calendar/router.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "1aa209fcda3f970348aaf090aa1feb88ad9ce0705f82c0eea9acc1e91b6371be"
+      "sha256_canonical": "1f72f56f089a038c815953dedfbde64c5cafb715fbcfaa53c79fc1f4b96d8285"
     },
     {
       "path": "backend/app/calendar/scheduler.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "6fe540bbcd88ec8d407254b59f3b1e67f32e23a87129b28de343d6f5fcf53650"
+      "sha256_canonical": "0539059f64e191e898388838f7c232230fd9c985d9ae9583b917c86209e92265"
     },
     {
       "path": "backend/app/calendar/schemas.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "3f04655065cbd273ef59f029682f34297ed18ab4cb838f9c342e19eb5635b20a"
+      "sha256_canonical": "ff915123e429025d788d785ab91b64840e0be55ddb6b6519d72a489f5f4dfa74"
     },
     {
       "path": "backend/app/calendar/service.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "9de0230bb3ee46576a042eb07c5adfb0cf2de5a97fbe8547d7467de81a19d82a"
+      "sha256_canonical": "4464a0cbf23da48805b6f33ac0aa7a2565d7ea2bfddf517ee32396137f3a1c0e"
     },
     {
       "path": "backend/app/calendar/transport.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "91fc38683899880233453d40f425553a838528912bcda86a73977f354aead224"
+      "sha256_canonical": "e02992d3b3d9edbe459dc932ecc2625e04e8daabec9b2fd4ef06bf1c4384bfdc"
     },
     {
       "path": "backend/app/container_entrypoint.py",
@@ -1034,9 +1101,10 @@
       "evidence": [
         "J001",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "263c9af6bb78f5230d515f51e20407324f471a6096bd90c7ba146f6cd458310c"
+      "sha256_canonical": "87706d5197ab6c38d1eb3700b8b79fa97134e86716bdf1f06244118d24b5060b"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -1074,26 +1142,30 @@
       "path": "backend/app/routers/blog.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "d2fbeb05f5920e2fd7146964f4a6359f2832f2b9f61ee4ee758508f98007ff12"
+      "sha256_canonical": "f8cce3807e69b30b73a01b6350856b3db28b7cda862d4cbd21b3d5ded9afe4c6"
     },
     {
       "path": "backend/app/routers/content.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "3b1199702c53adc17a0dafc6d6fa8af500c4e760004ffac3201c3aa1f14931e5"
+      "sha256_canonical": "886490da7d79e6d86a533323b97e7b984954e48042892fb8226734ea4b8e0c5e"
     },
     {
       "path": "backend/app/routers/discovery.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "231f9daa7f8b99b03151d1893ae0cd3b9c1afe1b688cfc33f7eba4f4c389b45b"
+      "sha256_canonical": "7d2274487206e76154342b6983798366cbb5599b36a6bb3a227cc2e550d09086"
     },
     {
       "path": "backend/app/routers/exchange.py",
@@ -1107,9 +1179,10 @@
       "path": "backend/app/routers/experiences.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "e3fa54f15149b6d15210768ce6c49bb908a1f3ee7676269bd32f0e17454110ae"
+      "sha256_canonical": "ad36c3696abe3c67b8b728c17a2fa782cd6e60ce98f85071225f15793363c5e5"
     },
     {
       "path": "backend/app/routers/folders.py",
@@ -1123,9 +1196,11 @@
       "path": "backend/app/routers/food.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "0120b6e2e17eca3982b4ad0880871842c1a25206a2832a929b0bcf445d5837c5"
+      "sha256_canonical": "68205ca32a3c4ce0ff80b5baab7caa5486c9b3cdffc89c195669836fcba9d34f"
     },
     {
       "path": "backend/app/routers/itinerary.py",
@@ -1235,9 +1310,11 @@
       "path": "backend/app/services/blog.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008",
+        "P011"
       ],
-      "sha256_canonical": "3c003b3258b72a32b3b3218dc0dca00d3c21180904ca9525213752c77297fac9"
+      "sha256_canonical": "4caf98cee390e34cd8065af721ce1bfeee6981f0677263316bf68be8dca3a0b4"
     },
     {
       "path": "backend/app/services/body_media.py",
@@ -1257,12 +1334,23 @@
       "sha256_canonical": "83ec7b183c1ae6795cb26ef4d30e628882d2f909b6f2f3a6be19cb2bf9156304"
     },
     {
+      "path": "backend/app/services/entry_operations.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "d7558b2fa8dcaae66f87ddd905f630bfb8a601a09f588de108d77fe8340d39a6"
+    },
+    {
       "path": "backend/app/services/experiences.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "9bb237935a1cce6b9d44492155e9dca423bbbf025540f7b4ce1575a2bd29376d"
+      "sha256_canonical": "e9a1d86aafa9a30b8ed554523711df3c3f4899560ca66d13658e4c40c9ac357e"
     },
     {
       "path": "backend/app/services/folders.py",
@@ -1316,9 +1404,10 @@
       "path": "backend/app/services/life_feed.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "679e31cb2637dac075d2b93fa0830cbff52a53ac744e0c587a1ec6785d27b818"
+      "sha256_canonical": "caa67ef8d31683f2a517f6d3c2144b2348341eda0100154268bb4be68d0da067"
     },
     {
       "path": "backend/app/services/maintenance.py",
@@ -1375,6 +1464,14 @@
         "J001"
       ],
       "sha256_canonical": "2710047f56bdd2285c4e1745e5dda6b867dcbb37ec3f387eb4f4a86113346e6c"
+    },
+    {
+      "path": "backend/app/services/record_mode.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "7a66f32089e0cb3bedefa1955ea8a311ef13bb548d223ccdb77b6abf5932f95c"
     },
     {
       "path": "backend/app/services/recovery.py",
@@ -1493,9 +1590,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "be294b9e2b3b0aefc6c285951fc9ec7a75faff8c0f0bf437ac2d1232a254ee13"
+      "sha256_canonical": "dab4a986cba665cc8a54a2eb2a743ec023ec01afc34c4e9808afa107e2ce3487"
     },
     {
       "path": "backend/constraints-release.txt",
@@ -1580,6 +1678,18 @@
       "sha256_canonical": "c63858f5f7d4f4353f7c333453b7ef410a663bd60fab51ed7f0785e37329506d"
     },
     {
+      "path": "docs/development/v5.1.11-progress.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009",
+        "P010",
+        "P011",
+        "P012"
+      ],
+      "sha256_canonical": "a246f40b1017983aa3405f539a2f5c777d47271fc2e23f075a9620f875b6198c"
+    },
+    {
       "path": "docs/initial-source-snapshot.json",
       "classification": "owner-declared-project-material",
       "evidence": [
@@ -1594,9 +1704,10 @@
         "J001",
         "P001",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "0351c495c7b572e41810a3d7e0d19246d5cdc1305cee077d4e67ab359cdbb4ea"
+      "sha256_canonical": "a7518bc2907420084d079115e98e04d1d00d89631efa3f8e973c2557cf1f432b"
     },
     {
       "path": "docs/known-limitations.md",
@@ -1606,9 +1717,10 @@
         "P001",
         "P003",
         "P004",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "ee7cfd94e5b2fa8835f6e054c61ea09c542ff52001edcfc48a5564568c261687"
+      "sha256_canonical": "befd11b9522a1419ed9bad82f4295d050c87be7a4275176bc82cc3785f493fdc"
     },
     {
       "path": "docs/licensing.md",
@@ -1646,6 +1758,14 @@
       "sha256_canonical": "30a65c1d2d2711ceb3802e8d5dfc3f960269a09359457caed5c1d53dcb2c6889"
     },
     {
+      "path": "docs/release-notes-v5.1.11.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "9a378ac3e6ec58d0e9aec0cc0c38d07b20cee253e8494ef19a607cd4bcb448c1"
+    },
+    {
       "path": "docs/release-notes-v5.1.9.md",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
@@ -1668,6 +1788,14 @@
         "P007"
       ],
       "sha256_canonical": "7b6a9cd2de99a0e581e1097d2c71d522bcf329b878bd5552fc0eb63e7ce633aa"
+    },
+    {
+      "path": "docs/release-v5.1.11.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "549dab9263d904122cb9b784646e2a074ec30a1619d58e37d17f24405bb14883"
     },
     {
       "path": "docs/release-v5.1.9.md",
@@ -1695,9 +1823,10 @@
         "J001",
         "P001",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d49ec278d770921c72ba900c0dfc29e0d0644d0947846dcadb19925db8705fc8"
+      "sha256_canonical": "77882a2dcc869713315224f2cefe73cc76a214c1f86c4ba348ec597b41049c72"
     },
     {
       "path": "docs/v5.1.10-validation.md",
@@ -1707,6 +1836,15 @@
         "P007"
       ],
       "sha256_canonical": "d78224ba05b004a52e0815117b9a8bc45488fa04e2520a42f1ef810a50589468"
+    },
+    {
+      "path": "docs/v5.1.11-validation.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011",
+        "P012"
+      ],
+      "sha256_canonical": "252fffccf42bace875efa98ae8f4f930974e105d0a039aff85e7eb5e8bac9dac"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -1796,9 +1934,10 @@
       "evidence": [
         "R001",
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "824dd08bc2f06c55967be2225fdb96bcc663d523aa584e5841eb954c4a7944cb"
+      "sha256_canonical": "f56e57b8c7015cd1723e665a0031685fe676fe91d109b46ad91a3da9d04d0703"
     },
     {
       "path": "frontend/package.json",
@@ -1806,9 +1945,10 @@
       "evidence": [
         "R001",
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "dc87e9c1a010dbfd526729c51c425a5f41672f3f6d6d76315ed86ee51ecd199b"
+      "sha256_canonical": "64affbebd2d373b81bc4475a844309af90818005e54f1e6ca12dd57a2978174c"
     },
     {
       "path": "frontend/preview-writing.html",
@@ -1840,9 +1980,11 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008",
+        "P009"
       ],
-      "sha256_canonical": "bb40340599d727311df3bd505637497af76da6ea0f725cd63e19437445f453e9"
+      "sha256_canonical": "8e6dfdcaf173356ed7964a341dfebd35a01a82d8f5c5e42e7e63238c284add7f"
     },
     {
       "path": "frontend/src/admin/Archive.test.ts",
@@ -2097,9 +2239,10 @@
       "path": "frontend/src/blog/BlogView.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "692c56e3f881ffee01d367ab76b41ee4de5923573bf46b99ab40d312aca60ef5"
+      "sha256_canonical": "dcdced89280030b058d2870b39e9092abb1930041d869c301ea253acac802861"
     },
     {
       "path": "frontend/src/blog/BotanicalIllustration.test.ts",
@@ -2161,17 +2304,19 @@
       "path": "frontend/src/blog/SiteAdmin.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "69e72a6ea0a8495ae799cfe463d7b9137f0c9181e5f30cff42dea26321b5b29a"
+      "sha256_canonical": "1909a27bc86e5570ba19cf1d29893c731b6c1cf7d55fd0b10c53fb4f846c7499"
     },
     {
       "path": "frontend/src/blog/TemplateRenderer.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "bacb27b30dd97f023f57d9fc120bf4405f5fa48765e612b7cdfb59bbd86df9f8"
+      "sha256_canonical": "92cb25cd2cac38a6a5ee43374e130d0bd13c47572d0d385861d9853821141bf9"
     },
     {
       "path": "frontend/src/blog/TextEditor.vue",
@@ -2265,9 +2410,10 @@
       "path": "frontend/src/blog/types.ts",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "abef1fba8875b7dc257da14f7ed4889ff84b0040926ee292798be82d9a8f2f51"
+      "sha256_canonical": "0f2beaf300eed0e1e3c89ca5cb31609cee3e49b5e8d42635aa8a9d8d6d7ca0a1"
     },
     {
       "path": "frontend/src/buildInfo.ts",
@@ -2276,6 +2422,24 @@
         "J001"
       ],
       "sha256_canonical": "4fbb5dbe2cc6bebd9baef33fa6f1013376be36239b87cc1e2613574b39b0f284"
+    },
+    {
+      "path": "frontend/src/calendar/AdvancedNotificationFields.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "92a8d484541bfaf2b3952ca01cbb122bcc4901d340e99ab510245793f32e92e9"
+    },
+    {
+      "path": "frontend/src/calendar/AdvancedNotificationFields.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "453613da06112bf85bad72ce08141f937d891fe03c8802c06bc650b38e0d7918"
     },
     {
       "path": "frontend/src/calendar/Calendar.test.ts",
@@ -2291,33 +2455,39 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008",
+        "P009",
+        "P010"
       ],
-      "sha256_canonical": "d58a4fda72beeb3ef0a2e99cb162cf2d7ecc6cf6262e81cef74a2e00c1dd9d37"
+      "sha256_canonical": "5622629f3c8973407fd3e8bc507ee97bd1e5058f53b91aa92aedef416559e041"
     },
     {
       "path": "frontend/src/dev/WritingPreview.vue",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "8e35da0e76d342a2990f79c76e96ca5ea8f67eaa1dcd70ae28d699c8c6d72cf9"
+      "sha256_canonical": "f2d1d21fc36b8947a06b309d046d4d767167ef1063c0f409a44f3be057316c2f"
     },
     {
       "path": "frontend/src/dev/preview.ts",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "0fe5b407873211f65ecd6bd4b950e3e64d1e0318b1db1f65faa99ea6da363b0b"
+      "sha256_canonical": "374e34378100554c5215c346d2a33ab2259a0564ebf059397274ac5488f01549"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "59e72470c79a06398171cc6f15f2bdb51d7b2c1a8ef754460d64fbfeecc47d13"
+      "sha256_canonical": "e3757d77acd2e6929e6b1b4385c09ce5b59b70fb2f1043cbd51d4593aaa83a41"
     },
     {
       "path": "frontend/src/discovery/Discovery.test.ts",
@@ -2508,9 +2678,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "3f79bf92670c28dd08c1c7ffa61cfd897f72b05fcc857f8b1c9ef71dba5f1db4"
+      "sha256_canonical": "25c876921e0edd08a06508e87dcfc553d0789e9deae5d6b3a74daab47c7b6812"
     },
     {
       "path": "frontend/src/life/FoodPage.vue",
@@ -2556,9 +2727,10 @@
       "path": "frontend/src/life/LifeFeed.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "43e172aaa202caa4bb39dcd8201b5538981f2b0de46cd84068dca2973721287d"
+      "sha256_canonical": "46763748a8fa60ac335b861047b389a1db59c6f69d2693cb354b7d29e6c0d286"
     },
     {
       "path": "frontend/src/life/PhotoGallery.vue",
@@ -2701,9 +2873,10 @@
       "path": "frontend/src/reading/InlineMedia.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P010"
       ],
-      "sha256_canonical": "fc78e83ea7d93bcfbd6043471e3bfd9685794660002c19c0b8e87cd87851e788"
+      "sha256_canonical": "39e8072f85ad9aa653dfbdc9bf8eb4b8980b2bb70be800560b09870b1f894533"
     },
     {
       "path": "frontend/src/reading/Navigation.test.ts",
@@ -3031,17 +3204,20 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "295eacafcbb6a6e37ef6eb34e6744df9e4c85b9b52c67f1e8bb1264cd491592d"
+      "sha256_canonical": "6111e2047e04dc0032d29c25f245f0320c883dac91140e4325ec696f58791739"
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008",
+        "P010"
       ],
-      "sha256_canonical": "2f82e44ede01cc75a3a77f3b4af1ffbb80ab90b1ecf938228ccc964212915f8a"
+      "sha256_canonical": "0b50192dbd34aae2ebe4b899f4ca4ce8bdea19098f791ae30f0d8c377898c992"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -3087,35 +3263,61 @@
       "path": "frontend/src/writing/EntryCard.test.ts",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "9bcdc06a87b772be695b0ec9028700904fe3e7d8734465a83b16956b888ec234"
+      "sha256_canonical": "dc0535597fe3dbdb2877d96db81c444224944b6673ee4ee467298d772956e72c"
     },
     {
       "path": "frontend/src/writing/EntryCard.vue",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "7afbb5b63bac4ac039d8d05230d3678585cb09f43b3eaac54de4244b5fd24ccd"
+      "sha256_canonical": "bf1aeebb9607fc3da7150f29e2e4558d4c30bbd349dcecd080e20d3232cde8ec"
     },
     {
       "path": "frontend/src/writing/EntryForm.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008",
+        "P010",
+        "P012"
       ],
-      "sha256_canonical": "4fb9384ed50fed7ca364260a8e57a7ab7cb4ed492a942c5f8d7d0b6cc6891ba3"
+      "sha256_canonical": "8220bdfe83500765465d514c1b4dffc69ae2f31e43c6c08da7d6f88c4137065d"
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008",
+        "P009",
+        "P010"
       ],
-      "sha256_canonical": "ebf0d342f71acbcfc2771e7b3e439de09d31158659b6ea1b185a1afc1f59d865"
+      "sha256_canonical": "349dc1ff5acb8e3acfac6ed521f46289105ee97d10ef167da49f72eeed7733c1"
+    },
+    {
+      "path": "frontend/src/writing/EntryTargetPicker.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "4bad386c48cb5ed29238601dd8edb9d08d87149c0c8d8a588ee5ef03abd866b7"
+    },
+    {
+      "path": "frontend/src/writing/EntryTargetPicker.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "1c590507ecdedabe44e5082d2c42025e9a557b9913cc67fbb25b0526567d0e73"
     },
     {
       "path": "frontend/src/writing/FoodMediaEditor.test.ts",
@@ -3183,6 +3385,34 @@
       "sha256_canonical": "dab174684ba1319e6290883d80091967498516591636943d3aa173659853d563"
     },
     {
+      "path": "frontend/src/writing/TimeZoneSelect.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P010"
+      ],
+      "sha256_canonical": "5d9db7f9e1fe1edd1b5b4737f0009c1843708b9275f90e92839a3c876c416578"
+    },
+    {
+      "path": "frontend/src/writing/TransportTimeFields.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P010"
+      ],
+      "sha256_canonical": "fe5bebe624de977f0fc21e06aff5e545211a32c8c15e7a24c4da6b24b81cb58c"
+    },
+    {
+      "path": "frontend/src/writing/TransportTimeFields.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P010",
+        "P012"
+      ],
+      "sha256_canonical": "8d09c1997b0a14fbac369eacd84a09c972e61173b630a4fb262f94e15120e6c5"
+    },
+    {
       "path": "frontend/src/writing/V5Pages.test.ts",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
@@ -3194,9 +3424,10 @@
       "path": "frontend/src/writing/WritePage.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P012"
       ],
-      "sha256_canonical": "650915ae55946fd0169934ea5aa6bc31cd4bf997c11fcc1a34f6067c453c4e12"
+      "sha256_canonical": "96031647edc174b38b4fb036b75b6f256a87480d0be95772ff7a65d01cfbe3ce"
     },
     {
       "path": "frontend/src/writing/Writing.test.ts",
@@ -3215,6 +3446,103 @@
       "sha256_canonical": "fc979a2747ed7ecbb28cfe91039686981f8c4c4333b256a49ab57e336a645324"
     },
     {
+      "path": "frontend/src/writing/cards/EntryCardActions.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "ee3388d24a6171d0fe10a622805d50cff7c3354fcd967d398d84b860376f4c68"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardActions.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "c620a488821d0dff6dc71692557dda94bb89b5dc6e9f8cf610fe5a726549b758"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardMedia.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "59fa0d2c16f2f906b00b8cfb60c1f09df48ab77f2725bf6623a2e52428e01426"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardNotes.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "61d9dd8ef87ff5249dbada2cdbc2e967e700335a617965262d5c97a625e72035"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardShell.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "41b6d54df4fd6eecf4dddc06238a29ad1919d7f48e1ead1c99bddfb251af5207"
+    },
+    {
+      "path": "frontend/src/writing/cards/FoodCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "f22688621e1293f3ec642d160e308137d62c6414d54a50973d52f5c00f128561"
+    },
+    {
+      "path": "frontend/src/writing/cards/GiftCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "31da05d915c377f88a0098396ef5032f43de0e24934f811b22fd0547fbbb4d15"
+    },
+    {
+      "path": "frontend/src/writing/cards/LocationCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "e698f366f2157a1d0527bae3429f960e34cd8274ee7e71006e09b320bedb282d"
+    },
+    {
+      "path": "frontend/src/writing/cards/MovieCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "9a9b5269d3966df14033ba47ad7acec4f12cb23d573e0b67bd6fe4f025d32815"
+    },
+    {
+      "path": "frontend/src/writing/cards/ShowCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "9596037f3102d247403b5eaf112afc910c2b1f25180d11efc62fe822064aaa4c"
+    },
+    {
+      "path": "frontend/src/writing/cards/TransportCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010",
+        "P012"
+      ],
+      "sha256_canonical": "c7c998b5e6c06d222eea9f5027ff1a2ceda97e2e59041298002fb41585ceb9ae"
+    },
+    {
+      "path": "frontend/src/writing/cards/cardFields.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "cf101027a9f46547bd1aa5c426347c8212c05308229166920f142be84a843e12"
+    },
+    {
       "path": "frontend/src/writing/caret.ts",
       "classification": "project-api-or-standard-algorithm-adapter",
       "evidence": [
@@ -3226,9 +3554,43 @@
       "path": "frontend/src/writing/entries.ts",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P010"
       ],
-      "sha256_canonical": "bda928924a52c22e121ce7a280bbc41639745f2ab03ff49e79544ab0bf304837"
+      "sha256_canonical": "957f6594c270fa8ec517674822902274a55cbc7a0eb30090c7b0ae0b88f47ba7"
+    },
+    {
+      "path": "frontend/src/writing/entryDocument.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "4cf22ce0d6727af6e6d3a17b417368b5b8c78994ee4c32f0a54460223f4b9332"
+    },
+    {
+      "path": "frontend/src/writing/entryDocument.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "84a930c9cd07d2f5179a48a33bc19f6d6486710d67ef40941123cdd991e81d25"
+    },
+    {
+      "path": "frontend/src/writing/entryStructure.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "a696dce437480cce620eeb54604e43dd3b23120b113322fd777e2fc4f28a1f1e"
+    },
+    {
+      "path": "frontend/src/writing/entryTransfer.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "f5f016371a6d28498214f928561da40bee750d5d8cd0fa45020249865113d41a"
     },
     {
       "path": "frontend/src/writing/extensions.ts",
@@ -3312,6 +3674,24 @@
       "sha256_canonical": "0b377f37455db9552b2978bac15b9186122dd7dfd9c8c043761bb279deacd90d"
     },
     {
+      "path": "frontend/src/writing/zonedTime.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P010"
+      ],
+      "sha256_canonical": "4cae90abbe899b080e6c9f45831276756ca582bf6d7c0ee19894dca585f5c718"
+    },
+    {
+      "path": "frontend/src/writing/zonedTime.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P010"
+      ],
+      "sha256_canonical": "2480d40956fb0a0f85355e535c6c06cc23a443277c6cf6a0ddba4546e5b5664a"
+    },
+    {
       "path": "frontend/tsconfig.json",
       "classification": "owner-declared-project-material",
       "evidence": [
@@ -3353,6 +3733,15 @@
         "P007"
       ],
       "sha256_canonical": "634602e9e6ef0185d0ed9c088e6a1f455a2c276470bdc73b536c878818ad0d96"
+    },
+    {
+      "path": "licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011",
+        "P012"
+      ],
+      "sha256_canonical": "7e37bc4d3d78f3f377bd784ae6687ccbf5bba3630edc1acb5d173c6d4c189370"
     },
     {
       "path": "licensing/GPL-3.0.txt",
@@ -3399,9 +3788,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P001"
+        "P001",
+        "P011"
       ],
-      "sha256_canonical": "ef806a25f9baa991b2f2a78e12f546cfa6303b980631fe9bf73b09d051c5db2b"
+      "sha256_canonical": "a78c5f0251dc9b759f9a79ea44043914e4da32314011b1e72d506bce0bda48a1"
     },
     {
       "path": "licensing/proposal.json",
@@ -3495,9 +3885,10 @@
       "evidence": [
         "J001",
         "P004",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "3a506855f404fce2c78a73f5e5f214d9c855dea08a1ed70a4eaa840d33c261c0"
+      "sha256_canonical": "54cc671876097b1eb07192e4a1bab5b473ae3349ba23bc84a384a2be74bcd24f"
     },
     {
       "path": "scripts/prepare_distribution.py",
@@ -3506,9 +3897,10 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "2982100feac550722b014adfdba864f77efb8884e1743cb70f472f1c1aa64acf"
+      "sha256_canonical": "386a127a87fb47582e25a55383f027b096deb387e71a95b06c69bbe30664841e"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -3535,21 +3927,31 @@
       "sha256_canonical": "f5a223a103eede8118798327ab335281e3e9bbdefdf8ba0832cb14edf0063d69"
     },
     {
+      "path": "scripts/release_artifact_cleanup.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "412ab2b0f27fbed2b534bdd0aae3d47574bfdef58e9dbb9a4894e39cf75c5950"
+    },
+    {
       "path": "scripts/release_authorization.py",
       "classification": "project-original-source",
       "evidence": [
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "853fb6616571f512fe7d55828fd5b215d98bb80491e86d28028544a92c2d0f8d"
+      "sha256_canonical": "6922f120242687a5cccd9650520b73c9952972ae746e212baf7415d5137cec2b"
     },
     {
       "path": "scripts/release_local.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P011"
       ],
-      "sha256_canonical": "c20c9a008c75d9d0704f9d3515d34ba432be3ad2c332969b2e397e52119e542a"
+      "sha256_canonical": "0545bbd2a1c69ca832f59135997dde2bcf17ea70d9160c2cc361ec02c7a1551d"
     },
     {
       "path": "scripts/release_preflight.py",
@@ -3557,9 +3959,10 @@
       "evidence": [
         "P004",
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d356f15db42406f1502e5bcf33656da9b6c4c951a0965e36d1798a0164e740c3"
+      "sha256_canonical": "0ec637dc702b67c3b5e247474ccc0ebbc044bf5cbf2e8d903182ddc939549f02"
     },
     {
       "path": "scripts/release_source.py",
@@ -3607,9 +4010,10 @@
       "evidence": [
         "P004",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "0d24644912a08ea7263ffb372e286d068e7c4ff84849b1c4a53f66b43336ece7"
+      "sha256_canonical": "2335f01f57ffe01b1afa7e178b082b79a4c39f84c0c0527e5be0dabb05b9c5a2"
     },
     {
       "path": "scripts/unified_images.py",
@@ -3647,9 +4051,11 @@
       "path": "tests/browser_writing_preview.py",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010",
+        "P012"
       ],
-      "sha256_canonical": "6528850429f0132f919818b1cafd462f357e85945c472165fa834a31ebb5cadc"
+      "sha256_canonical": "c8868692b93f76ef6d381b7afd4079b56b28e255155c615e571b0441a0677e3a"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -3693,9 +4099,10 @@
       "classification": "project-original-v5110-development",
       "evidence": [
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "5be5789dceffa9d0d5bd0a3ea4cad88d116e901ecebe0161f16bb645d1f9bc6e"
+      "sha256_canonical": "30e5ad07ed5c5bf732aed63e50b1117c062ac2b793a20d5327820d3131d89f06"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -3792,6 +4199,24 @@
         "J005"
       ],
       "sha256_canonical": "4b6a9af25a41070d3d111d073525e8fad5a5dedd66f1f60e8cae1103c7d5e36d"
+    },
+    {
+      "path": "tests/test_advanced_notification_api.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "2540630402c4e4062c782fed342ce9a51f3a691779c4d328eee727a83de29388"
+    },
+    {
+      "path": "tests/test_advanced_notifications.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "b57eceef77cc877396a40b7ba979e0ac9ffa2889a80decc4bf521d800894f858"
     },
     {
       "path": "tests/test_anniversary_calendar.py",
@@ -3971,6 +4396,15 @@
         "J005"
       ],
       "sha256_canonical": "b6639aa771c2682f5624dd729c71f6ad8f59d3823ebfa9bf3fa20283cc061528"
+    },
+    {
+      "path": "tests/test_entry_operations.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P009"
+      ],
+      "sha256_canonical": "34036b9c639d0a344e59832f807d196a598059797bb4200b15159adccb6096d2"
     },
     {
       "path": "tests/test_exchange_assemble.py",
@@ -4248,9 +4682,10 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "175ac1c1951cd64519ecd3d5acd4aadbf10b550bdbe6354114761600239d5b45"
+      "sha256_canonical": "977fa6293b7b8d9d0dcac5ec39794e21fb8003b19c0da0b0d06069193e18f063"
     },
     {
       "path": "tests/test_product_version.py",
@@ -4268,9 +4703,11 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P011",
+        "P012"
       ],
-      "sha256_canonical": "dd0ab2eb400147ab970c866e98ca337c24c25cf647ce79e9c28f6a980b55ccee"
+      "sha256_canonical": "03eb34da7a9e24684d732d3e75ef2ce26f5d89b8b5c593db5ee909098fedd02f"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -4289,6 +4726,15 @@
       "sha256_canonical": "b3f83c82ac133eb92b9827c437adcd46dd0a301ccfc48d06b6e42c489618b28a"
     },
     {
+      "path": "tests/test_record_mode_projection.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008",
+        "P011"
+      ],
+      "sha256_canonical": "40ee5b477936fa1a8110b51406cc5994dd8dec61639a90ba70d0c69fe59105fa"
+    },
+    {
       "path": "tests/test_recovery.py",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
@@ -4297,13 +4743,22 @@
       "sha256_canonical": "6ebdf661931b6dd772ddd87e55c63042e7a321999b89f533821e56dbcb54780d"
     },
     {
+      "path": "tests/test_release_artifact_cleanup.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P011"
+      ],
+      "sha256_canonical": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+    },
+    {
       "path": "tests/test_release_preflight.py",
       "classification": "project-original-formal-release-engineering",
       "evidence": [
         "P005",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "e129581f34a07566f698daae807bf67469f03cf92d7c4e43a4d36a01405e2022"
+      "sha256_canonical": "f2275df72ca38de57e6ff15be3b21721db2c49990b253ae5b79106c917a9c1f3"
     },
     {
       "path": "tests/test_release_source.py",
@@ -4453,9 +4908,10 @@
         "P001",
         "P003",
         "P004",
-        "P007"
+        "P007",
+        "P011"
       ],
-      "sha256_canonical": "d9aabfaeecad4df3dce34fa8a9c735f0b9eaf6a4d2d2de1a400b3481696d14c8"
+      "sha256_canonical": "e6c43370bbaf9458539db40e5d04b69a5aea08fe33e4744adaa0248c767bd81d"
     },
     {
       "path": "third_party/SOURCE_BUILD.md",
@@ -7820,7 +8276,12 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P008",
+        "P009",
+        "P010",
+        "P011",
+        "P012"
       ],
       "sha256_canonical": null
     },
@@ -7835,5 +8296,5 @@
     }
   ],
   "maintenance_baseline": "cd3182450f6163d40f1e5221c9e4483850546884",
-  "development_baseline": "e1c1d9dc1864929e72172113b39b3796b3acb907"
+  "development_baseline": "fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2"
 }

@@ -1,5 +1,8 @@
 """Admin-only, feature-gated dynamic content. No public/private reader API is added."""
 import uuid
+from typing import Literal
+from pydantic import Field
+from ..content_schemas import StrictModel
 from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import select, update, func
@@ -127,3 +130,36 @@ def delete_record(id:UUID,data:DeleteIn,db:Session=Depends(db_dep),user:User=Dep
     if result.rowcount!=1:raise HTTPException(409,'记录已被修改，请重新读取后删除')
     db.flush();db.expire_all();r=db.get(ContentRecord,r.id);revision_snapshot(db,r,user.id);commit(db)
     return {'ok':True}
+
+
+class EntryOperation(StrictModel):
+    operation:Literal['copy','move']
+    target_id:UUID
+    entry_id:UUID
+    request_id:UUID
+    source_revision:int=Field(ge=1)
+    target_revision:int=Field(ge=1)
+
+
+@router.post('/records/{id}/entry-operation')
+def entry_operation(id:UUID,data:EntryOperation,db:Session=Depends(db_dep),user:User=Depends(require_dynamic_blog)):
+    from ..services.entry_operations import operate
+    try:
+        result=operate(db,id,data,user.id)
+        commit(db)
+        return result
+    except BaseException:
+        db.rollback()
+        raise
+
+
+@router.get('/entry-targets')
+def entry_targets(q:str=Query('',max_length=200),page:int=Query(1,ge=1,le=100000),exclude_id:UUID|None=None,db:Session=Depends(db_dep)):
+    from ..services.record_mode import record_modes
+    query=select(ContentRecord.id,ContentRecord.title,ContentRecord.display_date,ContentRecord.revision,ContentRecord.updated_at,ContentRecord.status).join(ContentType,ContentType.id==ContentRecord.type_id).where(ContentRecord.deleted_at.is_(None),ContentType.active.is_(True))
+    if q.strip():query=query.where(ContentRecord.title.icontains(q.strip(),autoescape=True))
+    if exclude_id:query=query.where(ContentRecord.id!=str(exclude_id))
+    total=db.scalar(select(func.count()).select_from(query.subquery()))
+    rows=db.execute(query.order_by(ContentRecord.updated_at.desc(),ContentRecord.id).offset((page-1)*20).limit(20)).all()
+    modes=record_modes(db,rows)
+    return {'items':[{'id':r.id,'title':r.title,'date':r.display_date.isoformat(),'revision':r.revision,'status':r.status,'travel_enabled':modes[r.id]} for r in rows],'total':total,'page':page,'page_size':20}
