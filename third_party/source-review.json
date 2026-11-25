@@ -1639,7 +1639,7 @@
       "evidence": [
         "P008"
       ],
-      "sha256_canonical": "beb1b874699128aa2f3fa45b0fe3a4e1154f5369bcd7d8654dcb80e9ea557f28"
+      "sha256_canonical": "099409556f3536f77696369c84b9170c39fb8c8c7318f12a91b39ca4d57f59c6"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -2377,7 +2377,7 @@
         "P006",
         "P008"
       ],
-      "sha256_canonical": "19f9d41baac507e8fc7e8787ba2d208f1cf22490b85ae8b0aa60f631127ed5ce"
+      "sha256_canonical": "5622629f3c8973407fd3e8bc507ee97bd1e5058f53b91aa92aedef416559e041"
     },
     {
       "path": "frontend/src/dev/WritingPreview.vue",
@@ -3125,9 +3125,10 @@
       "path": "frontend/src/writing/BodyEditor.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "2f82e44ede01cc75a3a77f3b4af1ffbb80ab90b1ecf938228ccc964212915f8a"
+      "sha256_canonical": "703194affd7201d8d9d97e5c2a0e69a90544b214655183ca484666fb867242d5"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -3190,9 +3191,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008"
       ],
-      "sha256_canonical": "4fb9384ed50fed7ca364260a8e57a7ab7cb4ed492a942c5f8d7d0b6cc6891ba3"
+      "sha256_canonical": "678decf41f30549d2cb49b25b8739cc04d7d702cb33e60052a65f03246457675"
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
@@ -3202,7 +3204,7 @@
         "P006",
         "P008"
       ],
-      "sha256_canonical": "63081ff28f69fdb35fab435970f623a0cf72bc58194d5a1beb20b0a38f92be66"
+      "sha256_canonical": "924b52eef9836c3713f13bba6156bc16679d46f057f3d8562b33bc343fd3e348"
     },
     {
       "path": "frontend/src/writing/EntryTargetPicker.test.ts",
@@ -3284,6 +3286,30 @@
         "J005"
       ],
       "sha256_canonical": "dab174684ba1319e6290883d80091967498516591636943d3aa173659853d563"
+    },
+    {
+      "path": "frontend/src/writing/TimeZoneSelect.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "5d9db7f9e1fe1edd1b5b4737f0009c1843708b9275f90e92839a3c876c416578"
+    },
+    {
+      "path": "frontend/src/writing/TransportTimeFields.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "fe5bebe624de977f0fc21e06aff5e545211a32c8c15e7a24c4da6b24b81cb58c"
+    },
+    {
+      "path": "frontend/src/writing/TransportTimeFields.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "bbce82eae3516c2495d23a419eded41e62e047874d914c71a3afcc6b5dac3c79"
     },
     {
       "path": "frontend/src/writing/V5Pages.test.ts",
@@ -3421,6 +3447,22 @@
         "J001"
       ],
       "sha256_canonical": "0b377f37455db9552b2978bac15b9186122dd7dfd9c8c043761bb279deacd90d"
+    },
+    {
+      "path": "frontend/src/writing/zonedTime.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "4cae90abbe899b080e6c9f45831276756ca582bf6d7c0ee19894dca585f5c718"
+    },
+    {
+      "path": "frontend/src/writing/zonedTime.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "2480d40956fb0a0f85355e535c6c06cc23a443277c6cf6a0ddba4546e5b5664a"
     },
     {
       "path": "frontend/tsconfig.json",
