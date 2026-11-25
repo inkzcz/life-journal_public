@@ -25,7 +25,7 @@ it('retains dated details, multiline reflections, known historical fields and so
  const value=entry('m');value.fields={date:'2026-11-22',time:'19:30',cinema:'合成影院'.repeat(30),review:'第一行\n第二行',seat:'',person:'合成同行人'}
  value.media_ids=['22222222-2222-4222-8222-222222222222']
  const before=serializeEntry(value),dom=mount(value,true)
- expect(dom.querySelector('.entry-details')?.textContent).toContain('2026-11-22')
+ expect(dom.querySelector('.movie-information')?.textContent).toContain('2026-11-22')
  expect(dom.querySelector('.entry-details')?.textContent).toContain('合成同行人')
  expect(dom.querySelector('.entry-reflection p')?.textContent).toBe('第一行\n第二行')
  expect(dom.textContent).not.toContain('座位')
@@ -41,3 +41,6 @@ it('shows source-authored place notes without exposing internal UUIDs or executi
  expect(dom.textContent).toContain('2026-11-22');expect(dom.textContent).not.toContain(value.fields.place_id)
  expect(dom.querySelector('script,img')).toBeNull()
 })
+
+it('renders G8533 as two endpoints and an actual duration without inventing arrival station',()=>{const value=entry('t');value.name='G8533';value.fields={transport_type:'高铁',departure:'重庆',destination:'成都',departure_station:'沙坪坝',departure_at:'2026-11-13T15:43+08:00',arrival_at:'2026-11-13T17:36+08:00'};const dom=mount(value);expect(dom.querySelector('.route-start')?.textContent).toContain('15:43重庆沙坪坝');expect(dom.querySelector('.route-end')?.textContent).toBe('17:36成都');expect(dom.querySelector('.route-duration')?.textContent).toBe('1小时53分钟');expect(dom.querySelector('.route-end p')).toBeNull();expect(dom.querySelector('.entry-details')).toBeNull()})
+it('uses six distinct content structures and preserves unknown legal historical fields',()=>{const value=entry('f');value.fields={rating:'4.5',price_per_person:'98',custom_memory:'合成未知扩展'};const dom=mount(value);expect(dom.querySelector('.food-meal.no-media')).not.toBeNull();expect(dom.querySelector('.card-rating')?.textContent).toBe('4.5');expect(dom.textContent).not.toContain('/ 5');expect(dom.textContent).not.toContain('¥');expect(dom.querySelector('.entry-extra')?.textContent).toContain('合成未知扩展')})

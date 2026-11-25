@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "099409556f3536f77696369c84b9170c39fb8c8c7318f12a91b39ca4d57f59c6"
+      "sha256": "9a6f8c6c373e8c3d14e947d2c5d1c411c5c4bfbf3214d7cf02428bc35764969b"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1052,11 +1052,11 @@
     },
     {
       "path": "frontend/src/dev/WritingPreview.vue",
-      "sha256": "8e35da0e76d342a2990f79c76e96ca5ea8f67eaa1dcd70ae28d699c8c6d72cf9"
+      "sha256": "f2d1d21fc36b8947a06b309d046d4d767167ef1063c0f409a44f3be057316c2f"
     },
     {
       "path": "frontend/src/dev/preview.ts",
-      "sha256": "0fe5b407873211f65ecd6bd4b950e3e64d1e0318b1db1f65faa99ea6da363b0b"
+      "sha256": "374e34378100554c5215c346d2a33ab2259a0564ebf059397274ac5488f01549"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
@@ -1156,7 +1156,7 @@
     },
     {
       "path": "frontend/src/life/ExperiencePage.vue",
-      "sha256": "3f79bf92670c28dd08c1c7ffa61cfd897f72b05fcc857f8b1c9ef71dba5f1db4"
+      "sha256": "25c876921e0edd08a06508e87dcfc553d0789e9deae5d6b3a74daab47c7b6812"
     },
     {
       "path": "frontend/src/life/FoodPage.vue",
@@ -1252,7 +1252,7 @@
     },
     {
       "path": "frontend/src/reading/InlineMedia.vue",
-      "sha256": "fc78e83ea7d93bcfbd6043471e3bfd9685794660002c19c0b8e87cd87851e788"
+      "sha256": "39e8072f85ad9aa653dfbdc9bf8eb4b8980b2bb70be800560b09870b1f894533"
     },
     {
       "path": "frontend/src/reading/Navigation.test.ts",
@@ -1420,7 +1420,7 @@
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
-      "sha256": "703194affd7201d8d9d97e5c2a0e69a90544b214655183ca484666fb867242d5"
+      "sha256": "0b50192dbd34aae2ebe4b899f4ca4ce8bdea19098f791ae30f0d8c377898c992"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -1444,11 +1444,11 @@
     },
     {
       "path": "frontend/src/writing/EntryCard.test.ts",
-      "sha256": "9bcdc06a87b772be695b0ec9028700904fe3e7d8734465a83b16956b888ec234"
+      "sha256": "dc0535597fe3dbdb2877d96db81c444224944b6673ee4ee467298d772956e72c"
     },
     {
       "path": "frontend/src/writing/EntryCard.vue",
-      "sha256": "7afbb5b63bac4ac039d8d05230d3678585cb09f43b3eaac54de4244b5fd24ccd"
+      "sha256": "bf1aeebb9607fc3da7150f29e2e4558d4c30bbd349dcecd080e20d3232cde8ec"
     },
     {
       "path": "frontend/src/writing/EntryForm.vue",
@@ -1456,7 +1456,7 @@
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
-      "sha256": "924b52eef9836c3713f13bba6156bc16679d46f057f3d8562b33bc343fd3e348"
+      "sha256": "349dc1ff5acb8e3acfac6ed521f46289105ee97d10ef167da49f72eeed7733c1"
     },
     {
       "path": "frontend/src/writing/EntryTargetPicker.test.ts",
@@ -1527,12 +1527,72 @@
       "sha256": "fc979a2747ed7ecbb28cfe91039686981f8c4c4333b256a49ab57e336a645324"
     },
     {
+      "path": "frontend/src/writing/cards/EntryCardActions.test.ts",
+      "sha256": "ee3388d24a6171d0fe10a622805d50cff7c3354fcd967d398d84b860376f4c68"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardActions.vue",
+      "sha256": "c620a488821d0dff6dc71692557dda94bb89b5dc6e9f8cf610fe5a726549b758"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardMedia.vue",
+      "sha256": "59fa0d2c16f2f906b00b8cfb60c1f09df48ab77f2725bf6623a2e52428e01426"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardNotes.vue",
+      "sha256": "61d9dd8ef87ff5249dbada2cdbc2e967e700335a617965262d5c97a625e72035"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardShell.vue",
+      "sha256": "41b6d54df4fd6eecf4dddc06238a29ad1919d7f48e1ead1c99bddfb251af5207"
+    },
+    {
+      "path": "frontend/src/writing/cards/FoodCard.vue",
+      "sha256": "f22688621e1293f3ec642d160e308137d62c6414d54a50973d52f5c00f128561"
+    },
+    {
+      "path": "frontend/src/writing/cards/GiftCard.vue",
+      "sha256": "31da05d915c377f88a0098396ef5032f43de0e24934f811b22fd0547fbbb4d15"
+    },
+    {
+      "path": "frontend/src/writing/cards/LocationCard.vue",
+      "sha256": "e698f366f2157a1d0527bae3429f960e34cd8274ee7e71006e09b320bedb282d"
+    },
+    {
+      "path": "frontend/src/writing/cards/MovieCard.vue",
+      "sha256": "9a9b5269d3966df14033ba47ad7acec4f12cb23d573e0b67bd6fe4f025d32815"
+    },
+    {
+      "path": "frontend/src/writing/cards/ShowCard.vue",
+      "sha256": "9596037f3102d247403b5eaf112afc910c2b1f25180d11efc62fe822064aaa4c"
+    },
+    {
+      "path": "frontend/src/writing/cards/TransportCard.vue",
+      "sha256": "3a8dc83243bfbccf50089daa432b34615b52b3663ddd5b0086abba6246d8d9d1"
+    },
+    {
+      "path": "frontend/src/writing/cards/cardFields.ts",
+      "sha256": "cf101027a9f46547bd1aa5c426347c8212c05308229166920f142be84a843e12"
+    },
+    {
       "path": "frontend/src/writing/caret.ts",
       "sha256": "b54a00ec62f5df935b7993a4a0d8b9418059cab0c8a1a2ba0d03472e567e3908"
     },
     {
       "path": "frontend/src/writing/entries.ts",
-      "sha256": "bda928924a52c22e121ce7a280bbc41639745f2ab03ff49e79544ab0bf304837"
+      "sha256": "957f6594c270fa8ec517674822902274a55cbc7a0eb30090c7b0ae0b88f47ba7"
+    },
+    {
+      "path": "frontend/src/writing/entryDocument.test.ts",
+      "sha256": "4cf22ce0d6727af6e6d3a17b417368b5b8c78994ee4c32f0a54460223f4b9332"
+    },
+    {
+      "path": "frontend/src/writing/entryDocument.ts",
+      "sha256": "84a930c9cd07d2f5179a48a33bc19f6d6486710d67ef40941123cdd991e81d25"
+    },
+    {
+      "path": "frontend/src/writing/entryStructure.test.ts",
+      "sha256": "a696dce437480cce620eeb54604e43dd3b23120b113322fd777e2fc4f28a1f1e"
     },
     {
       "path": "frontend/src/writing/entryTransfer.ts",
@@ -1744,7 +1804,7 @@
     },
     {
       "path": "tests/browser_writing_preview.py",
-      "sha256": "6528850429f0132f919818b1cafd462f357e85945c472165fa834a31ebb5cadc"
+      "sha256": "db052a291adffe5445f1f28487be7808e69589859eb08b02a3a3fffb281658f5"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -3824,7 +3884,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "ed5cde095724b8a3625bfdd48ad3c3bd2f2e442a226923d99d72b500d336560a"
+      "sha256": "abe9dc94a493f2c511de01513bfba3727d3d8f2bb83e266a8ea015265f681668"
     },
     {
       "path": "third_party/source-scope.json",

@@ -1,0 +1,7 @@
+<script setup lang="ts">
+import type {Entry} from '../entries'
+import EntryCardMedia from './EntryCardMedia.vue'
+import EntryCardNotes from './EntryCardNotes.vue'
+withDefaults(defineProps<{entry:Entry;heading?:'h2'|'h3'}>(),{heading:'h3'})
+</script>
+<template><div class="card-split movie-ticket" :class="{'no-media':!entry.media_ids.length}"><EntryCardMedia v-if="entry.media_ids.length" :ids="entry.media_ids" layout="poster"><template #default="media"><slot name="media" v-bind="media"/></template></EntryCardMedia><div class="movie-information"><component :is="heading" class="entry-title">{{entry.name}}</component><p v-if="entry.fields.original_title||entry.fields.release_year" class="card-subtitle">{{[entry.fields.original_title,entry.fields.release_year].filter(Boolean).join(' · ')}}</p><p v-if="entry.fields.rating" class="card-rating">{{entry.fields.rating}}<small v-if="['5','10'].includes(entry.fields.rating_scale||'')"> / {{entry.fields.rating_scale}}</small></p><p v-if="entry.fields.date||entry.fields.time" class="card-subtitle">{{[entry.fields.date,entry.fields.time].filter(Boolean).join(' · ')}}</p><p v-if="entry.fields.cinema" class="card-subtitle">{{entry.fields.cinema}}</p><p v-if="entry.fields.screen" class="card-subtitle">{{entry.fields.screen}}</p></div></div><EntryCardNotes :entry="entry" :used="['date','time','cinema','screen','rating','rating_scale','original_title','release_year']"/></template>

@@ -11,7 +11,7 @@ const previewContext=computed(()=>preview?.value!==undefined)
 const candidateImage=(id:string)=>previewImage(preview?.value,id)
 const index=ref(-1),dialog=ref<HTMLDialogElement|null>(null),admin=ref(false),message=ref(''),current=computed(()=>props.photos[index.value])
 let touchX=0,touchY=0
-async function open(m:MediaBlock){index.value=props.photos.indexOf(m);await nextTick();dialog.value?.showModal();try{admin.value=(await request('/admin/status')).is_admin}catch{admin.value=false}}
+async function open(m:MediaBlock){index.value=props.photos.findIndex(photo=>photo.id===m.id);await nextTick();dialog.value?.showModal();try{admin.value=(await request('/admin/status')).is_admin}catch{admin.value=false}}
 function close(){dialog.value?.close();index.value=-1}
 function next(n:number){if(props.photos.length)index.value=(index.value+n+props.photos.length)%props.photos.length}
 function swipe(e:TouchEvent){const end=e.changedTouches[0];if(end&&Math.abs(end.clientX-touchX)>45&&Math.abs(end.clientX-touchX)>Math.abs(end.clientY-touchY))next(end.clientX<touchX?1:-1)}

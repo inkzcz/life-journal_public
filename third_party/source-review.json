@@ -187,6 +187,14 @@
       "source": "Original v5.1.11 structured request template, pinned HTTP transport extensions, configuration UI and synthetic test work under owner task. No external implementation, icon, font, media or new runtime dependency copied. Also records original phase-two transfer/picker increments.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments; third-party grants remain unchanged.",
       "decision": "Reviewed enumerated changed/new source bytes and synthetic tests only. 410 historical legal texts preserved. Functional local checks are not a completed PG/browser/Docker/release acceptance or a real terminal notification."
+    },
+    {
+      "id": "P010",
+      "review_date": "2026-11-25",
+      "review_baseline": "1880e83",
+      "source": "Original v5.1.11 phase-four IANA conversion and selectors, phase-five six-kind layouts, original elementary vehicle SVG geometry, parser/document menu operations and synthetic browser/unit tests under owner task. No external implementation, font, photograph or runtime dependency added.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments; third-party grants and 410 historical legal texts preserved.",
+      "decision": "Reviewed enumerated original source increments. Screenshots use existing original geometric fixture artwork and synthetic text only, saved outside the tracked source. No claim of completed PG/Docker/release or real device acceptance."
     }
   ],
   "files": [
@@ -719,7 +727,8 @@
       "path": "backend/app/calendar/request_templates.py",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "c81fe5eb20cdbd2f16a42ef5b3201527a51a7abf29248582fb381e7d3d3d1e02"
     },
@@ -729,7 +738,8 @@
       "evidence": [
         "J001",
         "P006",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "1f72f56f089a038c815953dedfbde64c5cafb715fbcfaa53c79fc1f4b96d8285"
     },
@@ -738,7 +748,8 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "0539059f64e191e898388838f7c232230fd9c985d9ae9583b917c86209e92265"
     },
@@ -747,7 +758,8 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "ff915123e429025d788d785ab91b64840e0be55ddb6b6519d72a489f5f4dfa74"
     },
@@ -756,7 +768,8 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "4464a0cbf23da48805b6f33ac0aa7a2565d7ea2bfddf517ee32396137f3a1c0e"
     },
@@ -766,7 +779,8 @@
       "evidence": [
         "J001",
         "P006",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "e02992d3b3d9edbe459dc932ecc2625e04e8daabec9b2fd4ef06bf1c4384bfdc"
     },
@@ -1115,7 +1129,8 @@
       "evidence": [
         "J001",
         "P006",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "886490da7d79e6d86a533323b97e7b984954e48042892fb8226734ea4b8e0c5e"
     },
@@ -1158,7 +1173,8 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "68205ca32a3c4ce0ff80b5baab7caa5486c9b3cdffc89c195669836fcba9d34f"
     },
@@ -1296,7 +1312,8 @@
       "path": "backend/app/services/entry_operations.py",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "d7558b2fa8dcaae66f87ddd905f630bfb8a601a09f588de108d77fe8340d39a6"
     },
@@ -1305,7 +1322,8 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "e9a1d86aafa9a30b8ed554523711df3c3f4899560ca66d13658e4c40c9ac357e"
     },
@@ -1637,9 +1655,11 @@
       "path": "docs/development/v5.1.11-progress.md",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009",
+        "P010"
       ],
-      "sha256_canonical": "099409556f3536f77696369c84b9170c39fb8c8c7318f12a91b39ca4d57f59c6"
+      "sha256_canonical": "9a6f8c6c373e8c3d14e947d2c5d1c411c5c4bfbf3214d7cf02428bc35764969b"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1903,7 +1923,8 @@
       "evidence": [
         "J001",
         "P006",
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "8e6dfdcaf173356ed7964a341dfebd35a01a82d8f5c5e42e7e63238c284add7f"
     },
@@ -2348,7 +2369,8 @@
       "path": "frontend/src/calendar/AdvancedNotificationFields.test.ts",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "92a8d484541bfaf2b3952ca01cbb122bcc4901d340e99ab510245793f32e92e9"
     },
@@ -2356,7 +2378,8 @@
       "path": "frontend/src/calendar/AdvancedNotificationFields.vue",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "453613da06112bf85bad72ce08141f937d891fe03c8802c06bc650b38e0d7918"
     },
@@ -2375,7 +2398,9 @@
       "evidence": [
         "J001",
         "P006",
-        "P008"
+        "P008",
+        "P009",
+        "P010"
       ],
       "sha256_canonical": "5622629f3c8973407fd3e8bc507ee97bd1e5058f53b91aa92aedef416559e041"
     },
@@ -2383,17 +2408,19 @@
       "path": "frontend/src/dev/WritingPreview.vue",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "8e35da0e76d342a2990f79c76e96ca5ea8f67eaa1dcd70ae28d699c8c6d72cf9"
+      "sha256_canonical": "f2d1d21fc36b8947a06b309d046d4d767167ef1063c0f409a44f3be057316c2f"
     },
     {
       "path": "frontend/src/dev/preview.ts",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "0fe5b407873211f65ecd6bd4b950e3e64d1e0318b1db1f65faa99ea6da363b0b"
+      "sha256_canonical": "374e34378100554c5215c346d2a33ab2259a0564ebf059397274ac5488f01549"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
@@ -2593,9 +2620,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "3f79bf92670c28dd08c1c7ffa61cfd897f72b05fcc857f8b1c9ef71dba5f1db4"
+      "sha256_canonical": "25c876921e0edd08a06508e87dcfc553d0789e9deae5d6b3a74daab47c7b6812"
     },
     {
       "path": "frontend/src/life/FoodPage.vue",
@@ -2787,9 +2815,10 @@
       "path": "frontend/src/reading/InlineMedia.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P010"
       ],
-      "sha256_canonical": "fc78e83ea7d93bcfbd6043471e3bfd9685794660002c19c0b8e87cd87851e788"
+      "sha256_canonical": "39e8072f85ad9aa653dfbdc9bf8eb4b8980b2bb70be800560b09870b1f894533"
     },
     {
       "path": "frontend/src/reading/Navigation.test.ts",
@@ -3126,9 +3155,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P008"
+        "P008",
+        "P010"
       ],
-      "sha256_canonical": "703194affd7201d8d9d97e5c2a0e69a90544b214655183ca484666fb867242d5"
+      "sha256_canonical": "0b50192dbd34aae2ebe4b899f4ca4ce8bdea19098f791ae30f0d8c377898c992"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -3174,17 +3204,19 @@
       "path": "frontend/src/writing/EntryCard.test.ts",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "9bcdc06a87b772be695b0ec9028700904fe3e7d8734465a83b16956b888ec234"
+      "sha256_canonical": "dc0535597fe3dbdb2877d96db81c444224944b6673ee4ee467298d772956e72c"
     },
     {
       "path": "frontend/src/writing/EntryCard.vue",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "7afbb5b63bac4ac039d8d05230d3678585cb09f43b3eaac54de4244b5fd24ccd"
+      "sha256_canonical": "bf1aeebb9607fc3da7150f29e2e4558d4c30bbd349dcecd080e20d3232cde8ec"
     },
     {
       "path": "frontend/src/writing/EntryForm.vue",
@@ -3192,7 +3224,8 @@
       "evidence": [
         "J001",
         "P006",
-        "P008"
+        "P008",
+        "P010"
       ],
       "sha256_canonical": "678decf41f30549d2cb49b25b8739cc04d7d702cb33e60052a65f03246457675"
     },
@@ -3202,15 +3235,18 @@
       "evidence": [
         "J001",
         "P006",
-        "P008"
+        "P008",
+        "P009",
+        "P010"
       ],
-      "sha256_canonical": "924b52eef9836c3713f13bba6156bc16679d46f057f3d8562b33bc343fd3e348"
+      "sha256_canonical": "349dc1ff5acb8e3acfac6ed521f46289105ee97d10ef167da49f72eeed7733c1"
     },
     {
       "path": "frontend/src/writing/EntryTargetPicker.test.ts",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "4bad386c48cb5ed29238601dd8edb9d08d87149c0c8d8a588ee5ef03abd866b7"
     },
@@ -3218,7 +3254,8 @@
       "path": "frontend/src/writing/EntryTargetPicker.vue",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "1c590507ecdedabe44e5082d2c42025e9a557b9913cc67fbb25b0526567d0e73"
     },
@@ -3291,7 +3328,8 @@
       "path": "frontend/src/writing/TimeZoneSelect.vue",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P010"
       ],
       "sha256_canonical": "5d9db7f9e1fe1edd1b5b4737f0009c1843708b9275f90e92839a3c876c416578"
     },
@@ -3299,7 +3337,8 @@
       "path": "frontend/src/writing/TransportTimeFields.test.ts",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P010"
       ],
       "sha256_canonical": "fe5bebe624de977f0fc21e06aff5e545211a32c8c15e7a24c4da6b24b81cb58c"
     },
@@ -3307,7 +3346,8 @@
       "path": "frontend/src/writing/TransportTimeFields.vue",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P010"
       ],
       "sha256_canonical": "bbce82eae3516c2495d23a419eded41e62e047874d914c71a3afcc6b5dac3c79"
     },
@@ -3344,6 +3384,102 @@
       "sha256_canonical": "fc979a2747ed7ecbb28cfe91039686981f8c4c4333b256a49ab57e336a645324"
     },
     {
+      "path": "frontend/src/writing/cards/EntryCardActions.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "ee3388d24a6171d0fe10a622805d50cff7c3354fcd967d398d84b860376f4c68"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardActions.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "c620a488821d0dff6dc71692557dda94bb89b5dc6e9f8cf610fe5a726549b758"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardMedia.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "59fa0d2c16f2f906b00b8cfb60c1f09df48ab77f2725bf6623a2e52428e01426"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardNotes.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "61d9dd8ef87ff5249dbada2cdbc2e967e700335a617965262d5c97a625e72035"
+    },
+    {
+      "path": "frontend/src/writing/cards/EntryCardShell.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "41b6d54df4fd6eecf4dddc06238a29ad1919d7f48e1ead1c99bddfb251af5207"
+    },
+    {
+      "path": "frontend/src/writing/cards/FoodCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "f22688621e1293f3ec642d160e308137d62c6414d54a50973d52f5c00f128561"
+    },
+    {
+      "path": "frontend/src/writing/cards/GiftCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "31da05d915c377f88a0098396ef5032f43de0e24934f811b22fd0547fbbb4d15"
+    },
+    {
+      "path": "frontend/src/writing/cards/LocationCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "e698f366f2157a1d0527bae3429f960e34cd8274ee7e71006e09b320bedb282d"
+    },
+    {
+      "path": "frontend/src/writing/cards/MovieCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "9a9b5269d3966df14033ba47ad7acec4f12cb23d573e0b67bd6fe4f025d32815"
+    },
+    {
+      "path": "frontend/src/writing/cards/ShowCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "9596037f3102d247403b5eaf112afc910c2b1f25180d11efc62fe822064aaa4c"
+    },
+    {
+      "path": "frontend/src/writing/cards/TransportCard.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "3a8dc83243bfbccf50089daa432b34615b52b3663ddd5b0086abba6246d8d9d1"
+    },
+    {
+      "path": "frontend/src/writing/cards/cardFields.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "cf101027a9f46547bd1aa5c426347c8212c05308229166920f142be84a843e12"
+    },
+    {
       "path": "frontend/src/writing/caret.ts",
       "classification": "project-api-or-standard-algorithm-adapter",
       "evidence": [
@@ -3355,15 +3491,41 @@
       "path": "frontend/src/writing/entries.ts",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P010"
       ],
-      "sha256_canonical": "bda928924a52c22e121ce7a280bbc41639745f2ab03ff49e79544ab0bf304837"
+      "sha256_canonical": "957f6594c270fa8ec517674822902274a55cbc7a0eb30090c7b0ae0b88f47ba7"
+    },
+    {
+      "path": "frontend/src/writing/entryDocument.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "4cf22ce0d6727af6e6d3a17b417368b5b8c78994ee4c32f0a54460223f4b9332"
+    },
+    {
+      "path": "frontend/src/writing/entryDocument.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "84a930c9cd07d2f5179a48a33bc19f6d6486710d67ef40941123cdd991e81d25"
+    },
+    {
+      "path": "frontend/src/writing/entryStructure.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P010"
+      ],
+      "sha256_canonical": "a696dce437480cce620eeb54604e43dd3b23120b113322fd777e2fc4f28a1f1e"
     },
     {
       "path": "frontend/src/writing/entryTransfer.ts",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "f5f016371a6d28498214f928561da40bee750d5d8cd0fa45020249865113d41a"
     },
@@ -3452,7 +3614,8 @@
       "path": "frontend/src/writing/zonedTime.test.ts",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P010"
       ],
       "sha256_canonical": "4cae90abbe899b080e6c9f45831276756ca582bf6d7c0ee19894dca585f5c718"
     },
@@ -3460,7 +3623,8 @@
       "path": "frontend/src/writing/zonedTime.ts",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P010"
       ],
       "sha256_canonical": "2480d40956fb0a0f85355e535c6c06cc23a443277c6cf6a0ddba4546e5b5664a"
     },
@@ -3800,9 +3964,10 @@
       "path": "tests/browser_writing_preview.py",
       "classification": "project-original-v5110-development",
       "evidence": [
-        "P006"
+        "P006",
+        "P010"
       ],
-      "sha256_canonical": "6528850429f0132f919818b1cafd462f357e85945c472165fa834a31ebb5cadc"
+      "sha256_canonical": "db052a291adffe5445f1f28487be7808e69589859eb08b02a3a3fffb281658f5"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -3950,7 +4115,8 @@
       "path": "tests/test_advanced_notification_api.py",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "2540630402c4e4062c782fed342ce9a51f3a691779c4d328eee727a83de29388"
     },
@@ -3958,7 +4124,8 @@
       "path": "tests/test_advanced_notifications.py",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "b57eceef77cc877396a40b7ba979e0ac9ffa2889a80decc4bf521d800894f858"
     },
@@ -4145,7 +4312,8 @@
       "path": "tests/test_entry_operations.py",
       "classification": "project-original-source",
       "evidence": [
-        "P008"
+        "P008",
+        "P009"
       ],
       "sha256_canonical": "34036b9c639d0a344e59832f807d196a598059797bb4200b15159adccb6096d2"
     },
@@ -8006,7 +8174,9 @@
         "P005",
         "P006",
         "P007",
-        "P008"
+        "P008",
+        "P009",
+        "P010"
       ],
       "sha256_canonical": null
     },
