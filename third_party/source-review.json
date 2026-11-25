@@ -227,6 +227,14 @@
       "source": "Original global local-card-draft lifetime registry, transfer/mode/AI/save/navigation protection, real Vue component tests and synthetic browser reproduction written within the public repository. No third-party implementation, media or private source imported.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments; all prior third-party notices and 410 historical legal texts preserved.",
       "decision": "Confirmed draft loss in actual production components with synthetic records only. A local NodeView form is outside the saved document and must block whole-document reload paths; preserve UUIDs and release the guard after save/cancel/unmount. New business bytes cannot be represented by immutable existing v5.1.11 tag. No schema/dependency/Compose/permission or historical authorization change."
+    },
+    {
+      "id": "P015",
+      "review_date": "2026-11-25",
+      "review_baseline": "4b2465b9fcc2dc9ec33293dc2df49749bd3d8cfe",
+      "source": "Original CI runner-only Chinese font setup and actual canvas pixel coverage assertion after manual download/review found tofu in synthetic visual artifacts. Trusted Ubuntu package manager installs fonts-noto-cjk only in ephemeral test runner; no font program or upstream implementation copied into tracked source or business image.",
+      "license": "Existing GPL-3.0-or-later original CI/test/documentation increments; Noto font package keeps its upstream licenses on the test runner. Screenshot glyph rendering does not embed/distribute font programs.",
+      "decision": "Preserve every existing security, artifact, runtime, source and legal gate; exact CI hash reviewed under the existing task. Keep previous technical-review hash and all original owner authorizations, 410 legal texts, root licenses and immutable tag unchanged. Formal old-tag release remains blocked by separately fixed P1."
     }
   ],
   "files": [
@@ -279,9 +287,10 @@
         "P007",
         "P011",
         "P012",
-        "P013"
+        "P013",
+        "P015"
       ],
-      "sha256_canonical": "a24a00a7c82601e79e68b9fea367056acfc2a9bf560e4bb551ae51a7a1382096"
+      "sha256_canonical": "0cd48ccdc8e9ae104070fd48deebf8d063a435bf6217aa2361ba6d79c75db59f"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -1704,9 +1713,10 @@
         "P011",
         "P012",
         "P013",
-        "P014"
+        "P014",
+        "P015"
       ],
-      "sha256_canonical": "16c11426d0b45e481c3577e7a60e6bb186f45049e1cdc38529ecf62dc0afc729"
+      "sha256_canonical": "de4a95d56bd5917ca5a23ce618ae6ac20673031c5aaa80974959ff8e4f771973"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -3837,9 +3847,10 @@
       "path": "licensing/v5.1.11-release-orchestration-review.json",
       "classification": "project-original-source",
       "evidence": [
-        "P013"
+        "P013",
+        "P015"
       ],
-      "sha256_canonical": "d3bb26d680c3cba3401bce844a732014eb94049cb290418df046bc62e1b862ea"
+      "sha256_canonical": "db5c888aea45d1c99dbb960134f5d8d8c440ef016ecb1b0032a369460168339a"
     },
     {
       "path": "scripts/__init__.py",
@@ -4095,9 +4106,10 @@
         "P006",
         "P010",
         "P012",
-        "P014"
+        "P014",
+        "P015"
       ],
-      "sha256_canonical": "849ce4d34228831947fbe9c7a3aec42f66132a0b5bca1de170b72dc3982c8311"
+      "sha256_canonical": "ca7d744cfebd15c01e5caab28c028e101041194a7e6dc12bbedea7da8a8b9727"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -8334,7 +8346,8 @@
         "P011",
         "P012",
         "P013",
-        "P014"
+        "P014",
+        "P015"
       ],
       "sha256_canonical": null
     },
