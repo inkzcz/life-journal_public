@@ -251,24 +251,28 @@
       "sha256": "fc70c53aacef1b25de188461e2ec6a5d102989f7ed0a831f675b2480e230788d"
     },
     {
+      "path": "backend/app/calendar/request_templates.py",
+      "sha256": "c81fe5eb20cdbd2f16a42ef5b3201527a51a7abf29248582fb381e7d3d3d1e02"
+    },
+    {
       "path": "backend/app/calendar/router.py",
-      "sha256": "1aa209fcda3f970348aaf090aa1feb88ad9ce0705f82c0eea9acc1e91b6371be"
+      "sha256": "1f72f56f089a038c815953dedfbde64c5cafb715fbcfaa53c79fc1f4b96d8285"
     },
     {
       "path": "backend/app/calendar/scheduler.py",
-      "sha256": "6fe540bbcd88ec8d407254b59f3b1e67f32e23a87129b28de343d6f5fcf53650"
+      "sha256": "0539059f64e191e898388838f7c232230fd9c985d9ae9583b917c86209e92265"
     },
     {
       "path": "backend/app/calendar/schemas.py",
-      "sha256": "3f04655065cbd273ef59f029682f34297ed18ab4cb838f9c342e19eb5635b20a"
+      "sha256": "ff915123e429025d788d785ab91b64840e0be55ddb6b6519d72a489f5f4dfa74"
     },
     {
       "path": "backend/app/calendar/service.py",
-      "sha256": "ec65921e586d5c166d51ed819cfbd37c2d648bd950cf615c2bea913df7559464"
+      "sha256": "4464a0cbf23da48805b6f33ac0aa7a2565d7ea2bfddf517ee32396137f3a1c0e"
     },
     {
       "path": "backend/app/calendar/transport.py",
-      "sha256": "91fc38683899880233453d40f425553a838528912bcda86a73977f354aead224"
+      "sha256": "e02992d3b3d9edbe459dc932ecc2625e04e8daabec9b2fd4ef06bf1c4384bfdc"
     },
     {
       "path": "backend/app/container_entrypoint.py",
@@ -692,7 +696,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "bf663add87b7dc660bc4a49be612d32f220b3abce9afda1b67ffacf5215eb0c1"
+      "sha256": "beb1b874699128aa2f3fa45b0fe3a4e1154f5369bcd7d8654dcb80e9ea557f28"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1031,12 +1035,20 @@
       "sha256": "4fbb5dbe2cc6bebd9baef33fa6f1013376be36239b87cc1e2613574b39b0f284"
     },
     {
+      "path": "frontend/src/calendar/AdvancedNotificationFields.test.ts",
+      "sha256": "92a8d484541bfaf2b3952ca01cbb122bcc4901d340e99ab510245793f32e92e9"
+    },
+    {
+      "path": "frontend/src/calendar/AdvancedNotificationFields.vue",
+      "sha256": "453613da06112bf85bad72ce08141f937d891fe03c8802c06bc650b38e0d7918"
+    },
+    {
       "path": "frontend/src/calendar/Calendar.test.ts",
       "sha256": "69dd314f7bc3fa3fdf3cee333327aa8e30ff79c3d8bcfc49987c79ad0a6302de"
     },
     {
       "path": "frontend/src/calendar/CalendarPage.vue",
-      "sha256": "d58a4fda72beeb3ef0a2e99cb162cf2d7ecc6cf6262e81cef74a2e00c1dd9d37"
+      "sha256": "19f9d41baac507e8fc7e8787ba2d208f1cf22490b85ae8b0aa60f631127ed5ce"
     },
     {
       "path": "frontend/src/dev/WritingPreview.vue",
@@ -1781,6 +1793,14 @@
     {
       "path": "tests/test_about.py",
       "sha256": "4b6a9af25a41070d3d111d073525e8fad5a5dedd66f1f60e8cae1103c7d5e36d"
+    },
+    {
+      "path": "tests/test_advanced_notification_api.py",
+      "sha256": "2540630402c4e4062c782fed342ce9a51f3a691779c4d328eee727a83de29388"
+    },
+    {
+      "path": "tests/test_advanced_notifications.py",
+      "sha256": "b57eceef77cc877396a40b7ba979e0ac9ffa2889a80decc4bf521d800894f858"
     },
     {
       "path": "tests/test_anniversary_calendar.py",
@@ -3784,7 +3804,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "be128408ae0b4c77f36b37fcc3ed0cbca673b5ec965ce0b4da46792b1426cc80"
+      "sha256": "2dec9d13d754fd8c6e00301708385316eeaa1b457ded8c01d9aefd2ccb7e2015"
     },
     {
       "path": "third_party/source-scope.json",

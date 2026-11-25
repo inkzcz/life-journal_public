@@ -179,6 +179,14 @@
       "source": "Owner v5.1.11 task; original mode projection/query changes, synthetic regressions and development progress. No external implementation or artwork copied.",
       "license": "Existing GPL-3.0-or-later for original increments; all third-party grants preserved.",
       "decision": "Reviewed current staged phase-one delta only; no claim of remaining features, PG validation, visual acceptance or release completion."
+    },
+    {
+      "id": "P009",
+      "review_date": "2026-11-25",
+      "review_baseline": "124f725",
+      "source": "Original v5.1.11 structured request template, pinned HTTP transport extensions, configuration UI and synthetic test work under owner task. No external implementation, icon, font, media or new runtime dependency copied. Also records original phase-two transfer/picker increments.",
+      "license": "Existing GPL-3.0-or-later for owner-controlled original increments; third-party grants remain unchanged.",
+      "decision": "Reviewed enumerated changed/new source bytes and synthetic tests only. 410 historical legal texts preserved. Functional local checks are not a completed PG/browser/Docker/release acceptance or a real terminal notification."
     }
   ],
   "files": [
@@ -708,29 +716,40 @@
       "sha256_canonical": "fc70c53aacef1b25de188461e2ec6a5d102989f7ed0a831f675b2480e230788d"
     },
     {
+      "path": "backend/app/calendar/request_templates.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "c81fe5eb20cdbd2f16a42ef5b3201527a51a7abf29248582fb381e7d3d3d1e02"
+    },
+    {
       "path": "backend/app/calendar/router.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008"
       ],
-      "sha256_canonical": "1aa209fcda3f970348aaf090aa1feb88ad9ce0705f82c0eea9acc1e91b6371be"
+      "sha256_canonical": "1f72f56f089a038c815953dedfbde64c5cafb715fbcfaa53c79fc1f4b96d8285"
     },
     {
       "path": "backend/app/calendar/scheduler.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "6fe540bbcd88ec8d407254b59f3b1e67f32e23a87129b28de343d6f5fcf53650"
+      "sha256_canonical": "0539059f64e191e898388838f7c232230fd9c985d9ae9583b917c86209e92265"
     },
     {
       "path": "backend/app/calendar/schemas.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "3f04655065cbd273ef59f029682f34297ed18ab4cb838f9c342e19eb5635b20a"
+      "sha256_canonical": "ff915123e429025d788d785ab91b64840e0be55ddb6b6519d72a489f5f4dfa74"
     },
     {
       "path": "backend/app/calendar/service.py",
@@ -739,16 +758,17 @@
         "J001",
         "P008"
       ],
-      "sha256_canonical": "ec65921e586d5c166d51ed819cfbd37c2d648bd950cf615c2bea913df7559464"
+      "sha256_canonical": "4464a0cbf23da48805b6f33ac0aa7a2565d7ea2bfddf517ee32396137f3a1c0e"
     },
     {
       "path": "backend/app/calendar/transport.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008"
       ],
-      "sha256_canonical": "91fc38683899880233453d40f425553a838528912bcda86a73977f354aead224"
+      "sha256_canonical": "e02992d3b3d9edbe459dc932ecc2625e04e8daabec9b2fd4ef06bf1c4384bfdc"
     },
     {
       "path": "backend/app/container_entrypoint.py",
@@ -1619,7 +1639,7 @@
       "evidence": [
         "P008"
       ],
-      "sha256_canonical": "bf663add87b7dc660bc4a49be612d32f220b3abce9afda1b67ffacf5215eb0c1"
+      "sha256_canonical": "beb1b874699128aa2f3fa45b0fe3a4e1154f5369bcd7d8654dcb80e9ea557f28"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -2325,6 +2345,22 @@
       "sha256_canonical": "4fbb5dbe2cc6bebd9baef33fa6f1013376be36239b87cc1e2613574b39b0f284"
     },
     {
+      "path": "frontend/src/calendar/AdvancedNotificationFields.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "92a8d484541bfaf2b3952ca01cbb122bcc4901d340e99ab510245793f32e92e9"
+    },
+    {
+      "path": "frontend/src/calendar/AdvancedNotificationFields.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "453613da06112bf85bad72ce08141f937d891fe03c8802c06bc650b38e0d7918"
+    },
+    {
       "path": "frontend/src/calendar/Calendar.test.ts",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
@@ -2338,9 +2374,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008"
       ],
-      "sha256_canonical": "d58a4fda72beeb3ef0a2e99cb162cf2d7ecc6cf6262e81cef74a2e00c1dd9d37"
+      "sha256_canonical": "19f9d41baac507e8fc7e8787ba2d208f1cf22490b85ae8b0aa60f631127ed5ce"
     },
     {
       "path": "frontend/src/dev/WritingPreview.vue",
@@ -3866,6 +3903,22 @@
         "J005"
       ],
       "sha256_canonical": "4b6a9af25a41070d3d111d073525e8fad5a5dedd66f1f60e8cae1103c7d5e36d"
+    },
+    {
+      "path": "tests/test_advanced_notification_api.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "2540630402c4e4062c782fed342ce9a51f3a691779c4d328eee727a83de29388"
+    },
+    {
+      "path": "tests/test_advanced_notifications.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "b57eceef77cc877396a40b7ba979e0ac9ffa2889a80decc4bf521d800894f858"
     },
     {
       "path": "tests/test_anniversary_calendar.py",
@@ -7910,7 +7963,8 @@
         "P004",
         "P005",
         "P006",
-        "P007"
+        "P007",
+        "P008"
       ],
       "sha256_canonical": null
     },

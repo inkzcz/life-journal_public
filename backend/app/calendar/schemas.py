@@ -33,7 +33,15 @@ class EventIn(StrictModel):
         if len(set(self.memories))!=len(self.memories):raise ValueError('专属回忆重复')
         if self.kind=='once' and self.rule.repeat!='once':raise ValueError('一次性提醒须使用单次日期规则')
         return self
+class NotifyHeader(StrictModel):
+    name:str=Field(min_length=1,max_length=64)
+    value:str=Field('',max_length=2048)
+
 class NotifyConfig(StrictModel):
+    method:Literal['GET','POST']='GET'
+    headers:list[NotifyHeader]=Field(default_factory=list,max_length=20)
+    body_format:Literal['json','form','text']='json'
+    body_template:str=Field('',max_length=32000)
     enabled:bool=False
     url_template:str=Field('',max_length=4000)
     timezone:str='Asia/Shanghai'
@@ -50,3 +58,10 @@ class NotifyConfig(StrictModel):
         try:ZoneInfo(v)
         except (KeyError,ValueError):raise ValueError('时区必须是有效IANA名称') from None
         return v
+
+    @model_validator(mode='after')
+    def request_valid(self):
+        from .request_templates import validate
+        try:validate(self.model_dump(exclude={'expected_revision'}))
+        except (ValueError,TypeError,RecursionError,UnicodeError):raise ValueError('通知模板、请求头或请求体格式无效') from None
+        return self

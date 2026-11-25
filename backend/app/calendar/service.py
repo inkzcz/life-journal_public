@@ -16,7 +16,8 @@ KEY='anniversary-notify'
 
 def config(db):
     c=db.scalar(select(SiteConfig).where(SiteConfig.key==KEY))
-    return ((c.revision,c.value) if c else (0,{'enabled':False,'url_template':'','timezone':'Asia/Shanghai','time':'09:00'}))
+    defaults={'method':'GET','headers':[],'body_format':'json','body_template':''}
+    return ((c.revision,{**defaults,**c.value}) if c else (0,{**defaults,'enabled':False,'url_template':'','timezone':'Asia/Shanghai','time':'09:00'}))
 
 def today(db):return datetime.now(ZoneInfo(config(db)[1]['timezone'])).date()
 
