@@ -78,6 +78,11 @@ jobs:
       - name: Frontend tests, TypeScript and production build
         working-directory: frontend
         run: npm ci && node --test bundled-notices-check.mjs && npm test && npm run build
+      - name: Chinese glyph coverage for synthetic visual acceptance (runner only)
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends fonts-noto-cjk
+          test -n "$(fc-list :lang=zh family)"
       - name: Synthetic desktop/mobile browser acceptance; no real API or notification
         run: |
           python -m pip install 'playwright==1.64.0'

@@ -15,8 +15,16 @@
   "workflows": {
     ".github/workflows/ci.yml": {
       "scope": "candidate-artifacts",
-      "sha256": "dad1661f789055a6f7cc374302d2eb7be44d86b3a7436fdd1e4f869b2d9d5530",
+      "sha256": "32af44244974b8aab044bb87d05807e189a0b4b0d08342ffb6db48159f2c7f42",
+      "review": "Retains explicit packaging release_version input and every original permission/artifact/runtime/source gate. Installs Noto CJK only in the ephemeral source-test runner so actual Chinese screenshot glyphs can be verified; no fonts copied into business image or source delivery. Original tag application remains unchanged, while current main safety changes still correctly prohibit publishing the old tag. This CI-only technical supplement does not authorize a new version or alter any owner grant."
+    }
+  },
+  "previous_ci_reviews": [
+    {
+      "review_baseline": "12df719786c274f654e01594ae0dc3155cd3b589",
+      "workflow_sha256": "dad1661f789055a6f7cc374302d2eb7be44d86b3a7436fdd1e4f869b2d9d5530",
       "review": "Explicit release_version workflow_call input passed to packaging step; ordinary candidates retain --validate-only. No business-source, image, schema, permissions, artifact allowlist or grant changes."
     }
-  }
+  ],
+  "ci_review_baseline": "4b2465b9fcc2dc9ec33293dc2df49749bd3d8cfe"
 }

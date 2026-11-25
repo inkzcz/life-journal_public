@@ -126,6 +126,16 @@ def main():
             else:route.continue_()
         page.route('**/*',guard)
         page.goto('http://127.0.0.1:5174/preview-writing.html',wait_until='networkidle')
+        # Missing CJK fonts can satisfy DOM geometry while screenshots contain
+        # only identical tofu boxes. Check actual rendered pixels, not font names.
+        cjk=page.evaluate("""async()=>{await document.fonts.ready;
+            const canvas=document.createElement('canvas');canvas.width=64;canvas.height=64;
+            const ctx=canvas.getContext('2d');ctx.font='32px '+getComputedStyle(document.body).fontFamily;
+            function glyph(text){ctx.clearRect(0,0,64,64);ctx.fillText(text,4,40);return Array.from(ctx.getImageData(0,0,64,64).data).join(',')}
+            const empty=glyph(''),chong=glyph('重'),qing=glyph('庆');
+            return chong!==empty&&qing!==empty&&chong!==qing;
+        }""")
+        assert cjk, 'CJK glyphs missing: install runner fonts before visual acceptance; identical tofu is not a pass'
         page.locator('.life-entry-card').first.wait_for()
         assert page.locator('.life-entry-card').count()==6
         page.locator('.entry-visuals img').first.wait_for()
@@ -231,7 +241,7 @@ def main():
         page.screenshot(path=str(args.output/'notification-mobile.png'),full_page=True)
         assert not blocked, 'Preview attempted unexpected network access'
         assert not errors, errors
-        result={'browser':browser.version,'platform':'Linux headless Chromium','cards':6,
+        result={'browser':browser.version,'cjk_glyphs_present':cjk,'platform':'Linux headless Chromium','cards':6,
             'responsive_geometry_matrix':geometry,'desktop_and_mobile':True,'light_and_dark':True,'no_horizontal_overflow':True,
             'new_daily_and_travel_controls':True,'mode_switch_keeps_body_and_title':True,
             'six_kinds_created_and_edited_through_actual_forms':True,'card_uuid_and_source_visual_roundtrip_preserved':True,'other_card_draft_blocks_copy_move_and_mode_switch':True,

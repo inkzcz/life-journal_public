@@ -32,7 +32,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "dad1661f789055a6f7cc374302d2eb7be44d86b3a7436fdd1e4f869b2d9d5530"
+      "sha256": "32af44244974b8aab044bb87d05807e189a0b4b0d08342ffb6db48159f2c7f42"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "16c11426d0b45e481c3577e7a60e6bb186f45049e1cdc38529ecf62dc0afc729"
+      "sha256": "de4a95d56bd5917ca5a23ce618ae6ac20673031c5aaa80974959ff8e4f771973"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1716,7 +1716,7 @@
     },
     {
       "path": "licensing/v5.1.11-release-orchestration-review.json",
-      "sha256": "4ccf7046530f57703c29a10b29d02d906dc86a931361c9af54ce8086b2c953da"
+      "sha256": "c49aabb4749b706844317b41d4823ddd05c0db4d61fa3295ab37e3b5dd2d1977"
     },
     {
       "path": "scripts/__init__.py",
@@ -1832,7 +1832,7 @@
     },
     {
       "path": "tests/browser_writing_preview.py",
-      "sha256": "849ce4d34228831947fbe9c7a3aec42f66132a0b5bca1de170b72dc3982c8311"
+      "sha256": "ca7d744cfebd15c01e5caab28c028e101041194a7e6dc12bbedea7da8a8b9727"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -3920,7 +3920,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "704f4c695f15db4219cde69f7cbea8a463f30cd30f5ddacbfa290fadbe7c7d75"
+      "sha256": "352abc7b2bb991fdaa503e8a90503ee220e1432246c6a0a6cf9c27644ae8709f"
     },
     {
       "path": "third_party/source-scope.json",
