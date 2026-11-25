@@ -30,7 +30,7 @@
   "technically_reviewed_workflows": {
     ".github/workflows/ci.yml": {
       "scope": "candidate-artifacts",
-      "sha256": "7e747c90eb4d165d609946cede620c1fbd39d5a4cb4f73a426d3b1768418c1e8",
+      "sha256": "1a80a71b942484ae470352d7a51277316d5b43f3cf40a71ba16af8b9ee730c01",
       "review": "Operator technical review of exact workflow bytes under explicit v5.1.11 owner task. Formal ten-asset draft/download/public checks retained; minimal scoped current-artifact cleanup only after verified publication; PR-only bounded synthetic screenshots. Not an owner signature."
     },
     ".github/workflows/release.yml": {

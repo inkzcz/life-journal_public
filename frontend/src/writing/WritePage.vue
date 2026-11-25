@@ -21,3 +21,15 @@ onMounted(async()=>{try{const epoch=appearanceEpoch();const result=await request
 <style>.writing-canvas{padding-top:28px}.writing-canvas>h1{margin-bottom:20px}.writing-advanced>summary{padding:12px 0}.writing-advanced[open]>summary{font-weight:700}.immersive-writing .template-form-group{padding:12px 0}.immersive-writing .editor-meta{gap:12px}.immersive-writing .writing-main .tag-picker input{font-size:16px}.writing-publication[open]>summary{font-weight:700}</style>
 
 <style>.immersive-writing .body-editor input{font-size:16px;line-height:1.5}.writing-advanced[open]{padding-top:8px}</style>
+
+<style>
+/* One mobile gutter: nested workspace and prose padding must not squeeze cards
+   into a narrow column even when embedded in a real theme/preview boundary. */
+@media(max-width:600px){
+ .blog.writing-page{padding-inline:0}
+ .blog.writing-page .writing-canvas{padding-inline:12px}
+ .blog.writing-page .writing-workspace .workspace-main>.workspace-body{padding:0;border:0;background:transparent}
+ .blog.writing-page .workspace-body>.workspace-module-heading{margin:0 0 12px;padding:12px 0}
+ .blog.writing-page .workspace-body .immersive-prose{padding:12px 0}
+}
+</style>

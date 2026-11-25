@@ -203,6 +203,14 @@
       "source": "Original v5.1.11 versioned release orchestration, strict current-run artifact cleanup and negative tests, synthetic six-card/template/GET-notification upgrade fixture, documentation and operator record of explicit owner release task. Existing project release code adapted; no external implementation or runtime dependency copied.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments. Third-party legal texts and upstream source/license duties unchanged.",
       "decision": "Current enumerated release-preparation increments only. Workflow exact hashes separately bound in version-specific owner-instruction record; no forged signature or claim of completed cloud/real-device validation."
+    },
+    {
+      "id": "P012",
+      "review_date": "2026-11-25",
+      "review_baseline": "d064bece8945f4b7cee068776662198af8276317",
+      "source": "Original post-visual-review mobile editor gutter/container/time-input fixes and synthetic browser clock/menu/form/lightbox assertions. Two explicitly synthetic PNGs added only to the bounded PR visual artifact, not tracked source or Release assets. No external code/media copied.",
+      "license": "Existing GPL-3.0-or-later for original increments; original third-party grants and 410 legal texts unchanged.",
+      "decision": "Manual actual screenshot review found nested padding squeezing transport clocks; fixed parent layout without dropping checks or shrinking feature scope. Current source bytes and exact workflow hashes reviewed; subsequent cloud runs remain required."
     }
   ],
   "files": [
@@ -253,9 +261,10 @@
         "P005",
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P012"
       ],
-      "sha256_canonical": "10603e262a3a09496847548361ef569d5613cd0cc35dfb720c640341db98d0cc"
+      "sha256_canonical": "5761aa41a689fb7a984dcf9f93f213918c8ac341ffae4f431c9276320bec428c"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -1675,9 +1684,10 @@
         "P008",
         "P009",
         "P010",
-        "P011"
+        "P011",
+        "P012"
       ],
-      "sha256_canonical": "eab697759821fd0ac12a1ead6c1baff2b7d0d80246a04ed1bc51ed0c87a89ccb"
+      "sha256_canonical": "a246f40b1017983aa3405f539a2f5c777d47271fc2e23f075a9620f875b6198c"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1831,9 +1841,10 @@
       "path": "docs/v5.1.11-validation.md",
       "classification": "project-original-source",
       "evidence": [
-        "P011"
+        "P011",
+        "P012"
       ],
-      "sha256_canonical": "8258baf9fdced0b8ab96c5dca559f4bfa2210b60f716b6cc04b60c69aad3ea58"
+      "sha256_canonical": "252fffccf42bace875efa98ae8f4f930974e105d0a039aff85e7eb5e8bac9dac"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -3273,9 +3284,10 @@
         "J001",
         "P006",
         "P008",
-        "P010"
+        "P010",
+        "P012"
       ],
-      "sha256_canonical": "678decf41f30549d2cb49b25b8739cc04d7d702cb33e60052a65f03246457675"
+      "sha256_canonical": "8220bdfe83500765465d514c1b4dffc69ae2f31e43c6c08da7d6f88c4137065d"
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
@@ -3395,9 +3407,10 @@
       "classification": "project-original-source",
       "evidence": [
         "P008",
-        "P010"
+        "P010",
+        "P012"
       ],
-      "sha256_canonical": "bbce82eae3516c2495d23a419eded41e62e047874d914c71a3afcc6b5dac3c79"
+      "sha256_canonical": "8d09c1997b0a14fbac369eacd84a09c972e61173b630a4fb262f94e15120e6c5"
     },
     {
       "path": "frontend/src/writing/V5Pages.test.ts",
@@ -3411,9 +3424,10 @@
       "path": "frontend/src/writing/WritePage.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P012"
       ],
-      "sha256_canonical": "650915ae55946fd0169934ea5aa6bc31cd4bf997c11fcc1a34f6067c453c4e12"
+      "sha256_canonical": "96031647edc174b38b4fb036b75b6f256a87480d0be95772ff7a65d01cfbe3ce"
     },
     {
       "path": "frontend/src/writing/Writing.test.ts",
@@ -3515,9 +3529,10 @@
       "path": "frontend/src/writing/cards/TransportCard.vue",
       "classification": "project-original-source",
       "evidence": [
-        "P010"
+        "P010",
+        "P012"
       ],
-      "sha256_canonical": "3a8dc83243bfbccf50089daa432b34615b52b3663ddd5b0086abba6246d8d9d1"
+      "sha256_canonical": "c7c998b5e6c06d222eea9f5027ff1a2ceda97e2e59041298002fb41585ceb9ae"
     },
     {
       "path": "frontend/src/writing/cards/cardFields.ts",
@@ -3723,9 +3738,10 @@
       "path": "licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json",
       "classification": "project-original-source",
       "evidence": [
-        "P011"
+        "P011",
+        "P012"
       ],
-      "sha256_canonical": "5ffeea544aea85015d7da4add9cc1e4617effe3d17b81bea0ffa10a5ab93c602"
+      "sha256_canonical": "7e37bc4d3d78f3f377bd784ae6687ccbf5bba3630edc1acb5d173c6d4c189370"
     },
     {
       "path": "licensing/GPL-3.0.txt",
@@ -4036,9 +4052,10 @@
       "classification": "project-original-v5110-development",
       "evidence": [
         "P006",
-        "P010"
+        "P010",
+        "P012"
       ],
-      "sha256_canonical": "db052a291adffe5445f1f28487be7808e69589859eb08b02a3a3fffb281658f5"
+      "sha256_canonical": "c8868692b93f76ef6d381b7afd4079b56b28e255155c615e571b0441a0677e3a"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -4687,9 +4704,10 @@
         "P005",
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P012"
       ],
-      "sha256_canonical": "8c8529ccb3ac89f01b2750e6521f3a7442d6b6dec42f42cd5e2f8ebff7f7030e"
+      "sha256_canonical": "03eb34da7a9e24684d732d3e75ef2ce26f5d89b8b5c593db5ee909098fedd02f"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -8262,7 +8280,8 @@
         "P008",
         "P009",
         "P010",
-        "P011"
+        "P011",
+        "P012"
       ],
       "sha256_canonical": null
     },

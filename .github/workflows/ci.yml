@@ -108,6 +108,8 @@ jobs:
             ${{ runner.temp }}/browser-preview/cards-1440-light.png
             ${{ runner.temp }}/browser-preview/cards-375-dark.png
             ${{ runner.temp }}/browser-preview/cards-custom-theme.png
+            ${{ runner.temp }}/browser-preview/editor-menu-320.png
+            ${{ runner.temp }}/browser-preview/editor-time-form-320.png
             ${{ runner.temp }}/browser-preview/geometry.json
             ${{ runner.temp }}/browser-preview/browser-results.json
       - name: Four-container Compose contract with synthetic configuration only

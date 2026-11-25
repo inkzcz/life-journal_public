@@ -64,7 +64,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
     assert "github.event_name == 'pull_request'" in visual['if']
     assert visual['with']['retention-days']==3 and visual['with']['compression-level']==9
     visual_paths=visual['with']['path'].splitlines()
-    assert len(visual_paths)==5 and all(p.startswith('${{ runner.temp }}/browser-preview/') and '*' not in p and '..' not in p for p in visual_paths)
+    assert len(visual_paths)==7 and all(p.startswith('${{ runner.temp }}/browser-preview/') and '*' not in p and '..' not in p for p in visual_paths)
     assert all(p.endswith(('.png','.json')) for p in visual_paths)
     assert "steps.package.outputs.delivery_ready == 'true'" in upload['if']
     assert "github.repository == 'inkzcz/life-journal_public'" in upload['if']

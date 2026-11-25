@@ -151,6 +151,8 @@ def main():
         page.locator('.article-body .entry-visuals img').first.wait_for()
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
         page.screenshot(path=str(args.output/'article-mobile.png'),full_page=True)
+        page.locator('.article-body .body-photo-button').first.click()
+        page.locator('dialog[open]').get_by_role('button',name='关闭图片',exact=True).click()
         page.get_by_role('button',name='日常与旅行写作',exact=True).click()
         page.locator('.new-record').wait_for()
         assert page.locator('.new-record input[value=daily]').is_checked()
@@ -171,6 +173,23 @@ def main():
         page.set_viewport_size({'width':1360,'height':1000})
         exercise_cards(page)
         page.screenshot(path=str(args.output/'writing-cards-desktop.png'),full_page=True)
+        for width in (390,375,320):
+            page.set_viewport_size({'width':width,'height':812})
+            transport=page.locator('.entry-card').last
+            assert transport.bounding_box()['width']>=min(width-80,240)
+            for stamp in transport.locator('.route-time').all():
+                assert stamp.evaluate('el=>el.getBoundingClientRect().height<=parseFloat(getComputedStyle(el).fontSize)*1.3'),'Transport clock wrapped in the actual editor'
+            transport.get_by_role('button',name='卡片操作',exact=True).click()
+            menu=page.get_by_role('menu');rect=menu.bounding_box()
+            assert rect['x']>=0 and rect['x']+rect['width']<=width
+            if width==320:page.screenshot(path=str(args.output/'editor-menu-320.png'))
+            menu.get_by_role('menuitem',name='编辑卡片',exact=True).click()
+            form=transport.locator('form');form.get_by_label('出发日期',exact=True).wait_for()
+            assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+            assert form.locator('.transport-time-fields').evaluate('el=>el.scrollWidth<=el.clientWidth+1')
+            assert form.get_by_label('出发日期',exact=True).bounding_box()['width']>=130
+            if width==320:form.screenshot(path=str(args.output/'editor-time-form-320.png'))
+            form.get_by_role('button',name='取消',exact=True).click()
         page.set_viewport_size({'width':375,'height':812})
         page.get_by_role('button',name='通知配置',exact=True).click()
         field=page.get_by_label('通知 URL 模板',exact=True)
@@ -198,7 +217,7 @@ def main():
             'responsive_geometry_matrix':geometry,'desktop_and_mobile':True,'light_and_dark':True,'no_horizontal_overflow':True,
             'new_daily_and_travel_controls':True,'mode_switch_keeps_body_and_title':True,
             'six_kinds_created_and_edited_through_actual_forms':True,'card_uuid_and_source_visual_roundtrip_preserved':True,
-            'visible_long_notification_url':True,'actual_api_or_external_requests':0,'page_errors':errors,
+            'mobile_editor_clock_form_and_menu_widths':[390,375,320],'visible_long_notification_url':True,'actual_api_or_external_requests':0,'page_errors':errors,
             'images':sorted(path.name for path in args.output.glob('*.png'))}
         (args.output/'browser-results.json').write_text(json.dumps(result,indent=2)+'\n')
         print(json.dumps(result,indent=2));browser.close()
