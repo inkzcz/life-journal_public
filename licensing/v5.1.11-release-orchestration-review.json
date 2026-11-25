@@ -1,0 +1,22 @@
+{
+  "format": "life-journal-release-orchestration-review-v1",
+  "repository": "inkzcz/life-journal_public",
+  "version": "v5.1.11",
+  "original_authorization": "licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json",
+  "original_authorization_sha256": "73958921028dc910b7d423d1c5cc610a2c441d641f5d83f327656ddd3a4fc8a7",
+  "application_source_commit": "3c3a465e5ba1dd353a3886b6394907311e972865",
+  "annotated_tag_sha": "953a945b48dd8c11639f90ac62c2361b421469ab",
+  "application_pull_request": 5,
+  "technical_review_only": true,
+  "application_source_unchanged": true,
+  "original_owner_authorizations_unchanged": true,
+  "owner_confirmation_reference": "Existing explicit complete v5.1.11 delivery and persistent safe release-fix instruction in this conversation. Operator records the necessary publisher-only environment scope fix; no new owner signature, timestamp or third-party grant. Original source/tag and all quality/legal gates remain binding.",
+  "failure": "Formal run 45618008729 packaging invoked --validate-only because RELEASE_VERSION was step-scoped to identity and absent in package step. All runtime/source/replacement checks passed; no Release or attachment uploaded.",
+  "workflows": {
+    ".github/workflows/ci.yml": {
+      "scope": "candidate-artifacts",
+      "sha256": "dad1661f789055a6f7cc374302d2eb7be44d86b3a7436fdd1e4f869b2d9d5530",
+      "review": "Explicit release_version workflow_call input passed to packaging step; ordinary candidates retain --validate-only. No business-source, image, schema, permissions, artifact allowlist or grant changes."
+    }
+  }
+}

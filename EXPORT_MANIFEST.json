@@ -32,7 +32,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "1a80a71b942484ae470352d7a51277316d5b43f3cf40a71ba16af8b9ee730c01"
+      "sha256": "dad1661f789055a6f7cc374302d2eb7be44d86b3a7436fdd1e4f869b2d9d5530"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "a246f40b1017983aa3405f539a2f5c777d47271fc2e23f075a9620f875b6198c"
+      "sha256": "5b941aa5e2c984c2d38100edd443bad913595f1357dc96f52a4e7e21f195469a"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -744,7 +744,7 @@
     },
     {
       "path": "docs/release-v5.1.11.md",
-      "sha256": "549dab9263d904122cb9b784646e2a074ec30a1619d58e37d17f24405bb14883"
+      "sha256": "100fc88ba9cf87ea2bfee29fdb0e26686b8dcb82af1571f64c4629f892f4a9e2"
     },
     {
       "path": "docs/release-v5.1.9.md",
@@ -1711,6 +1711,10 @@
       "sha256": "15ff701cd95dde49bfc56c6e40000f32916d7e25d842ae9bb1500858a658872e"
     },
     {
+      "path": "licensing/v5.1.11-release-orchestration-review.json",
+      "sha256": "4ccf7046530f57703c29a10b29d02d906dc86a931361c9af54ce8086b2c953da"
+    },
+    {
       "path": "scripts/__init__.py",
       "sha256": "5523581a43a40e9702b7f0be0b675fd93602380bd6c38846a92824388d5fb266"
     },
@@ -1748,7 +1752,7 @@
     },
     {
       "path": "scripts/open_source_gate.py",
-      "sha256": "7f7b8d3e199e4161a536555dc276d75688950100e6bc3d1a98d7b74209eadbd7"
+      "sha256": "7b921b6e52ae608a5007557f1b76714f6eeaea7acff870a8eeff99abdadcd013"
     },
     {
       "path": "scripts/prepare_distribution.py",
@@ -2108,7 +2112,7 @@
     },
     {
       "path": "tests/test_open_source_gate.py",
-      "sha256": "29741357b02aae0b8ea99ddd4150ade35482eea2388a88c67587a57ed88957cf"
+      "sha256": "0538ffd67a8b12e6679e7fd153ae34136b8d34f07dbe64926366d8759c94aba6"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -2157,6 +2161,10 @@
     {
       "path": "tests/test_release_artifact_cleanup.py",
       "sha256": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+    },
+    {
+      "path": "tests/test_release_mode_environment.py",
+      "sha256": "2e8d202ea8680ec5d076f2b22e3785fd72f24e7bfecd3ff87820c41eb3d443d5"
     },
     {
       "path": "tests/test_release_preflight.py",
@@ -3908,7 +3916,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "55d367e2907e011616b3aa136ad993fd0cd2fd81c60afe0af43f4420970960b6"
+      "sha256": "86869bb77b81d7cd564b68b2c5437834d0c4c56a36e14f3e19dce3a23665b493"
     },
     {
       "path": "third_party/source-scope.json",

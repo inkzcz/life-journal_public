@@ -211,6 +211,14 @@
       "source": "Original post-visual-review mobile editor gutter/container/time-input fixes and synthetic browser clock/menu/form/lightbox assertions. Two explicitly synthetic PNGs added only to the bounded PR visual artifact, not tracked source or Release assets. No external code/media copied.",
       "license": "Existing GPL-3.0-or-later for original increments; original third-party grants and 410 legal texts unchanged.",
       "decision": "Manual actual screenshot review found nested padding squeezing transport clocks; fixed parent layout without dropping checks or shrinking feature scope. Current source bytes and exact workflow hashes reviewed; subsequent cloud runs remain required."
+    },
+    {
+      "id": "P013",
+      "review_date": "2026-11-25",
+      "review_baseline": "3c3a465e5ba1dd353a3886b6394907311e972865",
+      "source": "Original publisher-only packaging input scope fix, real Bash routing regression and exact technical-review supplement under the existing complete v5.1.11 delivery instruction. No business code, schema, dependency, owner grant or third-party text changed.",
+      "license": "Existing GPL-3.0-or-later for original release tooling/test/documentation increments. All original upstream grants retained.",
+      "decision": "Formal run 45618008729 failed before uploading any Release asset because package lacked a step-scoped RELEASE_VERSION input. Bind the existing workflow_call input explicitly, retain strict candidate validation and all other gates. Immutable application commit/tag and original version owner record preserved; additional orchestration source will accompany the same binary."
     }
   ],
   "files": [
@@ -262,9 +270,10 @@
         "P006",
         "P007",
         "P011",
-        "P012"
+        "P012",
+        "P013"
       ],
-      "sha256_canonical": "5761aa41a689fb7a984dcf9f93f213918c8ac341ffae4f431c9276320bec428c"
+      "sha256_canonical": "a24a00a7c82601e79e68b9fea367056acfc2a9bf560e4bb551ae51a7a1382096"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -1685,9 +1694,10 @@
         "P009",
         "P010",
         "P011",
-        "P012"
+        "P012",
+        "P013"
       ],
-      "sha256_canonical": "a246f40b1017983aa3405f539a2f5c777d47271fc2e23f075a9620f875b6198c"
+      "sha256_canonical": "5b941aa5e2c984c2d38100edd443bad913595f1357dc96f52a4e7e21f195469a"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1793,9 +1803,10 @@
       "path": "docs/release-v5.1.11.md",
       "classification": "project-original-source",
       "evidence": [
-        "P011"
+        "P011",
+        "P013"
       ],
-      "sha256_canonical": "549dab9263d904122cb9b784646e2a074ec30a1619d58e37d17f24405bb14883"
+      "sha256_canonical": "100fc88ba9cf87ea2bfee29fdb0e26686b8dcb82af1571f64c4629f892f4a9e2"
     },
     {
       "path": "docs/release-v5.1.9.md",
@@ -3802,6 +3813,14 @@
       "sha256_canonical": "15ff701cd95dde49bfc56c6e40000f32916d7e25d842ae9bb1500858a658872e"
     },
     {
+      "path": "licensing/v5.1.11-release-orchestration-review.json",
+      "classification": "project-original-source",
+      "evidence": [
+        "P013"
+      ],
+      "sha256_canonical": "d3bb26d680c3cba3401bce844a732014eb94049cb290418df046bc62e1b862ea"
+    },
+    {
       "path": "scripts/__init__.py",
       "classification": "owner-declared-project-material",
       "evidence": [
@@ -3886,9 +3905,10 @@
         "J001",
         "P004",
         "P007",
-        "P011"
+        "P011",
+        "P013"
       ],
-      "sha256_canonical": "54cc671876097b1eb07192e4a1bab5b473ae3349ba23bc84a384a2be74bcd24f"
+      "sha256_canonical": "9cc8b62a3a8e1f685eb8b29beff983a614319a62f89a416a6d693aa07d405a4c"
     },
     {
       "path": "scripts/prepare_distribution.py",
@@ -4639,9 +4659,10 @@
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
         "J005",
-        "P004"
+        "P004",
+        "P013"
       ],
-      "sha256_canonical": "c29eeb475449eba6427f6ef6ab5426bce198ea173ee2a1ae932f4c3d6637cbac"
+      "sha256_canonical": "89eecf331379770273455c72693d8cc7ffcac8b2546699038bec6e6e0f8e0371"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -4749,6 +4770,14 @@
         "P011"
       ],
       "sha256_canonical": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+    },
+    {
+      "path": "tests/test_release_mode_environment.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P013"
+      ],
+      "sha256_canonical": "2e8d202ea8680ec5d076f2b22e3785fd72f24e7bfecd3ff87820c41eb3d443d5"
     },
     {
       "path": "tests/test_release_preflight.py",
@@ -8281,7 +8310,8 @@
         "P009",
         "P010",
         "P011",
-        "P012"
+        "P012",
+        "P013"
       ],
       "sha256_canonical": null
     },

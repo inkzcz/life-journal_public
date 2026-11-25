@@ -157,3 +157,18 @@ def test_snapshot_manifest_rejects_extra_files_and_changed_content(tmp_path):
     (tmp_path/'README.md').write_text('changed')
     result=gate.scan(tmp_path,snapshot=True)
     assert {x['type'] for x in result['findings']}=={'unlisted-export-file','export-hash-mismatch'}
+
+
+def test_publisher_supplement_is_exactly_bound_and_does_not_rewrite_owner_grant(tmp_path):
+    import copy
+    root=Path(__file__).resolve().parents[1]
+    version='v5.1.11';name='licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json'
+    original=(root/name).read_bytes();review=json.loads((root/'licensing/v5.1.11-release-orchestration-review.json').read_bytes())
+    folder=tmp_path/'licensing';folder.mkdir();target=folder/'v5.1.11-release-orchestration-review.json'
+    target.write_text(json.dumps(review))
+    assert gate.orchestration_workflow_reviews(tmp_path,version,name,original)==review['workflows']
+    for key,value in [('original_authorization_sha256','0'*64),('annotated_tag_sha','0'*40),('technical_review_only',False),('application_source_commit','0'*40),('version','v5.1.12'),('application_pull_request',6)]:
+        wrong=copy.deepcopy(review);wrong[key]=value;target.write_text(json.dumps(wrong))
+        assert gate.orchestration_workflow_reviews(tmp_path,version,name,original)=={}
+    target.write_text(json.dumps(review));assert gate.orchestration_workflow_reviews(tmp_path,version,name,original+b'changed')=={}
+    assert (root/name).read_bytes()==original
