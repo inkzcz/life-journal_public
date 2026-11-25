@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "5b941aa5e2c984c2d38100edd443bad913595f1357dc96f52a4e7e21f195469a"
+      "sha256": "16c11426d0b45e481c3577e7a60e6bb186f45049e1cdc38529ecf62dc0afc729"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -828,7 +828,7 @@
     },
     {
       "path": "frontend/src/admin/AdminContent.vue",
-      "sha256": "8e6dfdcaf173356ed7964a341dfebd35a01a82d8f5c5e42e7e63238c284add7f"
+      "sha256": "f639e342d8da723f59bf6e2b1bf1326ee6cdce12d99efffd1c6f4b462e45dd16"
     },
     {
       "path": "frontend/src/admin/Archive.test.ts",
@@ -1432,7 +1432,7 @@
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
-      "sha256": "0b50192dbd34aae2ebe4b899f4ca4ce8bdea19098f791ae30f0d8c377898c992"
+      "sha256": "06f6c73341d392b53cec8c9718fff9aab15aca5b2485e29b724e8ff21db6ede8"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -1463,12 +1463,16 @@
       "sha256": "bf1aeebb9607fc3da7150f29e2e4558d4c30bbd349dcecd080e20d3232cde8ec"
     },
     {
+      "path": "frontend/src/writing/EntryDraftGuard.test.ts",
+      "sha256": "e1bceb4cc75c3879d460fdeb1d48195b6593f4e50c8b7791a0eefcbd776075e8"
+    },
+    {
       "path": "frontend/src/writing/EntryForm.vue",
       "sha256": "8220bdfe83500765465d514c1b4dffc69ae2f31e43c6c08da7d6f88c4137065d"
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
-      "sha256": "349dc1ff5acb8e3acfac6ed521f46289105ee97d10ef167da49f72eeed7733c1"
+      "sha256": "c256531455a368fd6bf3a32d5558becd968f21ee0c0936b40f500be2e71ec21b"
     },
     {
       "path": "frontend/src/writing/EntryTargetPicker.test.ts",
@@ -1608,7 +1612,7 @@
     },
     {
       "path": "frontend/src/writing/entryTransfer.ts",
-      "sha256": "f5f016371a6d28498214f928561da40bee750d5d8cd0fa45020249865113d41a"
+      "sha256": "38784bfa3f13806c6163ffcae9c28f4123b9673869a275e515ce4747c60b0254"
     },
     {
       "path": "frontend/src/writing/extensions.ts",
@@ -1828,7 +1832,7 @@
     },
     {
       "path": "tests/browser_writing_preview.py",
-      "sha256": "c8868692b93f76ef6d381b7afd4079b56b28e255155c615e571b0441a0677e3a"
+      "sha256": "849ce4d34228831947fbe9c7a3aec42f66132a0b5bca1de170b72dc3982c8311"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -3916,7 +3920,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "86869bb77b81d7cd564b68b2c5437834d0c4c56a36e14f3e19dce3a23665b493"
+      "sha256": "704f4c695f15db4219cde69f7cbea8a463f30cd30f5ddacbfa290fadbe7c7d75"
     },
     {
       "path": "third_party/source-scope.json",

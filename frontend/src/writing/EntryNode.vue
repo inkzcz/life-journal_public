@@ -2,7 +2,7 @@
 import {ref,watch,inject,onMounted,onBeforeUnmount} from 'vue'
 import {NodeViewWrapper,nodeViewProps} from '@tiptap/vue-3'
 import {cardBounds,duplicateCard,moveCard,deleteCard} from './entryDocument'
-import {entryTransferKey} from './entryTransfer'
+import {entryTransferKey,entryDraftStateKey} from './entryTransfer'
 import {validEntry,type Entry} from './entries'
 import EntryForm from './EntryForm.vue'
 import EntryCard from './EntryCard.vue'
@@ -12,11 +12,14 @@ import {computed} from 'vue'
 import PrivatePreview from '../admin/PrivatePreview.vue'
 const props=defineProps(nodeViewProps),opened=ref(false),error=ref('')
 const transfer=inject(entryTransferKey,undefined)
+const reportDraft=inject(entryDraftStateKey,undefined),draftOwner=Symbol('card-form')
 function localReady(){if(opened.value&&(!timeValid.value||JSON.stringify(draft.value)!==JSON.stringify(props.node.attrs.value))){error.value='请先保存或取消当前卡片编辑';return false}return true}
 function transferCard(operation:'copy'|'move'){if(localReady())void transfer?.(props.node.attrs.value,operation)}
 function duplicate(){if(localReady())duplicateCard(props.editor,props.node.attrs.value.id)}
 const timeValid=ref(true)
 const draft=ref<Entry>(JSON.parse(JSON.stringify(props.node.attrs.value)))
+watch(()=>opened.value&&(!timeValid.value||JSON.stringify(draft.value)!==JSON.stringify(props.node.attrs.value)),value=>reportDraft?.(draftOwner,value),{immediate:true,flush:'sync'})
+onBeforeUnmount(()=>reportDraft?.(draftOwner,false))
 watch(opened,()=>{draft.value=JSON.parse(JSON.stringify(props.node.attrs.value));error.value=''})
 function save(){if(!props.editor.isEditable)return;if(!timeValid.value){error.value='请先处理时间与时区提示';return;}if(!validEntry(draft.value)){error.value='请填写名称并核对字段';return}if(draft.value.kind!==props.node.attrs.value.kind){error.value='修改已有卡片的类型请新增另一张卡片';return}props.updateAttributes({value:JSON.parse(JSON.stringify(draft.value))});opened.value=false}
 

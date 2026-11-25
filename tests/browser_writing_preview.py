@@ -44,6 +44,24 @@ def exercise_cards(page):
         node.get_by_role('button',name='保存卡片',exact=True).click()
         assert page.locator('.entry-card').filter(has_text='编辑后卡片-'+str(index)).get_attribute('id')==identity
         identities[kind]=identity.removeprefix('entry-')
+    # A draft in card A must block transferring clean card B: a successful
+    # transfer reloads the whole document, not just the selected NodeView.
+    first=page.locator('.entry-card').first
+    first.get_by_role('button',name='卡片操作',exact=True).click()
+    page.get_by_role('menuitem',name='编辑卡片',exact=True).click()
+    draft=first.locator('form input[required][maxlength="200"]')
+    draft.fill('合成未保存的卡片草稿')
+    page.get_by_role('button',name='Markdown 源码',exact=True).click()
+    assert page.locator('.immersive-prose').is_visible()
+    assert draft.input_value()=='合成未保存的卡片草稿'
+    second=page.locator('.entry-card').nth(1)
+    for action in ('复制到其他文章','移动到其他文章'):
+        second.get_by_role('button',name='卡片操作',exact=True).click()
+        page.get_by_role('menuitem',name=action,exact=True).click()
+        page.get_by_role('alert').filter(has_text='请先保存或取消尚未完成的卡片、媒体、地点或行程编辑').wait_for()
+        assert not page.locator('.entry-target-picker[open]').count()
+        assert draft.input_value()=='合成未保存的卡片草稿'
+    first.get_by_role('button',name='取消',exact=True).click()
     # Native menu actions operate on actual ProseMirror nodes, not preview markup.
     first=page.locator('.entry-card').first
     first.get_by_role('button',name='卡片操作',exact=True).click()
@@ -216,7 +234,7 @@ def main():
         result={'browser':browser.version,'platform':'Linux headless Chromium','cards':6,
             'responsive_geometry_matrix':geometry,'desktop_and_mobile':True,'light_and_dark':True,'no_horizontal_overflow':True,
             'new_daily_and_travel_controls':True,'mode_switch_keeps_body_and_title':True,
-            'six_kinds_created_and_edited_through_actual_forms':True,'card_uuid_and_source_visual_roundtrip_preserved':True,
+            'six_kinds_created_and_edited_through_actual_forms':True,'card_uuid_and_source_visual_roundtrip_preserved':True,'other_card_draft_blocks_copy_move_and_mode_switch':True,
             'mobile_editor_clock_form_and_menu_widths':[390,375,320],'visible_long_notification_url':True,'actual_api_or_external_requests':0,'page_errors':errors,
             'images':sorted(path.name for path in args.output.glob('*.png'))}
         (args.output/'browser-results.json').write_text(json.dumps(result,indent=2)+'\n')
