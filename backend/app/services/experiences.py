@@ -30,7 +30,8 @@ def validate(value, *, published=False):
     if not isinstance(value['name'], str) or not value['name'].strip() or len(value['name']) > 200:
         raise ValueError('请填写卡片名称（最多200字）')
     fields = value.get('fields', {})
-    if not isinstance(fields, dict) or set(fields) - TEXT_FIELDS:
+    if (not isinstance(fields, dict) or len(fields)>96
+            or any(not isinstance(k,str) or not 1<=len(k)<=80 or any(ord(c)<32 for c in k) or k in ('__proto__','prototype','constructor') for k in fields)):
         raise ValueError('结构化字段无效')
     if any(not isinstance(v, str) or len(v) > 4000 for v in fields.values()):
         raise ValueError('结构化字段必须是4000字以内的文字')

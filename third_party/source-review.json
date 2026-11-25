@@ -736,9 +736,10 @@
       "path": "backend/app/calendar/service.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "9de0230bb3ee46576a042eb07c5adfb0cf2de5a97fbe8547d7467de81a19d82a"
+      "sha256_canonical": "ec65921e586d5c166d51ed819cfbd37c2d648bd950cf615c2bea913df7559464"
     },
     {
       "path": "backend/app/calendar/transport.py",
@@ -1093,9 +1094,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008"
       ],
-      "sha256_canonical": "3b1199702c53adc17a0dafc6d6fa8af500c4e760004ffac3201c3aa1f14931e5"
+      "sha256_canonical": "886490da7d79e6d86a533323b97e7b984954e48042892fb8226734ea4b8e0c5e"
     },
     {
       "path": "backend/app/routers/discovery.py",
@@ -1135,9 +1137,10 @@
       "path": "backend/app/routers/food.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P008"
       ],
-      "sha256_canonical": "0120b6e2e17eca3982b4ad0880871842c1a25206a2832a929b0bcf445d5837c5"
+      "sha256_canonical": "68205ca32a3c4ce0ff80b5baab7caa5486c9b3cdffc89c195669836fcba9d34f"
     },
     {
       "path": "backend/app/routers/itinerary.py",
@@ -1270,13 +1273,21 @@
       "sha256_canonical": "83ec7b183c1ae6795cb26ef4d30e628882d2f909b6f2f3a6be19cb2bf9156304"
     },
     {
+      "path": "backend/app/services/entry_operations.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "d7558b2fa8dcaae66f87ddd905f630bfb8a601a09f588de108d77fe8340d39a6"
+    },
+    {
       "path": "backend/app/services/experiences.py",
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
         "P008"
       ],
-      "sha256_canonical": "318b3d37f7d462798534752ca1921bb12af12deb7a85be38fc21beea809cfedc"
+      "sha256_canonical": "e9a1d86aafa9a30b8ed554523711df3c3f4899560ca66d13658e4c40c9ac357e"
     },
     {
       "path": "backend/app/services/folders.py",
@@ -1608,7 +1619,7 @@
       "evidence": [
         "P008"
       ],
-      "sha256_canonical": "d37491cefa787b3b965128ccaea15c85a599e87f027a6875be16b81ad370252a"
+      "sha256_canonical": "bf663add87b7dc660bc4a49be612d32f220b3abce9afda1b67ffacf5215eb0c1"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1871,9 +1882,10 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008"
       ],
-      "sha256_canonical": "bb40340599d727311df3bd505637497af76da6ea0f725cd63e19437445f453e9"
+      "sha256_canonical": "8e6dfdcaf173356ed7964a341dfebd35a01a82d8f5c5e42e7e63238c284add7f"
     },
     {
       "path": "frontend/src/admin/Archive.test.ts",
@@ -3150,9 +3162,26 @@
       "classification": "owner-declared-project-material",
       "evidence": [
         "J001",
-        "P006"
+        "P006",
+        "P008"
       ],
-      "sha256_canonical": "ebf0d342f71acbcfc2771e7b3e439de09d31158659b6ea1b185a1afc1f59d865"
+      "sha256_canonical": "63081ff28f69fdb35fab435970f623a0cf72bc58194d5a1beb20b0a38f92be66"
+    },
+    {
+      "path": "frontend/src/writing/EntryTargetPicker.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "4bad386c48cb5ed29238601dd8edb9d08d87149c0c8d8a588ee5ef03abd866b7"
+    },
+    {
+      "path": "frontend/src/writing/EntryTargetPicker.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "1c590507ecdedabe44e5082d2c42025e9a557b9913cc67fbb25b0526567d0e73"
     },
     {
       "path": "frontend/src/writing/FoodMediaEditor.test.ts",
@@ -3266,6 +3295,14 @@
         "J001"
       ],
       "sha256_canonical": "bda928924a52c22e121ce7a280bbc41639745f2ab03ff49e79544ab0bf304837"
+    },
+    {
+      "path": "frontend/src/writing/entryTransfer.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "f5f016371a6d28498214f928561da40bee750d5d8cd0fa45020249865113d41a"
     },
     {
       "path": "frontend/src/writing/extensions.ts",
@@ -4008,6 +4045,14 @@
         "J005"
       ],
       "sha256_canonical": "b6639aa771c2682f5624dd729c71f6ad8f59d3823ebfa9bf3fa20283cc061528"
+    },
+    {
+      "path": "tests/test_entry_operations.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P008"
+      ],
+      "sha256_canonical": "34036b9c639d0a344e59832f807d196a598059797bb4200b15159adccb6096d2"
     },
     {
       "path": "tests/test_exchange_assemble.py",

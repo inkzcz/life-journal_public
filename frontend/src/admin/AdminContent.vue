@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import {newId} from '../ids'
+import {entryTransferKey} from '../writing/entryTransfer'
+import type {Entry} from '../writing/entries'
+import EntryTargetPicker from '../writing/EntryTargetPicker.vue'
 import {confirmAction} from '../ui/confirm'
 import ThemeOrnament from '../blog/ThemeOrnament.vue'
-import { ref, computed, onMounted, onUnmounted, nextTick, watch, inject, defineAsyncComponent } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick, watch, inject, provide, defineAsyncComponent } from 'vue'
 const BodyEditor=defineAsyncComponent(()=>import('../writing/BodyEditor.vue'))
 const WritingAssistant=defineAsyncComponent(()=>import('../exchange/WritingAssistant.vue'))
 import type {AIEditor} from '../exchange/selection'
@@ -74,6 +78,29 @@ watch(()=>props.recordId,id=>{if(props.immersive&&id&&id!==record.value?.id)open
 const pages=computed(()=>Math.max(1,Math.ceil(total.value/20)))
 const snapshot=()=>JSON.stringify(section.value==='types'?typeDraft.value:record.value)
 const dirty=computed(()=>section.value==='types'?!!typeDraft.value&&snapshot()!==saved.value:!!record.value&&recordMode.value==='edit'&&editor.dirty())
+const entryTransfer=ref<{entry:Entry;operation:'copy'|'move';requestId:string;sourceId:string}|null>(null),transferError=ref('')
+provide(entryTransferKey,async(entry,operation)=>{
+ if(props.previewOnly||!record.value||busy.value||saveState.saving)return
+ if(uploadsPending.value||placePending.value||itineraryPending.value){error.value='请先完成当前媒体、地点或行程编辑';return}
+ if(!record.value.id||editor.dirty()){
+  if(!await confirmAction('跨文章操作前需要先保存当前文章，保存成功后继续。'))return
+  await saveRecord()
+  if(!record.value?.id||editor.dirty()){error.value='当前文章未确认保存，已取消卡片操作';return}
+ }
+ entryTransfer.value={entry:clone(entry),operation,requestId:newId(),sourceId:record.value.id};transferError.value=''
+})
+async function transferEntry(target:{id:string;revision:number;title:string}){
+ const action=entryTransfer.value,d=record.value
+ if(!action||!d?.id||busy.value||saveState.saving)return
+ if(editor.dirty()){transferError.value='当前文章发生未保存修改，请取消并先保存';return}
+ busy.value=true;transferError.value=''
+ try{
+  await request('/admin/content/records/'+d.id+'/entry-operation',{method:'POST',body:JSON.stringify({operation:action.operation,target_id:target.id,entry_id:action.entry.id,request_id:action.requestId,source_revision:d.revision,target_revision:target.revision})})
+  const fresh=await request('/admin/content/records/'+d.id) as ContentRecord
+  if(alive){record.value=toDraft(fresh);beginEditing();bodyEditorKey.value++;saved.value=snapshot();entryTransfer.value=null;notice.value='卡片操作成功，文章版本已同步'}
+ }catch(e){if(alive)transferError.value='操作未确认完成，请保留当前选择重试；冲突时取消并重新读取文章。'+String(e)}finally{if(alive)busy.value=false}
+}
+
 async function canLeave(){return (!resourceManager.value||await resourceManager.value.canLeave())&&!busy.value&&(!placePending.value||await confirmAction('有尚未保存的地点编辑，确定放弃吗？'))&&(!uploadsPending.value||await confirmAction('有尚未完成或失败的上传，离开后需重新选择文件。确定离开吗？'))&&(!dirty.value||await confirmAction('有尚未确认保存的修改，确定放弃本页输入吗？在途请求可能已经写入，请返回后核对服务器版本。'))}
 const routeRouter=inject(routerKey,undefined)
 if(routeRouter&&!props.previewOnly)onBeforeRouteLeave(async to=>props.immersive&&record.value?.id&&to.path==='/write/'+record.value.id||await canLeave())
@@ -140,7 +167,7 @@ function display(field:Field,value:unknown){if(value===null||value===undefined)r
 onMounted(()=>{window.addEventListener('keydown',saveKey);window.addEventListener('session-expired',retainExpired,true);window.addEventListener('beforeunload',beforeUnload);void run(async()=>{await loadTypes();if(props.immersive||filterStatus.value){section.value='records';await loadRecords();if(props.recordId){const result=await request('/admin/content/records/'+props.recordId) as ContentRecord;record.value=toDraft(result);recordMode.value='edit';beginEditing();if(props.publishIntent&&record.value)record.value.status='published'}}}).then(()=>{if(props.initialTemplateId&&!props.recordId)startRecord('',props.initialTemplateId)})})
 onUnmounted(()=>{window.removeEventListener('keydown',saveKey);alive=false;editor.stop();window.removeEventListener('session-expired',retainExpired,true);window.removeEventListener('beforeunload',beforeUnload)})
 </script>
-<template>
+<template><EntryTargetPicker v-if="entryTransfer" :entry="entryTransfer.entry" :operation="entryTransfer.operation" :source-id="entryTransfer.sourceId" :busy="busy" :error="transferError" @cancel="entryTransfer=null" @confirm="transferEntry"/>
   <section class="admin-content" :class="{'immersive-writing':immersive}">
     <div v-if="!immersive" class="admin-heading"><div><span class="eyebrow">PRIVATE CONTENT STUDIO</span><h2>内容管理</h2><p class="muted">直接记录日常与旅行；高级字段可按需设置。</p></div><button class="quiet" :disabled="busy" @click="exit">返回私人Blog</button></div>
     <nav v-if="!immersive" class="admin-tabs" aria-label="管理区域"><button :class="{quiet:section!=='types'}" :disabled="busy" @click="tab('types')">内容类型</button><button :class="{quiet:section!=='records'}" :disabled="busy" @click="tab('records')">内容记录</button><button :class="{quiet:section!=='media'}" :disabled="busy" @click="tab('media')">媒体库</button><button :class="{quiet:section!=='places'}" :disabled="busy" @click="tab('places')">地点管理</button></nav>

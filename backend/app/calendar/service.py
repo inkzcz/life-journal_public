@@ -32,11 +32,13 @@ def list_events(db,start,end,count=None):
 def memories(db,event,page=1):
     rule=DateRule.model_validate(event.rule)
     # Dynamic query: newly backdated articles immediately participate, no copied body.
-    ranges=list(db.execute(readable().with_only_columns(ContentRecord.id,ContentRecord.display_date,ArticleOptions.end_date,TripPlan.start_date,TripPlan.end_date).outerjoin(ArticleOptions,ArticleOptions.record_id==ContentRecord.id).outerjoin(TripPlan,TripPlan.record_id==ContentRecord.id)))
+    from ..services.record_mode import travel_expression
+    travel_ids=readable().with_only_columns(ContentRecord.id).where(travel_expression(db))
+    ranges=list(db.execute(readable().with_only_columns(ContentRecord.id,ContentRecord.display_date,ArticleOptions.end_date,TripPlan.start_date,TripPlan.end_date,travel_expression(db).label('travel_enabled')).outerjoin(ArticleOptions,ArticleOptions.record_id==ContentRecord.id).outerjoin(TripPlan,TripPlan.record_id==ContentRecord.id)))
     ids=set();dates=[]
     if ranges:
-        earliest=min(d for x in ranges for d in (x.display_date,x.start_date) if d is not None)
-        first_activity=db.scalar(select(func.min(TripActivity.day)).where(TripActivity.active.is_(True),TripActivity.record_id.in_(readable().with_only_columns(ContentRecord.id))))
+        earliest=min(d for x in ranges for d in (x.display_date,x.start_date if x.travel_enabled else None) if d is not None)
+        first_activity=db.scalar(select(func.min(TripActivity.day)).where(TripActivity.active.is_(True),TripActivity.record_id.in_(travel_ids)))
         if first_activity:earliest=min(earliest,first_activity)
         last=today(db)
         while earliest<=last:
@@ -47,11 +49,11 @@ def memories(db,event,page=1):
         if start is None:return False
         i=bisect_left(dates,start)
         return i<len(dates) and dates[i]<=(end or start)
-    for rid,start,end,trip_start,trip_end in ranges:
-        if covered(start,end) or covered(trip_start,trip_end):ids.add(rid)
+    for rid,start,end,trip_start,trip_end,travel in ranges:
+        if covered(start,end) or travel and covered(trip_start,trip_end):ids.add(rid)
     # Explicit day activities also match even in old records without a plan range.
     for i in range(0,len(dates),1000):
-        ids.update(db.scalars(select(TripActivity.record_id).where(TripActivity.day.in_(dates[i:i+1000]),TripActivity.active.is_(True),TripActivity.record_id.in_(readable().with_only_columns(ContentRecord.id)))))
+        ids.update(db.scalars(select(TripActivity.record_id).where(TripActivity.day.in_(dates[i:i+1000]),TripActivity.active.is_(True),TripActivity.record_id.in_(travel_ids))))
     manual=set(event.memories)
     record_dates={r[0]:r[1] for r in ranges}
     ordered=sorted((ids-manual)&set(record_dates),key=lambda rid:(-record_dates[rid].toordinal(),rid))

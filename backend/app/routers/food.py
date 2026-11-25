@@ -22,7 +22,8 @@ def food_context(db,rows):
     ids={r.id for f,r in rows};mark_ids={r.id for f,r in rows if f.source_kind in ('mark','article')}
     if not ids:return {},{},{},set(),{},set()
     covers={};marks={};activities={};bodies={}
-    trips=set(db.scalars(select(TripPlan.record_id).where(TripPlan.record_id.in_(ids),or_(TripPlan.start_date.is_not(None),TripPlan.end_date.is_not(None)))))
+    from ..services.record_mode import travel_expression
+    trips=set(db.scalars(select(ContentRecord.id).where(ContentRecord.id.in_(ids),travel_expression(db))))
     article_ids={r.id for f,r in rows if f.source_kind=='article'}
     if article_ids:
         from sqlalchemy.orm.attributes import set_committed_value
