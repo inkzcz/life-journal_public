@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   preflight:
-    if: github.repository == 'inkzcz/life-journal_public'
+    if: github.repository == 'inkzcz/life-journal_public' && (github.event_name != 'push' || github.event.deleted != true)
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.identity.outputs.version }}

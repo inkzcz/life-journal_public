@@ -35,8 +35,8 @@
     },
     ".github/workflows/release.yml": {
       "scope": "v5.1.11-release",
-      "sha256": "e4244a15941c099b16aaa5a26beee39fea57ce93c0193251a4537c14123304da",
-      "review": "Operator reviewed exact existing workflow bytes under explicit one-time v5.1.11 unreleased tag repair and formal delivery authorization. No workflow permissions/artifact/quality/legal relaxation; new selected source authority binds PR #9 rather than the retired PR #5 identity. Original grants and technical reviews remain immutable."
+      "sha256": "1af7e279fc64e9c2e9b014b779a95f55c397742ce678011a6b97a85beff8c961",
+      "review": "Operator reviewed exact existing workflow bytes under explicit one-time v5.1.11 unreleased tag repair and formal delivery authorization. No workflow permissions/artifact/quality/legal relaxation; new selected source authority binds PR #9 rather than the retired PR #5 identity. Original grants and technical reviews remain immutable. Reject tag-deletion push events before checkout/preflight, so only creation of the newly authorized tag can build/publish. No permission or validation removed."
     }
   },
   "previous_authorization_sha256": "73958921028dc910b7d423d1c5cc610a2c441d641f5d83f327656ddd3a4fc8a7",

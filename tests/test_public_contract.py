@@ -154,3 +154,11 @@ def test_intermediary_cleanup_only_follows_public_download_checks():
     assert '--artifact-id "$DELIVERY_ARTIFACT_ID"' in command and '--run-id "$GITHUB_RUN_ID"' in command
     assert '--publication-verified "$PUBLICATION_VERIFIED"' in command
     assert 'release delete' not in command
+
+
+def test_formal_pipeline_rejects_tag_deletion_events_before_any_checkout_or_build():
+    workflow=yaml.safe_load((ROOT/'.github/workflows/release.yml').read_text())
+    guard=workflow['jobs']['preflight']['if']
+    assert "github.repository == 'inkzcz/life-journal_public'" in guard
+    assert "(github.event_name != 'push' || github.event.deleted != true)" in guard
+    assert workflow['jobs']['build']['needs']=='preflight'
