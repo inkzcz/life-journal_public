@@ -8,7 +8,7 @@
 ## v5.1.9 / v5.1.10 / v5.1.11 实际二进制的分发门禁
 
 所有者已授权在必要法律条件和CI通过后正式发布；Windows/Z4S改为发布后待本地验收，UPGRADE-001保持历史已知问题，不再作为阻塞，也不绕过迁移保护。
-授权记录独立于旧A/B源码授权；v5.1.9 见 licensing/BINARY_RELEASE_AUTHORIZATION.json，v5.1.10 见 licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json，v5.1.11见licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json（历史授权不改）；第三方原有grant/版本/署名不改。
+授权记录独立于旧A/B源码授权；v5.1.9 见 licensing/BINARY_RELEASE_AUTHORIZATION.json，v5.1.10 见 licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json，v5.1.11当前见licensing/BINARY_RELEASE_v5.1.11_REPAIR_AUTHORIZATION.json，仅为所有者明确批准的未发行Tag单次身份修复；原licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json及全部历史授权不改；第三方原有grant/版本/署名不改。
 
 | 实际组件/义务 | 本次实现及失败条件 |
 | --- | --- |

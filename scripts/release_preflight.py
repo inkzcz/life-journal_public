@@ -42,6 +42,9 @@ def main():
     if reference.get('object', {}).get('type') != 'tag':
         raise RuntimeError('A remote annotated tag is required')
     revision, tag_sha = annotated_remote_target(reference, api('git/tags/'+reference['object']['sha']), version)
+    repair=authorization.get('unreleased_tag_repair')
+    if repair and (tag_sha==repair['original_tag_sha'] or revision==repair['original_source_commit']):
+        raise RuntimeError('Retired unreleased tag cannot be used for formal delivery')
     retained = authorization.get('retained_tag_identity')
     if retained and (retained.get('tag_sha') != tag_sha or retained.get('source_commit') != revision):
         raise RuntimeError('Existing owner-authorized tag identity changed; nothing may be overwritten')

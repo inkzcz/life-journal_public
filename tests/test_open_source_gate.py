@@ -55,7 +55,7 @@ def test_copyright_registry_cannot_allow_personal_app_data(tmp_path):
 def test_standalone_snapshot_gate_does_not_create_bytecode_or_modify_inputs(tmp_path):
     source=Path(__file__).resolve().parents[1]
     scripts=tmp_path/'scripts';scripts.mkdir()
-    for name in ('open_source_gate.py','image_private_keys.py','__init__.py'):
+    for name in ('open_source_gate.py','image_private_keys.py','release_authorization.py','__init__.py'):
         (scripts/name).write_bytes((source/'scripts'/name).read_bytes())
     before={p.relative_to(tmp_path):p.read_bytes() for p in tmp_path.rglob('*') if p.is_file()}
     result=subprocess.run([sys.executable,str(scripts/'open_source_gate.py'),'--root',str(tmp_path),'--snapshot'],
@@ -110,7 +110,7 @@ def test_binary_workflow_exception_is_owner_scoped_and_byte_exact(tmp_path):
     path.write_bytes(raw)
     authority={'format':'life-journal-binary-release-authorization-v1','binary_publication_approved':True,
         'repository':'inkzcz/life-journal_public','version':'v5.1.9',
-        'registry_push_approved':False,'nas_access_approved':False,'owner_confirmation_reference':'Synthetic owner fixture',
+        'registry_push_approved':False,'nas_access_approved':False,'private_repository_changes_approved':False,'owner_confirmation_reference':'Synthetic owner fixture',
         'technically_reviewed_workflows':{'.github/workflows/ci.yml':{'scope':'candidate-artifacts','sha256':hashlib.sha256(raw).hexdigest()}}}
     (tmp_path/'licensing').mkdir();record=tmp_path/'licensing/BINARY_RELEASE_AUTHORIZATION.json'
     record.write_text(json.dumps(authority))

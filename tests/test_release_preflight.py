@@ -88,3 +88,39 @@ def test_formal_gate_rejects_unverified_release_identity_or_checks(preflight,fai
     elif failure=='existing_release':state['release_returncode']=0
     else:state['release_error']='gh: Forbidden (HTTP 403)'
     with pytest.raises(RuntimeError):gate.main()
+
+
+@pytest.fixture
+def repaired_preflight(preflight,tmp_path,monkeypatch):
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]
+    (tmp_path/'VERSION').write_text('5.1.11\n')
+    for name in ('BINARY_RELEASE_v5.1.11_AUTHORIZATION.json','BINARY_RELEASE_v5.1.11_REPAIR_AUTHORIZATION.json'):
+        (tmp_path/'licensing'/name).write_bytes((root/'licensing'/name).read_bytes())
+    previous_api,previous_run=gate.api,gate.run
+    reference,tag=sample('v5.1.11')
+    def api(path):
+        if path=='git/ref/tags/v5.1.11':return reference
+        if path.startswith('git/tags/'):return tag
+        if path=='pulls/9':return previous_api('pulls/4')
+        return previous_api(path)
+    def run(*args):
+        if args[:2]==('git','show'):return '5.1.11'
+        return previous_run(*args)
+    monkeypatch.setattr(gate,'api',api);monkeypatch.setattr(gate,'run',run)
+    return reference,tag
+
+
+def test_repaired_formal_identity_uses_new_authorized_pr_and_all_existing_checks(repaired_preflight,capsys):
+    gate.main();receipt=json.loads(capsys.readouterr().out)
+    assert receipt['source_pull_request']==9 and receipt['version']=='v5.1.11'
+    assert receipt['revision']=='b'*40 and receipt['tag_sha']=='a'*40
+
+
+@pytest.mark.parametrize('retired',['tag','source'])
+def test_retired_v5111_object_or_application_is_never_reused(repaired_preflight,retired):
+    reference,tag=repaired_preflight
+    if retired=='tag':
+        reference['object']['sha']=tag['sha']='953a945b48dd8c11639f90ac62c2361b421469ab'
+    else:tag['object']['sha']='3c3a465e5ba1dd353a3886b6394907311e972865'
+    with pytest.raises(RuntimeError,match='Retired unreleased tag'):gate.main()

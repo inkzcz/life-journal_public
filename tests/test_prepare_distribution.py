@@ -138,7 +138,7 @@ def test_formal_511_requires_its_own_pr_and_source_authority():
     from scripts.release_authorization import read_authorization
     from pathlib import Path
     root=Path(__file__).resolve().parents[1]
-    current=read_authorization(root,'v5.1.11');assert current['source_pull_request']==5
+    current=read_authorization(root,'v5.1.11');assert current['source_pull_request']==9
     delivery.require_release_authorization(current,'v5.1.11')
     with pytest.raises(ValueError):delivery.require_release_authorization(read_authorization(root,'v5.1.10'),'v5.1.11')
     for key in ('source_pull_request','binary_publication_approved','owner_confirmation_reference'):
