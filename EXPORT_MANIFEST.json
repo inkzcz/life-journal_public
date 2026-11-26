@@ -36,7 +36,7 @@
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "e4244a15941c099b16aaa5a26beee39fea57ce93c0193251a4537c14123304da"
+      "sha256": "1af7e279fc64e9c2e9b014b779a95f55c397742ce678011a6b97a85beff8c961"
     },
     {
       "path": ".gitignore",
@@ -44,7 +44,7 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "ec3a25b81b91ef00f9215b920281c42c637f52f47c4bb276b3d9ac66712a3235"
+      "sha256": "2379dbf2075bf1f616eb15554a1d0c784789cd93bc0b635ff100eb16b4c1833d"
     },
     {
       "path": "CHANGELOG.md",
@@ -696,7 +696,7 @@
     },
     {
       "path": "docs/development/v5.1.11-progress.md",
-      "sha256": "de4a95d56bd5917ca5a23ce618ae6ac20673031c5aaa80974959ff8e4f771973"
+      "sha256": "5cbe9d9849c30274f669c78a13f48486a3ee83a419251f97b4fbcc2e308bfe85"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -736,7 +736,7 @@
     },
     {
       "path": "docs/release-policy.md",
-      "sha256": "f9972a5724d82b187f3c8d093241134413ceb0e51dbde9e465607655063831d0"
+      "sha256": "779f865de5c2baa9ba4a1b181563e04c98bc6ef7055f6f79db7d69b964e18b51"
     },
     {
       "path": "docs/release-v5.1.10.md",
@@ -744,7 +744,7 @@
     },
     {
       "path": "docs/release-v5.1.11.md",
-      "sha256": "100fc88ba9cf87ea2bfee29fdb0e26686b8dcb82af1571f64c4629f892f4a9e2"
+      "sha256": "cd8473624d8ed6c012a9d0343ffa9e3ce86a841500f7fa606acc6a1d82903bed"
     },
     {
       "path": "docs/release-v5.1.9.md",
@@ -761,6 +761,10 @@
     {
       "path": "docs/v5.1.10-validation.md",
       "sha256": "d78224ba05b004a52e0815117b9a8bc45488fa04e2520a42f1ef810a50589468"
+    },
+    {
+      "path": "docs/v5.1.11-unreleased-tag-repair.md",
+      "sha256": "39ff0d1a816dc8cebab96c4308c50b6c78646c20059ed2653443084d5fec8eb0"
     },
     {
       "path": "docs/v5.1.11-validation.md",
@@ -1687,6 +1691,10 @@
       "sha256": "73958921028dc910b7d423d1c5cc610a2c441d641f5d83f327656ddd3a4fc8a7"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.11_REPAIR_AUTHORIZATION.json",
+      "sha256": "a61809bb350950e654704b3af8b5ee6f48edfa9f214c80366a741bf840a45bb9"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
@@ -1708,7 +1716,7 @@
     },
     {
       "path": "licensing/README.md",
-      "sha256": "a78c5f0251dc9b759f9a79ea44043914e4da32314011b1e72d506bce0bda48a1"
+      "sha256": "f99bd802ebf26959017f839b0710cff08d8ca21a584fa59980ed595650c723ea"
     },
     {
       "path": "licensing/proposal.json",
@@ -1756,7 +1764,7 @@
     },
     {
       "path": "scripts/open_source_gate.py",
-      "sha256": "7b921b6e52ae608a5007557f1b76714f6eeaea7acff870a8eeff99abdadcd013"
+      "sha256": "b99fccecb0fe0c7a2723aadc83d3a78bae5d104ce63d751f45e50b7a9f6cd307"
     },
     {
       "path": "scripts/prepare_distribution.py",
@@ -1780,7 +1788,7 @@
     },
     {
       "path": "scripts/release_authorization.py",
-      "sha256": "ceec6d85651a6a8b8df850cf7e574c8ff4d62471a0e2137c8d7fd65373f45c46"
+      "sha256": "a823f8a154368da8266a1c686a051191cb9d21c3a4fb6ad2d244a5bf6c43762a"
     },
     {
       "path": "scripts/release_local.py",
@@ -1788,7 +1796,7 @@
     },
     {
       "path": "scripts/release_preflight.py",
-      "sha256": "0ec637dc702b67c3b5e247474ccc0ebbc044bf5cbf2e8d903182ddc939549f02"
+      "sha256": "d1258c0cbd686cbdf7eb91dc6ce02b9be91914829f671f1f098c81ad9d99ba51"
     },
     {
       "path": "scripts/release_source.py",
@@ -1821,6 +1829,10 @@
     {
       "path": "scripts/unified_release.py",
       "sha256": "12e5971dedc516fd99aa5dcf04c39b41f1b05cb2bdb09758a8242cd896551fe0"
+    },
+    {
+      "path": "scripts/unreleased_tag_repair.py",
+      "sha256": "5353669c56535f91c2bd108cac3baf7b0efe3f1d88eaee6362bc01409afa181c"
     },
     {
       "path": "tests/auto_migration_compose.py",
@@ -2116,7 +2128,7 @@
     },
     {
       "path": "tests/test_open_source_gate.py",
-      "sha256": "0538ffd67a8b12e6679e7fd153ae34136b8d34f07dbe64926366d8759c94aba6"
+      "sha256": "e7ef8487db0a0a39ae1a62611076d430bba7dbd013a70d49d13742ac4bde7f0e"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -2136,7 +2148,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "eea29f6425e157d0ba5307f01b21598a882bc609e10a09ccc18fb844c3a0ea7f"
+      "sha256": "5ea9fb16e9432fe8160028c22f8e4098a708fe761f12d309381bffa8e0104fc7"
     },
     {
       "path": "tests/test_product_version.py",
@@ -2144,7 +2156,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "277ca3b32956db8e9b8ee89f69f15448bc6504981fd782490e7a8e6fb4ec9e88"
+      "sha256": "ae69ea4008e84f684f5aa964909c2b176e8b3e4e9992fc9c9fd9bd1fc56afb4e"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -2172,7 +2184,7 @@
     },
     {
       "path": "tests/test_release_preflight.py",
-      "sha256": "f2275df72ca38de57e6ff15be3b21721db2c49990b253ae5b79106c917a9c1f3"
+      "sha256": "6177b44b6a1e2fbb4bd82dc0158081835ddd164188a6a751892988ba8771f715"
     },
     {
       "path": "tests/test_release_source.py",
@@ -2215,6 +2227,10 @@
       "sha256": "be664d152a88b1c426c24819be5c0db805fde543ca6db8430a1c0373ddd42b53"
     },
     {
+      "path": "tests/test_unreleased_tag_repair.py",
+      "sha256": "86d476d34689d480440816f85571f6af1eeccfd22ce454bd6af1cb52e3dadf5a"
+    },
+    {
       "path": "tests/test_upgrade.py",
       "sha256": "042f736fda7173ebe1dfbd743c63d8537ca4b36d62931244a3ebbcab05df02e8"
     },
@@ -2244,7 +2260,7 @@
     },
     {
       "path": "third_party/REDISTRIBUTION.md",
-      "sha256": "e6c43370bbaf9458539db40e5d04b69a5aea08fe33e4744adaa0248c767bd81d"
+      "sha256": "aa6de9e13d910ecf7b4d51a421146d22fc28e5c012febd88e5e72307658dc3fe"
     },
     {
       "path": "third_party/SOURCE_BUILD.md",
@@ -3920,7 +3936,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "352abc7b2bb991fdaa503e8a90503ee220e1432246c6a0a6cf9c27644ae8709f"
+      "sha256": "52858252564a7d02f0cfecaf7d2ba3d754dc98c536a0a18b4055039ef855a39d"
     },
     {
       "path": "third_party/source-scope.json",

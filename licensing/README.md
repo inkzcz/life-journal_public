@@ -30,5 +30,5 @@ Psycopg的LGPL-3.0-only、MIT/ISC及其他授权保持原文，详见third_party
 --require-license 验证原创许可材料；--require-publication 是一次性准备操作的精确快照门禁，不是给合法 GPL 接收者附加分发限制。
 后续维护通过公开分支和 PR，当前来源/文件范围见 SOURCE_DISTRIBUTION.md 与 EXPORT_MANIFEST.json，不冒用首次快照哈希。
 
-原仓库继续Private、原PR不变。后续公开版本的正常合并/Tag/Release授权独立登记；v5.1.11见BINARY_RELEASE_v5.1.11_AUTHORIZATION.json与docs/release-v5.1.11.md。仅通过完整门禁后的单业务TAR及对应源码允许正式分发，无Registry或NAS操作授权。
+原仓库继续Private、原PR不变。后续公开版本的正常合并/Tag/Release授权独立登记；v5.1.11当前见BINARY_RELEASE_v5.1.11_REPAIR_AUTHORIZATION.json与docs/release-v5.1.11.md：所有者明确批准一次未发行Tag身份修复，绑定新PR #9来源；原BINARY_RELEASE_v5.1.11_AUTHORIZATION.json及其SHA256保留不变，已发行Tag不适用此例外。仅通过完整门禁后的单业务TAR及对应源码允许正式分发，无Registry或NAS操作授权。
 未来二进制的对应源码、LGPL 替换、NOTICE 和平台验收是 C 类事项，不混作已公开源码的额外许可条件。

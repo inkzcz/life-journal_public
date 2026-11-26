@@ -1,0 +1,60 @@
+{
+  "format": "life-journal-binary-release-authorization-v1",
+  "repository": "inkzcz/life-journal_public",
+  "version": "v5.1.11",
+  "source_pull_request": 9,
+  "binary_publication_approved": true,
+  "owner_confirmation_reference": "Owner explicit 2026-11-26 instruction in this conversation: retain v5.1.11, authorize one identity repair of its unreleased tag after verifying no Release/formal images/known external dependency and no conflicting v5.1.12 publication. Allows deletion of the exact old unreleased tag, normal PR/main CI, new annotated tag on the fully fixed ordinary main merge and a fresh complete formal single-image Release. No new signature or invented confirmation timestamp. Published tags remain permanently immutable.",
+  "reviewed_feature_head": "9748cf4324fe8c1e938057e5b5e4296e7dc9fdf7",
+  "reviewed_main_baseline": "9748cf4324fe8c1e938057e5b5e4296e7dc9fdf7",
+  "source_binding": "New remote annotated v5.1.11 must directly identify ordinary PR #9 main merge, with exact successful PR HEAD as second parent and reviewed complete safety baseline 9748cf4 as ancestor. Never reuse the retired tag application or its candidate artifacts. Final source/tag/config/dependency/source/legal/TAR receipts bind the new actual build.",
+  "original_license_authorization_unchanged": true,
+  "third_party_relicensed": false,
+  "previous_authorization": "licensing/BINARY_RELEASE_v5.1.11_AUTHORIZATION.json",
+  "required_conditions": [
+    "Exact final PR HEAD and merged-main checks successful; no branch protection bypass",
+    "Single Linux/amd64 Debian business image and TAR; no PostgreSQL delivery",
+    "Precise sources, GPL/LGPL, notices and actual replacement/relink receipts for this binary",
+    "Full required automation, image/layer/import/integrity, installation/backup/restore and same-schema upgrade gates",
+    "Draft Release first; every attachment downloaded and checked before formal publication",
+    "No existing tag, Release or attachment overwritten"
+  ],
+  "windows_and_z4s_acceptance": "Pending owner local post-release acceptance; not claimed passed or prerequisite",
+  "production_database_and_wxpusher_acceptance": "Pending owner local post-release acceptance; no real data or credentials used",
+  "UPGRADE-001": "Historical v5.1.8 to v5.1.9 issue unresolved; owner accepts as nonblocking, migration safeguards remain mandatory",
+  "registry_push_approved": false,
+  "nas_access_approved": false,
+  "private_repository_changes_approved": false,
+  "ongoing_normal_delivery_rule": "docs/release-policy.md; every later version still requires specific source/version authorization registration and intact safety/legal/CI gates",
+  "record_type": "Operator record of explicit owner instruction; not an electronic signature or per-byte owner attestation",
+  "technically_reviewed_workflows": {
+    ".github/workflows/ci.yml": {
+      "scope": "candidate-artifacts",
+      "sha256": "32af44244974b8aab044bb87d05807e189a0b4b0d08342ffb6db48159f2c7f42",
+      "review": "Operator reviewed exact existing workflow bytes under explicit one-time v5.1.11 unreleased tag repair and formal delivery authorization. No workflow permissions/artifact/quality/legal relaxation; new selected source authority binds PR #9 rather than the retired PR #5 identity. Original grants and technical reviews remain immutable."
+    },
+    ".github/workflows/release.yml": {
+      "scope": "v5.1.11-release",
+      "sha256": "1af7e279fc64e9c2e9b014b779a95f55c397742ce678011a6b97a85beff8c961",
+      "review": "Operator reviewed exact existing workflow bytes under explicit one-time v5.1.11 unreleased tag repair and formal delivery authorization. No workflow permissions/artifact/quality/legal relaxation; new selected source authority binds PR #9 rather than the retired PR #5 identity. Original grants and technical reviews remain immutable. Reject tag-deletion push events before checkout/preflight, so only creation of the newly authorized tag can build/publish. No permission or validation removed."
+    }
+  },
+  "previous_authorization_sha256": "73958921028dc910b7d423d1c5cc610a2c441d641f5d83f327656ddd3a4fc8a7",
+  "unreleased_tag_repair": {
+    "approved": true,
+    "one_time": true,
+    "original_tag_sha": "953a945b48dd8c11639f90ac62c2361b421469ab",
+    "original_source_commit": "3c3a465e5ba1dd353a3886b6394907311e972865",
+    "reason": "The original formal job failed before asset upload. Later safe fixes for packaging scope, unsaved cross-card drafts and CI Chinese glyph evidence are merged; old tag cannot describe the fixed application. Owner explicitly replaces this never-released tag once, retaining version 5.1.11.",
+    "eligibility_record": "docs/v5.1.11-unreleased-tag-repair.md",
+    "required_conditions": [
+      "No v5.1.11 Release (including draft) or formal image delivery",
+      "No v5.1.12 Release/tag or conflicting active workflow",
+      "No known external dependency; unknown private clones cannot be enumerated",
+      "Exact original tag object/source still match",
+      "Final ordinary main merge and exact HEAD/main CI successful",
+      "Fresh formal image build and all ten verified attachments; no artifact reuse"
+    ],
+    "published_tag_replacement_approved": false
+  }
+}

@@ -18,6 +18,7 @@ sys.dont_write_bytecode=True
 if __package__ in (None, ''):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.image_private_keys import has_private_pem
+from scripts.release_authorization import RELEASES, read_authorization
 
 FORBIDDEN_SUFFIXES = frozenset({'.db','.sqlite','.sqlite3','.sql','.dump','.backup','.bak',
     '.pyc','.pyo','.key','.pem','.p12','.pfx','.tar','.tgz','.gz','.zip','.7z',
@@ -245,14 +246,13 @@ def reviewed_binary_workflows(root):
     product=(root/'VERSION').read_text().strip() if (root/'VERSION').is_file() else '5.1.9'
     if product not in ('5.1.9','5.1.10','5.1.11'):return {}
     version='v'+product
-    name=('licensing/BINARY_RELEASE_AUTHORIZATION.json' if version=='v5.1.9'
-          else 'licensing/BINARY_RELEASE_'+version+'_AUTHORIZATION.json')
+    name=RELEASES[version][0]
     path=root/name
     try:
         if (not path.is_file() or path.is_symlink() or any(p.is_symlink() for p in path.parents)
                 or path.stat().st_size>MAX_BYTES):
             return {}
-        authority=json.loads(path.read_bytes())
+        authority=read_authorization(root,version)
         if (authority.get('format')!='life-journal-binary-release-authorization-v1'
                 or authority.get('binary_publication_approved') is not True
                 or authority.get('repository')!='inkzcz/life-journal_public'
