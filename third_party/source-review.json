@@ -2,8 +2,8 @@
   "format": "life-journal-source-review-v1",
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
-  "current_delta": "v5.1.11 original mode projections, atomic card transfers, structured notifications, IANA time inputs, six card layouts/actions and authorized PR #5 release preparation; no new runtime dependency/schema/volume or third-party grant change. Original per-editor local card draft lifecycle protection and synthetic regressions; immutable v5.1.11 tag release blocked by confirmed P1, no tag rewritten.",
-  "reviewed_on": "2026-11-26",
+  "current_delta": "v5.1.12 original life-card experience, explicit insertion, reading projections, scoped dependency recovery, reference lifecycle, AI service/model protocols and authorized release preparation; no imported third-party implementation or changed third-party grant.",
+  "reviewed_on": "2026-11-27",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
   "method": "Per-file source/asset/import/marker and scope review, targeted public upstream and local history checks, accepted owner project-development declaration. No global code plagiarism or legal title certification.",
@@ -243,6 +243,14 @@
       "source": "Original version-scoped authorization selection, read-only unreleased-tag eligibility and retired identity rejection tests/documentation under explicit owner one-time repair instruction; no third-party implementation or private source/data imported.",
       "license": "Existing GPL-3.0-or-later for owner-controlled original increments; original licenses/notices and all 410 legal texts unchanged.",
       "decision": "Preserve original owner records and exact old tag/source in audit history. Only unused v5.1.11 identity may be repaired after actual absence/conflict/dependency/CI checks; published tags permanently immutable. Business code, schema, runtime dependencies and Docker/Compose unchanged."
+    },
+    {
+      "id": "P017",
+      "review_date": "2026-11-27",
+      "review_baseline": "5747934d1304ac87ab60489c8d7a46ec99e58593",
+      "source": "Original v5.1.12 implementation, synthetic tests, public official protocol reference documentation and version-scoped delivery preparation under owner task. No third-party implementation, private source or user data copied.",
+      "license": "GPL-3.0-or-later for owner-controlled original increments only; all existing third-party grants and 410 legal texts preserved.",
+      "decision": "Register only actual staged source bytes, preserve original public snapshot receipt and prior owner records; require current CI, source, secret, binary and release gates before any publication."
     }
   ],
   "files": [
@@ -1728,6 +1736,14 @@
         "P016"
       ],
       "sha256_canonical": "5cbe9d9849c30274f669c78a13f48486a3ee83a419251f97b4fbcc2e308bfe85"
+    },
+    {
+      "path": "docs/development/v5.1.12-progress.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "1fd477f079600a7aedb57008b74b0cc90331beeeac948823e17cf3a60aa2c904"
     },
     {
       "path": "docs/initial-source-snapshot.json",
