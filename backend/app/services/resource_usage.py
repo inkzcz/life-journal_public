@@ -51,7 +51,11 @@ def media_usage(db,id):
     def source_ids(record):
         if record.id not in source_cache:
             from .content import fields_for
-            source_cache[record.id]=snapshot_media_ids({'body':record.body,'body_format':record.body_format,'values':record.values,'fields':fields_for(db,record.type_id,record.schema_version)})
+            try:
+                source_cache[record.id]=snapshot_media_ids({'body':record.body,'body_format':record.body_format,'values':record.values,'fields':fields_for(db,record.type_id,record.schema_version)})
+            except (HTTPException,ValueError,TypeError,KeyError):
+                source_cache[record.id]=set()
+                results.append({**reference(record,'来源无法解析，需完成引用审计'),'category':'system','active':False})
         return source_cache[record.id]
     def add(query,kind):
         for r in db.scalars(query).unique():results.append(reference(r,kind))
@@ -65,7 +69,10 @@ def media_usage(db,id):
     for ref,e in db.execute(select(ExperienceMedia,Experience).join(Experience,(Experience.record_id==ExperienceMedia.record_id)&(Experience.id==ExperienceMedia.entry_id)).where(ExperienceMedia.media_id==id)):
         record=db.get(ContentRecord,ref.record_id)
         from .experiences import entries
-        present=any(item['id']==e.id and id in item['media_ids'] for item in entries(record.body)) if record and record.body_format==2 else False
+        try:
+            present=any(item['id']==e.id and id in item['media_ids'] for item in entries(record.body)) if record and record.body_format==2 else False
+        except HTTPException:
+            present=False
         results.append(reference(record,'卡片图片',active=ref.active and e.active and present,source_id=e.id))
     for ref in db.scalars(select(RevisionMediaRef).where(RevisionMediaRef.media_id==id)):
         results.append(reference(db.get(ContentRecord,ref.record_id),'历史修订',history=True,revision=ref.number))
@@ -75,8 +82,14 @@ def media_usage(db,id):
             results.append(reference(record,'当前正文来源'))
     protected={(r['id'],r.get('revision')) for r in results if r['category']=='history'}
     for revision in db.scalars(select(RecordRevision)):
-        if (revision.record_id,revision.number) not in protected and id in snapshot_media_ids(revision.snapshot):
-            results.append(reference(db.get(ContentRecord,revision.record_id),'历史修订（待补齐保护索引）',history=True,revision=revision.number))
+        if (revision.record_id,revision.number) not in protected:
+            try:
+                historical_ids=snapshot_media_ids(revision.snapshot)
+            except (HTTPException,ValueError,TypeError,KeyError,AttributeError):
+                results.append({**reference(db.get(ContentRecord,revision.record_id),'历史来源无法解析，需完成引用审计',history=True,revision=revision.number),'category':'system'})
+                continue
+            if id in historical_ids:
+                results.append(reference(db.get(ContentRecord,revision.record_id),'历史修订（待补齐保护索引）',history=True,revision=revision.number))
     for section in db.scalars(select(Section).where(Section.cover_id==id)):
         results.append({'id':section.id,'title':section.name,'kind':'栏目封面','category':'system','active':False})
     from ..album_models import Album, AlbumPhoto

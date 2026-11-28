@@ -151,8 +151,10 @@ def test_malformed_sources_keep_candidate_edges_and_return_audit_diagnostics(cli
     r=write(client,'/records/'+r['id'],update_payload(r,body='合成移除卡片'),'put').json()
     malformed=':::lj-entry-v1\ninvalid\n:::'
     with SessionLocal() as db:
+        original_body=db.get(ContentRecord,r['id']).body
         db.get(ContentRecord,r['id']).body=malformed
         revision=db.get(RecordRevision,(r['id'],2))
+        original_snapshot=copy.deepcopy(revision.snapshot)
         revision.snapshot={**revision.snapshot,'body':malformed}
         db.commit()
     plan=inspect(client)
@@ -163,3 +165,12 @@ def test_malformed_sources_keep_candidate_edges_and_return_audit_diagnostics(cli
     with SessionLocal() as db:
         assert db.get(ExperienceMedia,(r['id'],e['id'],m['id']))
         assert db.scalar(select(FoodOccurrence).where(FoodOccurrence.record_id==r['id'])).place_id==p['id']
+    for kind,identity in [('media',m['id']),('places',p['id'])]:
+        response=client.get('/api/admin/archive/'+kind+'/'+identity)
+        assert response.status_code==200,response.text
+        assert response.json()['usage_counts']['system']>=1
+    # The suite intentionally shares a database; repair deliberate corruption.
+    with SessionLocal() as db:
+        db.get(ContentRecord,r['id']).body=original_body
+        db.get(RecordRevision,(r['id'],2)).snapshot=original_snapshot
+        db.commit()

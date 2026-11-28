@@ -53,7 +53,11 @@ def usages(db,id):
     def current_entries(record_id):
         if record_id not in source_cache:
             record=db.get(ContentRecord,record_id)
-            source_cache[record_id]={e['id']:e for e in entries(record.body)} if record and record.body_format==2 else {}
+            try:
+                source_cache[record_id]={e['id']:e for e in entries(record.body)} if record and record.body_format==2 else {}
+            except HTTPException:
+                source_cache[record_id]={}
+                rows.append({**reference(record,'来源无法解析，需完成引用审计'),'category':'system','active':False})
         return source_cache[record_id]
     for model,column,kind in [(RecordMarkedPlace,RecordMarkedPlace.place_id,'Markdown地点标记'),(RecordPlace,RecordPlace.place_id,'文章地点'),(TripActivity,TripActivity.place_id,'行程'),(PhotoAnnotation,PhotoAnnotation.place_id,'照片注记')]:
         for item in db.scalars(select(model).where(column==id)):
@@ -71,13 +75,19 @@ def usages(db,id):
     from .experiences import entries
     from .resource_usage import reference
     for record in db.scalars(select(ContentRecord)):
-        for entry in entries(record.body) if record.body_format==2 else []:
+        for entry in current_entries(record.id).values():
             if entry['fields'].get('place_id')==id:
                 rows.append(reference(record,'正文卡片',source_id=entry['id']))
     protected={(row['id'],row.get('revision')) for row in rows if row['category']=='history'}
     for revision in db.scalars(select(RecordRevision)):
-        if (revision.record_id,revision.number) not in protected and id in snapshot_places(revision.snapshot):
-            rows.append(reference(db.get(ContentRecord,revision.record_id),'历史修订（待补齐保护索引）',history=True,revision=revision.number))
+        if (revision.record_id,revision.number) not in protected:
+            try:
+                historical_ids=snapshot_places(revision.snapshot)
+            except (HTTPException,ValueError,TypeError,KeyError,AttributeError):
+                rows.append({**reference(db.get(ContentRecord,revision.record_id),'历史来源无法解析，需完成引用审计',history=True,revision=revision.number),'category':'system'})
+                continue
+            if id in historical_ids:
+                rows.append(reference(db.get(ContentRecord,revision.record_id),'历史修订（待补齐保护索引）',history=True,revision=revision.number))
     return rows
 
 def delete_place(db,id,revision):

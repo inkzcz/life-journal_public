@@ -604,7 +604,7 @@
     },
     {
       "path": "backend/app/services/places.py",
-      "sha256": "cc7c03838e92f5f8b3a0f346e0657c06f9d5bef2593d91c6d0e1042eb34de8f6"
+      "sha256": "83624a68be0cc7314b703ac536dc76a98100e78a37b8f37c7f4141da67281828"
     },
     {
       "path": "backend/app/services/record_mode.py",
@@ -616,7 +616,7 @@
     },
     {
       "path": "backend/app/services/resource_usage.py",
-      "sha256": "25c0647fdb32cd6671fc670c048c52e1adbf67d1ce21cb7c14e90a4d1a650353"
+      "sha256": "a5b7b5c20f7848c4dafa1c8c498ce8f17e16c8dd4f0518e0505882e475e2e7ec"
     },
     {
       "path": "backend/app/services/tags.py",
@@ -2184,7 +2184,7 @@
     },
     {
       "path": "tests/test_index_lifecycle.py",
-      "sha256": "705fd815d9f88f89c657064cd75f63c02facd96a9b77cdd68f066eafbf997415"
+      "sha256": "ac15d36057d665997eea330025c501555f189bb572ef10f4d935b89aa0401bf2"
     },
     {
       "path": "tests/test_itinerary_editing.py",
@@ -4048,7 +4048,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "131705a7760391ae7c34d6af9d06224094c5a24eaf0058bbbf52041982962cfe"
+      "sha256": "5a234a2c9d6b183e4ee1319467c8eaf777125cd6f082199274540008c0799386"
     },
     {
       "path": "third_party/source-scope.json",
