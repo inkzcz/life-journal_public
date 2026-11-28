@@ -202,6 +202,12 @@ def food_detach_candidates(db, records=None, snapshot=None):
 def sync_record(db, record):
     from . import experiences, food, body_media, marked_places
     if not record.deleted_at:
+        # Maintenance must never infer an identity from today's catalog names.
+        # An existing resource can have inherited an old name after a rename.
+        bindings=dict(db.execute(select(RecordMarkedPlace.source_key,RecordMarkedPlace.place_id).where(RecordMarkedPlace.record_id==record.id)).all())
+        for mark in marked_places.document(db,record).marks:
+            if not mark.get('place_id') and not bindings.get(marked_places.key(mark,mark['region'])):
+                raise HTTPException(409,{'code':'missing_legacy_place_binding','message':'旧版标记缺少稳定地点绑定；请明确选择原地点 UUID 后再重建，不能按当前同名地点推断身份'})
         places_before=set(db.scalars(select(Place.id)))
         resolved=marked_places.sync(db,record)
         if set(db.scalars(select(Place.id)))!=places_before:
@@ -242,11 +248,13 @@ def preview(db):
                 outcome={'indexes':[name for name in before if before[name]!=after[name]]}
             except HTTPException as exc:
                 outcome={'status':exc.status_code}
+                if isinstance(exc.detail,dict) and exc.detail.get('code')=='missing_legacy_place_binding':
+                    outcome['reason']='missing_legacy_place_binding'
             finally:
                 savepoint.rollback()
             remember_outcome(key,outcome)
         if 'status' in outcome:
-            issues.append({'record_id':record.id,'code':'source_not_rebuildable','status':outcome['status']})
+            issues.append({'record_id':record.id,'code':'source_not_rebuildable','status':outcome['status'],**({'reason':outcome['reason']} if 'reason' in outcome else {})})
         elif outcome['indexes']:
             changed.append({'record_id':record.id,'expected_revision':record.revision,'indexes':outcome['indexes']})
     record_map={record.id:record for record in records}

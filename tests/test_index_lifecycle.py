@@ -144,6 +144,8 @@ def test_unrebuildable_source_fails_closed_without_partial_repairs(client):
     with SessionLocal() as db:
         assert digest(db)==before
         assert db.get(Experience,(r['id'],e['id'])).kind=='m'
+        # Restore deliberate corruption; later lifecycle cases share this fixture DB.
+        db.get(ContentRecord,r['id']).body=serialize(e);db.commit()
 
 
 def test_malformed_sources_keep_candidate_edges_and_return_audit_diagnostics(client):
@@ -287,3 +289,56 @@ def test_outcome_cache_concurrent_eviction_is_bounded_and_atomic(monkeypatch):
     with lifecycle._OUTCOME_LOCK:
         assert len(lifecycle._OUTCOMES)<=8
         assert all(len(key)==64 for key in lifecycle._OUTCOMES)
+
+
+@pytest.mark.parametrize('kind',list('lfshtcp'))
+def test_rebuild_lost_legacy_binding_rejects_renamed_identity_catalog_match(client,kind):
+    import uuid
+    from sqlalchemy import delete
+    from app.archive_models import Place,RecordMarkedPlace
+    name='合成旧名称'+uuid.uuid4().hex[:8]
+    source='@'+kind+' '+name
+    r=write(client,'/records',{**record_payload(make_type(client)),'body_format':2,'body':source}).json()
+    with SessionLocal() as db:
+        binding=db.scalar(select(RecordMarkedPlace).where(RecordMarkedPlace.record_id==r['id']))
+        original_id=binding.place_id
+        original=db.get(Place,original_id);original.name='合成改名后地点'+uuid.uuid4().hex[:8]
+        replacement_id=str(uuid.uuid4())
+        db.add(Place(id=replacement_id,name=name,category=original.category,country='',region='',city='',address='',notes='',active=True,revision=1))
+        food=db.scalar(select(FoodOccurrence).where(FoodOccurrence.record_id==r['id']))
+        if food:
+            food.city_override='合成手动城市';food.category='合成独立分类'
+            original_food_id=food.id
+        snapshot=copy.deepcopy(db.get(RecordRevision,(r['id'],1)).snapshot)
+        db.execute(delete(RecordMarkedPlace).where(RecordMarkedPlace.record_id==r['id']))
+        db.commit();before=digest(db)
+    plan=inspect(client)
+    issue=next(item for item in plan['issues'] if item.get('record_id')==r['id'])
+    assert issue=={'record_id':r['id'],'code':'source_not_rebuildable','status':409,'reason':'missing_legacy_place_binding'}
+    response=apply(client,plan)
+    assert response.status_code==409,response.text
+    with SessionLocal() as db:
+        assert digest(db)==before
+        assert db.get(ContentRecord,r['id']).body==source
+        assert db.get(RecordRevision,(r['id'],1)).snapshot==snapshot
+        assert db.scalar(select(RecordMarkedPlace).where(RecordMarkedPlace.record_id==r['id'])) is None
+        if food:
+            preserved=db.get(FoodOccurrence,original_food_id)
+            assert preserved.place_id==original_id and preserved.city_override=='合成手动城市' and preserved.category=='合成独立分类'
+        # Explicit authored identity can rebuild even if its current binding row
+        # is missing. No name lookup or modification of immutable history occurs.
+        repaired=source+' {#place:'+original_id+'}'
+        db.get(ContentRecord,r['id']).body=repaired;db.commit()
+    repaired_plan=inspect(client)
+    assert all(item.get('record_id')!=r['id'] for item in repaired_plan['issues'])
+    response=apply(client,repaired_plan)
+    assert response.status_code==200,response.text
+    with SessionLocal() as db:
+        assert {row.place_id for row in db.scalars(select(RecordMarkedPlace).where(RecordMarkedPlace.record_id==r['id']))}=={original_id}
+        assert db.get(ContentRecord,r['id']).body==repaired
+        assert db.get(RecordRevision,(r['id'],1)).snapshot==snapshot
+        assert db.get(Place,replacement_id).name==name
+        if food:
+            preserved=db.get(FoodOccurrence,original_food_id)
+            assert preserved.place_id==original_id and preserved.city_override=='合成手动城市' and preserved.category=='合成独立分类'
+            assert {row.place_id for row in db.scalars(select(FoodOccurrence).where(FoodOccurrence.record_id==r['id'],FoodOccurrence.active.is_(True)))}=={original_id}

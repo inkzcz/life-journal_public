@@ -20,3 +20,17 @@ it('blocks maintenance while a resource has unsaved edits',()=>{
  const root=document.createElement('div');const app=createApp(IndexMaintenance,{disabled:true});app.mount(root)
  expect(root.querySelector('button')?.disabled).toBe(true);expect(root.textContent).toContain('请先保存或放弃资源草稿');app.unmount()
 })
+
+
+it('explains missing legacy identity and blocks both maintenance actions',async()=>{
+ const plan={digest:'a'.repeat(64),records:[],issues:[{record_id:'synthetic',code:'source_not_rebuildable',reason:'missing_legacy_place_binding',status:409}],cleanup:[],food_detach:[],blocked_food:[],history_references_to_add:0,preserved_food_identities:1,note:'身份保留'}
+ api.request.mockReset().mockResolvedValue(plan)
+ const root=document.createElement('div');document.body.append(root);const app=createApp(IndexMaintenance);app.mount(root)
+ root.querySelector('button')!.click();await flush()
+ expect(root.querySelector('[role=alert]')?.textContent).toContain('不会按当前同名地点推断')
+ const actions=Array.from(root.querySelectorAll('button')).filter(button=>button.textContent?.startsWith('确认'))
+ expect(actions).toHaveLength(2)
+ for(const action of actions){expect(action.disabled).toBe(true);action.click()}
+ await flush();expect(api.request).toHaveBeenCalledTimes(1)
+ app.unmount();root.remove();api.request.mockReset()
+})
