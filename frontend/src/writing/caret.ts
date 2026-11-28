@@ -19,3 +19,15 @@ export function suggestionMatch(context:string){
  if(m)m[3]=m[3]??m[4]??m[5]??''
  return m
 }
+
+// Only a complete command at a text boundary is offered as a new card.
+// Existing place tokens, links, code and email addresses keep their meaning.
+export function cardCommandMatch(context:string){
+ const m=/(?:^|[\s，。！？；：、（）])(@([lfmsgt]?))$/u.exec(context)
+ if(!m||/(?:https?:\/\/|www\.|mailto:)[^\s]*$/i.test(context))return null
+ const prefix=context.slice(0,context.length-m[1]!.length)
+ let codeDelimiter=0;for(const run of prefix.matchAll(/(?<!\\)`+/g)){if(!codeDelimiter)codeDelimiter=run[0].length;else if(codeDelimiter===run[0].length)codeDelimiter=0}
+ const inline=prefix.replace(/^\s*[-+*]\s+/,'')
+ if(codeDelimiter||prefix.lastIndexOf('<')>prefix.lastIndexOf('>')||(inline.match(/(?<!\\)\*\*/g)||[]).length%2||(inline.match(/(?<!\\)__/g)||[]).length%2||(inline.match(/(?<![\\*])\*(?!\*)/g)||[]).length%2||/[\[\]{}<>\\]/.test(prefix.slice(prefix.lastIndexOf(' ')+1))||/!?(?:\[[^\]]*|\[[^\]]*\]\([^)]*)$/.test(prefix))return null
+ return {raw:m[1]!,kind:m[2]||undefined}
+}

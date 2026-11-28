@@ -46,3 +46,19 @@ it('sends explicit Phase4A cleanup review only after checking the safety control
  // The mock server still returns paused: UI must use server state, not assume activation.
  expect(box.checked).toBe(false)
 })
+
+it('separates mixed purge results into accessible success and failure groups',async()=>{
+ const original=api.request.getMockImplementation()!
+ api.request.mockImplementation(async(path:string,options?:RequestInit)=>{
+  if(path.startsWith('/admin/recovery/trash?'))return {items:[structuredClone(record),{...structuredClone(record),id:'r2',title:'合成受保护文章'}],total:2}
+  if(path==='/admin/recovery/trash/purge'&&options)return {items:[{id:'r1',state:'purged'},{id:'r2',state:'failed',status:409,code:'dependency_conflict',error:'导航仍引用此记录'}]}
+  return original(path,options)
+ })
+ await mount(TrashAdmin)
+ for(const box of Array.from(root.querySelectorAll<HTMLInputElement>('.trash-row input[type=checkbox]')))box.click()
+ await nextTick();button('永久删除所选').click();await flush();await flush()
+ const success=root.querySelector('[aria-label="操作成功"]')!,failure=root.querySelector('[aria-label="操作失败"]')!
+ expect(success.getAttribute('role')).toBe('status');expect(success.textContent).toContain('成功 1 篇');expect(success.textContent).not.toContain('导航仍引用')
+ expect(failure.getAttribute('role')).toBe('alert');expect(failure.textContent).toContain('合成受保护文章');expect(failure.textContent).toContain('dependency_conflict')
+ expect(root.textContent).toContain('08:00:00');expect(root.textContent).not.toContain('2026-10-19T00:00:00Z')
+})

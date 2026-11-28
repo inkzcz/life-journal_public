@@ -10,7 +10,7 @@ from ..archive_models import MediaAsset
 from ..recovery_schemas import TrashBatch,HistoryRestore,RevisionIn
 from ..services.archive import write_lock,asset_data
 from ..services.content import record_data,get_record,record_summaries
-from ..services.recovery import warnings,restore_trash,purge,revision_data,restore_history,check_revision
+from ..services.recovery import warnings,restore_trash,purge,revision_data,restore_history,check_revision,recovery_failure
 router=APIRouter(prefix='/api/admin/recovery',dependencies=[Depends(require_dynamic_blog)])
 
 @router.get('/trash')
@@ -32,7 +32,12 @@ def deleted_record(id:UUID,db=Depends(db_dep)):
 def batch(action:str,data:TrashBatch,db=Depends(db_dep),actor=Depends(require_dynamic_blog)):
     if action not in {'restore','purge'}:raise HTTPException(404,'操作不存在')
     if data.confirmation!=('恢复' if action=='restore' else '永久删除'):raise HTTPException(422,'操作确认不匹配')
-    write_lock(db);results=[]
+    try:write_lock(db)
+    except HTTPException:raise
+    except Exception as exc:
+        db.rollback();failure=recovery_failure(exc)
+        raise HTTPException(failure['status'],failure) from None
+    results=[]
     for item in data.items:
         try:
             with db.begin_nested():
@@ -43,9 +48,12 @@ def batch(action:str,data:TrashBatch,db=Depends(db_dep),actor=Depends(require_dy
                 elif action=='restore':result=restore_trash(db,r,actor.id,item.expected_revision)
                 else:purge(db,r,item.expected_revision);result={'id':str(item.id),'state':'purged'}
             results.append(result)
-        except HTTPException as e:results.append({'id':str(item.id),'state':'failed','status':e.status_code,'error':e.detail})
-        except Exception:results.append({'id':str(item.id),'state':'failed','status':409,'error':'引用约束冲突，此条已回滚'})
-    db.commit();return {'items':results}
+        except Exception as exc:results.append({'id':str(item.id),'state':'failed',**recovery_failure(exc)})
+    try:db.commit()
+    except Exception as exc:
+        db.rollback();failure=recovery_failure(exc)
+        raise HTTPException(failure['status'],failure) from None
+    return {'items':results}
 
 @router.get('/history/{id}')
 def history(id:UUID,page:int=Query(1,ge=1),db=Depends(db_dep)):

@@ -95,33 +95,23 @@ def serialize(value):return MARKER+'\n'+json.dumps(value, ensure_ascii=False, se
 
 
 def normalize_quick(body,previous_body=None,*,modern=True):
-    """Only new official quick markers, alone on an ordinary paragraph line.
-    @l/@f and examples (code/quote/HTML) are never rewritten. Called on save only.
+    """Normalize explicit structured copies only; text shortcuts require UI consent.
+
+    Saving an article is not confirmation of an @ insertion dialog. In particular,
+    cancellation must preserve literal shortcuts across later saves. Existing
+    structured blocks and legacy marker parsers retain their original semantics.
     """
-    from collections import Counter
-    legacy=Counter(line.strip() for line in (previous_body or '').splitlines() if re.fullmatch(r'@(s|t)\s+[^\r\n]{1,200}',line.strip()))
-    lines=body.splitlines(keepends=True);replacements={};quote=0;seen=set()
+    lines=body.splitlines(keepends=True);replacements={};seen=set()
     try:tokens=parser().parse(body)
-    except (ValueError,TypeError,KeyError):return body  # strict save validation reports it
+    except (ValueError,TypeError,KeyError):return body
     for token in tokens:
-        if token.type=='life_entry':
-            value=token.meta
-            if value['id'] in seen:
-                value={**value,'id':str(uuid.uuid4())}
-                line=token.map[0]+1;pad=lines[line][:len(lines[line])-len(lines[line].lstrip())]
-                replacements[line]=pad+json.dumps(value,ensure_ascii=False,separators=(',',':'))+('\n' if lines[line].endswith('\n') else '')
-            seen.add(value['id'])
-        if token.type=='blockquote_open':quote+=1
-        elif token.type=='blockquote_close':quote-=1
-        elif token.type=='inline' and token.map and not quote:
-            for i in range(*token.map):
-                match=re.fullmatch(r'@(m|s|g|t)\s+([^\r\n]{1,200})\s*',lines[i].rstrip('\r\n'))
-                if match:
-                    if match[1] in ('s','t') and not modern:continue
-                    if match[1] in ('s','t') and legacy[lines[i].strip()]>0:
-                        legacy[lines[i].strip()]-=1;continue
-                    value={'id':str(uuid.uuid4()),'kind':match[1],'name':match[2].strip(),'fields':{},'media_ids':[]}
-                    replacements[i]=serialize(value)+('\n' if lines[i].endswith('\n') else '')
+        if token.type!='life_entry':continue
+        value=token.meta
+        if value['id'] in seen:
+            value={**value,'id':str(uuid.uuid4())}
+            line=token.map[0]+1;pad=lines[line][:len(lines[line])-len(lines[line].lstrip())]
+            replacements[line]=pad+json.dumps(value,ensure_ascii=False,separators=(',',':'))+('\n' if lines[line].endswith('\n') else '')
+        seen.add(value['id'])
     return ''.join(replacements.get(i,line) for i,line in enumerate(lines))
 
 

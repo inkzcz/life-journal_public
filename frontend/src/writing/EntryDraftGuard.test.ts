@@ -50,6 +50,6 @@ it('rejects AI capture and previously captured replacement while a card draft is
 it('reports new-card modal drafts and clears their pending state on native close',async()=>{
  Object.defineProperty(HTMLDialogElement.prototype,'showModal',{configurable:true,value:function(this:HTMLDialogElement){this.setAttribute('open','')}})
  Object.defineProperty(HTMLDialogElement.prototype,'close',{configurable:true,value:function(this:HTMLDialogElement){this.removeAttribute('open');this.dispatchEvent(new Event('close'))}})
- const {states}=await mount();button(root!,'@ 结构化记录');await settle();expect(states.at(-1)).toBe(true)
+ const {states}=await mount();button(root!,'插入卡片');await settle();expect(states.at(-1)).toBe(true)
  button(root!.querySelector('dialog.entry-dialog')!,'取消');await settle();expect(states.at(-1)).toBe(false)
 })

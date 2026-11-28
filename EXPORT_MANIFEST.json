@@ -492,7 +492,7 @@
     },
     {
       "path": "backend/app/routers/recovery.py",
-      "sha256": "2624e98ebe5673b0984a71a16bc786e346d2106951e9563cf1987b016c690189"
+      "sha256": "84c529c24c6c44a97492b66727044d5c7bf3edef9ab04afa75aa9e661c48c0eb"
     },
     {
       "path": "backend/app/routers/setup.py",
@@ -536,7 +536,7 @@
     },
     {
       "path": "backend/app/services/experiences.py",
-      "sha256": "e9a1d86aafa9a30b8ed554523711df3c3f4899560ca66d13658e4c40c9ac357e"
+      "sha256": "2c468d29a6ec1034f9667e59c18f309923327705374674557889fd16834557cc"
     },
     {
       "path": "backend/app/services/folders.py",
@@ -600,7 +600,7 @@
     },
     {
       "path": "backend/app/services/recovery.py",
-      "sha256": "92614db301e501ebddb92cbf978a90067869af49be4eda5a4d547f39ceb78570"
+      "sha256": "2291cadb3552d9e35df104116a24317bd311a8ddcaf3398bc3b4d1341d249e34"
     },
     {
       "path": "backend/app/services/resource_usage.py",
@@ -836,7 +836,7 @@
     },
     {
       "path": "frontend/src/admin/AdminContent.vue",
-      "sha256": "f639e342d8da723f59bf6e2b1bf1326ee6cdce12d99efffd1c6f4b462e45dd16"
+      "sha256": "c62fa59a853bbf2b24ec361a0461c8025aa5f97de773ab7e92e5347c613886b6"
     },
     {
       "path": "frontend/src/admin/Archive.test.ts",
@@ -1320,7 +1320,7 @@
     },
     {
       "path": "frontend/src/recovery/Recovery.test.ts",
-      "sha256": "30d7789237cfe5bbc0eaee06194fdefe6901a5cc0210bdcfdf072664badc38a9"
+      "sha256": "e7aead92f053bf072b2e31e91605bc23677bd9329604b02116a9d4f3934f843c"
     },
     {
       "path": "frontend/src/recovery/SnapshotView.vue",
@@ -1328,7 +1328,15 @@
     },
     {
       "path": "frontend/src/recovery/TrashAdmin.vue",
-      "sha256": "f841e97cfcb871d67b359c309358f43efebcaf0b2c2a104bf6cc069bc0add83e"
+      "sha256": "a3127df98b10734ee9206f04cf93bfa0a93dddc14179e47690777d020caa2faa"
+    },
+    {
+      "path": "frontend/src/recovery/dates.test.ts",
+      "sha256": "776b286d7b60cd22a957b81c8107cd4c1c26264130b2b84e40b49840175765c1"
+    },
+    {
+      "path": "frontend/src/recovery/dates.ts",
+      "sha256": "11a360508992b7781bb4ae852b9a4bc57bed57ae6d44af456711e58ffec8e3d2"
     },
     {
       "path": "frontend/src/setup/HelpPage.vue",
@@ -1448,7 +1456,11 @@
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
-      "sha256": "06f6c73341d392b53cec8c9718fff9aab15aca5b2485e29b724e8ff21db6ede8"
+      "sha256": "3c56fe531a9a2f616c39b76c1256318befa0055161a66c67a8e0f156242603f1"
+    },
+    {
+      "path": "frontend/src/writing/CardInsertion.test.ts",
+      "sha256": "7210b1e6a10e5604090e2c51183c7cac59e5877f3e53c8f5c66ae4df9eadfb26"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -1480,7 +1492,7 @@
     },
     {
       "path": "frontend/src/writing/EntryDraftGuard.test.ts",
-      "sha256": "e1bceb4cc75c3879d460fdeb1d48195b6593f4e50c8b7791a0eefcbd776075e8"
+      "sha256": "46e3688a72231ec80b53067a77e346d4897b07c835986d202974cb9f0cacdd69"
     },
     {
       "path": "frontend/src/writing/EntryForm.test.ts",
@@ -1492,7 +1504,7 @@
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
-      "sha256": "c256531455a368fd6bf3a32d5558becd968f21ee0c0936b40f500be2e71ec21b"
+      "sha256": "ff34404d5c6ae77cb5af8a5b6ed2e7dcf15573e5a39b38379305598b07467191"
     },
     {
       "path": "frontend/src/writing/EntryTargetPicker.test.ts",
@@ -1524,7 +1536,7 @@
     },
     {
       "path": "frontend/src/writing/PlaceSuggest.vue",
-      "sha256": "2ad166086d418de7049bda386d48395d928ac25fc5d59176e4a3dfca6474a80b"
+      "sha256": "0f7a2ee95e054f7f74f5467a95edb560f2fb7cda506feceaef682c17789afd28"
     },
     {
       "path": "frontend/src/writing/PrivateMediaNode.vue",
@@ -1532,7 +1544,7 @@
     },
     {
       "path": "frontend/src/writing/Stability.test.ts",
-      "sha256": "dab174684ba1319e6290883d80091967498516591636943d3aa173659853d563"
+      "sha256": "c4cd8e41d19a6b53d5bd47aa61c44b683f379cec093982c165bb8bbf5de698bd"
     },
     {
       "path": "frontend/src/writing/TimeZoneSelect.vue",
@@ -1612,7 +1624,7 @@
     },
     {
       "path": "frontend/src/writing/caret.ts",
-      "sha256": "b54a00ec62f5df935b7993a4a0d8b9418059cab0c8a1a2ba0d03472e567e3908"
+      "sha256": "59754adaa3aa4fd1574ba596835c203cf0230c6aa6061975ef8f70ff74ab501c"
     },
     {
       "path": "frontend/src/writing/entries.ts",
@@ -1632,7 +1644,7 @@
     },
     {
       "path": "frontend/src/writing/entryTransfer.ts",
-      "sha256": "38784bfa3f13806c6163ffcae9c28f4123b9673869a275e515ce4747c60b0254"
+      "sha256": "5d589dacfb2aaf5de84c3936c55473c13d7e63bd41ea91bdbfaf832ed61ab86c"
     },
     {
       "path": "frontend/src/writing/extensions.ts",
@@ -1657,6 +1669,10 @@
     {
       "path": "frontend/src/writing/places.ts",
       "sha256": "ce276dd364c3e0a010bafe657388595f6933da2833ec6c03b09bda225dfa007b"
+    },
+    {
+      "path": "frontend/src/writing/sourceEntryInsertion.ts",
+      "sha256": "54890c2ec374edf52d4b7442a22be1f589a3d8ddf5e6f7d98d848e18beb2d016"
     },
     {
       "path": "frontend/src/writing/sourceKeys.test.ts",
@@ -2076,7 +2092,7 @@
     },
     {
       "path": "tests/test_experiences.py",
-      "sha256": "7d779d9528745b8416240305817d1691b4a7e489978368922486004c4422608f"
+      "sha256": "ee2cf9243e5c18d6cdd6a67c8be9100ab6980794bb2e8c09ea56ee78fbe45831"
     },
     {
       "path": "tests/test_first_run.py",
@@ -2189,6 +2205,10 @@
     {
       "path": "tests/test_recovery.py",
       "sha256": "6ebdf661931b6dd772ddd87e55c63042e7a321999b89f533821e56dbcb54780d"
+    },
+    {
+      "path": "tests/test_recovery_v512.py",
+      "sha256": "acd3c530855ac9df4cbd1f75ed7e2d0c65888c5b4eababaa2e1a9856fb07f6f4"
     },
     {
       "path": "tests/test_release_artifact_cleanup.py",
@@ -3952,7 +3972,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "0e8a5664c700e104a987826605b8b1bc6d1bca902fbd9a86c8523f807d198901"
+      "sha256": "a8bbe3dad91977fb91e1d0ddaa8972d95532eca46a05d809480e8fc6b2bdc1b7"
     },
     {
       "path": "third_party/source-scope.json",
