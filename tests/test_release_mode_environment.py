@@ -6,8 +6,8 @@ ROOT=Path(__file__).resolve().parents[1]
 
 @pytest.mark.skipif(shutil.which('bash') is None,reason='Bash shell routing requires a Bash host')
 @pytest.mark.parametrize('release,image,validation,ready',[
- ('','v5.1.11-candidate.'+'a'*7,True,False),
- ('v5.1.11','v5.1.11',False,True),
+ ('','v5.1.12-candidate.'+'a'*7,True,False),
+ ('v5.1.12','v5.1.12',False,True),
 ])
 def test_real_package_step_inherits_release_input_without_changing_candidate_safety(tmp_path,release,image,validation,ready):
     doc=yaml.safe_load((ROOT/'.github/workflows/ci.yml').read_text())

@@ -6,6 +6,7 @@ import re
 
 REPOSITORY = 'inkzcz/life-journal_public'
 RELEASES = {
+    'v5.1.12': ('licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json', 10),
     'v5.1.9': ('licensing/BINARY_RELEASE_AUTHORIZATION.json', 2),
     'v5.1.11': ('licensing/BINARY_RELEASE_v5.1.11_REPAIR_AUTHORIZATION.json', 9),
     'v5.1.10': ('licensing/BINARY_RELEASE_v5.1.10_AUTHORIZATION.json', 4),
@@ -45,7 +46,7 @@ def validate_authorization(authority, version):
             or authority.get('private_repository_changes_approved') is not False
             or not authority.get('owner_confirmation_reference')):
         raise ValueError('Separate owner binary-release authorization required')
-    if version in ('v5.1.10','v5.1.11') and authority.get('source_pull_request') != RELEASES[version][1]:
+    if version in ('v5.1.10','v5.1.11','v5.1.12') and authority.get('source_pull_request') != RELEASES[version][1]:
         raise ValueError('Authorized source PR mismatch')
     if version == 'v5.1.11':
         repair = authority.get('unreleased_tag_repair', {})

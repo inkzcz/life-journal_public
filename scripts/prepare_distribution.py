@@ -162,7 +162,7 @@ def require_release_authorization(authority,version):
 
 
 def require_upgrade_receipt(report,version,revision):
-    current=release_version(version);previous={'v5.1.10':'5.1.9','v5.1.11':'5.1.10'}.get(current)
+    current=release_version(version);previous={'v5.1.10':'5.1.9','v5.1.11':'5.1.10','v5.1.12':'5.1.11'}.get(current)
     if previous is None:raise ValueError('Unknown same-schema upgrade route')
     if (report.get('synthetic_same_schema_upgrade')!='passed'
             or report.get('from_version')!=previous or report.get('to_version')!=current[1:]
@@ -177,6 +177,8 @@ def require_upgrade_receipt(report,version,revision):
         raise ValueError('Exact same-schema upgrade receipt missing or failed')
     if current=='v5.1.11' and (report.get('old_business_tar_sha256')!='ac766b4619db3bb5883de1bf18289993c07d3c452cbfea2ea175af16fbabef7a' or report.get('legacy_get_notification_configuration_and_logs')!='preserved' or report.get('six_historical_card_kinds')!='preserved' or report.get('old_template_binding_and_explicit_daily_mode')!='preserved'):
         raise ValueError('Historical v5.1.10 cards/notification receipt missing')
+    if current=='v5.1.12' and (report.get('old_business_tar_sha256')!='fcf1971553ba1cc4ef9056ac41b73d907a22772446031e3ce1aed93f4677fae0' or any(report.get(key)!='preserved' for key in ('legacy_get_notification_configuration_and_logs','six_historical_card_kinds','old_template_binding_and_explicit_daily_mode','old_ai_configuration_and_secret_references'))):
+        raise ValueError('Historical v5.1.11 cards/notification/AI receipt missing')
 
 
 def require_candidate_identity(version,product_version,revision):
@@ -221,7 +223,7 @@ def package(args):
     installation,pillow,layers,debian=map(read,[args.installation,args.pillow,args.layers,args.debian])
     require_receipts(installation,pillow,layers,debian)
     upgrade=getattr(args,'upgrade',None)
-    if version in ('v5.1.10','v5.1.11') or version.startswith(('v5.1.10-candidate.','v5.1.11-candidate.')):
+    if version in ('v5.1.10','v5.1.11','v5.1.12') or version.startswith(('v5.1.10-candidate.','v5.1.11-candidate.','v5.1.12-candidate.')):
         if not upgrade:raise ValueError('Same-schema upgrade receipt required')
         require_upgrade_receipt(read(upgrade),version,revision)
     if installation.get('image_tag')!=version or debian.get('image_tag')!=version:

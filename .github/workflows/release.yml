@@ -1,7 +1,7 @@
 name: Formal versioned delivery
 on:
   push:
-    tags: ['v5.1.11']
+    tags: ['v5.1.12']
   workflow_dispatch:
 permissions:
   contents: read
@@ -48,7 +48,7 @@ jobs:
     outputs:
       publication_verified: ${{ steps.public-check.outputs.verified }}
     needs: [preflight, build]
-    if: github.repository == 'inkzcz/life-journal_public' && (github.ref == 'refs/tags/v5.1.11' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
+    if: github.repository == 'inkzcz/life-journal_public' && (github.ref == 'refs/tags/v5.1.12' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -70,7 +70,7 @@ jobs:
           python - <<'PY'
           import hashlib,json,os,re,tarfile
           from pathlib import Path
-          v=os.environ['RELEASE_VERSION'];assert v=='v5.1.11'
+          v=os.environ['RELEASE_VERSION'];assert v=='v5.1.12'
           names={'life-journal-app-'+v+'-amd64.tar','life-journal-source-and-licenses-'+v+'.tar.gz','life-journal-deploy-'+v+'.zip','manifest.json','images.json','SHA256SUMS.txt','INSTALL.md','UPGRADE.md','KNOWN_LIMITATIONS.md','RELEASE_NOTES.md'}
           assert {p.name for p in Path('.').iterdir()}==names
           rows={}
@@ -100,7 +100,7 @@ jobs:
       - name: Create new draft Release with exactly the verified delivery
         working-directory: ${{ runner.temp }}/release
         run: |
-          test "$RELEASE_VERSION" = v5.1.11
+          test "$RELEASE_VERSION" = v5.1.12
           test "$(gh api "repos/$GH_REPO/git/ref/tags/$RELEASE_VERSION" --jq .object.sha)" = "$ANNOTATED_TAG_SHA"
           gh release create "$RELEASE_VERSION" --verify-tag --target "$RELEASE_REVISION" --title "Life Journal $RELEASE_VERSION" --notes-file RELEASE_NOTES.md --draft=true --prerelease=false "life-journal-app-$RELEASE_VERSION-amd64.tar" "life-journal-source-and-licenses-$RELEASE_VERSION.tar.gz" "life-journal-deploy-$RELEASE_VERSION.zip" manifest.json images.json SHA256SUMS.txt INSTALL.md UPGRADE.md KNOWN_LIMITATIONS.md RELEASE_NOTES.md
       - name: Download draft attachments and verify bytes, image identity and architecture
@@ -139,7 +139,7 @@ jobs:
           python - <<'PY'
           import hashlib,json,os,time,urllib.request
           from pathlib import Path
-          version=os.environ['RELEASE_VERSION'];assert version=='v5.1.11'
+          version=os.environ['RELEASE_VERSION'];assert version=='v5.1.12'
           expected={}
           for line in Path('SHA256SUMS.txt').read_text().splitlines():
               sha,name=line.split('  ',1);expected[name]=sha

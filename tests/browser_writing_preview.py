@@ -20,8 +20,9 @@ def ready_media(page):
 def exercise_cards(page):
     prose=page.locator('.immersive-prose');original=prose.inner_text().strip();identities={}
     for index,kind in enumerate(('l','f','m','s','g','t'),1):
+        print('Creating and editing synthetic card '+kind,flush=True)
         prose.focus();prose.press('Control+End');prose.press('Enter')
-        page.get_by_role('button',name='@ 结构化记录',exact=True).click()
+        page.locator('[role=toolbar]').get_by_role('button',name='插入卡片',exact=True).click()
         dialog=page.locator('dialog.entry-dialog[open]')
         dialog.get_by_label('记录类型',exact=True).select_option(kind)
         dialog.locator('input[required][maxlength="200"]').fill('合成卡片-'+str(index))
@@ -46,6 +47,7 @@ def exercise_cards(page):
         identities[kind]=identity.removeprefix('entry-')
     # A draft in card A must block transferring clean card B: a successful
     # transfer reloads the whole document, not just the selected NodeView.
+    print('Checking actual card actions and draft protection',flush=True)
     first=page.locator('.entry-card').first
     first.get_by_role('button',name='卡片操作',exact=True).click()
     page.get_by_role('menuitem',name='编辑卡片',exact=True).click()
@@ -58,7 +60,7 @@ def exercise_cards(page):
     for action in ('复制到其他文章','移动到其他文章'):
         second.get_by_role('button',name='卡片操作',exact=True).click()
         page.get_by_role('menuitem',name=action,exact=True).click()
-        page.get_by_role('alert').filter(has_text='请先保存或取消尚未完成的卡片、媒体、地点或行程编辑').wait_for()
+        second.get_by_role('status').filter(has_text='请先保存或取消其他卡片编辑').wait_for()
         assert not page.locator('.entry-target-picker[open]').count()
         assert draft.input_value()=='合成未保存的卡片草稿'
     first.get_by_role('button',name='取消',exact=True).click()
@@ -117,6 +119,7 @@ def main():
     with sync_playwright() as p:
         browser=p.chromium.launch(executable_path=args.chromium,headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
         page=browser.new_page(viewport={'width':1440,'height':1000},device_scale_factor=1)
+        page.set_default_timeout(15000)
         errors=[];blocked=[]
         page.on('pageerror',lambda error:errors.append(str(error)))
         def guard(route):
@@ -199,6 +202,7 @@ def main():
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
         page.screenshot(path=str(args.output/'writing-mobile.png'),full_page=True)
         page.set_viewport_size({'width':1360,'height':1000})
+        print('Starting actual editor card workflow',flush=True)
         exercise_cards(page)
         page.screenshot(path=str(args.output/'writing-cards-desktop.png'),full_page=True)
         for width in (390,375,320):

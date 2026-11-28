@@ -1,6 +1,6 @@
 {
   "format": "life-journal-public-source-v1",
-  "candidate_version": "5.1.11",
+  "candidate_version": "5.1.12",
   "source_commit": "c9ca4c3556f1167603ac9f78825632d51c0e25bc",
   "feature_baseline": "3f27932d3a6fc236a9fac74c34dc57a2586da3f9",
   "target_repository": "inkzcz/life-journal_public",
@@ -32,11 +32,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "32af44244974b8aab044bb87d05807e189a0b4b0d08342ffb6db48159f2c7f42"
+      "sha256": "eb0e4e566f84f6e90854687d54aaf8ab5fc2e5f5ccf873a4e2f49a05c457567a"
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "1af7e279fc64e9c2e9b014b779a95f55c397742ce678011a6b97a85beff8c961"
+      "sha256": "4bdd78b0434d05170f9889cc3e287b3a4c5ff054cdeedc916d1742dcb4859ed4"
     },
     {
       "path": ".gitignore",
@@ -68,7 +68,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "b3fcde55a806c39ee71588a949a04cea32de5a89b2999f6595788b64ee7fd612"
+      "sha256": "66cd1668616a055f6a96276f2ed7617e33d2ac2e9b087c29e54bc6e362479dcb"
     },
     {
       "path": "SECURITY.md",
@@ -84,7 +84,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "91dee1f2e164332c98f55f96624fd7e93d0d754b90e67f440c1b044164c2dae7"
+      "sha256": "be267ff5adb254acf71b9e2dab4de6bd16d4b0e5bf085edd9156c2d7be1f585f"
     },
     {
       "path": "backend/.dockerignore",
@@ -428,7 +428,7 @@
     },
     {
       "path": "backend/app/release_notes.json",
-      "sha256": "60c90deb4cf1183ac45d63009aac7c863907769b4d8a61936436c5c629afce06"
+      "sha256": "55250f272032e5a96272a2c52beb91dfe73e3e8080f94689e3ed5cef2a68124b"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -668,7 +668,7 @@
     },
     {
       "path": "backend/app/version.py",
-      "sha256": "dab4a986cba665cc8a54a2eb2a743ec023ec01afc34c4e9808afa107e2ce3487"
+      "sha256": "4961b353950fe55611d8394cd49a3f67ca86def6bdc3ebad42217aab297783ff"
     },
     {
       "path": "backend/constraints-release.txt",
@@ -712,7 +712,7 @@
     },
     {
       "path": "docs/development/v5.1.12-progress.md",
-      "sha256": "1fd477f079600a7aedb57008b74b0cc90331beeeac948823e17cf3a60aa2c904"
+      "sha256": "edbd5c885e5a18427b547e5ae3dd3df397651c34a9c2dfe1546d5b046860115b"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -720,11 +720,11 @@
     },
     {
       "path": "docs/install.md",
-      "sha256": "a7d6604d5d781d0d87dddf870467be9d9162dba15d9ce2377773af3529ec945b"
+      "sha256": "79ed0d96682c4963253c267376fa24d021ab80c719b35fdb714986362a7ef0e5"
     },
     {
       "path": "docs/known-limitations.md",
-      "sha256": "befd11b9522a1419ed9bad82f4295d050c87be7a4275176bc82cc3785f493fdc"
+      "sha256": "d8a04bebb0af0476b90371a2bd8bb75f1b573b523f5374716fb35232715a44b6"
     },
     {
       "path": "docs/licensing.md",
@@ -745,6 +745,10 @@
     {
       "path": "docs/release-notes-v5.1.11.md",
       "sha256": "9a378ac3e6ec58d0e9aec0cc0c38d07b20cee253e8494ef19a607cd4bcb448c1"
+    },
+    {
+      "path": "docs/release-notes-v5.1.12.md",
+      "sha256": "c674aedd8bdd3879aafcca0978d0f83f9dc0ae249ae2a6b28ad21b03a444be21"
     },
     {
       "path": "docs/release-notes-v5.1.9.md",
@@ -772,7 +776,7 @@
     },
     {
       "path": "docs/upgrade.md",
-      "sha256": "77882a2dcc869713315224f2cefe73cc76a214c1f86c4ba348ec597b41049c72"
+      "sha256": "f11aa09db722e27ce78b8699fb162712ed207f887c3234b1c726fc7513a4429d"
     },
     {
       "path": "docs/v5.1.10-validation.md",
@@ -789,6 +793,10 @@
     {
       "path": "docs/v5.1.12-ai.md",
       "sha256": "90bf3d819792c6c7af97aeef9dcfe899df7395ce007c2f3e75f2ae9c230dcfb8"
+    },
+    {
+      "path": "docs/v5.1.12-release.md",
+      "sha256": "92e9f541e60fe8eeaee7393453280762fa2ff9c3bf16f20e041127ccf5d14efa"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -832,11 +840,11 @@
     },
     {
       "path": "frontend/package-lock.json",
-      "sha256": "f56e57b8c7015cd1723e665a0031685fe676fe91d109b46ad91a3da9d04d0703"
+      "sha256": "b70ce05851a1f2b18d4ffc28b5aef840e57bef8fecaaf65fd71c55d70633a376"
     },
     {
       "path": "frontend/package.json",
-      "sha256": "64affbebd2d373b81bc4475a844309af90818005e54f1e6ca12dd57a2978174c"
+      "sha256": "a5de69a892311a3670d2258d2ce6759ae4fbb3061f130d95270fb209a7cd4111"
     },
     {
       "path": "frontend/preview-ai.html",
@@ -1112,7 +1120,7 @@
     },
     {
       "path": "frontend/src/dev/WritingPreview.vue",
-      "sha256": "f2d1d21fc36b8947a06b309d046d4d767167ef1063c0f409a44f3be057316c2f"
+      "sha256": "61fc2a3f3894902614aed543a7b8e6a618c881d3ba16243369bf3f8b323b8d5f"
     },
     {
       "path": "frontend/src/dev/aiServicePreview.ts",
@@ -1120,7 +1128,7 @@
     },
     {
       "path": "frontend/src/dev/preview.ts",
-      "sha256": "374e34378100554c5215c346d2a33ab2259a0564ebf059397274ac5488f01549"
+      "sha256": "b5dd5ea305cf543269ca4ce2ac556bd62b9c0c8f61c11f18b3405b4d1f4e9329"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
@@ -1512,7 +1520,7 @@
     },
     {
       "path": "frontend/src/version.ts",
-      "sha256": "6111e2047e04dc0032d29c25f245f0320c883dac91140e4325ec696f58791739"
+      "sha256": "dfb68bfaec6e0e413c6350024e4bb63ddc2c2c91b9321a8d9295a6b851ecf1d1"
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
@@ -1787,6 +1795,10 @@
       "sha256": "a61809bb350950e654704b3af8b5ee6f48edfa9f214c80366a741bf840a45bb9"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json",
+      "sha256": "515baf83a861c1804c82b9ae94370dba7a0e689aadf24907fec452ef6bdfca06"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
@@ -1856,11 +1868,11 @@
     },
     {
       "path": "scripts/open_source_gate.py",
-      "sha256": "b99fccecb0fe0c7a2723aadc83d3a78bae5d104ce63d751f45e50b7a9f6cd307"
+      "sha256": "99c75d4d35aa48516c55b5fcbff05663590aa06eb7bef044eb4cd11b99d9eb03"
     },
     {
       "path": "scripts/prepare_distribution.py",
-      "sha256": "386a127a87fb47582e25a55383f027b096deb387e71a95b06c69bbe30664841e"
+      "sha256": "d9baa941922e4463e71d2a8cbbac1cd86f6457247d8d27423936b017720f9abf"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1876,19 +1888,19 @@
     },
     {
       "path": "scripts/release_artifact_cleanup.py",
-      "sha256": "d432c9f29b5dbfc0e8501dbaa5d9881e4d59b0cd1e9ece2034eea0d3c5d1570b"
+      "sha256": "f0d001f3d45a0f411254d05d2e0a3bebf3d315c09abe5a931bf8d6559bfd0c30"
     },
     {
       "path": "scripts/release_authorization.py",
-      "sha256": "a823f8a154368da8266a1c686a051191cb9d21c3a4fb6ad2d244a5bf6c43762a"
+      "sha256": "1692a7b2b23e8b2aae79cab165d7d43c1c8dd9e1c30f4f2aa25e416c05af1c95"
     },
     {
       "path": "scripts/release_local.py",
-      "sha256": "0545bbd2a1c69ca832f59135997dde2bcf17ea70d9160c2cc361ec02c7a1551d"
+      "sha256": "5ef98e25a23f29c9579e967f3720deabf391447ad2b0f52dfce14fc470dd48b3"
     },
     {
       "path": "scripts/release_preflight.py",
-      "sha256": "d1258c0cbd686cbdf7eb91dc6ce02b9be91914829f671f1f098c81ad9d99ba51"
+      "sha256": "c329cd8e0dbf1b5d4a7f679ffb8f157fa3b06f194024e5e2442e9393af9d74de"
     },
     {
       "path": "scripts/release_source.py",
@@ -1939,8 +1951,12 @@
       "sha256": "b352f9f302484448fe0120bd341e4af3c3804787cab86ed16ff0d0dfc62301f8"
     },
     {
+      "path": "tests/browser_v512.py",
+      "sha256": "208d661a4b51453f03a9b5bbdc0a8640780cfb423fb141263569e59f3841e9c0"
+    },
+    {
       "path": "tests/browser_writing_preview.py",
-      "sha256": "ca7d744cfebd15c01e5caab28c028e101041194a7e6dc12bbedea7da8a8b9727"
+      "sha256": "5f861f474faf988a92251320c58f79a1e84fb3e43360d000acfbaf3272b41824"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -1960,7 +1976,7 @@
     },
     {
       "path": "tests/docker_same_schema_upgrade.py",
-      "sha256": "30e5ad07ed5c5bf732aed63e50b1117c062ac2b793a20d5327820d3131d89f06"
+      "sha256": "ea25cb37bc0c76a37ebfc370545492ab7b4b2c9548905fb81899b45896601f4c"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -2236,7 +2252,7 @@
     },
     {
       "path": "tests/test_open_source_gate.py",
-      "sha256": "e7ef8487db0a0a39ae1a62611076d430bba7dbd013a70d49d13742ac4bde7f0e"
+      "sha256": "0630bfb75ce62a4ef5653c84b91da7b1f3edf78325eafd8324f1eefe2a27426e"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -2256,7 +2272,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "5ea9fb16e9432fe8160028c22f8e4098a708fe761f12d309381bffa8e0104fc7"
+      "sha256": "2f61bbdf4e0780fcc263a45e0c8ab07fae43c732dbb2fac9383cfdfb62adf49e"
     },
     {
       "path": "tests/test_product_version.py",
@@ -2264,7 +2280,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "ae69ea4008e84f684f5aa964909c2b176e8b3e4e9992fc9c9fd9bd1fc56afb4e"
+      "sha256": "dc5afb4aaa43b26b74750bb9ef3d26df5b4c8434528d6d8e72b2e6f8f722a960"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -2288,15 +2304,15 @@
     },
     {
       "path": "tests/test_release_artifact_cleanup.py",
-      "sha256": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+      "sha256": "88acb003eebbc0c029ddf3588b2f6ed0dbc160b79245b5626b4045db429e4e76"
     },
     {
       "path": "tests/test_release_mode_environment.py",
-      "sha256": "2e8d202ea8680ec5d076f2b22e3785fd72f24e7bfecd3ff87820c41eb3d443d5"
+      "sha256": "ca281cbedf64c470a7da2f5f4d23e80c766e4c9938a99aa3158973c1d0c404b6"
     },
     {
       "path": "tests/test_release_preflight.py",
-      "sha256": "6177b44b6a1e2fbb4bd82dc0158081835ddd164188a6a751892988ba8771f715"
+      "sha256": "fce9ec68f324e8e9724bee1c98bf55d3630abc4480372263ea750812768b4f0d"
     },
     {
       "path": "tests/test_release_source.py",
@@ -4048,7 +4064,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "5a234a2c9d6b183e4ee1319467c8eaf777125cd6f082199274540008c0799386"
+      "sha256": "1e39439bc7f4cee4eb51e70709d14c876ba1778d5add6511d28790c365a209be"
     },
     {
       "path": "third_party/source-scope.json",

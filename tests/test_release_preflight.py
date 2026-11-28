@@ -10,7 +10,7 @@ def sample(version='v5.1.9'):
         {'sha':'a'*40,'tag':version,'object':{'type':'commit','sha':'b'*40}})
 
 
-@pytest.mark.parametrize('version',['v5.1.9','v5.1.10','v5.1.11'])
+@pytest.mark.parametrize('version',['v5.1.9','v5.1.10','v5.1.11','v5.1.12'])
 def test_remote_annotation_does_not_depend_on_local_peeled_ref(version):
     assert gate.annotated_remote_target(*sample(version),version)==('b'*40,'a'*40)
 

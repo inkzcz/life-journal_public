@@ -10,7 +10,7 @@ import subprocess
 REPOSITORY='inkzcz/life-journal_public'
 
 def validate_artifact(metadata,*,artifact_id,run_id,name,version,revision):
-    if (not re.fullmatch(r'v5\.1\.11',version)
+    if (version not in {'v5.1.11','v5.1.12'}
             or not re.fullmatch('[0-9a-f]{40}',revision)
             or type(artifact_id) is not int or artifact_id<=0 or type(run_id) is not int or run_id<=0
             or name!='life-journal-delivery-'+version+'-'+revision

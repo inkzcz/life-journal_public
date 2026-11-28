@@ -3,7 +3,7 @@
   "review_started_from": "895ca0e6b714f9fed1466e69e7763c15c99fef4b",
   "current_preview_continued_from": "b105f82022141892933e7f4c6f2028c4760c2042",
   "current_delta": "v5.1.12 original life-card experience, explicit insertion, reading projections, scoped dependency recovery, reference lifecycle, AI service/model protocols and authorized release preparation; no imported third-party implementation or changed third-party grant.",
-  "reviewed_on": "2026-11-27",
+  "reviewed_on": "2026-11-28",
   "date_timezone": "Asia/Shanghai",
   "scope": "Current enumerated maintained public source; initial snapshot identity preserved separately",
   "method": "Per-file source/asset/import/marker and scope review, targeted public upstream and local history checks, accepted owner project-development declaration. No global code plagiarism or legal title certification.",
@@ -304,9 +304,10 @@
         "P011",
         "P012",
         "P013",
-        "P015"
+        "P015",
+        "P017"
       ],
-      "sha256_canonical": "0cd48ccdc8e9ae104070fd48deebf8d063a435bf6217aa2361ba6d79c75db59f"
+      "sha256_canonical": "23e6efb0f6c65704349587e4d5a9133680915b549f5bb7c051759bf502c701e3"
     },
     {
       "path": ".github/workflows/release.yml",
@@ -316,9 +317,10 @@
         "P005",
         "P007",
         "P011",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "a573fe4f322f5b9c802a55593894fa25db6bedad55fc67c641ac49c43b4e248e"
+      "sha256_canonical": "afc7d8fd0e82bdb4be5b8fc5ca76d4206fa342d00d26df0d78b08ef693ad083c"
     },
     {
       "path": ".gitignore",
@@ -395,9 +397,10 @@
         "P004",
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "ef23c54cccee01f38dd13e34890aaf1d04b2853e271f980c386235c35380ae2d"
+      "sha256_canonical": "e1c0994affce0b1357a357785937b4c35cabbeaf3683fe05183545ec2d6eb0a2"
     },
     {
       "path": "SECURITY.md",
@@ -432,9 +435,10 @@
       "evidence": [
         "J001",
         "P006",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "91dee1f2e164332c98f55f96624fd7e93d0d754b90e67f440c1b044164c2dae7"
+      "sha256_canonical": "be267ff5adb254acf71b9e2dab4de6bd16d4b0e5bf085edd9156c2d7be1f585f"
     },
     {
       "path": "backend/.dockerignore",
@@ -1166,9 +1170,10 @@
         "J001",
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "87706d5197ab6c38d1eb3700b8b79fa97134e86716bdf1f06244118d24b5060b"
+      "sha256_canonical": "51e05a5ce4c0a091e60d166572a608b1dfb3785fcaf95926c624f61921d71019"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -1672,9 +1677,10 @@
       "evidence": [
         "J001",
         "P006",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "dab4a986cba665cc8a54a2eb2a743ec023ec01afc34c4e9808afa107e2ce3487"
+      "sha256_canonical": "4961b353950fe55611d8394cd49a3f67ca86def6bdc3ebad42217aab297783ff"
     },
     {
       "path": "backend/constraints-release.txt",
@@ -1780,7 +1786,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "1fd477f079600a7aedb57008b74b0cc90331beeeac948823e17cf3a60aa2c904"
+      "sha256_canonical": "edbd5c885e5a18427b547e5ae3dd3df397651c34a9c2dfe1546d5b046860115b"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1798,9 +1804,10 @@
         "P001",
         "P005",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "a7518bc2907420084d079115e98e04d1d00d89631efa3f8e973c2557cf1f432b"
+      "sha256_canonical": "aec39f88a6aa10cd7264373495ce757083c64a1534a38b088f48e21a6c2a03e2"
     },
     {
       "path": "docs/known-limitations.md",
@@ -1811,9 +1818,10 @@
         "P003",
         "P004",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "befd11b9522a1419ed9bad82f4295d050c87be7a4275176bc82cc3785f493fdc"
+      "sha256_canonical": "d8a04bebb0af0476b90371a2bd8bb75f1b573b523f5374716fb35232715a44b6"
     },
     {
       "path": "docs/licensing.md",
@@ -1857,6 +1865,14 @@
         "P011"
       ],
       "sha256_canonical": "9a378ac3e6ec58d0e9aec0cc0c38d07b20cee253e8494ef19a607cd4bcb448c1"
+    },
+    {
+      "path": "docs/release-notes-v5.1.12.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "c674aedd8bdd3879aafcca0978d0f83f9dc0ae249ae2a6b28ad21b03a444be21"
     },
     {
       "path": "docs/release-notes-v5.1.9.md",
@@ -1920,9 +1936,10 @@
         "P001",
         "P005",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "77882a2dcc869713315224f2cefe73cc76a214c1f86c4ba348ec597b41049c72"
+      "sha256_canonical": "f11aa09db722e27ce78b8699fb162712ed207f887c3234b1c726fc7513a4429d"
     },
     {
       "path": "docs/v5.1.10-validation.md",
@@ -1957,6 +1974,14 @@
         "P017"
       ],
       "sha256_canonical": "90bf3d819792c6c7af97aeef9dcfe899df7395ce007c2f3e75f2ae9c230dcfb8"
+    },
+    {
+      "path": "docs/v5.1.12-release.md",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "38b2c12fceb966180e5d628d90236aa4de66e48f1c18a633a79e8dec6ebf9ef4"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -2047,9 +2072,10 @@
         "R001",
         "J001",
         "P006",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "f56e57b8c7015cd1723e665a0031685fe676fe91d109b46ad91a3da9d04d0703"
+      "sha256_canonical": "b70ce05851a1f2b18d4ffc28b5aef840e57bef8fecaaf65fd71c55d70633a376"
     },
     {
       "path": "frontend/package.json",
@@ -2058,9 +2084,10 @@
         "R001",
         "J001",
         "P006",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "64affbebd2d373b81bc4475a844309af90818005e54f1e6ca12dd57a2978174c"
+      "sha256_canonical": "a5de69a892311a3670d2258d2ce6759ae4fbb3061f130d95270fb209a7cd4111"
     },
     {
       "path": "frontend/preview-ai.html",
@@ -2632,9 +2659,10 @@
       "classification": "project-original-v5110-development",
       "evidence": [
         "P006",
-        "P010"
+        "P010",
+        "P017"
       ],
-      "sha256_canonical": "f2d1d21fc36b8947a06b309d046d4d767167ef1063c0f409a44f3be057316c2f"
+      "sha256_canonical": "61fc2a3f3894902614aed543a7b8e6a618c881d3ba16243369bf3f8b323b8d5f"
     },
     {
       "path": "frontend/src/dev/aiServicePreview.ts",
@@ -2649,9 +2677,10 @@
       "classification": "project-original-v5110-development",
       "evidence": [
         "P006",
-        "P010"
+        "P010",
+        "P017"
       ],
-      "sha256_canonical": "374e34378100554c5215c346d2a33ab2259a0564ebf059397274ac5488f01549"
+      "sha256_canonical": "b5dd5ea305cf543269ca4ce2ac556bd62b9c0c8f61c11f18b3405b4d1f4e9329"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
@@ -3454,9 +3483,10 @@
       "evidence": [
         "J001",
         "P006",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "6111e2047e04dc0032d29c25f245f0320c883dac91140e4325ec696f58791739"
+      "sha256_canonical": "dfb68bfaec6e0e413c6350024e4bb63ddc2c2c91b9321a8d9295a6b851ecf1d1"
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
@@ -4056,6 +4086,14 @@
       "sha256_canonical": "92152be3953d880531f340cb1fcec1ede34ca41276f99e0bcc3a2f400a4c1cbc"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "5b12534feafa5a012f82ce0a37272f83b5b4208deeea3d6e9ad844a90c4d62e9"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "classification": "retained-license-text-or-historical-draft",
       "evidence": [
@@ -4210,9 +4248,10 @@
         "P007",
         "P011",
         "P013",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "ec4aa9d101161d3022732cc37723c4f5aebf99fc8f38bf58b45e245c742fe198"
+      "sha256_canonical": "bdd7fe9474e18111eb3925c9a7624dbc3977d2688c1865170b6b3ef966dee421"
     },
     {
       "path": "scripts/prepare_distribution.py",
@@ -4222,9 +4261,10 @@
         "P005",
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "386a127a87fb47582e25a55383f027b096deb387e71a95b06c69bbe30664841e"
+      "sha256_canonical": "d9baa941922e4463e71d2a8cbbac1cd86f6457247d8d27423936b017720f9abf"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -4254,9 +4294,10 @@
       "path": "scripts/release_artifact_cleanup.py",
       "classification": "project-original-source",
       "evidence": [
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "412ab2b0f27fbed2b534bdd0aae3d47574bfdef58e9dbb9a4894e39cf75c5950"
+      "sha256_canonical": "b8b34ac2837ad5aafcb8a530eb26142c64ff00e544cabbabb8b7348a47b393bc"
     },
     {
       "path": "scripts/release_authorization.py",
@@ -4264,9 +4305,10 @@
       "evidence": [
         "P007",
         "P011",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "f1279e2e2ca1f6e48cd6545cb765b617a11b93661b973adb403b22c2f0a834b9"
+      "sha256_canonical": "3a0e1a2746eba96daf8523617c743a913649bf922a37d13bd4458c957328e503"
     },
     {
       "path": "scripts/release_local.py",
@@ -4274,9 +4316,10 @@
       "evidence": [
         "J001",
         "P006",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "0545bbd2a1c69ca832f59135997dde2bcf17ea70d9160c2cc361ec02c7a1551d"
+      "sha256_canonical": "5ef98e25a23f29c9579e967f3720deabf391447ad2b0f52dfce14fc470dd48b3"
     },
     {
       "path": "scripts/release_preflight.py",
@@ -4286,9 +4329,10 @@
         "P005",
         "P007",
         "P011",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "d1258c0cbd686cbdf7eb91dc6ce02b9be91914829f671f1f098c81ad9d99ba51"
+      "sha256_canonical": "c329cd8e0dbf1b5d4a7f679ffb8f157fa3b06f194024e5e2442e9393af9d74de"
     },
     {
       "path": "scripts/release_source.py",
@@ -4390,6 +4434,14 @@
       "sha256_canonical": "b352f9f302484448fe0120bd341e4af3c3804787cab86ed16ff0d0dfc62301f8"
     },
     {
+      "path": "tests/browser_v512.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "208d661a4b51453f03a9b5bbdc0a8640780cfb423fb141263569e59f3841e9c0"
+    },
+    {
       "path": "tests/browser_writing_preview.py",
       "classification": "project-original-v5110-development",
       "evidence": [
@@ -4397,9 +4449,10 @@
         "P010",
         "P012",
         "P014",
-        "P015"
+        "P015",
+        "P017"
       ],
-      "sha256_canonical": "ca7d744cfebd15c01e5caab28c028e101041194a7e6dc12bbedea7da8a8b9727"
+      "sha256_canonical": "5f861f474faf988a92251320c58f79a1e84fb3e43360d000acfbaf3272b41824"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -4444,9 +4497,10 @@
       "evidence": [
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "30e5ad07ed5c5bf732aed63e50b1117c062ac2b793a20d5327820d3131d89f06"
+      "sha256_canonical": "ea25cb37bc0c76a37ebfc370545492ab7b4b2c9548905fb81899b45896601f4c"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -5010,9 +5064,10 @@
         "J005",
         "P004",
         "P013",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "67a136987bf7e6edb8379c462a01e668e23a453842788ee59cf5e09c23f2f8e9"
+      "sha256_canonical": "b58b3a7c3f852bc8b654ef126b85bc042bbd4c56df23511d76116f2bb7fbe1e2"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -5055,9 +5110,10 @@
         "P006",
         "P007",
         "P011",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "60a795023c9863ee2e49ede52160414bb26e8f89c72b31f658a5e53059e75196"
+      "sha256_canonical": "d3fa200585331daae3555e3ded8ff03be7a64ca22d1b7568e6d3aa7d2653973c"
     },
     {
       "path": "tests/test_product_version.py",
@@ -5078,9 +5134,10 @@
         "P007",
         "P011",
         "P012",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "1e346d205adf78f4eb27f4a0a5012305f11e6efc9bb35e4f89322bdf5c636748"
+      "sha256_canonical": "ab7c98a1731842133d2861984cde1eecad83f40f1de638683bf1f9a2caad23ff"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -5127,17 +5184,19 @@
       "path": "tests/test_release_artifact_cleanup.py",
       "classification": "project-original-source",
       "evidence": [
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+      "sha256_canonical": "88acb003eebbc0c029ddf3588b2f6ed0dbc160b79245b5626b4045db429e4e76"
     },
     {
       "path": "tests/test_release_mode_environment.py",
       "classification": "project-original-source",
       "evidence": [
-        "P013"
+        "P013",
+        "P017"
       ],
-      "sha256_canonical": "2e8d202ea8680ec5d076f2b22e3785fd72f24e7bfecd3ff87820c41eb3d443d5"
+      "sha256_canonical": "ca281cbedf64c470a7da2f5f4d23e80c766e4c9938a99aa3158973c1d0c404b6"
     },
     {
       "path": "tests/test_release_preflight.py",
@@ -5146,9 +5205,10 @@
         "P005",
         "P007",
         "P011",
-        "P016"
+        "P016",
+        "P017"
       ],
-      "sha256_canonical": "6177b44b6a1e2fbb4bd82dc0158081835ddd164188a6a751892988ba8771f715"
+      "sha256_canonical": "fce9ec68f324e8e9724bee1c98bf55d3630abc4480372263ea750812768b4f0d"
     },
     {
       "path": "tests/test_release_source.py",

@@ -158,3 +158,35 @@ def test_511_upgrade_must_preserve_exact_old_cards_templates_and_notification():
     for key in report:
         wrong=dict(report);wrong.pop(key)
         with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)
+
+
+def test_512_upgrade_requires_published_511_bytes_ai_references_and_original_history():
+    version='v5.1.12';revision='a'*40
+    report={'synthetic_same_schema_upgrade':'passed','from_version':'5.1.11','to_version':'5.1.12',
+        'image_tag':version,'source_commit':revision,'schema_before':'0021_anniversary_calendar',
+        'schema_after':'0021_anniversary_calendar','old_backup_created_and_verified':True,
+        'existing_article_fields_cards_media_itinerary':'preserved','new_default_type_and_travel_toggles':'passed',
+        'candidate_restart_persistence':'passed','production_or_nas_accessed':False,
+        'old_business_tar_sha256':'fcf1971553ba1cc4ef9056ac41b73d907a22772446031e3ce1aed93f4677fae0',
+        'legacy_get_notification_configuration_and_logs':'preserved','six_historical_card_kinds':'preserved',
+        'old_template_binding_and_explicit_daily_mode':'preserved','old_ai_configuration_and_secret_references':'preserved'}
+    delivery.require_upgrade_receipt(report,version,revision)
+    for key in report:
+        wrong=dict(report);wrong.pop(key)
+        with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)
+    wrong={**report,'old_business_tar_sha256':'ac766b4619db3bb5883de1bf18289993c07d3c452cbfea2ea175af16fbabef7a'}
+    with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)
+
+
+def test_formal_512_authority_is_separate_and_bound_to_actual_pr10():
+    from scripts.release_authorization import read_authorization,release_version
+    from pathlib import Path
+    current=read_authorization(Path(__file__).resolve().parents[1],'v5.1.12')
+    assert current['source_pull_request']==10 and current['registry_push_approved'] is False
+    delivery.require_release_authorization(current,'v5.1.12')
+    for key in ('source_pull_request','binary_publication_approved','owner_confirmation_reference'):
+        wrong=dict(current);wrong.pop(key)
+        with pytest.raises(ValueError):delivery.require_release_authorization(wrong,'v5.1.12')
+    with pytest.raises(ValueError):delivery.require_release_authorization({**current,'source_pull_request':9},'v5.1.12')
+    with pytest.raises(ValueError):release_version('v5.1.13')
+    with pytest.raises(ValueError):release_version('v5.1.12-candidate.latest')

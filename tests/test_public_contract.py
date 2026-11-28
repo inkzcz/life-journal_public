@@ -28,7 +28,7 @@ def test_four_roles_reuse_one_business_image_and_never_pull_implicitly():
 
 
 def test_candidate_features_and_migrations_are_present():
-    assert (ROOT/'VERSION').read_text().strip()=='5.1.11'
+    assert (ROOT/'VERSION').read_text().strip()=='5.1.12'
     for name in ('backend/app/calendar','backend/app/exchange','backend/app/routers/experiences.py',
                  'backend/app/services/experiences.py','backend/app/routers/photo_albums.py',
                  'backend/app/services/photo_stream.py',
@@ -62,15 +62,19 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
     upload=next(s for s in uploads if s.get('id')=='delivery-upload')
     visual=next(s for s in uploads if s is not upload)
     assert "github.event_name == 'pull_request'" in visual['if']
-    assert visual['with']['retention-days']==3 and visual['with']['compression-level']==9
+    assert visual['with']['retention-days']==7 and visual['with']['compression-level']==9
     visual_paths=visual['with']['path'].splitlines()
-    assert len(visual_paths)==7 and all(p.startswith('${{ runner.temp }}/browser-preview/') and '*' not in p and '..' not in p for p in visual_paths)
+    expected_visual={'browser-preview/'+p for p in ('cards-1440-light.png','cards-375-dark.png','cards-custom-theme.png','editor-menu-320.png','editor-time-form-320.png','geometry.json','browser-results.json')}
+    expected_visual.update('ai-browser-preview/'+p for p in ('ai-services-1440-light.png','ai-services-320-dark.png','ai-missing-summary-default-320.png','browser-results.json'))
+    expected_visual.update('v512-browser-preview/'+p for p in ('v512-1440-light-full.png','v512-320-dark-full.png','browser-results.json'))
+    assert len(visual_paths)==14 and set(visual_paths)=={'${{ runner.temp }}/'+p for p in expected_visual}
+    assert not any('*' in p or '..' in p for p in visual_paths)
     assert all(p.endswith(('.png','.json')) for p in visual_paths)
     assert "steps.package.outputs.delivery_ready == 'true'" in upload['if']
     assert "github.repository == 'inkzcz/life-journal_public'" in upload['if']
     assert "github.workflow == 'Formal versioned delivery'" in upload['if']
-    assert "inputs.release_version == 'v5.1.11'" in upload['if']
-    assert upload['with']['retention-days']==2
+    assert "inputs.release_version == 'v5.1.12'" in upload['if']
+    assert upload['with']['retention-days']==1
     paths=upload['with']['path'].splitlines()
     assert len(paths)==10 and all(p.startswith('${{ runner.temp }}/release-assets/') for p in paths)
     assert not any('*' in p or '..' in p for p in paths)
@@ -79,7 +83,7 @@ def test_public_workflow_is_read_only_pinned_and_cannot_publish():
     steps=data['jobs']['docker-installation']['steps']
     assert next(i for i,s in enumerate(steps) if 'prepare_distribution.py' in s.get('run',''))<steps.index(upload)
     assert '--require-license' in text and '--redact=100' in text
-    assert '--validate-only' in text and 'Released v5.1.10 to v5.1.11' in text
+    assert '--validate-only' in text and 'Released v5.1.11 to v5.1.12' in text
 
 
 def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
@@ -92,7 +96,7 @@ def test_formal_release_is_scoped_to_owner_tag_and_isolates_write_token():
     assert jobs['build']['with']['annotated_tag_sha']=='${{ needs.preflight.outputs.tag_sha }}'
     publish=jobs['publish']
     assert publish['needs']==['preflight','build'] and publish['permissions']=={'contents':'write','actions':'read'}
-    assert "github.ref == 'refs/tags/v5.1.11'" in publish['if']
+    assert "github.ref == 'refs/tags/v5.1.12'" in publish['if']
     assert "github.ref == 'refs/heads/main'" in publish['if'] and "github.event_name == 'workflow_dispatch'" in publish['if']
     assert not any(s.get('uses','').startswith('actions/checkout') for s in publish['steps'])
     for job in jobs.values():
@@ -125,10 +129,10 @@ def test_formal_reusable_workflow_runs_full_source_and_browser_regression():
     text='\n'.join(s.get('run','') for s in source['steps'])
     assert 'Complete exported' not in text or 'pytest' in text
     assert sum('pytest -q tests' in s.get('run','') for s in source['steps'])==2
-    assert 'browser_writing_preview.py' in text and 'playwright==1.64.0' in text
+    assert 'browser_writing_preview.py' in text and 'browser_ai_v512.py' in text and 'browser_v512.py' in text and 'playwright==1.64.0' in text
     steps=data['jobs']['docker-installation']['steps']
     upgrade=next(s for s in steps if 'docker_same_schema_upgrade.py' in s.get('run',''))
-    assert "env.IMAGE_TAG == 'v5.1.11'" in upgrade['if']
+    assert "env.IMAGE_TAG == 'v5.1.12'" in upgrade['if']
     package=next(s for s in steps if s.get('id')=='package')
     assert '--upgrade' in package['run'] and '--validate-only' in package['run']
 
