@@ -163,3 +163,23 @@ class AbandonIn(StrictModel):
 @router.post('/ai/calls/{id}/abandon')
 def abandon_call(id:UUID,data:AbandonIn,db=Depends(db_dep),user=Depends(require_dynamic_blog)):
     return invocations.abandon(db,id,user.id)
+
+
+@router.get('/ai/presets')
+def ai_presets():
+    from ..exchange.presets import PRESETS
+    from ..exchange.settings import TASKS
+    return {'items':PRESETS,'tasks':list(TASKS),'streaming':False}
+
+
+@router.get('/ai/services/{id}/models')
+def service_models(id:UUID,expected_revision:int,db=Depends(db_dep)):
+    from ..exchange import adapters,transport
+    revision,config=read_configuration(db)
+    if expected_revision!=revision:raise HTTPException(409,'服务商配置已变化，请重新读取')
+    service=next((s for s in config.services if s.id==id and s.enabled),None)
+    if service is None:raise HTTPException(422,'请选择已保存并启用的服务商；不支持列表时可手动添加模型')
+    try:
+        value=transport.get(service,adapters.models_path(service))
+        return {'items':adapters.models(service,value),'possibly_incomplete':True,'notice':'仅显示服务返回的首批模型；可手动添加，能力需自行核对。'}
+    except (ValueError,KeyError,TypeError):raise HTTPException(502,'模型列表响应格式无效；仍可手动添加模型') from None

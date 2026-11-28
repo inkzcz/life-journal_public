@@ -72,25 +72,29 @@ def _pool(parsed):
     return httpcore.HTTPProxy(proxy_url=proxy_url,proxy_auth=auth,proxy_ssl_context=context,**options)
 
 
-def post(provider,suffix,payload):
+def request(provider,suffix,payload=None,method='POST'):
+    if not suffix.startswith('/') or any(c in suffix for c in ('?','#','..','://')):raise HTTPException(422,'模型请求路径无效')
     base,addresses,local=resolve_endpoint(provider)
     parsed=urlsplit(base);selected=addresses[0]
     host='['+selected+']' if ':' in selected else selected
     netloc=host+(':'+str(parsed.port) if parsed.port else '')
     target=urlunsplit((parsed.scheme,netloc,parsed.path.rstrip('/')+suffix,'',''))
-    data=json.dumps(payload,ensure_ascii=False,separators=(',',':')).encode()
+    data=json.dumps(payload,ensure_ascii=False,separators=(',',':')).encode() if payload is not None else b''
     if len(data)>MAX_REQUEST:raise HTTPException(413,'模型输入过大，请缩小素材或照片范围')
     headers={'Host':parsed.netloc,'Content-Type':'application/json','Accept':'application/json','Accept-Encoding':'identity'}
     if provider.key_env:
         secret=os.environ.get(provider.key_env,'')
         if not secret or any(ord(c)<33 or ord(c)>126 for c in secret):raise HTTPException(503,'模型密钥环境变量未配置或格式无效')
-        headers['Authorization']='Bearer '+secret
+        if provider.kind=='anthropic':headers['x-api-key']=secret
+        elif provider.kind=='gemini':headers['x-goog-api-key']=secret
+        else:headers['Authorization']='Bearer '+secret
+    if provider.kind=='anthropic':headers['anthropic-version']='2023-06-01'
     timeout=provider.timeout_seconds
     extensions={'sni_hostname':parsed.hostname,'timeout':{'connect':min(timeout,10),'read':timeout,'write':timeout,'pool':5}}
     deadline=time.monotonic()+timeout
     try:
         with _pool(parsed) as pool:
-            with pool.stream('POST',target,headers=headers,content=data,extensions=extensions) as response:
+            with pool.stream(method,target,headers=headers,content=data,extensions=extensions) as response:
                 if 300<=response.status<400:raise HTTPException(502,'模型服务返回重定向，已拒绝跟随')
                 if response.status==402:raise HTTPException(502,'模型服务余额或配额不足，请检查服务账户')
                 if response.status==404:raise HTTPException(502,'模型或端点不存在，请检查Model ID与Base URL')
@@ -108,3 +112,11 @@ def post(provider,suffix,payload):
     except HTTPException:raise
     except (httpcore.TimeoutException,TimeoutError):raise HTTPException(504,'模型请求超时；调用可能已计费，请核对调用记录') from None
     except Exception:raise HTTPException(502,'模型连接或JSON响应无效；未记录模型响应正文') from None
+
+
+def post(provider,suffix,payload):
+    return request(provider,suffix,payload)
+
+
+def get(provider,suffix):
+    return request(provider,suffix,method='GET')

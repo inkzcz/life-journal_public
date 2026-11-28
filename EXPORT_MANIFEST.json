@@ -303,6 +303,10 @@
       "sha256": "40a0bb1094590e963740b919a878500e2d06afc9473dd6328fad03b55ef42b8a"
     },
     {
+      "path": "backend/app/exchange/adapters.py",
+      "sha256": "c12544a9729b31f9244a07ed6ce32d5016581a3a133a13c16faba5a68074c957"
+    },
+    {
       "path": "backend/app/exchange/assemble.py",
       "sha256": "3617de21b1fbe315470a614a4124a71f606f401537575d2688ac886926cf427f"
     },
@@ -316,7 +320,7 @@
     },
     {
       "path": "backend/app/exchange/invocations.py",
-      "sha256": "044ef632fe9a74a2c4eb5bac717ccc82cfeb0dfa6aca6b5239572d4fe888aaf9"
+      "sha256": "c3ce6f23fcc79fe25c6c63747441ac2f18499807bacba0ee6baf4c0af180fe96"
     },
     {
       "path": "backend/app/exchange/jobs.py",
@@ -329,6 +333,10 @@
     {
       "path": "backend/app/exchange/parsers.py",
       "sha256": "3513e4682b6c61940263e0113208ad8131b55fa14c67cb482dd416b9168c458d"
+    },
+    {
+      "path": "backend/app/exchange/presets.py",
+      "sha256": "255c0262e5e5a7a097a7dfb1eb5a70bd325a89004ca5aa4b75dfa0e6dcb03c08"
     },
     {
       "path": "backend/app/exchange/preview.py",
@@ -348,7 +356,7 @@
     },
     {
       "path": "backend/app/exchange/settings.py",
-      "sha256": "38dfc40bb850bb05ed7bd073841e1dfe628b7a989443ab0946350a42890da9d0"
+      "sha256": "6f4ea2a2b91ec242059c8962cc25d51ed63a5c386c2fac25b5c64a4943a26425"
     },
     {
       "path": "backend/app/exchange/syntax.py",
@@ -356,7 +364,7 @@
     },
     {
       "path": "backend/app/exchange/transport.py",
-      "sha256": "bca98615500408e714004efa54c5ebf02cd1faecb2fc663e6b36f74c474f84a3"
+      "sha256": "ce0b360e31c549a6a2f675be252a446134e9be6becbfae6e6314d8d4dce5ac5f"
     },
     {
       "path": "backend/app/experience_models.py",
@@ -452,7 +460,7 @@
     },
     {
       "path": "backend/app/routers/exchange.py",
-      "sha256": "fd0e48d57a1e00ca8ad4a26b832844d94e38ed2bf8682d3fcb3b4d837efdc34f"
+      "sha256": "82506c79e1facca29dd3fe7a035d65a279a404042841b71e8823c91426640cba"
     },
     {
       "path": "backend/app/routers/experiences.py",
@@ -775,6 +783,10 @@
       "sha256": "252fffccf42bace875efa98ae8f4f930974e105d0a039aff85e7eb5e8bac9dac"
     },
     {
+      "path": "docs/v5.1.12-ai.md",
+      "sha256": "90bf3d819792c6c7af97aeef9dcfe899df7395ce007c2f3e75f2ae9c230dcfb8"
+    },
+    {
       "path": "docs/v5.1.5/content-exchange.schema.json",
       "sha256": "5487ef288b96b67062bb2c4ae5aa5c540bdb0e2d876ef71bf57dcd1fb4e6e7bb"
     },
@@ -821,6 +833,10 @@
     {
       "path": "frontend/package.json",
       "sha256": "64affbebd2d373b81bc4475a844309af90818005e54f1e6ca12dd57a2978174c"
+    },
+    {
+      "path": "frontend/preview-ai.html",
+      "sha256": "8001c815814c0d70a7606da884ed90779613f00880916bf3c49368d6301f6acd"
     },
     {
       "path": "frontend/preview-writing.html",
@@ -1071,8 +1087,16 @@
       "sha256": "5622629f3c8973407fd3e8bc507ee97bd1e5058f53b91aa92aedef416559e041"
     },
     {
+      "path": "frontend/src/dev/AIServicePreview.vue",
+      "sha256": "3bf74fdb41b29fa08cb6afa1ca3628414ebe82b097febd16fc3a5254f736bc22"
+    },
+    {
       "path": "frontend/src/dev/WritingPreview.vue",
       "sha256": "f2d1d21fc36b8947a06b309d046d4d767167ef1063c0f409a44f3be057316c2f"
+    },
+    {
+      "path": "frontend/src/dev/aiServicePreview.ts",
+      "sha256": "bfc49d1023405691f9a8d327c2dfd49e1902f019ecb065f371aa18bf8ea2fa1f"
     },
     {
       "path": "frontend/src/dev/preview.ts",
@@ -1104,7 +1128,7 @@
     },
     {
       "path": "frontend/src/exchange/AIAdmin.vue",
-      "sha256": "b1ad094f0e4b7983a3c1a0b592033c865ca4724a9dcd2ebbaf0f88273edeb1ad"
+      "sha256": "25dc5b65307010c26e87bc2ba9c5eeabc47ebe067914fc19c2a122fd5219d5e6"
     },
     {
       "path": "frontend/src/exchange/AICreate.test.ts",
@@ -1139,12 +1163,28 @@
       "sha256": "b6bf77aba518115ca1bd168e15cda6da1c5c12c0d08be5ce6fc4ee343ae8c45e"
     },
     {
+      "path": "frontend/src/exchange/ServiceManager.test.ts",
+      "sha256": "8da6825385a2a787f840c22b635b7f19f90223012b88168d60fa096588acda02"
+    },
+    {
+      "path": "frontend/src/exchange/ServiceManager.vue",
+      "sha256": "47335f13f709097c98b8d5db192b8c8ab75970c19f9a66072217171647b091d6"
+    },
+    {
       "path": "frontend/src/exchange/WritingAssistant.test.ts",
-      "sha256": "94c6049a89030bec073e0cadb21b0921c9b5f1df65032fe22bd452c3110040ac"
+      "sha256": "35a7c3257ea5462781e57e5a0235028e73ff4ff9efd793bcf878e2ebe9b824aa"
     },
     {
       "path": "frontend/src/exchange/WritingAssistant.vue",
-      "sha256": "89efde07a1b19d9b361ce85b215af4cfc9d9b68511bfc748ec079bcbba3666a1"
+      "sha256": "26b1c00480d68a96946ff893c19dfceef5fd68512ec4295b61de5f7053393ecd"
+    },
+    {
+      "path": "frontend/src/exchange/models.test.ts",
+      "sha256": "532323dd5a19e48a30f1c8d96f6eff012df968795a0d1c644609b9fad0eeb9cb"
+    },
+    {
+      "path": "frontend/src/exchange/models.ts",
+      "sha256": "aac00773ce83f1f10eb3d3e0b16844b86a91d7d61e4c4d06a2c380430a24f5a2"
     },
     {
       "path": "frontend/src/exchange/preferences.ts",
@@ -1875,6 +1915,10 @@
       "sha256": "d48325fba63d9a1fcbd437c34f84e2104b9234444342d29b923ab8dfb675b56c"
     },
     {
+      "path": "tests/browser_ai_v512.py",
+      "sha256": "b352f9f302484448fe0120bd341e4af3c3804787cab86ed16ff0d0dfc62301f8"
+    },
+    {
       "path": "tests/browser_writing_preview.py",
       "sha256": "ca7d744cfebd15c01e5caab28c028e101041194a7e6dc12bbedea7da8a8b9727"
     },
@@ -2077,6 +2121,14 @@
     {
       "path": "tests/test_exchange_protected_source.py",
       "sha256": "93875a6c4d8fadb88cdfe230ae677be9f224a3e2e93fb85871e27d70af0512e1"
+    },
+    {
+      "path": "tests/test_exchange_protocols.py",
+      "sha256": "4e82911c875bdfec64115d46c2ffd76abd85c183a710d9cda728ccece6bb9c7a"
+    },
+    {
+      "path": "tests/test_exchange_services.py",
+      "sha256": "92bd3d605df80480766533b18e407fabb1d8a120401916969b999612429a8ba1"
     },
     {
       "path": "tests/test_exchange_settings.py",
@@ -3972,7 +4024,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "a8bbe3dad91977fb91e1d0ddaa8972d95532eca46a05d809480e8fc6b2bdc1b7"
+      "sha256": "24e66d75a99f964e083e52e8906b88ed9cb811eb51670a631edb9342eb177dc9"
     },
     {
       "path": "third_party/source-scope.json",
