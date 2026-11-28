@@ -1458,7 +1458,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "db98d44747d9a56f93bd9396a8bef0c08ebcc0139439b52c368b80ccb381ed1b"
+      "sha256_canonical": "a62750eb1c73a277e3c75fad43ef9327a29f95a6a2dcc843213c1816f35c030d"
     },
     {
       "path": "backend/app/services/itinerary.py",
@@ -1787,7 +1787,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "edbd5c885e5a18427b547e5ae3dd3df397651c34a9c2dfe1546d5b046860115b"
+      "sha256_canonical": "5af25812f6a5d879a565a79947432400b76f3dd426215bb1498da45d9fbe87d7"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -4382,9 +4382,10 @@
         "P004",
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "2335f01f57ffe01b1afa7e178b082b79a4c39f84c0c0527e5be0dabb05b9c5a2"
+      "sha256_canonical": "e4b4a4a24076e4a87b32f82187087ae34a7f90ac526a9415ab8f3a7607924f97"
     },
     {
       "path": "scripts/unified_images.py",
@@ -4959,7 +4960,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "ac15d36057d665997eea330025c501555f189bb572ef10f4d935b89aa0401bf2"
+      "sha256_canonical": "f08fb11967391c32f8d3da170bbaee0802766350187b9d8bd56b5600f10ce5e9"
     },
     {
       "path": "tests/test_itinerary_editing.py",
@@ -5114,7 +5115,7 @@
         "P016",
         "P017"
       ],
-      "sha256_canonical": "d3fa200585331daae3555e3ded8ff03be7a64ca22d1b7568e6d3aa7d2653973c"
+      "sha256_canonical": "553f4ca5be9bb9fe8f5c7305916d98a3cef9a40c3b87b3ff6ceea68c4c67b804"
     },
     {
       "path": "tests/test_product_version.py",

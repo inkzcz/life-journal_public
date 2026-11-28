@@ -174,3 +174,116 @@ def test_malformed_sources_keep_candidate_edges_and_return_audit_diagnostics(cli
         db.get(ContentRecord,r['id']).body=original_body
         db.get(RecordRevision,(r['id'],2)).snapshot=original_snapshot
         db.commit()
+
+
+def test_bulk_preview_avoids_per_inert_record_queries_and_matches_production(client,monkeypatch):
+    import uuid,time
+    from datetime import date
+    from sqlalchemy import event
+    from app.services import index_lifecycle as lifecycle
+    from app.archive_models import RecordPlace
+    t=make_type(client);p=place(client);ids=[]
+    with SessionLocal() as db:
+        for index in range(250):
+            identity=str(uuid.uuid4());ids.append(identity)
+            db.add(ContentRecord(id=identity,type_id=t['id'],schema_version=t['revision'],title='合成批量检查',body='普通合成正文 '+str(index),body_format=2,values={},display_date=date(2026,1,1),status='draft',revision=1))
+        db.flush()
+        for identity in ids[:3]:
+            db.add(RecordPlace(record_id=identity,place_id=p['id'],markdown_owned=False))
+            db.add(Experience(record_id=identity,id=str(uuid.uuid4()),kind='g',name='合成保留身份',fields={'future_meta':'未知历史数据'},position=0,active=False))
+            db.add(FoodOccurrence(id=str(uuid.uuid4()),record_id=identity,source_key='retained:manual',source_kind='mark',name='合成独立手动数据',place_id=p['id'],city_override='手动城市',category='手动分类',active=False))
+        db.commit()
+        # Warm complex preexisting fixtures; all 250 new records require no writes.
+        lifecycle.preview(db)
+        calls=[]
+        original=lifecycle.sync_record
+        def tracked(session,record):
+            calls.append(record.id);return original(session,record)
+        monkeypatch.setattr(lifecycle,'sync_record',tracked)
+        statements=[]
+        def capture(*args):statements.append(args[2])
+        event.listen(db.bind,'before_cursor_execute',capture)
+        start=time.monotonic()
+        try:report=lifecycle.preview(db)
+        finally:event.remove(db.bind,'before_cursor_execute',capture)
+        assert not set(ids)&set(calls)
+        assert not set(ids)&{item['record_id'] for item in report['records']}
+        # Fixed whole-DB snapshot queries remain; no 7/14 SELECTs per article.
+        assert len(statements)<len(ContentRecord.metadata.tables)+30
+        for identity in ids[:3]:
+            before=lifecycle.state(db,identity)
+            savepoint=db.begin_nested()
+            try:
+                original(db,db.get(ContentRecord,identity))
+                assert lifecycle.state(db,identity)==before
+            finally:savepoint.rollback()
+        print(f'bulk250 warm preview: {len(statements)} statements, {time.monotonic()-start:.3f}s')
+
+
+def test_audit_outcome_cache_invalidates_body_manual_history_schema_without_revision(client,monkeypatch):
+    from test_content import field
+    from app.content_models import VersionField
+    from app.services import index_lifecycle as lifecycle
+    t=make_type(client,[field()]);p=place(client);m=upload(client).json();e=card('f',fields={'place_id':p['id'],'future_meta':'合成未知历史字段'},media_ids=[m['id']])
+    r=write(client,'/records',{**record_payload(t),'body_format':2,'body':serialize(e)}).json()
+    calls=[];original=lifecycle.sync_record
+    def tracked(db,record):
+        if record.id==r['id']:calls.append(record.id)
+        return original(db,record)
+    monkeypatch.setattr(lifecycle,'sync_record',tracked)
+    with SessionLocal() as db:
+        lifecycle.preview(db);assert len(calls)==1
+        lifecycle.preview(db);assert len(calls)==1
+        source=db.get(ContentRecord,r['id']);revision=source.revision
+        source.body+='\n\n合成追加正文';db.commit()
+        lifecycle.preview(db);assert len(calls)==2
+        food=db.scalar(select(FoodOccurrence).where(FoodOccurrence.record_id==r['id']))
+        food.city_override='合成手动覆盖';food.category='合成自定义分类';db.commit()
+        lifecycle.preview(db);assert len(calls)==3
+        history=db.get(RecordRevision,(r['id'],1));history.snapshot={**history.snapshot,'summary':'合成历史快照变更'};db.commit()
+        lifecycle.preview(db);assert len(calls)==4
+        schema=db.scalar(select(VersionField).where(VersionField.type_id==t['id']))
+        schema.name='合成字段新名称';db.commit()
+        lifecycle.preview(db);assert len(calls)==5
+        from app.archive_models import Place,MediaAsset
+        from app.models import now
+        resource=db.get(Place,p['id']);resource.active=False;db.commit()
+        failed=lifecycle.preview(db);assert len(calls)==6
+        assert any(item.get('record_id')==r['id'] and item['code']=='source_not_rebuildable' for item in failed['issues'])
+        resource.active=True
+        media=db.get(MediaAsset,m['id']);media.deleted_at=now();db.commit()
+        failed=lifecycle.preview(db);assert len(calls)==7
+        assert any(item.get('record_id')==r['id'] and item['code']=='source_not_rebuildable' for item in failed['issues'])
+        media.deleted_at=None;db.commit()
+        lifecycle.preview(db);assert len(calls)==7  # exact restored dependency key safely reuses its outcome
+        restored_body=db.get(ContentRecord,r['id']).body
+        db.get(ContentRecord,r['id']).body=serialize({**e,'kind':'m'})
+        db.flush()
+        failed=lifecycle.preview(db);assert len(calls)==8
+        assert any(item.get('record_id')==r['id'] and item['code']=='source_not_rebuildable' for item in failed['issues'])
+        db.rollback()
+        lifecycle.preview(db);assert len(calls)==8
+        assert db.get(ContentRecord,r['id']).body==restored_body
+        assert db.get(ContentRecord,r['id']).revision==revision
+        assert food.city_override=='合成手动覆盖' and food.category=='合成自定义分类'
+        assert food.source_key=='entry:'+e['id']
+        assert db.get(Experience,(r['id'],e['id'])).fields['future_meta']=='合成未知历史字段'
+
+
+def test_outcome_cache_concurrent_eviction_is_bounded_and_atomic(monkeypatch):
+    import hashlib
+    from concurrent.futures import ThreadPoolExecutor
+    from app.services import index_lifecycle as lifecycle
+    monkeypatch.setattr(lifecycle,'_MAX_OUTCOMES',8)
+    with lifecycle._OUTCOME_LOCK:lifecycle._OUTCOMES.clear()
+    def exercise(worker):
+        for index in range(200):
+            key=hashlib.sha256(f'{worker}:{index}'.encode()).hexdigest()
+            value={'indexes':['experiences']}
+            lifecycle.remember_outcome(key,value)
+            found=lifecycle.cached_outcome(key)
+            assert found is None or found==value
+    with ThreadPoolExecutor(max_workers=8) as pool:list(pool.map(exercise,range(8)))
+    with lifecycle._OUTCOME_LOCK:
+        assert len(lifecycle._OUTCOMES)<=8
+        assert all(len(key)==64 for key in lifecycle._OUTCOMES)

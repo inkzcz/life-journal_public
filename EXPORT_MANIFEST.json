@@ -560,7 +560,7 @@
     },
     {
       "path": "backend/app/services/index_lifecycle.py",
-      "sha256": "db98d44747d9a56f93bd9396a8bef0c08ebcc0139439b52c368b80ccb381ed1b"
+      "sha256": "a62750eb1c73a277e3c75fad43ef9327a29f95a6a2dcc843213c1816f35c030d"
     },
     {
       "path": "backend/app/services/itinerary.py",
@@ -712,7 +712,7 @@
     },
     {
       "path": "docs/development/v5.1.12-progress.md",
-      "sha256": "edbd5c885e5a18427b547e5ae3dd3df397651c34a9c2dfe1546d5b046860115b"
+      "sha256": "5af25812f6a5d879a565a79947432400b76f3dd426215bb1498da45d9fbe87d7"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1924,7 +1924,7 @@
     },
     {
       "path": "scripts/test_pillow_relink.py",
-      "sha256": "2335f01f57ffe01b1afa7e178b082b79a4c39f84c0c0527e5be0dabb05b9c5a2"
+      "sha256": "e4b4a4a24076e4a87b32f82187087ae34a7f90ac526a9415ab8f3a7607924f97"
     },
     {
       "path": "scripts/unified_images.py",
@@ -2200,7 +2200,7 @@
     },
     {
       "path": "tests/test_index_lifecycle.py",
-      "sha256": "ac15d36057d665997eea330025c501555f189bb572ef10f4d935b89aa0401bf2"
+      "sha256": "f08fb11967391c32f8d3da170bbaee0802766350187b9d8bd56b5600f10ce5e9"
     },
     {
       "path": "tests/test_itinerary_editing.py",
@@ -2272,7 +2272,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "2f61bbdf4e0780fcc263a45e0c8ab07fae43c732dbb2fac9383cfdfb62adf49e"
+      "sha256": "0ce29da199789c2efefd093609abc3aab111dcebb18ee21f9bdaf096065145ae"
     },
     {
       "path": "tests/test_product_version.py",
@@ -4064,7 +4064,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "a2227505884b1ec53f2fd978ec4ef8eeafe1f4454854eceeae3df8bd3ae53035"
+      "sha256": "9f7bdb69d9447f75d30861a42bba6d65265ab23392fa1a0eb3bdd3745f912e69"
     },
     {
       "path": "third_party/source-scope.json",
