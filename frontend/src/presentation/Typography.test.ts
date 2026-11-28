@@ -40,3 +40,11 @@ it('does not apply a pending load to an unmounted panel draft',async()=>{
  const {request}=await import('../api');let resolve!:(v:unknown)=>void;vi.mocked(request).mockImplementationOnce(()=>new Promise(r=>resolve=r));const {loadTypography}=await import('./typography');const loading=loadTypography(true)
  root=document.createElement('div');document.body.append(root);app=createApp(Panel);app.mount(root);await nextTick();app.unmount();resolve({...defaults(),reader_line:1.75,revision:5});await loading;await nextTick();expect(saved.value.reader_line).toBe(1.75);expect(document.documentElement.style.getPropertyValue('--lj-reader-line')).toBe('1.75')
 })
+
+
+it('saves the article mode with typography without modifying appearance or article content',async()=>{
+ root=document.createElement('div');document.body.append(root);app=createApp(Panel);app.mount(root);await new Promise(r=>setTimeout(r,20))
+ const mode=root.querySelector<HTMLSelectElement>('select[aria-label="默认文章阅读模式"]')!;mode.value='cards';mode.dispatchEvent(new Event('change',{bubbles:true}));await nextTick()
+ Array.from(root.querySelectorAll('button')).find(b=>b.textContent==='保存排版')!.click();await new Promise(r=>setTimeout(r,10));expect(saved.value.reader_mode).toBe('cards')
+ const {request}=await import('../api');const writes=vi.mocked(request).mock.calls.filter(call=>call[1]);expect(writes.at(-1)?.[0]).toBe('/admin/blog/typography')
+})

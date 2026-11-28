@@ -38,3 +38,19 @@ def test_reader_can_read_but_cannot_write_typography(client):
         state=reader.get('/api/blog/typography');assert state.status_code==200
         values=state.json();revision=values.pop('revision')
         assert reader.put('/api/admin/blog/typography',headers=csrf(reader),json={**values,'expected_revision':revision}).status_code==403
+
+def test_reader_mode_defaults_validation_and_legacy_client_preservation(client):
+    before=client.get('/api/blog/typography').json()
+    assert before['reader_mode']=='full'
+    for mode in ['plain','cards','full']:
+        current=client.get('/api/blog/typography').json()
+        revision=current.pop('revision')
+        response=client.put('/api/admin/blog/typography',headers=csrf(client),json={**current,'reader_mode':mode,'expected_revision':revision})
+        assert response.status_code==200,response.text
+        assert response.json()['reader_mode']==mode
+    current=response.json();revision=current.pop('revision')
+    response=client.put('/api/admin/blog/typography',headers=csrf(client),json={**current,'reader_mode':'cards','expected_revision':revision})
+    legacy=response.json();revision=legacy.pop('revision');legacy.pop('reader_mode')
+    response=client.put('/api/admin/blog/typography',headers=csrf(client),json={**legacy,'expected_revision':revision})
+    assert response.json()['reader_mode']=='cards'
+    assert client.put('/api/admin/blog/typography',headers=csrf(client),json={**legacy,'reader_mode':'unsafe','expected_revision':response.json()['revision']}).status_code==422

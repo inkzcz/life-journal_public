@@ -204,6 +204,10 @@ def typography(db=Depends(db_dep)):
 @admin.put('/typography')
 def update_typography(data:TypographyEdit,db=Depends(db_dep)):
     write_lock(db)
-    save_config(db,'typography',data.model_dump(exclude={'expected_revision'}),data.expected_revision)
+    values=data.model_dump(exclude={'expected_revision'})
+    # Older clients do not know reader_mode; keep the confirmed preference.
+    if 'reader_mode' not in data.model_fields_set:
+        values['reader_mode']=typography_data(db)['reader_mode']
+    save_config(db,'typography',values,data.expected_revision)
     commit(db)
     return typography_data(db)

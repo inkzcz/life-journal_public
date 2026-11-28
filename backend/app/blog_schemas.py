@@ -101,6 +101,7 @@ class NavEdit(StrictModel):
         return self
 
 class Typography(StrictModel):
+    reader_mode:Literal['full','plain','cards']='full'
     editor_line:Literal[1.0,1.25,1.5,1.75,2.0]=1.5
     editor_gap:Literal[0,4,8,12,16]=8
     # None preserves the pre-v5.1 reading defaults, including mobile rules.

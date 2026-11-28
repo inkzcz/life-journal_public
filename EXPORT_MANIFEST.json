@@ -232,7 +232,7 @@
     },
     {
       "path": "backend/app/blog_schemas.py",
-      "sha256": "6d1b290d8e6cdeb306ca907c9eee33b607665cd6cf5ff83773d6e32ca36be0b2"
+      "sha256": "ace0888ed91c28097407f6ab65df1e1942162197eb9ca2bf0d563590c4a36002"
     },
     {
       "path": "backend/app/build_info.py",
@@ -440,7 +440,7 @@
     },
     {
       "path": "backend/app/routers/blog.py",
-      "sha256": "f8cce3807e69b30b73a01b6350856b3db28b7cda862d4cbd21b3d5ded9afe4c6"
+      "sha256": "3412ac2abf13d3b4047925d5239848dfd9ac2e5d27f69639bd424a6a95bcd4b3"
     },
     {
       "path": "backend/app/routers/content.py",
@@ -996,7 +996,7 @@
     },
     {
       "path": "frontend/src/blog/SiteAdmin.vue",
-      "sha256": "1909a27bc86e5570ba19cf1d29893c731b6c1cf7d55fd0b10c53fb4f846c7499"
+      "sha256": "d9344118f792151629550d747e1d2c79aa4ab024706367efeadd2b992dbca41a"
     },
     {
       "path": "frontend/src/blog/TemplateRenderer.vue",
@@ -1240,11 +1240,11 @@
     },
     {
       "path": "frontend/src/presentation/Typography.test.ts",
-      "sha256": "0e91d3c1267bf3e3e669de77b7ec4b221dc0db0d85093836d4dc85e2e38c89ac"
+      "sha256": "cdb3327472a2a3aaf8a2cb355a254683e7cfc53ae1123c80acede598d65a5a3f"
     },
     {
       "path": "frontend/src/presentation/TypographyPanel.vue",
-      "sha256": "3d8fdac569ffe8ceac0029916a23dd673538bc9e6bec71b2f16ed1ff031057d3"
+      "sha256": "a69ec9fb5fb080171cfed2f072a774f3a892b161f6613defcdf1bd4e08c15d1c"
     },
     {
       "path": "frontend/src/presentation/typography.css",
@@ -1252,7 +1252,7 @@
     },
     {
       "path": "frontend/src/presentation/typography.ts",
-      "sha256": "8969b1011716c69075dc2bbafd36300e5530fb19eec8348055be8a54a8cdab18"
+      "sha256": "2e28983ea485a9b5ede0402c545addf4b1f7948130eea4fac495d1e3e687b16e"
     },
     {
       "path": "frontend/src/reading/AdjacentPosts.vue",
@@ -1260,15 +1260,15 @@
     },
     {
       "path": "frontend/src/reading/ArticleBody.vue",
-      "sha256": "0f2e4390170bb60bb301cf95df91e0c366840a0d742cddae332a7679b37f2c34"
+      "sha256": "38bb7c60bc225e1586a08f57d44cd7d7a3b047f8391736499bb0ee1df1ce8049"
     },
     {
       "path": "frontend/src/reading/ArticleReader.vue",
-      "sha256": "68b90528503f75b79df22217837e797841eef6f8727df9c46aee1c19a9bc03b3"
+      "sha256": "7db81337e798d2ace98dbc81ff386814c083d544bc8def5f33b943ae6ce980b9"
     },
     {
       "path": "frontend/src/reading/BodyNodes.vue",
-      "sha256": "456969ae650bdd707149233e41c9bdfdb7a45c1cc8c79769fe9c637d73571e7a"
+      "sha256": "7584e2681804be2bb3bad8fb0d7ef65e6b6839277da29a06bedd636b0cbea768"
     },
     {
       "path": "frontend/src/reading/InlineMedia.vue",
@@ -1279,16 +1279,24 @@
       "sha256": "ccd5f504690f4f19feb2f51920f59db42c6ec7b0699bc7944fc3de8a6054c264"
     },
     {
+      "path": "frontend/src/reading/entrySummary.ts",
+      "sha256": "eb08f1480184c9dcc8f34748c6a3179092dffa8da656c13f91986478be987faf"
+    },
+    {
       "path": "frontend/src/reading/markdown.ts",
       "sha256": "392b3efd51aba95b206f69e88fed3fba326bdc6161173094704010a10db4859e"
     },
     {
       "path": "frontend/src/reading/mediaPreview.test.ts",
-      "sha256": "2075b2e6b8877fa5e83a2d494603106e534661a72f6b17417920e9e257d5ea2c"
+      "sha256": "7e47d4416a153e35c83460ae5ede3c28c52a6c0f35606e4cebb4d9b3757d87ca"
     },
     {
       "path": "frontend/src/reading/mediaPreview.ts",
       "sha256": "7eb6a82e159437d97c96b043dab594b71f2befe6dcd16fcb43036505e213a117"
+    },
+    {
+      "path": "frontend/src/reading/modes.test.ts",
+      "sha256": "026e8c5fe66cb2f0fc3908a6c751396dd0a47135709fb7c584df6c541bd4dbbb"
     },
     {
       "path": "frontend/src/reading/reading.test.ts",
@@ -1464,7 +1472,7 @@
     },
     {
       "path": "frontend/src/writing/EntryCard.test.ts",
-      "sha256": "dc0535597fe3dbdb2877d96db81c444224944b6673ee4ee467298d772956e72c"
+      "sha256": "f8f78061199ba58b0c6fd04c32284f843dc9e7010ac6aa30874d9f2e6afc2fd7"
     },
     {
       "path": "frontend/src/writing/EntryCard.vue",
@@ -1475,8 +1483,12 @@
       "sha256": "e1bceb4cc75c3879d460fdeb1d48195b6593f4e50c8b7791a0eefcbd776075e8"
     },
     {
+      "path": "frontend/src/writing/EntryForm.test.ts",
+      "sha256": "8ac84a7ee975f256dcd203f491121dfcac3ebc6443b3847060bc910715467edf"
+    },
+    {
       "path": "frontend/src/writing/EntryForm.vue",
-      "sha256": "8220bdfe83500765465d514c1b4dffc69ae2f31e43c6c08da7d6f88c4137065d"
+      "sha256": "72f21a106c5959961cabe27ace7d2db720439a3ae047af3ef79e34e47e8acbe5"
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
@@ -1528,11 +1540,11 @@
     },
     {
       "path": "frontend/src/writing/TransportTimeFields.test.ts",
-      "sha256": "fe5bebe624de977f0fc21e06aff5e545211a32c8c15e7a24c4da6b24b81cb58c"
+      "sha256": "a0d9dcc12f90598ed85bdda3f9fc71ad10203e76477afcee8dbc391854d50983"
     },
     {
       "path": "frontend/src/writing/TransportTimeFields.vue",
-      "sha256": "8d09c1997b0a14fbac369eacd84a09c972e61173b630a4fb262f94e15120e6c5"
+      "sha256": "43abdbd0159f0e438ef355a2a622c929868ad581f995c2aff4d7ed9dd02ab39c"
     },
     {
       "path": "frontend/src/writing/V5Pages.test.ts",
@@ -1564,19 +1576,19 @@
     },
     {
       "path": "frontend/src/writing/cards/EntryCardNotes.vue",
-      "sha256": "61d9dd8ef87ff5249dbada2cdbc2e967e700335a617965262d5c97a625e72035"
+      "sha256": "fd60d00d0a712dae48694e9429dc66de3032a3382814b0795de8b4c1e9bc1e97"
     },
     {
       "path": "frontend/src/writing/cards/EntryCardShell.vue",
-      "sha256": "41b6d54df4fd6eecf4dddc06238a29ad1919d7f48e1ead1c99bddfb251af5207"
+      "sha256": "e20bd336277c14fae9cdef025a2d481594fad83fd2c75483629e9772e14759b3"
     },
     {
       "path": "frontend/src/writing/cards/FoodCard.vue",
-      "sha256": "f22688621e1293f3ec642d160e308137d62c6414d54a50973d52f5c00f128561"
+      "sha256": "50ed2e3c17ada7d4f8c8880091bd5950709a6932d7ba8dd8afc8a4e708f8113f"
     },
     {
       "path": "frontend/src/writing/cards/GiftCard.vue",
-      "sha256": "31da05d915c377f88a0098396ef5032f43de0e24934f811b22fd0547fbbb4d15"
+      "sha256": "340dafdd90cfe1a281c068ee3eb3a94112ae6f6610a4b45c13ef97e15692dc05"
     },
     {
       "path": "frontend/src/writing/cards/LocationCard.vue",
@@ -1584,19 +1596,19 @@
     },
     {
       "path": "frontend/src/writing/cards/MovieCard.vue",
-      "sha256": "9a9b5269d3966df14033ba47ad7acec4f12cb23d573e0b67bd6fe4f025d32815"
+      "sha256": "d16fecd37ef933e2182604deff7ee81dd0b456ecebed9a603b88051cb3b052da"
     },
     {
       "path": "frontend/src/writing/cards/ShowCard.vue",
-      "sha256": "9596037f3102d247403b5eaf112afc910c2b1f25180d11efc62fe822064aaa4c"
+      "sha256": "0b34dbdb16144e8b5bbb31dba2a1168ac32acb994580a3ca56c5809e08f448ce"
     },
     {
       "path": "frontend/src/writing/cards/TransportCard.vue",
-      "sha256": "c7c998b5e6c06d222eea9f5027ff1a2ceda97e2e59041298002fb41585ceb9ae"
+      "sha256": "89776f100137c9c74a05201419ff00402dc929ad2fe14009611ce360dd653b9e"
     },
     {
       "path": "frontend/src/writing/cards/cardFields.ts",
-      "sha256": "cf101027a9f46547bd1aa5c426347c8212c05308229166920f142be84a843e12"
+      "sha256": "54f3a1f21128bb6fb2f5c08ff8c3db6adfb5442b89f38f6103d2c5db08b29048"
     },
     {
       "path": "frontend/src/writing/caret.ts",
@@ -1604,7 +1616,7 @@
     },
     {
       "path": "frontend/src/writing/entries.ts",
-      "sha256": "957f6594c270fa8ec517674822902274a55cbc7a0eb30090c7b0ae0b88f47ba7"
+      "sha256": "2bcb418b6450631376050c85a59f065a17aff930c1b59f482caa8a5d920ec834"
     },
     {
       "path": "frontend/src/writing/entryDocument.test.ts",
@@ -2220,7 +2232,7 @@
     },
     {
       "path": "tests/test_typography.py",
-      "sha256": "72729145046898f757d7dec1bda6662686ea5fad51d21d7e100b8eaa10c2d38b"
+      "sha256": "5fb8812d00611b7204b49d17afdbca7eb1dac6221caba37e6628786f3f8c5630"
     },
     {
       "path": "tests/test_unified_entrypoint.py",
@@ -3940,7 +3952,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "274c79f96dedb5b6d64984142b0d0467ae22c64c2d28573439e3c1627447fb9e"
+      "sha256": "0e8a5664c700e104a987826605b8b1bc6d1bca902fbd9a86c8523f807d198901"
     },
     {
       "path": "third_party/source-scope.json",

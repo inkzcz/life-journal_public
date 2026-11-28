@@ -4,7 +4,7 @@ import {createApp,nextTick,type App} from 'vue'
 import ArticleBody from './ArticleBody.vue'
 import {serializeMedia} from '../writing/body'
 import {previewImage} from './mediaPreview'
-vi.mock('../presentation/typography',()=>({loadTypography:vi.fn(async()=>{})}))
+vi.mock('../presentation/typography',async importOriginal=>({...await importOriginal<typeof import('../presentation/typography')>(),loadTypography:vi.fn(async()=>{})}))
 const id='11111111-1111-4111-8111-111111111111',job='22222222-2222-4222-8222-222222222222'
 let app:App|undefined,root:HTMLElement|undefined
 afterEach(()=>{app?.unmount();root?.remove()})
