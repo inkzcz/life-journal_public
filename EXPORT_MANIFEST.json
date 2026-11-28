@@ -712,7 +712,7 @@
     },
     {
       "path": "docs/development/v5.1.12-progress.md",
-      "sha256": "5af25812f6a5d879a565a79947432400b76f3dd426215bb1498da45d9fbe87d7"
+      "sha256": "514a56bf9c1d7efba4f36d8e8a4727b0c243315323b522eb5544bc009e6ced95"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -4064,7 +4064,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "9f7bdb69d9447f75d30861a42bba6d65265ab23392fa1a0eb3bdd3745f912e69"
+      "sha256": "0d375c97d53b9b393f618294b154c1816323abe8d69929e328b95f2801b1cf12"
     },
     {
       "path": "third_party/source-scope.json",
