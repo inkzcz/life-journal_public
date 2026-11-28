@@ -56,13 +56,13 @@ async def upload(file:UploadFile=File(...),db=Depends(db_dep),user=Depends(requi
 @admin.get('/media/{id}')
 def read_asset(id:UUID,db=Depends(db_dep)):
     m=asset(db,id)
-    from ..services.resource_usage import media_usage
+    from ..services.resource_usage import media_usage, usage_summary
     usages=media_usage(db,m.id)
     references=[];seen=set()
     for u in usages:
         if u['id'] not in seen:
-            references.append({**u,**({'historical':True} if u['kind']!='画廊/封面' else {})});seen.add(u['id'])
-    return {**asset_data(m),'references':references,'usages':usages}
+            references.append({**u,'historical':u['category']!='current'});seen.add(u['id'])
+    return {**asset_data(m),'references':references,'usages':usages,'usage_counts':usage_summary(usages)}
 
 @admin.put('/media/{id}')
 def edit_asset(id:UUID,data:AssetEdit,db=Depends(db_dep)):
@@ -105,10 +105,11 @@ def create_place(data:PlaceIn,db=Depends(db_dep)):
 def read_place(id:UUID,db=Depends(db_dep)):
     p=place(db,id)
     from ..services.places import usages
+    from ..services.resource_usage import usage_summary
     from ..archive_models import PlaceAlias
     alias=db.get(PlaceAlias,p.id)
     refs=usages(db,p.id)
-    return {**place_data(p),'references':list({u['id']:u for u in refs}.values()),'usages':refs,'merged_into':alias.target_id if alias else None}
+    return {**place_data(p),'references':list({u['id']:u for u in refs}.values()),'usages':refs,'usage_counts':usage_summary(refs),'merged_into':alias.target_id if alias else None}
 
 @admin.put('/places/{id}')
 def edit_place(id:UUID,data:PlaceEdit,db=Depends(db_dep)):

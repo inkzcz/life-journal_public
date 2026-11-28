@@ -15,13 +15,19 @@ def record_payload(t,**kw):return base_record_payload(t,**({'body_format':2}|kw)
 def card(kind='m',name='合成电影',**kw):
     return {'id':str(uuid.uuid4()),'kind':kind,'name':name,'fields':{},'media_ids':[],**kw}
 
-def test_quick_new_markers_normalize_only_on_explicit_save(client):
-    t=make_type(client);r=write(client,'/records',{**record_payload(t),'marker_version':2,'body':'@m 合成电影\n\n@s 合成演出\n\n@g 合成礼物'});assert r.status_code==200,r.text
-    r=r.json();assert r['body_format']==2
-    first=entries(r['body']);assert [e['kind'] for e in first]==['m','s','g']
+def test_unconfirmed_shortcuts_survive_article_save_and_reopen(client):
+    # v5.1.12: a later article save must not accept a cancelled card dialog.
+    source='@m 合成电影\n\n@s 合成演出\n\n@g 合成礼物\n\n@t 合成交通'
+    t=make_type(client);result=write(client,'/records',{**record_payload(t),'marker_version':2,'body':source})
+    assert result.status_code==200,result.text
+    r=result.json();assert r['body']==source and not entries(r['body'])
     r2=write(client,'/records/'+r['id'],update_payload(r),'put').json()
-    assert r2['body']==r['body']
-    with SessionLocal() as db:assert len(list(db.scalars(select(Experience).where(Experience.record_id==r['id']))))==3
+    assert r2['body']==source
+    with SessionLocal() as db:assert not list(db.scalars(select(Experience).where(Experience.record_id==r['id'])))
+    # Explicit dialog submission writes a structured block and still works.
+    block=serialize(card())
+    saved=write(client,'/records/'+r2['id'],update_payload(r2,body=block),'put')
+    assert saved.status_code==200 and len(entries(saved.json()['body']))==1
 
 @pytest.mark.parametrize('body',['```\n@m 示例\n```','> @m 引用','    @m 缩进代码','<div>\n@m html\n</div>','@l 合成地\n\n@f 合成店'])
 def test_legacy_markers_and_literal_examples_unchanged(body):assert normalize_quick(body)==body
@@ -98,7 +104,7 @@ def test_existing_sight_and_transport_shorthand_is_not_reinterpreted_on_save():
     legacy='@s 合成旧景点\n\n@t 合成旧交通地点'
     assert normalize_quick(legacy,legacy)==legacy
     new=normalize_quick(legacy+'\n\n@s 新演出',legacy)
-    assert new.startswith(legacy) and len(entries(new))==1
+    assert new==legacy+'\n\n@s 新演出' and not entries(new)
 
 
 def test_legacy_marker_protocol_survives_rename_and_new_client_payload(client):
@@ -121,5 +127,6 @@ def test_new_quick_marker_cannot_silently_activate_old_literal_resources(client)
     t=make_type(client);source=':::lj-media-v1\n'+json.dumps({'id':str(uuid.uuid4()),'alt':'合成字面示例','width':960,'align':'center'})+'\n:::'
     r=write(client,'/records',{**record_payload(t),'body_format':1,'body':source}).json()
     changed=write(client,'/records/'+r['id'],update_payload(r,body_format=1,body=source+'\n\n@m 新电影'),'put')
-    assert changed.status_code==422 and '未自动激活' in changed.text
-    assert client.get('/api/admin/content/records/'+r['id']).json()['body']==source
+    assert changed.status_code==200
+    assert changed.json()['body_format']==1 and changed.json()['body']==source+'\n\n@m 新电影'
+    assert not entries(changed.json()['body'])

@@ -77,7 +77,7 @@ def abandon(db,id,actor):
     with writer(db.bind):
         write_lock(db);row=owned(db,id,actor)
         if row.state not in {'reserved','running'}:return status(db,row)
-        _,config=read(db);provider=next((p for p in config.providers if str(p.id)==row.provider_id),None)
+        _,config=read(db);provider=next((p for p in config.profiles() if str(p.id)==row.provider_id),None)
         timeout=provider.timeout_seconds if provider else 120
         created=row.created_at if row.created_at.tzinfo else row.created_at.replace(tzinfo=timezone.utc)
         if now()<created+timedelta(seconds=timeout+30):raise HTTPException(409,'调用尚未超过超时与保护等待期，不能提前放弃；请先请求取消')
@@ -129,19 +129,13 @@ def request_payload(provider,data,ctx,selected=None,images=(),hints=()):
                        '照片只按用户明确说明的所选key与用途关联到封面、活动或餐厅；归属不清时保留候选照片但不猜测具体归属，交给用户在预览确认。'
                        '地点无明确分店或城市时不要绑定现有身份，不猜测经纬度。候选仍需用户逐项检查，并只确认创建新草稿。')
     material={'action':data.action,'title':data.title,'display_date':data.display_date,'materials':data.materials,'body':data.body,'selected_media':[{'key':key,'path':key} for key in (selected or {})],'protected_fragments':list(hints)}
-    messages=[{'role':'system','content':instructions+'\n'+json.dumps(ctx,ensure_ascii=False)},
-              {'role':'user','content':json.dumps(material,ensure_ascii=False)}]
-    if images:
-        if provider.kind=='openai':messages[-1]['content']=[{'type':'text','text':messages[-1]['content']}]+[{'type':'image_url','image_url':{'url':'data:image/jpeg;base64,'+image,'detail':'low'}} for image in images]
-        else:messages[-1]['images']=list(images)
-    if provider.kind=='openai':return '/chat/completions',{'model':provider.model,'messages':messages,'response_format':{'type':'json_object'},'max_tokens':provider.max_output_tokens,'stream':False}
-    return '/api/chat',{'model':provider.model,'messages':messages,'format':'json','options':{'num_predict':provider.max_output_tokens},'stream':False}
+    from . import adapters
+    return adapters.request(provider,instructions+'\n'+json.dumps(ctx,ensure_ascii=False),json.dumps(material,ensure_ascii=False),images)
 
 
 def response_data(provider,response,selected=None):
-    if not isinstance(response,dict):raise ValueError('模型响应不是对象')
-    content=response['choices'][0]['message']['content'] if provider.kind=='openai' else response['message']['content']
-    if not isinstance(content,str):raise ValueError('模型正文不是文本')
+    from . import adapters
+    content,counts,known=adapters.response(provider,response)
     raw=json_data(content.encode())
     # Normalize only model proposals, never rewrite an authored import/body.
     # Deduplicate tags using the existing canonical identity rules; all length,
@@ -169,16 +163,13 @@ def response_data(provider,response,selected=None):
     from ..services.body_media import blocks
     for record in value.records:
         if parse(record.body).marks or blocks(record.body,2) or markdown_media_ids(record.body):raise ValueError('业务标记必须通过结构化字段生成')
-    usage=response.get('usage') if provider.kind=='openai' else {'prompt_tokens':response.get('prompt_eval_count'),'completion_tokens':response.get('eval_count')}
-    counts=(usage.get('prompt_tokens'),usage.get('completion_tokens')) if isinstance(usage,dict) else (None,None)
-    known=all(type(v) is int and 0<=v<=10000000 for v in counts)
     return value,counts if known else (0,0),known
 
 
 def generate(db,actor,root,data):
     revision,config=read(db)
     if revision!=data.expected_config_revision:raise HTTPException(409,'模型配置已变化，请重新读取')
-    provider=next((p for p in config.providers if p.id==data.provider_id and p.enabled),None)
+    provider=next((p for p in config.profiles() if p.id==data.provider_id and p.enabled and p.text),None)
     if provider is None:raise HTTPException(422,'请选择已启用的模型')
     ctx=context(db,data.type_slug,data.template_slug,(data.preferences,))
     fingerprint=jobs.payload_digest({'context':ctx['context_digest'],'request':data.model_dump(mode='json',exclude={'request_key'})})

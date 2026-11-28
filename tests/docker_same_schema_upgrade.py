@@ -1,4 +1,4 @@
-"""Synthetic released-v5.1.10 -> candidate upgrade; no production access or downgrade.
+"""Synthetic released-v5.1.11 -> candidate upgrade; no production access or downgrade.
 
 Uses the existing strict Compose environment/mount/project/cleanup guards. Only
 the exact published old TAR is accepted; the database and media live in a new
@@ -24,9 +24,9 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from docker_installation import ROOT, compose, require_unused_project, run, stop_projects
 from scripts import release as image_verifier
 
-OLD_TAG='v5.1.10'
-OLD_SOURCE='fe7ca3c2b59262fe12c22b6e1fdf69078fe861d2'
-OLD_TAR_SHA256='ac766b4619db3bb5883de1bf18289993c07d3c452cbfea2ea175af16fbabef7a'
+OLD_TAG='v5.1.11'
+OLD_SOURCE='5747934d1304ac87ab60489c8d7a46ec99e58593'
+OLD_TAR_SHA256='fcf1971553ba1cc4ef9056ac41b73d907a22772446031e3ce1aed93f4677fae0'
 
 
 def verify_previous_tar(path):
@@ -94,7 +94,7 @@ def main():
     parser.add_argument('--output',required=True,type=Path)
     args=parser.parse_args()
     if args.output.exists() or args.output.is_symlink():raise ValueError('Fresh report path required')
-    if args.image_tag!='v5.1.11' and not re.fullmatch(r'v5\.1\.11-candidate\.[0-9a-f]{7,40}',args.image_tag):raise ValueError('Only the reviewed v5.1.11 release or source-bound candidate is accepted')
+    if args.image_tag!='v5.1.12' and not re.fullmatch(r'v5\.1\.12-candidate\.[0-9a-f]{7,40}',args.image_tag):raise ValueError('Only the reviewed v5.1.12 release or source-bound candidate is accepted')
     host=os.getenv('DOCKER_HOST','')
     if host and not host.startswith(('unix://','npipe://')):raise ValueError('Local Docker only')
     endpoint=json.loads(run('docker','context','inspect','--format','{{json .Endpoints.docker.Host}}'))
@@ -129,6 +129,10 @@ def main():
         request('/api/setup/complete',{'username':'synthetic-install','password':password,'title':'Synthetic version upgrade'},
                 extra_headers={'Authorization':'Bearer '+setup})
         request('/api/auth/login',{'username':'synthetic-install','password':password})
+        old_ai=request('/api/admin/exchange/settings')
+        ai_id=str(uuid.uuid4())
+        request('/api/admin/exchange/settings',{'expected_revision':old_ai['revision'],'default_provider':ai_id,'providers':[{'id':ai_id,'name':'合成历史 AI 配置','kind':'openai','base_url':'https://synthetic.example/v1','model':'synthetic-old-model','key_env':'LJ_AI_KEY_SYNTHETIC_UPGRADE','enabled':False,'vision':True}],'rules':old_ai['rules']},method='PUT')
+        saved_ai=request('/api/admin/exchange/settings')
         t=request('/api/admin/content/types',{'slug':'synthetic-upgrade-'+secrets.token_hex(5),'name':'合成旧类型',
             'fields':[{'kind':'short_text','name':'保留的旧字段','position':0}]})
         boundary='synthetic-'+secrets.token_hex(12)
@@ -150,7 +154,7 @@ def main():
         old_template=request('/api/admin/templates',{'slug':'synthetic-old-template-'+secrets.token_hex(5),'name':'合成历史旅行模板','fields':[],'modules':[{'id':str(uuid.uuid4()),'kind':'body'},{'id':str(uuid.uuid4()),'kind':'itinerary'}]})
         bound=request('/api/admin/content/records',{'type_id':old_template['type_id'],'schema_version':old_template['schema_version'],'title':'显式日常覆盖旧旅行模板','body':'保留旧模板及绑定','body_format':2,'display_date':'2026-11-22','status':'draft','values':{},'template':{'id':old_template['id'],'version':old_template['version']},'article':{'travel_enabled':False}})
 
-        payload={'type_id':t['id'],'schema_version':t['revision'],'title':'合成 v5.1.10 文章','body_format':2,'marker_version':2,
+        payload={'type_id':t['id'],'schema_version':t['revision'],'title':'合成 v5.1.11 文章','body_format':2,'marker_version':2,
             'body':'原正文\n\n'+'\n\n'.join(':::lj-entry-v1\n'+json.dumps(item,ensure_ascii=False)+'\n:::' for item in cards)+'\n','display_date':'2026-11-22',
             'status':'draft','values':{t['fields'][0]['id']:'原动态字段值'},'article':{'travel_enabled':True},
             'connections':{'media':[{'id':media['id'],'cover':True,'caption':'合成照片'}],'places':[],'links':[]},
@@ -165,6 +169,10 @@ def main():
         compose(project,env,'up','-d','--pull','never','--wait','--wait-timeout','240')
         request=api(project,env);request('/api/auth/login',{'username':'synthetic-install','password':password})
         upgraded=request('/api/admin/content/records/'+original['id'])
+        upgraded_ai=request('/api/admin/exchange/settings')
+        for key in ('revision','default_provider','rules'):assert upgraded_ai[key]==saved_ai[key],key
+        assert len(upgraded_ai['providers'])==len(saved_ai['providers'])==1
+        for key,value in saved_ai['providers'][0].items():assert upgraded_ai['providers'][0][key]==value,key
         upgraded_notification=request('/api/admin/calendar/notification')
         for key in ('enabled','url_template','timezone','time','expected_revision'):assert upgraded_notification[key]==saved_notification[key],key
         assert upgraded_notification['method']=='GET' and upgraded_notification['headers']==[]
@@ -191,10 +199,10 @@ def main():
         assert after==before
     finally:
         stop_projects(started)
-    report={'image_tag':args.image_tag,'source_commit':source_commit,'synthetic_same_schema_upgrade':'passed','from_version':'5.1.10','to_version':'5.1.11',
+    report={'image_tag':args.image_tag,'source_commit':source_commit,'synthetic_same_schema_upgrade':'passed','from_version':'5.1.11','to_version':'5.1.12',
         'old_business_tar_sha256':OLD_TAR_SHA256,'schema_before':before,'schema_after':after,
         'old_image_config_digest':expected,'old_image_store_id':old_image_id,
-        'old_backup_created_and_verified':True,'existing_article_fields_cards_media_itinerary':'preserved',
+        'old_ai_configuration_and_secret_references':'preserved','old_backup_created_and_verified':True,'existing_article_fields_cards_media_itinerary':'preserved',
         'new_default_type_and_travel_toggles':'passed','candidate_restart_persistence':'passed','legacy_get_notification_configuration_and_logs':'preserved','six_historical_card_kinds':'preserved','old_template_binding_and_explicit_daily_mode':'preserved',
         'production_or_nas_accessed':False,'UPGRADE-001':'Not reproduced or claimed fixed'}
     args.output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

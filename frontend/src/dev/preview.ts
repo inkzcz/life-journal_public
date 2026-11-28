@@ -32,6 +32,7 @@ window.fetch=async(input,options={})=>{
  if(path==='/api/blog/site')return json({...blankSite(),appearance:activeAppearance.value})
  if(path==='/api/admin/status')return json({is_admin:true})
  if(path==='/api/admin/content/types')return json([base])
+ if(path==='/api/blog/typography')return json({reader_mode:'full',editor_line:1.5,editor_gap:8,reader_line:null,reader_gap:null,revision:0})
  if(path==='/api/admin/templates')return json([])
  if(path==='/api/admin/content/types/default-article'||path==='/api/admin/content/types/'+base.id)return json(base)
  if(path==='/api/admin/content/records'&&method==='GET')return json({items:[...records.values()].map(r=>({...r,type_name:'文章'})),total:records.size})

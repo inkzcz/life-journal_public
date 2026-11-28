@@ -7,7 +7,7 @@ const emit=defineEmits<{(e:'anchor',id:string):void}>()
 const frame=ref<HTMLElement|null>(null),content=ref<HTMLElement|null>(null),toc=ref<HTMLDetailsElement|null>(null)
 const focused=ref(false),contextOpen=ref(true)
 const headings=ref<Heading[]>([]),active=ref(''),progress=ref(0)
-let root:HTMLElement|null=null,observer:ResizeObserver|undefined,raf=0,dead=false
+let root:HTMLElement|null=null,observer:ResizeObserver|undefined,mutations:MutationObserver|undefined,raf=0,dead=false
 let wide:boolean|undefined
 let start=0,height=0,viewport=1,offsets:number[]=[],nodes:HTMLElement[]=[]
 const scroll=()=>root?root.scrollTop:window.scrollY
@@ -34,19 +34,24 @@ function jump(id:string){
 function fromHash(){if(!props.hash)return;try{jump(decodeURIComponent(props.hash.slice(1)))}catch{/* Invalid fragments are inert. */}}
 function choose(id:string){if(props.embedded||props.hash==='#'+id)jump(id);else emit('anchor',id)}
 watch(()=>props.hash,()=>void nextTick(fromHash))
-onMounted(async()=>{
- await nextTick();if(dead||!content.value)return
- root=frame.value?.closest<HTMLElement>('.editor-preview-scroll')||null
+function refreshHeadings(){
+ if(!content.value||dead)return
  nodes=Array.from(content.value.querySelectorAll<HTMLElement>('.article-body [data-reading-heading],.template-module>h2,.article-gallery>h2,.reading-places>h2,.related-stories>h2,.article-heading h1,.trip-view,.place-map'))
  nodes=nodes.filter(node=>!node.classList.contains('place-map')||!node.closest('.template-module')&&!!node.querySelector('.map-place-list button'))
  nodes.forEach((node,index)=>{if(!node.id){node.id='lj-reader-section-'+index;node.tabIndex=-1}})
  headings.value=nodes.map(node=>({id:node.id,text:node.classList.contains('trip-view')?'旅行行程':node.classList.contains('place-map')?'路线与地点':node.textContent?.trim()||'未命名章节',level:/^H[1-6]$/.test(node.tagName)?Number(node.tagName[1]):2}))
+}
+onMounted(async()=>{
+ await nextTick();if(dead||!content.value)return
+ root=frame.value?.closest<HTMLElement>('.editor-preview-scroll')||null
+ refreshHeadings()
+ mutations=new MutationObserver(()=>{refreshHeadings();measure()});mutations.observe(content.value,{childList:true,subtree:true})
  ;(root||window).addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',measure)
  content.value.addEventListener('load',measure,true);content.value.addEventListener('toggle',measure,true)
  if(typeof ResizeObserver!=='undefined'){observer=new ResizeObserver(measure);observer.observe(content.value);if(root)observer.observe(root)}
  measure();await nextTick();if(toc.value)toc.value.open=(frame.value?.getBoundingClientRect().width||0)>=1050;fromHash()
 })
-onBeforeUnmount(()=>{dead=true;cancelAnimationFrame(raf);observer?.disconnect();(root||window).removeEventListener('scroll',schedule);window.removeEventListener('resize',measure);content.value?.removeEventListener('load',measure,true);content.value?.removeEventListener('toggle',measure,true)})
+onBeforeUnmount(()=>{dead=true;cancelAnimationFrame(raf);observer?.disconnect();mutations?.disconnect();(root||window).removeEventListener('scroll',schedule);window.removeEventListener('resize',measure);content.value?.removeEventListener('load',measure,true);content.value?.removeEventListener('toggle',measure,true)})
 </script>
 <template><div ref="frame" class="reading-frame" :class="{'is-focused':focused}"><div class="reading-tools"><button type="button" :aria-pressed="focused" @click="focused=!focused;nextTick(measure)">{{focused?'退出专注阅读':'专注阅读'}}</button><button v-if="context&&!focused" type="button" :aria-expanded="contextOpen" @click="contextOpen=!contextOpen;nextTick(measure)">{{contextOpen?'收起文章信息':'显示文章信息'}}</button></div>
 <div class="reading-progress" role="progressbar" aria-label="文章阅读进度" :aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100" :class="{'progress-embedded':embedded}"><span :style="{transform:'scaleX('+progress/100+')'}"></span></div>

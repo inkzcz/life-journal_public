@@ -172,3 +172,25 @@ def test_publisher_supplement_is_exactly_bound_and_does_not_rewrite_owner_grant(
         assert gate.orchestration_workflow_reviews(tmp_path,version,name,original)=={}
     target.write_text(json.dumps(review));assert gate.orchestration_workflow_reviews(tmp_path,version,name,original+b'changed')=={}
     assert (root/name).read_bytes()==original
+
+
+def test_512_publication_scope_never_opens_arbitrary_versions_or_privileged_operations():
+    raw=b'permissions:\n  contents: write\nrun: gh release create synthetic\n'
+    assert not gate.scan_bytes('.github/workflows/release.yml',raw,binary_workflow_scope='v5.1.12-release')
+    for scope in (None,'v5.1.13-release','candidate-artifacts'):
+        assert gate.scan_bytes('.github/workflows/release.yml',raw,binary_workflow_scope=scope)
+    for forbidden in (b'pull_request_target',b'permissions: write-all',b'packages: write',b'docker push synthetic',b'gh repo create synthetic',b'run: printenv'):
+        assert gate.scan_bytes('.github/workflows/release.yml',forbidden,binary_workflow_scope='v5.1.12-release')
+
+
+def test_512_workflow_reviews_require_its_real_authority_version_pr_and_exact_bytes(tmp_path):
+    root=Path(__file__).resolve().parents[1]
+    authority=json.loads((root/'licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json').read_text())
+    (tmp_path/'VERSION').write_text('5.1.12\n');(tmp_path/'licensing').mkdir()
+    path=tmp_path/'.github/workflows/release.yml';path.parent.mkdir(parents=True)
+    raw=b'permissions:\n  contents: write\nrun: gh release create synthetic\n';path.write_bytes(raw)
+    authority['technically_reviewed_workflows']={'.github/workflows/release.yml':{'scope':'v5.1.12-release','sha256':hashlib.sha256(raw).hexdigest()}}
+    record=tmp_path/'licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json';record.write_text(json.dumps(authority))
+    assert gate.reviewed_binary_workflows(tmp_path)=={'.github/workflows/release.yml':'v5.1.12-release'}
+    path.write_bytes(raw+b'changed');assert gate.reviewed_binary_workflows(tmp_path)=={}
+    path.write_bytes(raw);authority['source_pull_request']=9;record.write_text(json.dumps(authority));assert gate.reviewed_binary_workflows(tmp_path)=={}

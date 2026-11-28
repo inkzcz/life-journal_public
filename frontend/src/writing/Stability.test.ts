@@ -54,7 +54,7 @@ it('closes source suggestions on blur and does not reopen them on viewport updat
 it('ignores a late place lookup after the caret changes to a different context',async()=>{
  const {request}=await import('../api');let finish!:(v:unknown)=>void
  vi.mocked(request).mockImplementationOnce(()=>new Promise(r=>finish=r))
- const context=ref('@f 旧餐厅');root=document.createElement('div');document.body.append(root);app=createApp({render:()=>h(PlaceSuggest,{context:context.value,composing:false})});app.mount(root)
+ const context=ref('@');root=document.createElement('div');document.body.append(root);app=createApp({render:()=>h(PlaceSuggest,{context:context.value,composing:false,onChoose:(v:{text:string})=>context.value=v.text})});app.mount(root);await nextTick();Array.from(root.querySelectorAll('button')).find(b=>b.textContent==='旧版文本标记 ›')!.click();await nextTick();Array.from(root.querySelectorAll('button')).find(b=>b.textContent?.includes('@f 美食'))!.click();await nextTick();context.value='@f 旧餐厅';await nextTick()
  await new Promise(r=>setTimeout(r,200));context.value='无补全上下文';await nextTick();finish({items:[{active:true,id:'old-place',name:'不应插入的旧结果'}]});await wait();expect(root.querySelector('[role=option]')).toBeNull();expect(root.textContent).not.toContain('不应插入')
 })
 

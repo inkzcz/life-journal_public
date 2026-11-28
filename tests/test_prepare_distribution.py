@@ -14,7 +14,7 @@ def test_lgpl_drill_accepts_only_reviewed_source_bound_candidates():
         'org.opencontainers.image.revision':revision,'org.opencontainers.image.version':tag,
         'org.opencontainers.image.source':'https://github.com/inkzcz/life-journal_public'}}}
     validate_relink_image(tag,image)
-    for bad in ('v5.1.12','v5.1.12-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7,
+    for bad in ('v5.1.13','v5.1.13-candidate.'+revision[:7],'v5.1.10-candidate.'+'b'*7,
                 'v5.1.10-candidate.latest','v5.1.9-candidate.invalid'):
         with pytest.raises(ValueError):validate_relink_image(bad,image)
     import copy
@@ -28,7 +28,7 @@ def test_lgpl_drill_accepts_only_reviewed_source_bound_candidates():
 def test_formal_new_version_is_rejected_before_docker_or_source_access(tmp_path,monkeypatch):
     from scripts import test_pillow_relink as relink
     import sys
-    monkeypatch.setattr(sys,'argv',['relink','--image-tag','v5.1.12',
+    monkeypatch.setattr(sys,'argv',['relink','--image-tag','v5.1.13',
         '--sources',str(tmp_path/'not-read'),'--output',str(tmp_path/'not-written')])
     monkeypatch.setattr(relink.local_images,'Docker',lambda:pytest.fail('Unapproved tag must not contact Docker'))
     with pytest.raises(SystemExit) as caught:relink.main()
@@ -158,3 +158,52 @@ def test_511_upgrade_must_preserve_exact_old_cards_templates_and_notification():
     for key in report:
         wrong=dict(report);wrong.pop(key)
         with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)
+
+
+def test_512_upgrade_requires_published_511_bytes_ai_references_and_original_history():
+    version='v5.1.12';revision='a'*40
+    report={'synthetic_same_schema_upgrade':'passed','from_version':'5.1.11','to_version':'5.1.12',
+        'image_tag':version,'source_commit':revision,'schema_before':'0021_anniversary_calendar',
+        'schema_after':'0021_anniversary_calendar','old_backup_created_and_verified':True,
+        'existing_article_fields_cards_media_itinerary':'preserved','new_default_type_and_travel_toggles':'passed',
+        'candidate_restart_persistence':'passed','production_or_nas_accessed':False,
+        'old_business_tar_sha256':'fcf1971553ba1cc4ef9056ac41b73d907a22772446031e3ce1aed93f4677fae0',
+        'legacy_get_notification_configuration_and_logs':'preserved','six_historical_card_kinds':'preserved',
+        'old_template_binding_and_explicit_daily_mode':'preserved','old_ai_configuration_and_secret_references':'preserved'}
+    delivery.require_upgrade_receipt(report,version,revision)
+    for key in report:
+        wrong=dict(report);wrong.pop(key)
+        with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)
+    wrong={**report,'old_business_tar_sha256':'ac766b4619db3bb5883de1bf18289993c07d3c452cbfea2ea175af16fbabef7a'}
+    with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)
+
+
+def test_formal_512_authority_is_separate_and_bound_to_actual_pr10():
+    from scripts.release_authorization import read_authorization,release_version
+    from pathlib import Path
+    current=read_authorization(Path(__file__).resolve().parents[1],'v5.1.12')
+    assert current['source_pull_request']==10 and current['registry_push_approved'] is False
+    delivery.require_release_authorization(current,'v5.1.12')
+    for key in ('source_pull_request','binary_publication_approved','owner_confirmation_reference'):
+        wrong=dict(current);wrong.pop(key)
+        with pytest.raises(ValueError):delivery.require_release_authorization(wrong,'v5.1.12')
+    with pytest.raises(ValueError):delivery.require_release_authorization({**current,'source_pull_request':9},'v5.1.12')
+    with pytest.raises(ValueError):release_version('v5.1.13')
+    with pytest.raises(ValueError):release_version('v5.1.12-candidate.latest')
+
+
+@pytest.mark.parametrize('version',['v5.1.9','v5.1.10','v5.1.11','v5.1.12'])
+@pytest.mark.parametrize('candidate',[False,True])
+def test_reviewed_lgpl_drill_preserves_source_and_platform_binding(version,candidate):
+    import copy
+    revision='a'*40;tag=version+('-candidate.'+revision[:7] if candidate else '')
+    image={'Architecture':'amd64','Os':'linux','Config':{'Labels':{
+        'org.opencontainers.image.revision':revision,'org.opencontainers.image.version':tag,
+        'org.opencontainers.image.source':'https://github.com/inkzcz/life-journal_public'}}}
+    validate_relink_image(tag,image)
+    broken=copy.deepcopy(image);broken['Config']['Labels']['org.opencontainers.image.revision']='b'*40 if candidate else 'invalid'
+    with pytest.raises(ValueError):validate_relink_image(tag,broken)
+    broken=copy.deepcopy(image);broken['Architecture']='arm64'
+    with pytest.raises(ValueError):validate_relink_image(tag,broken)
+    broken=copy.deepcopy(image);broken['Config']['Labels']['org.opencontainers.image.version']='v0.0.0'
+    with pytest.raises(ValueError):validate_relink_image(tag,broken)

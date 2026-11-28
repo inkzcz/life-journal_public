@@ -1,6 +1,6 @@
 {
   "format": "life-journal-public-source-v1",
-  "candidate_version": "5.1.11",
+  "candidate_version": "5.1.12",
   "source_commit": "c9ca4c3556f1167603ac9f78825632d51c0e25bc",
   "feature_baseline": "3f27932d3a6fc236a9fac74c34dc57a2586da3f9",
   "target_repository": "inkzcz/life-journal_public",
@@ -32,11 +32,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "32af44244974b8aab044bb87d05807e189a0b4b0d08342ffb6db48159f2c7f42"
+      "sha256": "eb0e4e566f84f6e90854687d54aaf8ab5fc2e5f5ccf873a4e2f49a05c457567a"
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "1af7e279fc64e9c2e9b014b779a95f55c397742ce678011a6b97a85beff8c961"
+      "sha256": "4bdd78b0434d05170f9889cc3e287b3a4c5ff054cdeedc916d1742dcb4859ed4"
     },
     {
       "path": ".gitignore",
@@ -48,7 +48,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "2570eb55e5b9b69f59869bd3aa623a6300b4ba4b781513e4d77fca05344f2824"
+      "sha256": "331c3fd3648d055dc9ea8b3247ff11510f0e43ba256f9adee2551c5118ee4f80"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -68,7 +68,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "b3fcde55a806c39ee71588a949a04cea32de5a89b2999f6595788b64ee7fd612"
+      "sha256": "66cd1668616a055f6a96276f2ed7617e33d2ac2e9b087c29e54bc6e362479dcb"
     },
     {
       "path": "SECURITY.md",
@@ -84,7 +84,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "91dee1f2e164332c98f55f96624fd7e93d0d754b90e67f440c1b044164c2dae7"
+      "sha256": "be267ff5adb254acf71b9e2dab4de6bd16d4b0e5bf085edd9156c2d7be1f585f"
     },
     {
       "path": "backend/.dockerignore",
@@ -232,7 +232,7 @@
     },
     {
       "path": "backend/app/blog_schemas.py",
-      "sha256": "6d1b290d8e6cdeb306ca907c9eee33b607665cd6cf5ff83773d6e32ca36be0b2"
+      "sha256": "ace0888ed91c28097407f6ab65df1e1942162197eb9ca2bf0d563590c4a36002"
     },
     {
       "path": "backend/app/build_info.py",
@@ -303,6 +303,10 @@
       "sha256": "40a0bb1094590e963740b919a878500e2d06afc9473dd6328fad03b55ef42b8a"
     },
     {
+      "path": "backend/app/exchange/adapters.py",
+      "sha256": "c12544a9729b31f9244a07ed6ce32d5016581a3a133a13c16faba5a68074c957"
+    },
+    {
       "path": "backend/app/exchange/assemble.py",
       "sha256": "3617de21b1fbe315470a614a4124a71f606f401537575d2688ac886926cf427f"
     },
@@ -316,7 +320,7 @@
     },
     {
       "path": "backend/app/exchange/invocations.py",
-      "sha256": "044ef632fe9a74a2c4eb5bac717ccc82cfeb0dfa6aca6b5239572d4fe888aaf9"
+      "sha256": "c3ce6f23fcc79fe25c6c63747441ac2f18499807bacba0ee6baf4c0af180fe96"
     },
     {
       "path": "backend/app/exchange/jobs.py",
@@ -329,6 +333,10 @@
     {
       "path": "backend/app/exchange/parsers.py",
       "sha256": "3513e4682b6c61940263e0113208ad8131b55fa14c67cb482dd416b9168c458d"
+    },
+    {
+      "path": "backend/app/exchange/presets.py",
+      "sha256": "255c0262e5e5a7a097a7dfb1eb5a70bd325a89004ca5aa4b75dfa0e6dcb03c08"
     },
     {
       "path": "backend/app/exchange/preview.py",
@@ -348,7 +356,7 @@
     },
     {
       "path": "backend/app/exchange/settings.py",
-      "sha256": "38dfc40bb850bb05ed7bd073841e1dfe628b7a989443ab0946350a42890da9d0"
+      "sha256": "6f4ea2a2b91ec242059c8962cc25d51ed63a5c386c2fac25b5c64a4943a26425"
     },
     {
       "path": "backend/app/exchange/syntax.py",
@@ -356,7 +364,7 @@
     },
     {
       "path": "backend/app/exchange/transport.py",
-      "sha256": "bca98615500408e714004efa54c5ebf02cd1faecb2fc663e6b36f74c474f84a3"
+      "sha256": "ce0b360e31c549a6a2f675be252a446134e9be6becbfae6e6314d8d4dce5ac5f"
     },
     {
       "path": "backend/app/experience_models.py",
@@ -420,7 +428,7 @@
     },
     {
       "path": "backend/app/release_notes.json",
-      "sha256": "60c90deb4cf1183ac45d63009aac7c863907769b4d8a61936436c5c629afce06"
+      "sha256": "9217ad0750dc57968a42a5faa231cb712ff86493a10d4f5ff330dbed7c62003e"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -432,7 +440,7 @@
     },
     {
       "path": "backend/app/routers/archive.py",
-      "sha256": "e58a6cf422e0d212f328a46772076da404227e36a47bfdca507a6f3b548efcb1"
+      "sha256": "856b1b128fa8ffa570001490e14658dacc5f6ff7844932885362c447b28d4b1b"
     },
     {
       "path": "backend/app/routers/auth.py",
@@ -440,7 +448,7 @@
     },
     {
       "path": "backend/app/routers/blog.py",
-      "sha256": "f8cce3807e69b30b73a01b6350856b3db28b7cda862d4cbd21b3d5ded9afe4c6"
+      "sha256": "3412ac2abf13d3b4047925d5239848dfd9ac2e5d27f69639bd424a6a95bcd4b3"
     },
     {
       "path": "backend/app/routers/content.py",
@@ -452,7 +460,7 @@
     },
     {
       "path": "backend/app/routers/exchange.py",
-      "sha256": "fd0e48d57a1e00ca8ad4a26b832844d94e38ed2bf8682d3fcb3b4d837efdc34f"
+      "sha256": "82506c79e1facca29dd3fe7a035d65a279a404042841b71e8823c91426640cba"
     },
     {
       "path": "backend/app/routers/experiences.py",
@@ -488,11 +496,11 @@
     },
     {
       "path": "backend/app/routers/places.py",
-      "sha256": "15078fc9a4f07984487f55bb4f1283845a41c227d31e70e981f255813122aa67"
+      "sha256": "6556f0e0e8d9fd8e8df7fbdea9771f1e78ba0ca42faddceb209dba5e5531ff8b"
     },
     {
       "path": "backend/app/routers/recovery.py",
-      "sha256": "2624e98ebe5673b0984a71a16bc786e346d2106951e9563cf1987b016c690189"
+      "sha256": "84c529c24c6c44a97492b66727044d5c7bf3edef9ab04afa75aa9e661c48c0eb"
     },
     {
       "path": "backend/app/routers/setup.py",
@@ -536,7 +544,7 @@
     },
     {
       "path": "backend/app/services/experiences.py",
-      "sha256": "e9a1d86aafa9a30b8ed554523711df3c3f4899560ca66d13658e4c40c9ac357e"
+      "sha256": "2c468d29a6ec1034f9667e59c18f309923327705374674557889fd16834557cc"
     },
     {
       "path": "backend/app/services/folders.py",
@@ -549,6 +557,10 @@
     {
       "path": "backend/app/services/image_upload.py",
       "sha256": "70c14efd853d9a403905faf42898bd03fe392f82dc847b13893766551862690b"
+    },
+    {
+      "path": "backend/app/services/index_lifecycle.py",
+      "sha256": "a62750eb1c73a277e3c75fad43ef9327a29f95a6a2dcc843213c1816f35c030d"
     },
     {
       "path": "backend/app/services/itinerary.py",
@@ -592,7 +604,7 @@
     },
     {
       "path": "backend/app/services/places.py",
-      "sha256": "2710047f56bdd2285c4e1745e5dda6b867dcbb37ec3f387eb4f4a86113346e6c"
+      "sha256": "83624a68be0cc7314b703ac536dc76a98100e78a37b8f37c7f4141da67281828"
     },
     {
       "path": "backend/app/services/record_mode.py",
@@ -600,11 +612,11 @@
     },
     {
       "path": "backend/app/services/recovery.py",
-      "sha256": "92614db301e501ebddb92cbf978a90067869af49be4eda5a4d547f39ceb78570"
+      "sha256": "2291cadb3552d9e35df104116a24317bd311a8ddcaf3398bc3b4d1341d249e34"
     },
     {
       "path": "backend/app/services/resource_usage.py",
-      "sha256": "f9d84c10c611febf1916c9f031c4c9ab408b91d4d27ef166a9a71a085d4a2d47"
+      "sha256": "a5b7b5c20f7848c4dafa1c8c498ce8f17e16c8dd4f0518e0505882e475e2e7ec"
     },
     {
       "path": "backend/app/services/tags.py",
@@ -656,7 +668,7 @@
     },
     {
       "path": "backend/app/version.py",
-      "sha256": "dab4a986cba665cc8a54a2eb2a743ec023ec01afc34c4e9808afa107e2ce3487"
+      "sha256": "4961b353950fe55611d8394cd49a3f67ca86def6bdc3ebad42217aab297783ff"
     },
     {
       "path": "backend/constraints-release.txt",
@@ -699,16 +711,20 @@
       "sha256": "5cbe9d9849c30274f669c78a13f48486a3ee83a419251f97b4fbcc2e308bfe85"
     },
     {
+      "path": "docs/development/v5.1.12-progress.md",
+      "sha256": "5af25812f6a5d879a565a79947432400b76f3dd426215bb1498da45d9fbe87d7"
+    },
+    {
       "path": "docs/initial-source-snapshot.json",
       "sha256": "40a11f50278818633c2d196c2edcc2f794b72ceaaf012ba1986008261ad26bbe"
     },
     {
       "path": "docs/install.md",
-      "sha256": "a7d6604d5d781d0d87dddf870467be9d9162dba15d9ce2377773af3529ec945b"
+      "sha256": "79ed0d96682c4963253c267376fa24d021ab80c719b35fdb714986362a7ef0e5"
     },
     {
       "path": "docs/known-limitations.md",
-      "sha256": "befd11b9522a1419ed9bad82f4295d050c87be7a4275176bc82cc3785f493fdc"
+      "sha256": "d8a04bebb0af0476b90371a2bd8bb75f1b573b523f5374716fb35232715a44b6"
     },
     {
       "path": "docs/licensing.md",
@@ -729,6 +745,10 @@
     {
       "path": "docs/release-notes-v5.1.11.md",
       "sha256": "9a378ac3e6ec58d0e9aec0cc0c38d07b20cee253e8494ef19a607cd4bcb448c1"
+    },
+    {
+      "path": "docs/release-notes-v5.1.12.md",
+      "sha256": "c674aedd8bdd3879aafcca0978d0f83f9dc0ae249ae2a6b28ad21b03a444be21"
     },
     {
       "path": "docs/release-notes-v5.1.9.md",
@@ -756,7 +776,7 @@
     },
     {
       "path": "docs/upgrade.md",
-      "sha256": "77882a2dcc869713315224f2cefe73cc76a214c1f86c4ba348ec597b41049c72"
+      "sha256": "f11aa09db722e27ce78b8699fb162712ed207f887c3234b1c726fc7513a4429d"
     },
     {
       "path": "docs/v5.1.10-validation.md",
@@ -769,6 +789,14 @@
     {
       "path": "docs/v5.1.11-validation.md",
       "sha256": "252fffccf42bace875efa98ae8f4f930974e105d0a039aff85e7eb5e8bac9dac"
+    },
+    {
+      "path": "docs/v5.1.12-ai.md",
+      "sha256": "90bf3d819792c6c7af97aeef9dcfe899df7395ce007c2f3e75f2ae9c230dcfb8"
+    },
+    {
+      "path": "docs/v5.1.12-release.md",
+      "sha256": "92e9f541e60fe8eeaee7393453280762fa2ff9c3bf16f20e041127ccf5d14efa"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -812,11 +840,15 @@
     },
     {
       "path": "frontend/package-lock.json",
-      "sha256": "f56e57b8c7015cd1723e665a0031685fe676fe91d109b46ad91a3da9d04d0703"
+      "sha256": "b70ce05851a1f2b18d4ffc28b5aef840e57bef8fecaaf65fd71c55d70633a376"
     },
     {
       "path": "frontend/package.json",
-      "sha256": "64affbebd2d373b81bc4475a844309af90818005e54f1e6ca12dd57a2978174c"
+      "sha256": "a5de69a892311a3670d2258d2ce6759ae4fbb3061f130d95270fb209a7cd4111"
+    },
+    {
+      "path": "frontend/preview-ai.html",
+      "sha256": "8001c815814c0d70a7606da884ed90779613f00880916bf3c49368d6301f6acd"
     },
     {
       "path": "frontend/preview-writing.html",
@@ -832,7 +864,7 @@
     },
     {
       "path": "frontend/src/admin/AdminContent.vue",
-      "sha256": "f639e342d8da723f59bf6e2b1bf1326ee6cdce12d99efffd1c6f4b462e45dd16"
+      "sha256": "c62fa59a853bbf2b24ec361a0461c8025aa5f97de773ab7e92e5347c613886b6"
     },
     {
       "path": "frontend/src/admin/Archive.test.ts",
@@ -875,6 +907,14 @@
       "sha256": "b916442557ddacdc506687050aae1e125943104e67f93850e11fe9b9d217e43e"
     },
     {
+      "path": "frontend/src/admin/IndexMaintenance.test.ts",
+      "sha256": "a74c434b9c52adc03e644a1698488935f565e2e6b270c3d723a3016707de2e0d"
+    },
+    {
+      "path": "frontend/src/admin/IndexMaintenance.vue",
+      "sha256": "e1c052cb739618c34318986ae9bb44303dce2df563fc9780f4afbf30cfc659b3"
+    },
+    {
       "path": "frontend/src/admin/MediaPerformance.test.ts",
       "sha256": "916494e2d818b46bba06549b0d1af0541c311f3ce5e6d1e0e08ea9bd75c0d0b9"
     },
@@ -908,7 +948,15 @@
     },
     {
       "path": "frontend/src/admin/ResourceManager.vue",
-      "sha256": "b19d653caf152e4acf19d82cc9d46a63ea817f286e40d3366bdc8d5239d8c006"
+      "sha256": "12da4560bec44246d016af6bf590bc3085753b56fd0060db6f77c7f1e35801d7"
+    },
+    {
+      "path": "frontend/src/admin/ResourceReferences.test.ts",
+      "sha256": "9ab40339cc4b1c792e6e04da72e157ccfac4d5f33b81d0d4e8a734a4c8fd391a"
+    },
+    {
+      "path": "frontend/src/admin/ResourceReferences.vue",
+      "sha256": "74221d5ef22c1b5e63fe66e3cf6d8434a718167aef4c51cc1d88c15b7e0503fc"
     },
     {
       "path": "frontend/src/admin/ValueInput.vue",
@@ -916,7 +964,7 @@
     },
     {
       "path": "frontend/src/admin/archive.ts",
-      "sha256": "d68764377ab42765e49be942bcf5c714a62f02f23e5fc54d5ddc19f4f8b8a813"
+      "sha256": "098de2739329a3c48f9a3dd412e23c81e6d30e11cd502f2b49e4fee93e7553bf"
     },
     {
       "path": "frontend/src/admin/mediaRequests.ts",
@@ -992,7 +1040,7 @@
     },
     {
       "path": "frontend/src/blog/SiteAdmin.vue",
-      "sha256": "1909a27bc86e5570ba19cf1d29893c731b6c1cf7d55fd0b10c53fb4f846c7499"
+      "sha256": "d9344118f792151629550d747e1d2c79aa4ab024706367efeadd2b992dbca41a"
     },
     {
       "path": "frontend/src/blog/TemplateRenderer.vue",
@@ -1067,12 +1115,20 @@
       "sha256": "5622629f3c8973407fd3e8bc507ee97bd1e5058f53b91aa92aedef416559e041"
     },
     {
+      "path": "frontend/src/dev/AIServicePreview.vue",
+      "sha256": "3bf74fdb41b29fa08cb6afa1ca3628414ebe82b097febd16fc3a5254f736bc22"
+    },
+    {
       "path": "frontend/src/dev/WritingPreview.vue",
-      "sha256": "f2d1d21fc36b8947a06b309d046d4d767167ef1063c0f409a44f3be057316c2f"
+      "sha256": "61fc2a3f3894902614aed543a7b8e6a618c881d3ba16243369bf3f8b323b8d5f"
+    },
+    {
+      "path": "frontend/src/dev/aiServicePreview.ts",
+      "sha256": "bfc49d1023405691f9a8d327c2dfd49e1902f019ecb065f371aa18bf8ea2fa1f"
     },
     {
       "path": "frontend/src/dev/preview.ts",
-      "sha256": "374e34378100554c5215c346d2a33ab2259a0564ebf059397274ac5488f01549"
+      "sha256": "b5dd5ea305cf543269ca4ce2ac556bd62b9c0c8f61c11f18b3405b4d1f4e9329"
     },
     {
       "path": "frontend/src/discovery/ArchivePage.vue",
@@ -1100,7 +1156,7 @@
     },
     {
       "path": "frontend/src/exchange/AIAdmin.vue",
-      "sha256": "b1ad094f0e4b7983a3c1a0b592033c865ca4724a9dcd2ebbaf0f88273edeb1ad"
+      "sha256": "25dc5b65307010c26e87bc2ba9c5eeabc47ebe067914fc19c2a122fd5219d5e6"
     },
     {
       "path": "frontend/src/exchange/AICreate.test.ts",
@@ -1135,12 +1191,28 @@
       "sha256": "b6bf77aba518115ca1bd168e15cda6da1c5c12c0d08be5ce6fc4ee343ae8c45e"
     },
     {
+      "path": "frontend/src/exchange/ServiceManager.test.ts",
+      "sha256": "8da6825385a2a787f840c22b635b7f19f90223012b88168d60fa096588acda02"
+    },
+    {
+      "path": "frontend/src/exchange/ServiceManager.vue",
+      "sha256": "47335f13f709097c98b8d5db192b8c8ab75970c19f9a66072217171647b091d6"
+    },
+    {
       "path": "frontend/src/exchange/WritingAssistant.test.ts",
-      "sha256": "94c6049a89030bec073e0cadb21b0921c9b5f1df65032fe22bd452c3110040ac"
+      "sha256": "35a7c3257ea5462781e57e5a0235028e73ff4ff9efd793bcf878e2ebe9b824aa"
     },
     {
       "path": "frontend/src/exchange/WritingAssistant.vue",
-      "sha256": "89efde07a1b19d9b361ce85b215af4cfc9d9b68511bfc748ec079bcbba3666a1"
+      "sha256": "26b1c00480d68a96946ff893c19dfceef5fd68512ec4295b61de5f7053393ecd"
+    },
+    {
+      "path": "frontend/src/exchange/models.test.ts",
+      "sha256": "532323dd5a19e48a30f1c8d96f6eff012df968795a0d1c644609b9fad0eeb9cb"
+    },
+    {
+      "path": "frontend/src/exchange/models.ts",
+      "sha256": "aac00773ce83f1f10eb3d3e0b16844b86a91d7d61e4c4d06a2c380430a24f5a2"
     },
     {
       "path": "frontend/src/exchange/preferences.ts",
@@ -1236,11 +1308,11 @@
     },
     {
       "path": "frontend/src/presentation/Typography.test.ts",
-      "sha256": "0e91d3c1267bf3e3e669de77b7ec4b221dc0db0d85093836d4dc85e2e38c89ac"
+      "sha256": "cdb3327472a2a3aaf8a2cb355a254683e7cfc53ae1123c80acede598d65a5a3f"
     },
     {
       "path": "frontend/src/presentation/TypographyPanel.vue",
-      "sha256": "3d8fdac569ffe8ceac0029916a23dd673538bc9e6bec71b2f16ed1ff031057d3"
+      "sha256": "a69ec9fb5fb080171cfed2f072a774f3a892b161f6613defcdf1bd4e08c15d1c"
     },
     {
       "path": "frontend/src/presentation/typography.css",
@@ -1248,7 +1320,7 @@
     },
     {
       "path": "frontend/src/presentation/typography.ts",
-      "sha256": "8969b1011716c69075dc2bbafd36300e5530fb19eec8348055be8a54a8cdab18"
+      "sha256": "2e28983ea485a9b5ede0402c545addf4b1f7948130eea4fac495d1e3e687b16e"
     },
     {
       "path": "frontend/src/reading/AdjacentPosts.vue",
@@ -1256,15 +1328,15 @@
     },
     {
       "path": "frontend/src/reading/ArticleBody.vue",
-      "sha256": "0f2e4390170bb60bb301cf95df91e0c366840a0d742cddae332a7679b37f2c34"
+      "sha256": "38bb7c60bc225e1586a08f57d44cd7d7a3b047f8391736499bb0ee1df1ce8049"
     },
     {
       "path": "frontend/src/reading/ArticleReader.vue",
-      "sha256": "68b90528503f75b79df22217837e797841eef6f8727df9c46aee1c19a9bc03b3"
+      "sha256": "7db81337e798d2ace98dbc81ff386814c083d544bc8def5f33b943ae6ce980b9"
     },
     {
       "path": "frontend/src/reading/BodyNodes.vue",
-      "sha256": "456969ae650bdd707149233e41c9bdfdb7a45c1cc8c79769fe9c637d73571e7a"
+      "sha256": "7584e2681804be2bb3bad8fb0d7ef65e6b6839277da29a06bedd636b0cbea768"
     },
     {
       "path": "frontend/src/reading/InlineMedia.vue",
@@ -1275,16 +1347,24 @@
       "sha256": "ccd5f504690f4f19feb2f51920f59db42c6ec7b0699bc7944fc3de8a6054c264"
     },
     {
+      "path": "frontend/src/reading/entrySummary.ts",
+      "sha256": "eb08f1480184c9dcc8f34748c6a3179092dffa8da656c13f91986478be987faf"
+    },
+    {
       "path": "frontend/src/reading/markdown.ts",
       "sha256": "392b3efd51aba95b206f69e88fed3fba326bdc6161173094704010a10db4859e"
     },
     {
       "path": "frontend/src/reading/mediaPreview.test.ts",
-      "sha256": "2075b2e6b8877fa5e83a2d494603106e534661a72f6b17417920e9e257d5ea2c"
+      "sha256": "7e47d4416a153e35c83460ae5ede3c28c52a6c0f35606e4cebb4d9b3757d87ca"
     },
     {
       "path": "frontend/src/reading/mediaPreview.ts",
       "sha256": "7eb6a82e159437d97c96b043dab594b71f2befe6dcd16fcb43036505e213a117"
+    },
+    {
+      "path": "frontend/src/reading/modes.test.ts",
+      "sha256": "026e8c5fe66cb2f0fc3908a6c751396dd0a47135709fb7c584df6c541bd4dbbb"
     },
     {
       "path": "frontend/src/reading/reading.test.ts",
@@ -1308,7 +1388,7 @@
     },
     {
       "path": "frontend/src/recovery/Recovery.test.ts",
-      "sha256": "30d7789237cfe5bbc0eaee06194fdefe6901a5cc0210bdcfdf072664badc38a9"
+      "sha256": "e7aead92f053bf072b2e31e91605bc23677bd9329604b02116a9d4f3934f843c"
     },
     {
       "path": "frontend/src/recovery/SnapshotView.vue",
@@ -1316,7 +1396,15 @@
     },
     {
       "path": "frontend/src/recovery/TrashAdmin.vue",
-      "sha256": "f841e97cfcb871d67b359c309358f43efebcaf0b2c2a104bf6cc069bc0add83e"
+      "sha256": "a3127df98b10734ee9206f04cf93bfa0a93dddc14179e47690777d020caa2faa"
+    },
+    {
+      "path": "frontend/src/recovery/dates.test.ts",
+      "sha256": "776b286d7b60cd22a957b81c8107cd4c1c26264130b2b84e40b49840175765c1"
+    },
+    {
+      "path": "frontend/src/recovery/dates.ts",
+      "sha256": "11a360508992b7781bb4ae852b9a4bc57bed57ae6d44af456711e58ffec8e3d2"
     },
     {
       "path": "frontend/src/setup/HelpPage.vue",
@@ -1432,11 +1520,15 @@
     },
     {
       "path": "frontend/src/version.ts",
-      "sha256": "6111e2047e04dc0032d29c25f245f0320c883dac91140e4325ec696f58791739"
+      "sha256": "dfb68bfaec6e0e413c6350024e4bb63ddc2c2c91b9321a8d9295a6b851ecf1d1"
     },
     {
       "path": "frontend/src/writing/BodyEditor.vue",
-      "sha256": "06f6c73341d392b53cec8c9718fff9aab15aca5b2485e29b724e8ff21db6ede8"
+      "sha256": "3c56fe531a9a2f616c39b76c1256318befa0055161a66c67a8e0f156242603f1"
+    },
+    {
+      "path": "frontend/src/writing/CardInsertion.test.ts",
+      "sha256": "7210b1e6a10e5604090e2c51183c7cac59e5877f3e53c8f5c66ae4df9eadfb26"
     },
     {
       "path": "frontend/src/writing/DraftsPage.vue",
@@ -1460,7 +1552,7 @@
     },
     {
       "path": "frontend/src/writing/EntryCard.test.ts",
-      "sha256": "dc0535597fe3dbdb2877d96db81c444224944b6673ee4ee467298d772956e72c"
+      "sha256": "f8f78061199ba58b0c6fd04c32284f843dc9e7010ac6aa30874d9f2e6afc2fd7"
     },
     {
       "path": "frontend/src/writing/EntryCard.vue",
@@ -1468,15 +1560,19 @@
     },
     {
       "path": "frontend/src/writing/EntryDraftGuard.test.ts",
-      "sha256": "e1bceb4cc75c3879d460fdeb1d48195b6593f4e50c8b7791a0eefcbd776075e8"
+      "sha256": "46e3688a72231ec80b53067a77e346d4897b07c835986d202974cb9f0cacdd69"
+    },
+    {
+      "path": "frontend/src/writing/EntryForm.test.ts",
+      "sha256": "8ac84a7ee975f256dcd203f491121dfcac3ebc6443b3847060bc910715467edf"
     },
     {
       "path": "frontend/src/writing/EntryForm.vue",
-      "sha256": "8220bdfe83500765465d514c1b4dffc69ae2f31e43c6c08da7d6f88c4137065d"
+      "sha256": "72f21a106c5959961cabe27ace7d2db720439a3ae047af3ef79e34e47e8acbe5"
     },
     {
       "path": "frontend/src/writing/EntryNode.vue",
-      "sha256": "c256531455a368fd6bf3a32d5558becd968f21ee0c0936b40f500be2e71ec21b"
+      "sha256": "ff34404d5c6ae77cb5af8a5b6ed2e7dcf15573e5a39b38379305598b07467191"
     },
     {
       "path": "frontend/src/writing/EntryTargetPicker.test.ts",
@@ -1508,7 +1604,7 @@
     },
     {
       "path": "frontend/src/writing/PlaceSuggest.vue",
-      "sha256": "2ad166086d418de7049bda386d48395d928ac25fc5d59176e4a3dfca6474a80b"
+      "sha256": "0f7a2ee95e054f7f74f5467a95edb560f2fb7cda506feceaef682c17789afd28"
     },
     {
       "path": "frontend/src/writing/PrivateMediaNode.vue",
@@ -1516,7 +1612,7 @@
     },
     {
       "path": "frontend/src/writing/Stability.test.ts",
-      "sha256": "dab174684ba1319e6290883d80091967498516591636943d3aa173659853d563"
+      "sha256": "c4cd8e41d19a6b53d5bd47aa61c44b683f379cec093982c165bb8bbf5de698bd"
     },
     {
       "path": "frontend/src/writing/TimeZoneSelect.vue",
@@ -1524,11 +1620,11 @@
     },
     {
       "path": "frontend/src/writing/TransportTimeFields.test.ts",
-      "sha256": "fe5bebe624de977f0fc21e06aff5e545211a32c8c15e7a24c4da6b24b81cb58c"
+      "sha256": "a0d9dcc12f90598ed85bdda3f9fc71ad10203e76477afcee8dbc391854d50983"
     },
     {
       "path": "frontend/src/writing/TransportTimeFields.vue",
-      "sha256": "8d09c1997b0a14fbac369eacd84a09c972e61173b630a4fb262f94e15120e6c5"
+      "sha256": "43abdbd0159f0e438ef355a2a622c929868ad581f995c2aff4d7ed9dd02ab39c"
     },
     {
       "path": "frontend/src/writing/V5Pages.test.ts",
@@ -1560,19 +1656,19 @@
     },
     {
       "path": "frontend/src/writing/cards/EntryCardNotes.vue",
-      "sha256": "61d9dd8ef87ff5249dbada2cdbc2e967e700335a617965262d5c97a625e72035"
+      "sha256": "fd60d00d0a712dae48694e9429dc66de3032a3382814b0795de8b4c1e9bc1e97"
     },
     {
       "path": "frontend/src/writing/cards/EntryCardShell.vue",
-      "sha256": "41b6d54df4fd6eecf4dddc06238a29ad1919d7f48e1ead1c99bddfb251af5207"
+      "sha256": "e20bd336277c14fae9cdef025a2d481594fad83fd2c75483629e9772e14759b3"
     },
     {
       "path": "frontend/src/writing/cards/FoodCard.vue",
-      "sha256": "f22688621e1293f3ec642d160e308137d62c6414d54a50973d52f5c00f128561"
+      "sha256": "50ed2e3c17ada7d4f8c8880091bd5950709a6932d7ba8dd8afc8a4e708f8113f"
     },
     {
       "path": "frontend/src/writing/cards/GiftCard.vue",
-      "sha256": "31da05d915c377f88a0098396ef5032f43de0e24934f811b22fd0547fbbb4d15"
+      "sha256": "340dafdd90cfe1a281c068ee3eb3a94112ae6f6610a4b45c13ef97e15692dc05"
     },
     {
       "path": "frontend/src/writing/cards/LocationCard.vue",
@@ -1580,27 +1676,27 @@
     },
     {
       "path": "frontend/src/writing/cards/MovieCard.vue",
-      "sha256": "9a9b5269d3966df14033ba47ad7acec4f12cb23d573e0b67bd6fe4f025d32815"
+      "sha256": "d16fecd37ef933e2182604deff7ee81dd0b456ecebed9a603b88051cb3b052da"
     },
     {
       "path": "frontend/src/writing/cards/ShowCard.vue",
-      "sha256": "9596037f3102d247403b5eaf112afc910c2b1f25180d11efc62fe822064aaa4c"
+      "sha256": "0b34dbdb16144e8b5bbb31dba2a1168ac32acb994580a3ca56c5809e08f448ce"
     },
     {
       "path": "frontend/src/writing/cards/TransportCard.vue",
-      "sha256": "c7c998b5e6c06d222eea9f5027ff1a2ceda97e2e59041298002fb41585ceb9ae"
+      "sha256": "89776f100137c9c74a05201419ff00402dc929ad2fe14009611ce360dd653b9e"
     },
     {
       "path": "frontend/src/writing/cards/cardFields.ts",
-      "sha256": "cf101027a9f46547bd1aa5c426347c8212c05308229166920f142be84a843e12"
+      "sha256": "54f3a1f21128bb6fb2f5c08ff8c3db6adfb5442b89f38f6103d2c5db08b29048"
     },
     {
       "path": "frontend/src/writing/caret.ts",
-      "sha256": "b54a00ec62f5df935b7993a4a0d8b9418059cab0c8a1a2ba0d03472e567e3908"
+      "sha256": "59754adaa3aa4fd1574ba596835c203cf0230c6aa6061975ef8f70ff74ab501c"
     },
     {
       "path": "frontend/src/writing/entries.ts",
-      "sha256": "957f6594c270fa8ec517674822902274a55cbc7a0eb30090c7b0ae0b88f47ba7"
+      "sha256": "2bcb418b6450631376050c85a59f065a17aff930c1b59f482caa8a5d920ec834"
     },
     {
       "path": "frontend/src/writing/entryDocument.test.ts",
@@ -1616,7 +1712,7 @@
     },
     {
       "path": "frontend/src/writing/entryTransfer.ts",
-      "sha256": "38784bfa3f13806c6163ffcae9c28f4123b9673869a275e515ce4747c60b0254"
+      "sha256": "5d589dacfb2aaf5de84c3936c55473c13d7e63bd41ea91bdbfaf832ed61ab86c"
     },
     {
       "path": "frontend/src/writing/extensions.ts",
@@ -1641,6 +1737,10 @@
     {
       "path": "frontend/src/writing/places.ts",
       "sha256": "ce276dd364c3e0a010bafe657388595f6933da2833ec6c03b09bda225dfa007b"
+    },
+    {
+      "path": "frontend/src/writing/sourceEntryInsertion.ts",
+      "sha256": "54890c2ec374edf52d4b7442a22be1f589a3d8ddf5e6f7d98d848e18beb2d016"
     },
     {
       "path": "frontend/src/writing/sourceKeys.test.ts",
@@ -1693,6 +1793,10 @@
     {
       "path": "licensing/BINARY_RELEASE_v5.1.11_REPAIR_AUTHORIZATION.json",
       "sha256": "a61809bb350950e654704b3af8b5ee6f48edfa9f214c80366a741bf840a45bb9"
+    },
+    {
+      "path": "licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json",
+      "sha256": "515baf83a861c1804c82b9ae94370dba7a0e689aadf24907fec452ef6bdfca06"
     },
     {
       "path": "licensing/GPL-3.0.txt",
@@ -1764,11 +1868,11 @@
     },
     {
       "path": "scripts/open_source_gate.py",
-      "sha256": "b99fccecb0fe0c7a2723aadc83d3a78bae5d104ce63d751f45e50b7a9f6cd307"
+      "sha256": "99c75d4d35aa48516c55b5fcbff05663590aa06eb7bef044eb4cd11b99d9eb03"
     },
     {
       "path": "scripts/prepare_distribution.py",
-      "sha256": "386a127a87fb47582e25a55383f027b096deb387e71a95b06c69bbe30664841e"
+      "sha256": "d9baa941922e4463e71d2a8cbbac1cd86f6457247d8d27423936b017720f9abf"
     },
     {
       "path": "scripts/release-local.cmd",
@@ -1784,19 +1888,19 @@
     },
     {
       "path": "scripts/release_artifact_cleanup.py",
-      "sha256": "d432c9f29b5dbfc0e8501dbaa5d9881e4d59b0cd1e9ece2034eea0d3c5d1570b"
+      "sha256": "f0d001f3d45a0f411254d05d2e0a3bebf3d315c09abe5a931bf8d6559bfd0c30"
     },
     {
       "path": "scripts/release_authorization.py",
-      "sha256": "a823f8a154368da8266a1c686a051191cb9d21c3a4fb6ad2d244a5bf6c43762a"
+      "sha256": "1692a7b2b23e8b2aae79cab165d7d43c1c8dd9e1c30f4f2aa25e416c05af1c95"
     },
     {
       "path": "scripts/release_local.py",
-      "sha256": "0545bbd2a1c69ca832f59135997dde2bcf17ea70d9160c2cc361ec02c7a1551d"
+      "sha256": "5ef98e25a23f29c9579e967f3720deabf391447ad2b0f52dfce14fc470dd48b3"
     },
     {
       "path": "scripts/release_preflight.py",
-      "sha256": "d1258c0cbd686cbdf7eb91dc6ce02b9be91914829f671f1f098c81ad9d99ba51"
+      "sha256": "c329cd8e0dbf1b5d4a7f679ffb8f157fa3b06f194024e5e2442e9393af9d74de"
     },
     {
       "path": "scripts/release_source.py",
@@ -1820,7 +1924,7 @@
     },
     {
       "path": "scripts/test_pillow_relink.py",
-      "sha256": "2335f01f57ffe01b1afa7e178b082b79a4c39f84c0c0527e5be0dabb05b9c5a2"
+      "sha256": "e4b4a4a24076e4a87b32f82187087ae34a7f90ac526a9415ab8f3a7607924f97"
     },
     {
       "path": "scripts/unified_images.py",
@@ -1843,8 +1947,16 @@
       "sha256": "d48325fba63d9a1fcbd437c34f84e2104b9234444342d29b923ab8dfb675b56c"
     },
     {
+      "path": "tests/browser_ai_v512.py",
+      "sha256": "b352f9f302484448fe0120bd341e4af3c3804787cab86ed16ff0d0dfc62301f8"
+    },
+    {
+      "path": "tests/browser_v512.py",
+      "sha256": "b457cdc7131484b3ff8c78e261b375f5d0c4a7ae092626661ab30684590157bb"
+    },
+    {
       "path": "tests/browser_writing_preview.py",
-      "sha256": "ca7d744cfebd15c01e5caab28c028e101041194a7e6dc12bbedea7da8a8b9727"
+      "sha256": "5f861f474faf988a92251320c58f79a1e84fb3e43360d000acfbaf3272b41824"
     },
     {
       "path": "tests/build_identity_support.py",
@@ -1864,7 +1976,7 @@
     },
     {
       "path": "tests/docker_same_schema_upgrade.py",
-      "sha256": "30e5ad07ed5c5bf732aed63e50b1117c062ac2b793a20d5327820d3131d89f06"
+      "sha256": "ea25cb37bc0c76a37ebfc370545492ab7b4b2c9548905fb81899b45896601f4c"
     },
     {
       "path": "tests/exchange_process_probe.py",
@@ -2047,6 +2159,14 @@
       "sha256": "93875a6c4d8fadb88cdfe230ae677be9f224a3e2e93fb85871e27d70af0512e1"
     },
     {
+      "path": "tests/test_exchange_protocols.py",
+      "sha256": "4e82911c875bdfec64115d46c2ffd76abd85c183a710d9cda728ccece6bb9c7a"
+    },
+    {
+      "path": "tests/test_exchange_services.py",
+      "sha256": "92bd3d605df80480766533b18e407fabb1d8a120401916969b999612429a8ba1"
+    },
+    {
       "path": "tests/test_exchange_settings.py",
       "sha256": "4c53f6b39ecd44369bef9d49411ff45a5fad5661005239c6d0fb658bf74c81e9"
     },
@@ -2060,7 +2180,7 @@
     },
     {
       "path": "tests/test_experiences.py",
-      "sha256": "7d779d9528745b8416240305817d1691b4a7e489978368922486004c4422608f"
+      "sha256": "ee2cf9243e5c18d6cdd6a67c8be9100ab6980794bb2e8c09ea56ee78fbe45831"
     },
     {
       "path": "tests/test_first_run.py",
@@ -2077,6 +2197,10 @@
     {
       "path": "tests/test_image_private_keys.py",
       "sha256": "4dc89a8493cb77cafc8e6c1711675860f1101a62c1f30ef12b7bba355b86d877"
+    },
+    {
+      "path": "tests/test_index_lifecycle.py",
+      "sha256": "f08fb11967391c32f8d3da170bbaee0802766350187b9d8bd56b5600f10ce5e9"
     },
     {
       "path": "tests/test_itinerary_editing.py",
@@ -2128,7 +2252,7 @@
     },
     {
       "path": "tests/test_open_source_gate.py",
-      "sha256": "e7ef8487db0a0a39ae1a62611076d430bba7dbd013a70d49d13742ac4bde7f0e"
+      "sha256": "0630bfb75ce62a4ef5653c84b91da7b1f3edf78325eafd8324f1eefe2a27426e"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -2148,7 +2272,7 @@
     },
     {
       "path": "tests/test_prepare_distribution.py",
-      "sha256": "5ea9fb16e9432fe8160028c22f8e4098a708fe761f12d309381bffa8e0104fc7"
+      "sha256": "0ce29da199789c2efefd093609abc3aab111dcebb18ee21f9bdaf096065145ae"
     },
     {
       "path": "tests/test_product_version.py",
@@ -2156,7 +2280,7 @@
     },
     {
       "path": "tests/test_public_contract.py",
-      "sha256": "ae69ea4008e84f684f5aa964909c2b176e8b3e4e9992fc9c9fd9bd1fc56afb4e"
+      "sha256": "dc5afb4aaa43b26b74750bb9ef3d26df5b4c8434528d6d8e72b2e6f8f722a960"
     },
     {
       "path": "tests/test_publication_gate.py",
@@ -2175,16 +2299,20 @@
       "sha256": "6ebdf661931b6dd772ddd87e55c63042e7a321999b89f533821e56dbcb54780d"
     },
     {
+      "path": "tests/test_recovery_v512.py",
+      "sha256": "acd3c530855ac9df4cbd1f75ed7e2d0c65888c5b4eababaa2e1a9856fb07f6f4"
+    },
+    {
       "path": "tests/test_release_artifact_cleanup.py",
-      "sha256": "2320ee390c3938836a6f754a83730c445748c518e9a268185ba7f822dcaa2830"
+      "sha256": "88acb003eebbc0c029ddf3588b2f6ed0dbc160b79245b5626b4045db429e4e76"
     },
     {
       "path": "tests/test_release_mode_environment.py",
-      "sha256": "2e8d202ea8680ec5d076f2b22e3785fd72f24e7bfecd3ff87820c41eb3d443d5"
+      "sha256": "ca281cbedf64c470a7da2f5f4d23e80c766e4c9938a99aa3158973c1d0c404b6"
     },
     {
       "path": "tests/test_release_preflight.py",
-      "sha256": "6177b44b6a1e2fbb4bd82dc0158081835ddd164188a6a751892988ba8771f715"
+      "sha256": "fce9ec68f324e8e9724bee1c98bf55d3630abc4480372263ea750812768b4f0d"
     },
     {
       "path": "tests/test_release_source.py",
@@ -2216,7 +2344,7 @@
     },
     {
       "path": "tests/test_typography.py",
-      "sha256": "72729145046898f757d7dec1bda6662686ea5fad51d21d7e100b8eaa10c2d38b"
+      "sha256": "5fb8812d00611b7204b49d17afdbca7eb1dac6221caba37e6628786f3f8c5630"
     },
     {
       "path": "tests/test_unified_entrypoint.py",
@@ -3936,7 +4064,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "52858252564a7d02f0cfecaf7d2ba3d754dc98c536a0a18b4055039ef855a39d"
+      "sha256": "9f7bdb69d9447f75d30861a42bba6d65265ab23392fa1a0eb3bdd3745f912e69"
     },
     {
       "path": "third_party/source-scope.json",

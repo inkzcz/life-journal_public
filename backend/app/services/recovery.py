@@ -1,8 +1,12 @@
 """Explicit recovery boundaries. Never deletes a shared resource or any media file."""
 from datetime import datetime,timedelta,timezone
 from copy import deepcopy
+import logging
+import re
 from fastapi import HTTPException
 from sqlalchemy import select,delete,or_,and_,func
+from sqlalchemy.exc import IntegrityError,OperationalError,DBAPIError
+from sqlalchemy.orm.exc import StaleDataError
 from ..models import now
 from ..content_models import ContentRecord,RecordRevision,RecordBodyMedia,RevisionMediaRef
 from ..archive_models import MediaAsset,RecordMedia,RecordLink,RecordPlace,Place,RecordMarkedPlace
@@ -47,6 +51,64 @@ def restore_trash(db,r,actor,expected):
     return {'id':r.id,'state':'restored','revision':r.revision,'warnings':warnings(db,r)}
 
 
+def _recovery_failure(exc):
+    """Public categories only: never stringify DB errors, statements or parameters."""
+    if isinstance(exc,HTTPException):
+        code='request_conflict' if exc.status_code==409 else 'request_rejected'
+        if exc.status_code==409 and isinstance(exc.detail,str):
+            if '记录已更新' in exc.detail:code='revision_conflict'
+            elif '导航' in exc.detail:code='reference_conflict'
+        return {'status':exc.status_code,'code':code,'error':exc.detail}
+    if isinstance(exc,IntegrityError):
+        return {'status':409,'code':'constraint_conflict','error':'引用约束冲突，此条已回滚；请检查资源引用后重试'}
+    if isinstance(exc,StaleDataError):
+        return {'status':409,'code':'concurrent_update','error':'记录正被其他操作修改，此条已回滚；请重新读取后重试'}
+    if isinstance(exc,OperationalError):
+        state=getattr(exc.orig,'sqlstate',None)
+        # SQLite error numbers, not driver messages or embedded SQL.
+        number=getattr(exc.orig,'sqlite_errorcode',0)
+        if (type(state) is str and state in {'40001','40P01','55P03'}) or (type(number) is int and (number & 255) in {5,6}):
+            return {'status':409,'code':'concurrent_update','error':'数据库正忙或发生并发修改，此条已回滚；请稍后重试'}
+        return {'status':503,'code':'database_unavailable','error':'数据库暂不可用，此条已回滚；请稍后重试'}
+    if isinstance(exc,DBAPIError):
+        return {'status':500,'code':'database_error','error':'数据库操作失败，此条已回滚；请检查服务状态'}
+    return {'status':500,'code':'unexpected_error','error':'操作未完成，此条已回滚；请检查服务状态'}
+
+
+_recovery_logger=logging.getLogger(__name__)
+# These identifiers describe our schema, never driver-provided free text.
+_logged_constraints=frozenset({
+    'article_options_record_id_fkey','experiences_record_id_fkey',
+    'experience_media_record_id_entry_id_fkey','experience_media_media_id_fkey',
+    'activity_experiences_record_id_entry_id_fkey','activity_experiences_activity_id_fkey',
+    'record_revisions_record_id_fkey','record_templates_record_id_fkey',
+    'trip_activities_record_id_fkey','trip_activity_media_activity_id_fkey',
+    'food_occurrences_record_id_fkey','navigation_items_record_id_fkey',
+})
+_logged_states=frozenset({'23503','23505','23514','23502','40001','40P01','55P03','08000','08003','08006','57P01','57014'})
+_logged_sqlite_codes=frozenset({5,6,19,261,262,275,517,787,1299,1555,2067})
+
+def recovery_failure(exc):
+    failure=_recovery_failure(exc)
+    if isinstance(exc,HTTPException):return failure
+    # Deliberately omit exc_info: exception reprs contain SQL and parameters.
+    kind=('IntegrityError' if isinstance(exc,IntegrityError) else
+          'StaleDataError' if isinstance(exc,StaleDataError) else
+          'OperationalError' if isinstance(exc,OperationalError) else
+          'DBAPIError' if isinstance(exc,DBAPIError) else 'UnexpectedError')
+    diagnostic={'category':failure['code'],'exception_type':kind}
+    if isinstance(exc,DBAPIError):
+        state=getattr(exc.orig,'sqlstate',None)
+        if type(state) is str and state in _logged_states:diagnostic['sqlstate']=state
+        number=getattr(exc.orig,'sqlite_errorcode',None)
+        if type(number) is int and number in _logged_sqlite_codes:diagnostic['sqlite_code']=number
+        constraint=getattr(getattr(exc.orig,'diag',None),'constraint_name',None)
+        if type(constraint) is str and re.fullmatch(r'[a-z][a-z0-9_]{0,62}',constraint) and constraint in _logged_constraints:
+            diagnostic['constraint']=constraint
+    _recovery_logger.warning('recovery_operation_failed',extra={'recovery_diagnostic':diagnostic})
+    return failure
+
+
 def purge(db,r,expected):
     if r.deleted_at is None:raise HTTPException(409,'只能永久删除回收站中的记录')
     check_revision(r,expected)
@@ -56,6 +118,13 @@ def purge(db,r,expected):
     db.execute(delete(RecordMediaFolder).where(RecordMediaFolder.record_id==r.id))
     db.execute(delete(FoodOccurrence).where(FoodOccurrence.record_id==r.id))
     activities=select(TripActivity.id).where(TripActivity.record_id==r.id)
+    # 0019 source-derived indexes have RESTRICT children. Delete association
+    # leaves before either their source experiences or itinerary activities.
+    from ..experience_models import ArticleOptions,Experience,ExperienceMedia,ActivityExperience
+    db.execute(delete(ActivityExperience).where(or_(ActivityExperience.record_id==r.id,ActivityExperience.activity_id.in_(activities))))
+    db.execute(delete(ExperienceMedia).where(ExperienceMedia.record_id==r.id))
+    db.execute(delete(Experience).where(Experience.record_id==r.id))
+    db.execute(delete(ArticleOptions).where(ArticleOptions.record_id==r.id))
     db.execute(delete(ActivityMedia).where(ActivityMedia.activity_id.in_(activities)))
     from ..tag_models import RecordTag
     from ..archive_models import RevisionPlaceRef
@@ -82,8 +151,9 @@ def cleanup_batch(db,days,limit=50,after=None,on_batch=None):
         try:
             with db.begin_nested():purge(db,r,r.revision)
             removed+=1
-        except HTTPException as e:errors.append({'id':id,'reason':e.detail})
-        except Exception:errors.append({'id':id,'reason':'引用约束或数据库错误，已回滚此条记录'})
+        except Exception as exc:
+            failure=recovery_failure(exc)
+            errors.append({'id':id,'reason':failure.pop('error'),**failure})
     result={'removed':removed,'errors':errors,'examined':len(rows),'cursor':cursor}
     if on_batch:on_batch(result)  # Audit progress commits atomically with this batch.
     db.commit()
