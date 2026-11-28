@@ -178,16 +178,16 @@ def test_512_upgrade_requires_published_511_bytes_ai_references_and_original_his
     with pytest.raises(ValueError):delivery.require_upgrade_receipt(wrong,version,revision)
 
 
-def test_formal_512_authority_is_separate_and_bound_to_actual_pr10():
+def test_formal_512_supplement_is_separate_and_bound_to_actual_corrective_pr11():
     from scripts.release_authorization import read_authorization,release_version
     from pathlib import Path
     current=read_authorization(Path(__file__).resolve().parents[1],'v5.1.12')
-    assert current['source_pull_request']==10 and current['registry_push_approved'] is False
+    assert current['source_pull_request']==11 and current['registry_push_approved'] is False
     delivery.require_release_authorization(current,'v5.1.12')
     for key in ('source_pull_request','binary_publication_approved','owner_confirmation_reference'):
         wrong=dict(current);wrong.pop(key)
         with pytest.raises(ValueError):delivery.require_release_authorization(wrong,'v5.1.12')
-    with pytest.raises(ValueError):delivery.require_release_authorization({**current,'source_pull_request':9},'v5.1.12')
+    with pytest.raises(ValueError):delivery.require_release_authorization({**current,'source_pull_request':10},'v5.1.12')
     with pytest.raises(ValueError):release_version('v5.1.13')
     with pytest.raises(ValueError):release_version('v5.1.12-candidate.latest')
 

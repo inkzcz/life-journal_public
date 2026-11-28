@@ -1458,7 +1458,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "a62750eb1c73a277e3c75fad43ef9327a29f95a6a2dcc843213c1816f35c030d"
+      "sha256_canonical": "0896ef40b9a1d8253f05eba2cdb677f31b97eb68a6b553361f5781feb6d37c3e"
     },
     {
       "path": "backend/app/services/itinerary.py",
@@ -1787,7 +1787,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "514a56bf9c1d7efba4f36d8e8a4727b0c243315323b522eb5544bc009e6ced95"
+      "sha256_canonical": "14060143708435adde74aec987d6e11e09a0909ee989fc78fd3158c993d4ddeb"
     },
     {
       "path": "docs/initial-source-snapshot.json",
@@ -1822,7 +1822,7 @@
         "P011",
         "P017"
       ],
-      "sha256_canonical": "d8a04bebb0af0476b90371a2bd8bb75f1b573b523f5374716fb35232715a44b6"
+      "sha256_canonical": "05797ff95d331cb4c29681137545d1240e635b3e3841aad2e7fe99b82bab0ca1"
     },
     {
       "path": "docs/licensing.md",
@@ -1974,7 +1974,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "90bf3d819792c6c7af97aeef9dcfe899df7395ce007c2f3e75f2ae9c230dcfb8"
+      "sha256_canonical": "c0bdd87acd6a74b643720a013489167e4ac15fe6245d65ed704f8c0839121c0f"
     },
     {
       "path": "docs/v5.1.12-release.md",
@@ -1982,7 +1982,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "38b2c12fceb966180e5d628d90236aa4de66e48f1c18a633a79e8dec6ebf9ef4"
+      "sha256_canonical": "df947a0e05f401c2d06ea8c19a536d5fdf82b12fa50264ae7148d3a619786a2a"
     },
     {
       "path": "docs/v5.1.5/content-exchange.schema.json",
@@ -2223,7 +2223,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "a74c434b9c52adc03e644a1698488935f565e2e6b270c3d723a3016707de2e0d"
+      "sha256_canonical": "402304559d39cf3cb0894ca7622479ddba18bfcd7e75da478d73fe8098b52357"
     },
     {
       "path": "frontend/src/admin/IndexMaintenance.vue",
@@ -2231,7 +2231,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "e1c052cb739618c34318986ae9bb44303dce2df563fc9780f4afbf30cfc659b3"
+      "sha256_canonical": "e84330956ecbd5da1f95ae1aa81bcfa3a31973f96170004a7a5c8c25134edcb0"
     },
     {
       "path": "frontend/src/admin/MediaPerformance.test.ts",
@@ -4095,6 +4095,14 @@
       "sha256_canonical": "5b12534feafa5a012f82ce0a37272f83b5b4208deeea3d6e9ad844a90c4d62e9"
     },
     {
+      "path": "licensing/BINARY_RELEASE_v5.1.12_SOURCE_BINDING_AUTHORIZATION.json",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "c12c66c8257a9f395612294f0dfae02ad2d1950205f589e454319a35d754356a"
+    },
+    {
       "path": "licensing/GPL-3.0.txt",
       "classification": "retained-license-text-or-historical-draft",
       "evidence": [
@@ -4309,7 +4317,7 @@
         "P016",
         "P017"
       ],
-      "sha256_canonical": "3a0e1a2746eba96daf8523617c743a913649bf922a37d13bd4458c957328e503"
+      "sha256_canonical": "ca9faae51b7cac4918b49c6aa7a8d981c3a23f562e83ace7bcca8e50973e930c"
     },
     {
       "path": "scripts/release_local.py",
@@ -4960,7 +4968,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "f08fb11967391c32f8d3da170bbaee0802766350187b9d8bd56b5600f10ce5e9"
+      "sha256_canonical": "c89c0db1985fa6d646f87dd34a4c97932f7361e008b5bd485c4c0006749e12f0"
     },
     {
       "path": "tests/test_itinerary_editing.py",
@@ -5069,7 +5077,7 @@
         "P016",
         "P017"
       ],
-      "sha256_canonical": "b58b3a7c3f852bc8b654ef126b85bc042bbd4c56df23511d76116f2bb7fbe1e2"
+      "sha256_canonical": "e323471547946d30104940c6261e97571479177a58a3bf907a07477de024b662"
     },
     {
       "path": "tests/test_performance_readiness.py",
@@ -5115,7 +5123,7 @@
         "P016",
         "P017"
       ],
-      "sha256_canonical": "553f4ca5be9bb9fe8f5c7305916d98a3cef9a40c3b87b3ff6ceea68c4c67b804"
+      "sha256_canonical": "5c0e044cc2d948f230cf247289adba61f6904f54927f47c8eb7e9d05ad041017"
     },
     {
       "path": "tests/test_product_version.py",
@@ -5210,7 +5218,7 @@
         "P016",
         "P017"
       ],
-      "sha256_canonical": "fce9ec68f324e8e9724bee1c98bf55d3630abc4480372263ea750812768b4f0d"
+      "sha256_canonical": "ab8a56aa1790df4a0ed3f8bd1de71f5db6f34750476af9bccad58d062d22c3ce"
     },
     {
       "path": "tests/test_release_source.py",
@@ -5219,6 +5227,14 @@
         "J005"
       ],
       "sha256_canonical": "2645d756254d473e18c48c123289017327a8bc3f143dc3fc9704b2727393eb07"
+    },
+    {
+      "path": "tests/test_release_source_binding.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "fdaa9b92f1e5284a9e2dd77882f7788161b07d208efc0c5bc7677b2de4b5e05a"
     },
     {
       "path": "tests/test_resource_audit_cli.py",

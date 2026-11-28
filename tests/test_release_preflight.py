@@ -124,3 +124,39 @@ def test_retired_v5111_object_or_application_is_never_reused(repaired_preflight,
         reference['object']['sha']=tag['sha']='953a945b48dd8c11639f90ac62c2361b421469ab'
     else:tag['object']['sha']='3c3a465e5ba1dd353a3886b6394907311e972865'
     with pytest.raises(RuntimeError,match='Retired unreleased tag'):gate.main()
+
+
+@pytest.fixture
+def supplemented_512_preflight(preflight,tmp_path,monkeypatch):
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]
+    (tmp_path/'VERSION').write_text('5.1.12\n')
+    for name in ('BINARY_RELEASE_v5.1.12_AUTHORIZATION.json','BINARY_RELEASE_v5.1.12_SOURCE_BINDING_AUTHORIZATION.json'):
+        (tmp_path/'licensing'/name).write_bytes((root/'licensing'/name).read_bytes())
+    previous_api,previous_run=gate.api,gate.run;reference,tag=sample('v5.1.12')
+    def api(path):
+        if path=='git/ref/tags/v5.1.12':return reference
+        if path.startswith('git/tags/'):return tag
+        if path=='pulls/11':return previous_api('pulls/4')
+        if path=='pulls/10':pytest.fail('Retired source PR10 must not be selected')
+        return previous_api(path)
+    def run(*args):
+        if args[:2]==('git','show'):return '5.1.12'
+        return previous_run(*args)
+    monkeypatch.setattr(gate,'api',api);monkeypatch.setattr(gate,'run',run)
+    return preflight,tag
+
+
+def test_normal_source_supplement_requires_corrective_pr11_merge_and_exact_ci(supplemented_512_preflight,capsys):
+    gate.main();receipt=json.loads(capsys.readouterr().out)
+    assert receipt['source_pull_request']==11 and receipt['version']=='v5.1.12' and receipt['revision']=='b'*40
+
+
+@pytest.mark.parametrize('failure',['old_pr10_merge','old_green_main','old_green_pr_head','skipped_current_check'])
+def test_previous_feature_merge_and_green_checks_cannot_release_the_corrective_source(supplemented_512_preflight,failure):
+    (state,_),tag=supplemented_512_preflight
+    if failure=='old_pr10_merge':tag['object']['sha']='13df85a6cff538c57528cff4b56de4384dbc6a5f'
+    elif failure=='old_green_main':state['runs'][0]['head_sha']='13df85a6cff538c57528cff4b56de4384dbc6a5f'
+    elif failure=='old_green_pr_head':state['checks']=[]
+    else:state['checks'][0]['conclusion']='skipped'
+    with pytest.raises(RuntimeError):gate.main()

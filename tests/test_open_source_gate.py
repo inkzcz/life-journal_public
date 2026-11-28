@@ -185,12 +185,13 @@ def test_512_publication_scope_never_opens_arbitrary_versions_or_privileged_oper
 
 def test_512_workflow_reviews_require_its_real_authority_version_pr_and_exact_bytes(tmp_path):
     root=Path(__file__).resolve().parents[1]
-    authority=json.loads((root/'licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json').read_text())
+    authority=json.loads((root/'licensing/BINARY_RELEASE_v5.1.12_SOURCE_BINDING_AUTHORIZATION.json').read_text())
     (tmp_path/'VERSION').write_text('5.1.12\n');(tmp_path/'licensing').mkdir()
     path=tmp_path/'.github/workflows/release.yml';path.parent.mkdir(parents=True)
     raw=b'permissions:\n  contents: write\nrun: gh release create synthetic\n';path.write_bytes(raw)
     authority['technically_reviewed_workflows']={'.github/workflows/release.yml':{'scope':'v5.1.12-release','sha256':hashlib.sha256(raw).hexdigest()}}
-    record=tmp_path/'licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json';record.write_text(json.dumps(authority))
+    (tmp_path/'licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json').write_bytes((root/'licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json').read_bytes())
+    record=tmp_path/'licensing/BINARY_RELEASE_v5.1.12_SOURCE_BINDING_AUTHORIZATION.json';record.write_text(json.dumps(authority))
     assert gate.reviewed_binary_workflows(tmp_path)=={'.github/workflows/release.yml':'v5.1.12-release'}
     path.write_bytes(raw+b'changed');assert gate.reviewed_binary_workflows(tmp_path)=={}
-    path.write_bytes(raw);authority['source_pull_request']=9;record.write_text(json.dumps(authority));assert gate.reviewed_binary_workflows(tmp_path)=={}
+    path.write_bytes(raw);authority['source_pull_request']=10;record.write_text(json.dumps(authority));assert gate.reviewed_binary_workflows(tmp_path)=={}

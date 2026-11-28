@@ -1,0 +1,51 @@
+{
+  "format": "life-journal-binary-release-authorization-v1",
+  "repository": "inkzcz/life-journal_public",
+  "version": "v5.1.12",
+  "source_pull_request": 11,
+  "binary_publication_approved": true,
+  "owner_confirmation_reference": "The existing owner complete v5.1.12 task sections 15,16,19 and AGENTS.md/docs/release-policy.md standing delivery instruction authorize necessary data-integrity fixes before formal release. PR #10 was merged but a confirmed legacy raw @f index rebuild could silently retarget a historical place after rename. Actual corrective PR #11 is the final normal source-binding target. This supplements the immutable original v5.1.12 registration under the same grant; it does not invent a new owner confirmation or authorize replacing any tag.",
+  "reviewed_feature_head": "2441c4dee760545349a59ffb95057cb432246588",
+  "reviewed_main_baseline": "13df85a6cff538c57528cff4b56de4384dbc6a5f",
+  "source_binding": "The remote new annotated v5.1.12 tag must directly identify the ordinary PR #11 main merge, whose second parent is the exact successful final PR #11 head. PR #10 merge 13df85a6cff538c57528cff4b56de4384dbc6a5f is only the previous feature baseline, never the final release target. All existing exact HEAD/main CI, corresponding-source/legal, single-business-TAR, draft/download/public verification and historical-tag immutability conditions remain mandatory.",
+  "original_license_authorization_unchanged": true,
+  "third_party_relicensed": false,
+  "previous_authorization": "licensing/BINARY_RELEASE_v5.1.12_AUTHORIZATION.json",
+  "previous_authorization_sha256": "515baf83a861c1804c82b9ae94370dba7a0e689aadf24907fec452ef6bdfca06",
+  "required_conditions": [
+    "Exact final PR HEAD and merged-main checks successful; no branch protection bypass",
+    "Single Debian Linux/amd64 API/Web/Maintenance business image and TAR; PostgreSQL17 remains independent",
+    "Precise corresponding sources, GPL/LGPL, notices and actual component replacement/relink receipts bound to this binary",
+    "Full required SQLite/PostgreSQL17, frontend/type/build, browser, Windows, Docker, backup/restore and published v5.1.11 same-schema upgrade gates",
+    "Draft Release first; all ten attachments downloaded and verified before formal publication",
+    "No existing tag, Release, source, legal text or attachment overwritten"
+  ],
+  "windows_and_z4s_acceptance": "Pending owner local post-release acceptance; not claimed passed or prerequisite",
+  "production_database_and_wxpusher_acceptance": "Pending owner local acceptance; no real databases, articles, photos, backups or credentials used",
+  "real_ai_provider_acceptance": "Pending real-provider end-to-end acceptance; only synthetic mocked protocol/browser verification is claimed",
+  "UPGRADE-001": "Historical issue unresolved; not reproduced or claimed fixed; migration safeguards retained",
+  "registry_push_approved": false,
+  "nas_access_approved": false,
+  "private_repository_changes_approved": false,
+  "ongoing_normal_delivery_rule": "docs/release-policy.md; version-specific source/owner registration and all safety/legal/CI gates remain mandatory",
+  "record_type": "Operator supplemental source-binding record under the same explicit v5.1.12 task and standing normal-delivery grant; not a new manual owner approval, signature, timestamp or tag-repair authorization.",
+  "technically_reviewed_workflows": {
+    ".github/workflows/ci.yml": {
+      "scope": "candidate-artifacts",
+      "sha256": "eb0e4e566f84f6e90854687d54aaf8ab5fc2e5f5ccf873a4e2f49a05c457567a",
+      "review": "Operator technical review of these exact workflow bytes for the explicit v5.1.12 task. Existing read-only build/source jobs, exact annotated source/PR/main CI gate, single-image ten-asset draft/download/public verification, source/relink/secret gates and narrowly bound intermediary cleanup remain enforced. Version selectors now bind only normal v5.1.12 delivery; synthetic upgrade uses pinned published v5.1.11 bytes. Synthetic AI browser acceptance added; no real AI/production access or paid runners. No owner signature or broader Registry grant."
+    },
+    ".github/workflows/release.yml": {
+      "scope": "v5.1.12-release",
+      "sha256": "4bdd78b0434d05170f9889cc3e287b3a4c5ff054cdeedc916d1742dcb4859ed4",
+      "review": "Operator technical review of these exact workflow bytes for the explicit v5.1.12 task. Existing read-only build/source jobs, exact annotated source/PR/main CI gate, single-image ten-asset draft/download/public verification, source/relink/secret gates and narrowly bound intermediary cleanup remain enforced. Version selectors now bind only normal v5.1.12 delivery; synthetic upgrade uses pinned published v5.1.11 bytes. Synthetic AI browser acceptance added; no real AI/production access or paid runners. No owner signature or broader Registry grant."
+    }
+  },
+  "source_binding_supplement": {
+    "scope": "normal-release-source-correction",
+    "previous_source_pull_request": 10,
+    "previous_merge_commit": "13df85a6cff538c57528cff4b56de4384dbc6a5f",
+    "tag_repair_approved": false,
+    "historical_tag_replacement_approved": false
+  }
+}
