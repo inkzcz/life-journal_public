@@ -65,6 +65,7 @@ def main():
         page.get_by_role('button',name='定位至正文 · G8533',exact=True).click()
         target=body.locator('#entry-10000000-0000-4000-8000-000000000006');assert target.count()==1;assert target.evaluate('el=>el===document.activeElement')
         assert body.get_by_role('button',name='完整阅读',exact=True).get_attribute('aria-pressed')=='true'
+        ready_media(page);target.scroll_into_view_if_needed()
         page.screenshot(path=str(args.output/'v512-reading-jump-320.png'),full_page=True)
         # A canceled shortcut dialog must leave the actual editor and command intact.
         page.get_by_role('button',name='日常与旅行写作',exact=True).click();page.get_by_role('button',name='新建记录',exact=True).click();page.get_by_role('button',name='正文编辑',exact=True).click()

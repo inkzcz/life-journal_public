@@ -48,7 +48,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "2570eb55e5b9b69f59869bd3aa623a6300b4ba4b781513e4d77fca05344f2824"
+      "sha256": "331c3fd3648d055dc9ea8b3247ff11510f0e43ba256f9adee2551c5118ee4f80"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -428,7 +428,7 @@
     },
     {
       "path": "backend/app/release_notes.json",
-      "sha256": "55250f272032e5a96272a2c52beb91dfe73e3e8080f94689e3ed5cef2a68124b"
+      "sha256": "9217ad0750dc57968a42a5faa231cb712ff86493a10d4f5ff330dbed7c62003e"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -1952,7 +1952,7 @@
     },
     {
       "path": "tests/browser_v512.py",
-      "sha256": "208d661a4b51453f03a9b5bbdc0a8640780cfb423fb141263569e59f3841e9c0"
+      "sha256": "b457cdc7131484b3ff8c78e261b375f5d0c4a7ae092626661ab30684590157bb"
     },
     {
       "path": "tests/browser_writing_preview.py",
@@ -4064,7 +4064,7 @@
     },
     {
       "path": "third_party/source-review.json",
-      "sha256": "1e39439bc7f4cee4eb51e70709d14c876ba1778d5add6511d28790c365a209be"
+      "sha256": "a2227505884b1ec53f2fd978ec4ef8eeafe1f4454854eceeae3df8bd3ae53035"
     },
     {
       "path": "third_party/source-scope.json",

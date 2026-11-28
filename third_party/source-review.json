@@ -347,9 +347,10 @@
         "P001",
         "P006",
         "P007",
-        "P011"
+        "P011",
+        "P017"
       ],
-      "sha256_canonical": "f524c21da566f3fcfa5214d16ef338448361ab4294524b1609138e68375e84ea"
+      "sha256_canonical": "e0856ad9e20e8c80fef46b3d94d9e4ea3edacb37297e31f7e44dcf3572f63545"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -1173,7 +1174,7 @@
         "P011",
         "P017"
       ],
-      "sha256_canonical": "51e05a5ce4c0a091e60d166572a608b1dfb3785fcaf95926c624f61921d71019"
+      "sha256_canonical": "dd6740bc812169e6ff881ea5b708c24ec13cf1a6e9e5fdb33859f8a16b7cb57b"
     },
     {
       "path": "backend/app/routers/__init__.py",
@@ -4439,7 +4440,7 @@
       "evidence": [
         "P017"
       ],
-      "sha256_canonical": "208d661a4b51453f03a9b5bbdc0a8640780cfb423fb141263569e59f3841e9c0"
+      "sha256_canonical": "b457cdc7131484b3ff8c78e261b375f5d0c4a7ae092626661ab30684590157bb"
     },
     {
       "path": "tests/browser_writing_preview.py",
