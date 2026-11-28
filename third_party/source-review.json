@@ -1190,9 +1190,10 @@
       "path": "backend/app/routers/archive.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P017"
       ],
-      "sha256_canonical": "e58a6cf422e0d212f328a46772076da404227e36a47bfdca507a6f3b548efcb1"
+      "sha256_canonical": "856b1b128fa8ffa570001490e14658dacc5f6ff7844932885362c447b28d4b1b"
     },
     {
       "path": "backend/app/routers/auth.py",
@@ -1312,9 +1313,10 @@
       "path": "backend/app/routers/places.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P017"
       ],
-      "sha256_canonical": "15078fc9a4f07984487f55bb4f1283845a41c227d31e70e981f255813122aa67"
+      "sha256_canonical": "6556f0e0e8d9fd8e8df7fbdea9771f1e78ba0ca42faddceb209dba5e5531ff8b"
     },
     {
       "path": "backend/app/routers/recovery.py",
@@ -1445,6 +1447,14 @@
       "sha256_canonical": "70c14efd853d9a403905faf42898bd03fe392f82dc847b13893766551862690b"
     },
     {
+      "path": "backend/app/services/index_lifecycle.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "db98d44747d9a56f93bd9396a8bef0c08ebcc0139439b52c368b80ccb381ed1b"
+    },
+    {
       "path": "backend/app/services/itinerary.py",
       "classification": "owner-declared-project-material",
       "evidence": [
@@ -1529,9 +1539,10 @@
       "path": "backend/app/services/places.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P017"
       ],
-      "sha256_canonical": "2710047f56bdd2285c4e1745e5dda6b867dcbb37ec3f387eb4f4a86113346e6c"
+      "sha256_canonical": "cc7c03838e92f5f8b3a0f346e0657c06f9d5bef2593d91c6d0e1042eb34de8f6"
     },
     {
       "path": "backend/app/services/record_mode.py",
@@ -1554,9 +1565,10 @@
       "path": "backend/app/services/resource_usage.py",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P017"
       ],
-      "sha256_canonical": "f9d84c10c611febf1916c9f031c4c9ab408b91d4d27ef166a9a71a085d4a2d47"
+      "sha256_canonical": "25c0647fdb32cd6671fc670c048c52e1adbf67d1ce21cb7c14e90a4d1a650353"
     },
     {
       "path": "backend/app/services/tags.py",
@@ -2178,6 +2190,22 @@
       "sha256_canonical": "b916442557ddacdc506687050aae1e125943104e67f93850e11fe9b9d217e43e"
     },
     {
+      "path": "frontend/src/admin/IndexMaintenance.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "a74c434b9c52adc03e644a1698488935f565e2e6b270c3d723a3016707de2e0d"
+    },
+    {
+      "path": "frontend/src/admin/IndexMaintenance.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "e1c052cb739618c34318986ae9bb44303dce2df563fc9780f4afbf30cfc659b3"
+    },
+    {
       "path": "frontend/src/admin/MediaPerformance.test.ts",
       "classification": "project-synthetic-tests-or-examples",
       "evidence": [
@@ -2245,9 +2273,26 @@
       "path": "frontend/src/admin/ResourceManager.vue",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P017"
       ],
-      "sha256_canonical": "b19d653caf152e4acf19d82cc9d46a63ea817f286e40d3366bdc8d5239d8c006"
+      "sha256_canonical": "12da4560bec44246d016af6bf590bc3085753b56fd0060db6f77c7f1e35801d7"
+    },
+    {
+      "path": "frontend/src/admin/ResourceReferences.test.ts",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "9ab40339cc4b1c792e6e04da72e157ccfac4d5f33b81d0d4e8a734a4c8fd391a"
+    },
+    {
+      "path": "frontend/src/admin/ResourceReferences.vue",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "74221d5ef22c1b5e63fe66e3cf6d8434a718167aef4c51cc1d88c15b7e0503fc"
     },
     {
       "path": "frontend/src/admin/ValueInput.vue",
@@ -2261,9 +2306,10 @@
       "path": "frontend/src/admin/archive.ts",
       "classification": "owner-declared-project-material",
       "evidence": [
-        "J001"
+        "J001",
+        "P017"
       ],
-      "sha256_canonical": "d68764377ab42765e49be942bcf5c714a62f02f23e5fc54d5ddc19f4f8b8a813"
+      "sha256_canonical": "098de2739329a3c48f9a3dd412e23c81e6d30e11cd502f2b49e4fee93e7553bf"
     },
     {
       "path": "frontend/src/admin/mediaRequests.ts",
@@ -4851,6 +4897,14 @@
         "J005"
       ],
       "sha256_canonical": "4dc89a8493cb77cafc8e6c1711675860f1101a62c1f30ef12b7bba355b86d877"
+    },
+    {
+      "path": "tests/test_index_lifecycle.py",
+      "classification": "project-original-source",
+      "evidence": [
+        "P017"
+      ],
+      "sha256_canonical": "705fd815d9f88f89c657064cd75f63c02facd96a9b77cdd68f066eafbf997415"
     },
     {
       "path": "tests/test_itinerary_editing.py",

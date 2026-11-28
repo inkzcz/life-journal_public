@@ -23,3 +23,18 @@ def preview(id:UUID,target_id:UUID,db=Depends(db_dep)):
 @router.post('/{id}/merge')
 def merge(id:UUID,data:Merge,db=Depends(db_dep),actor=Depends(require_dynamic_blog)):
     return places.merge(db,str(id),str(data.target_id),data.expected_revision,data.target_revision,actor.id)
+
+class IndexMaintenance(StrictModel):
+    digest:str=Field(pattern=r'^[0-9a-f]{64}$')
+    action:Literal['rebuild','cleanup']
+    confirmation:Literal['确认索引维护']
+
+@router.get('/maintenance/index-preview')
+def index_preview(db=Depends(db_dep)):
+    from ..services.index_lifecycle import preview
+    return preview(db)
+
+@router.post('/maintenance/index-apply')
+def index_apply(data:IndexMaintenance,db=Depends(db_dep)):
+    from ..services.index_lifecycle import apply
+    return apply(db,data.digest,data.action)

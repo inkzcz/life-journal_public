@@ -44,15 +44,40 @@ def audit(db):
     db.flush();return value
 
 def usages(db,id):
-    rows=[]
-    for model,column,kind in [(RecordMarkedPlace,RecordMarkedPlace.place_id,'Markdown地点标记'),(RecordPlace,RecordPlace.place_id,'文章地点'),(TripActivity,TripActivity.place_id,'行程（含历史）'),(PhotoAnnotation,PhotoAnnotation.place_id,'照片注记（含历史）')]:
-        for r in db.scalars(select(ContentRecord).join(model,model.record_id==ContentRecord.id).where(column==id).distinct()):rows.append({'id':r.id,'title':r.title,'deleted':bool(r.deleted_at),'kind':kind})
-    for ref in db.scalars(select(RevisionPlaceRef).where(RevisionPlaceRef.place_id==id)):
-        r=db.get(ContentRecord,ref.record_id);rows.append({'id':r.id,'title':r.title,'deleted':bool(r.deleted_at),'kind':'历史修订','revision':ref.number})
-    for alias in db.scalars(select(PlaceAlias).where((PlaceAlias.source_id==id)|(PlaceAlias.target_id==id))):rows.append({'id':alias.source_id,'title':'合并身份保留','kind':'地点别名','target_id':alias.target_id})
+    from .resource_usage import reference
+    from ..experience_models import Experience
     from ..v5_models import FoodOccurrence
-    for f in db.scalars(select(FoodOccurrence).where(FoodOccurrence.place_id==id)):
-        r=db.get(ContentRecord,f.record_id);rows.append({'id':r.id,'title':r.title,'kind':'美食索引（含保留身份）'})
+    rows=[]
+    from .experiences import entries
+    source_cache={}
+    def current_entries(record_id):
+        if record_id not in source_cache:
+            record=db.get(ContentRecord,record_id)
+            source_cache[record_id]={e['id']:e for e in entries(record.body)} if record and record.body_format==2 else {}
+        return source_cache[record_id]
+    for model,column,kind in [(RecordMarkedPlace,RecordMarkedPlace.place_id,'Markdown地点标记'),(RecordPlace,RecordPlace.place_id,'文章地点'),(TripActivity,TripActivity.place_id,'行程'),(PhotoAnnotation,PhotoAnnotation.place_id,'照片注记')]:
+        for item in db.scalars(select(model).where(column==id)):
+            rows.append(reference(db.get(ContentRecord,item.record_id),kind,active=getattr(item,'active',True)))
+    for ref in db.scalars(select(RevisionPlaceRef).where(RevisionPlaceRef.place_id==id)):
+        rows.append(reference(db.get(ContentRecord,ref.record_id),'历史修订',history=True,revision=ref.number))
+    for alias in db.scalars(select(PlaceAlias).where((PlaceAlias.source_id==id)|(PlaceAlias.target_id==id))):
+        rows.append({'id':alias.source_id,'title':'合并身份保留','kind':'地点别名','category':'system','active':False,'target_id':alias.target_id})
+    for item in db.scalars(select(FoodOccurrence).where(FoodOccurrence.place_id==id)):
+        rows.append(reference(db.get(ContentRecord,item.record_id),'美食索引',active=item.active and (not item.source_key.startswith('entry:') or item.source_key[6:] in current_entries(item.record_id)),source_id=item.id))
+    for item in db.scalars(select(Experience)):
+        if item.fields.get('place_id')==id:
+            rows.append(reference(db.get(ContentRecord,item.record_id),'卡片索引',active=item.active and item.id in current_entries(item.record_id),source_id=item.id))
+    # Source is authoritative even if a legacy/missing derived row escaped sync.
+    from .experiences import entries
+    from .resource_usage import reference
+    for record in db.scalars(select(ContentRecord)):
+        for entry in entries(record.body) if record.body_format==2 else []:
+            if entry['fields'].get('place_id')==id:
+                rows.append(reference(record,'正文卡片',source_id=entry['id']))
+    protected={(row['id'],row.get('revision')) for row in rows if row['category']=='history'}
+    for revision in db.scalars(select(RecordRevision)):
+        if (revision.record_id,revision.number) not in protected and id in snapshot_places(revision.snapshot):
+            rows.append(reference(db.get(ContentRecord,revision.record_id),'历史修订（待补齐保护索引）',history=True,revision=revision.number))
     return rows
 
 def delete_place(db,id,revision):
